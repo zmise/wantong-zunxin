@@ -1,0 +1,45 @@
+body{
+  font-family: 'Microsoft Yahei,微软雅黑,sans-serif'
+}
+
+p {
+  margin: 0;
+}
+
+.img-box {
+  position: relative;
+  display: block;
+  margin-top: 0.525rem;
+}
+
+.txt-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-dirction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: #fff;
+  padding-left: 1.75rem;
+}
+
+.txt-box-title {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.img-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.txt-box-tips{
+  font-size: 0.65rem;
+}

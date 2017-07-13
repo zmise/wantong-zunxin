@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>预约取号</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  .list-block {
+    margin-top: 1rem;
+  }
+
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3.3rem;
+  }
+
+  .content-block.mandatory-btn {
+    margin: 1.3rem 0;
+  }
+
+  .consult-list {
+    padding: 0;
+    margin: 0 0.5rem;
+  }
+
+  .consult-list li {
+    display: block;
+    background: #fff;
+    font-size: 0.7rem;
+    color: #333;
+    border-radius: .5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    margin: 0.8rem 0;
+  }
+
+  .consult-list li a {
+    display: block;
+    color: #3d4145;
+    padding: .4rem;
+  }
+
+  .consult-list li .field-name {
+    color: #999;
+  }
+
+  .consult-list li .field-name .time {
+    margin-left: 0.5rem;
+  }
+
+  .consult-list li div {
+    margin: 0.3rem 0;
+  }
+
+  .consult-list li .reservation-btn {
+    display: block;
+    float: right;
+    margin-right: 0.5rem;
+    color: #fff;
+    border: 1px solid #5ea51e;
+    background: #5ea51e;
+  }
+
+  .consult-list li .reservation-success {
+    background: #ffcc00;
+    border: 1px solid #ffcc00;
+  }
+
+  .consult-list li .reservation-fail {
+    background: #999;
+    border: 1px solid #999;
+  }
+
+  .community-name {
+    font-weight: bold;
+  }
+
+  .reservation-mark {
+    float: right;
+    margin-right: .8rem;
+    color: #999;
+  }
+
+  .consult-list li div.booking-code {
+    margin: 0;
+  }
+
+  .booking-code span {
+    color: #f60;
+    margin-left: 0.2rem;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="javascript:;" class="external button" id="reservationCode">手机预约</a>
+      <a href="javascript:;" class="external button active">预约记录</a>
+    </div>
+    <div class="content infinite-scroll infinite-scroll-bottom" data-distance="100">
+      <div class="content-block">
+        <ul class="consult-list" id="consultList"></ul>
+        <div class="infinite-scroll-preloader">
+          <div class="preloader"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+<script src="js/reservation-code-record.js"></script>
+</body>
+
+</html>

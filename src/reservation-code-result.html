@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>预约取号</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  .list-block {
+    margin-top: 1rem;
+  }
+
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3.3rem;
+  }
+
+  .content-block.mandatory-btn {
+    margin: 1.3rem 0;
+  }
+
+  .popup-list .item-title.short-label {
+    width: 34%;
+  }
+
+  .popup-list .item-title.short-label.long {
+    width: 65%;
+  }
+
+  .content-block-title {
+    color: #6d6d72;
+    font-weight: normal;
+  }
+
+  .content-block-title span {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  .subtitle.content-block-title {
+    color: #999;
+    font-weight: normal;
+    margin-top: 1rem;
+  }
+
+  .consult-time {
+    margin-top: 1rem;
+  }
+
+  .list-block ul.house-detail:after {
+    background: #fff;
+  }
+
+  .tips {
+    padding: 0 0.5rem;
+    color: #FF001E;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="./reservation-code.html" class="external button">手机预约</a>
+      <a href="./reservation-code-record.html" class="external button">预约记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block">
+        <div class="content-block-title"><span class="personName"></span><a href="" class="phoneNumber"></a></div>
+        <div class="list-block popup-list">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">二代身份证号:</label>
+                  <div class="item-input certificateNo"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-block-title">业务信息</div>
+        <div class="list-block popup-list">
+          <ul class="house-detail">
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">业务事项:</label>
+                  <div class="item-input bussName"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">受理单位:</label>
+                  <div class="item-input ">深圳市房地产权登记中心</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-block-title">房地产权利证明</div>
+        <div class="list-block popup-list">
+          <ul class="house-detail">
+            <li class="house-cont">
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">权属证明类型:</label>
+                  <div class="item-input proveTypeName"></div>
+                </div>
+              </div>
+            </li>
+            <li class="house-cont">
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">权属证明编号:</label>
+                  <div class="item-input proveCode"></div>
+                </div>
+              </div>
+            </li>
+            <li class="house-cont">
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">房地产名称:</label>
+                  <div class="item-input houseName"></div>
+                </div>
+              </div>
+            </li>
+            <li class="symbol-cont">
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">文号:</label>
+                  <div class="item-input fzFileNo"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-block-title">办理登记点</div>
+        <div class="list-block popup-list">
+          <ul class="house-detail">
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">办理登记点:</label>
+                  <div class="item-input registrationAreaName"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-block-title">状态：<span class="status"></span></div>
+        <div class="content-block mandatory-btn">
+          <div class="row">
+            <div class="col-80"><a href="javascript:;" class="button button-big button-fill button-success" id="publicBtn"></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+  <script src="js/reservation-code-result.js"></script>
+</body>
+
+</html>

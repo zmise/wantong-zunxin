@@ -1,0 +1,272 @@
+header {
+  height: 3.35rem;
+  background-color: #4190d3;
+  color: #b0d2f0;
+  font-size: .6rem;
+}
+
+.h-top p {
+  position: relative;
+  width: 2.4rem;
+  color: #fff;
+}
+
+.h-top p:nth-child(-n+2) {
+  margin-right: 3.75rem;
+}
+
+.h-top p:nth-child(n+2):before {
+  content: '\e620';
+  position: absolute;
+  font-family: "iconfont";
+  color: #fff;
+  top: 0;
+  left: .15rem;
+}
+
+.h-top p:nth-child(n+2):after {
+  content: '';
+  position: absolute;
+  top: .4rem;
+  left: -4.35rem;
+  width: 4.9rem;
+  height: 1px;
+  background-color: #fff;
+}
+
+.h-top p.wait,
+.h-top p.wait:before {
+  color: #8dbce5;
+}
+
+.h-top p.wait:after {
+  background-color: #8dbce5;
+}
+
+.h-top .iconfont-box {
+  position: relative;
+  display: block;
+  width: .85rem;
+  height: .85rem;
+  margin: 0 auto .2rem;
+}
+
+.h-top .iconfont-box:after,
+.h-top .wait .iconfont-box:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.h-top .iconfont {
+  position: absolute;
+  top: -.3rem;
+  left: -.05rem;
+  font-size: 1rem;
+  color: #fff;
+  z-index: 1;
+}
+
+.h-top .wait .iconfont-box:after {
+  top: .15rem;
+  left: .15rem;
+  width: .55rem;
+  height: .55rem;
+  background-color: #8dbce5;
+}
+
+.h-top .wait .iconfont {
+  display: none;
+}
+
+.content {
+  top: 3.8rem;
+}
+
+
+/* 第一步 */
+
+.form-list {
+  margin-bottom: .55rem;
+}
+
+
+/* 第二步 */
+
+.check-boxses {
+  overflow: auto;
+}
+
+.check-boxses,
+.img-box {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  bottom: 3.1rem;
+  background-color: #fff;
+}
+
+.btn-bottom {
+  position: absolute;
+  bottom: .55rem;
+  width: 100%;
+}
+
+.check-boxses {
+  display: none;
+  padding: .5rem 0;
+}
+
+.check-boxses-inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+}
+
+.check-boxses .check-box {
+  position: relative;
+  display: block;
+  width: 6.95rem;
+  height: 9.5rem;
+  line-height: 9rem;
+  margin-bottom: .75rem;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  overflow: hidden;
+}
+
+.check-box .check-rad {
+  position: absolute;
+  top: .55rem;
+  right: .55rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  visibility: hidden;
+}
+
+.check-box .check-rad:before {
+  content: '';
+  position: absolute;
+  top: .15rem;
+  left: .15rem;
+  width: 70%;
+  height: 70%;
+  background-color: #fff;
+  z-index: 1;
+  visibility: visible;
+}
+
+.check-box .check-rad:after {
+  content: '\e606';
+  position: absolute;
+  top: -.25rem;
+  left: -.1rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-family: "iconfont";
+  color: #bbb;
+  z-index: 3;
+  visibility: visible;
+}
+
+.check-box .check-rad:checked:after {
+  color: #f91;
+}
+
+.check-box .check-rad:checked + .check-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.check-box .check-img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+
+/* 第三步 */
+
+.img-box {
+  display: none;
+}
+.img-box li {
+  position: relative;
+  height: 22.85rem;
+  padding: .6rem 2.8rem;
+  vertical-align: middle!important;
+  text-align: center;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 374px) {
+  .img-box li {
+    height: 14.85rem;
+  }
+}
+@media only screen and (min-width: 480px) {
+  .img-box li {
+    height: 20.85rem;
+  }
+}
+.img-box img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 13.2rem;
+  max-height: 17.5rem;
+  border: 1px solid #e5e5e5;
+}
+
+.hd {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: .85rem 0;
+}
+
+.hd li {
+  width: .55rem;
+  height: .55rem;
+  padding:0;
+  border-radius: 50%;
+  font-size: 0;
+  background-color: #efeff4;
+}
+
+.hd li:nth-child(-n +2) {
+  margin-right: .5rem;
+}
+
+.hd .on {
+  background-color: #f91;
+}
+
+.my-save{
+  margin-top: -1.75rem;
+  font-size: .75rem;
+  color: #010101;
+  font-weight: bold;
+  text-align: center;
+}

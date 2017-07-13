@@ -1,0 +1,223 @@
+/* 重置 p和ul*/
+
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.fb{
+  font-weight: bold;
+
+}
+.tiltle,
+.sub-title,
+.success {
+  background-color: #fff;
+}
+
+header {
+  height: 9.95rem;
+  padding-top: .65rem;
+  text-align: center;
+}
+
+.tiltle {
+  padding-top: .65rem;
+  font-size: .95rem;
+  line-height: 1;
+}
+
+.sub-title {
+  font-size: .7rem;
+  line-height: 1.65rem;
+  color: #999;
+}
+
+.section {
+  height: 6.05rem;
+  background-color: #4190d3;
+}
+
+.section .se-item {
+  position: relative;
+  width: 2.5rem;
+  font-size: .6rem;
+  color: #98c9f3;
+}
+
+.section .se-item:nth-child(n+2) {
+  margin-left: 3.2rem;
+}
+
+.section .se-item:nth-child(n+2):before {
+  content: '';
+  position: absolute;
+  left: -3.2rem;
+  top: 1.3rem;
+  width: 3.2rem;
+  height: 1px;
+  background-color: #bddaf3;
+}
+
+.section .se-item .iconfont {
+  display: block;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.content {
+  top: 9.95rem;
+}
+
+.form-list .radio-file {
+  margin-right: 4.5rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  position: relative;
+  margin-right: .4rem;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+}
+
+input[type="radio"]:after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 101%;
+  height: 101%;
+  border: 1px solid #f91;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 100;
+  visibility: visible;
+}
+
+input[type="radio"]:checked:before {
+  content: '';
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: #f91;
+  z-index: 101;
+  visibility: visible;
+}
+
+input[type="checkbox"] {
+  width: .6rem;
+  height: .6rem;
+}
+
+input[type="checkbox"]:after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  z-index: 100;
+  visibility: visible;
+}
+
+input[type="checkbox"]:checked:before {
+  content: '\e622';
+  position: absolute;
+  left: -1px;
+  font-family: "iconfont";
+  font-size: .7rem;
+  line-height: .55rem;
+  z-index: 101;
+  visibility: visible;
+}
+
+.protocol {
+  font-size: .6rem;
+}
+
+.button.button-default{
+  margin-top: .4rem;
+}
+.custom {
+  padding: 0 .75rem;
+  line-height: 2.85rem;
+}
+
+.success {
+  display: none;
+  height: 9.4rem;
+  padding: 2.7rem 1rem;
+  margin-top: .65rem;
+  font-size: .75rem;
+  color: #333;
+}
+
+.success .success-desc {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.success .icon-dagou2 {
+  color: #4190d3;
+  font-size: 2.75rem;
+  vertical-align: middle;
+}
+
+.popup.popup-agreement {
+  padding-top: .65rem;
+  background-color: #efeff4;
+}
+
+.content-popup {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  color: #000;
+}
+
+.content-popup h3 {
+  margin: 0;
+  font-size: .85rem;
+  line-height: 2.75rem;
+  text-align: center;
+}
+
+.content-popup section {
+  position: absolute;
+  top: 2.75rem;
+  left: 1rem;
+  right: .5rem;
+  bottom: 3.1rem;
+  overflow: auto;
+}
+
+.content-popup p {
+  margin-bottom: .9rem;
+  font-size: .7rem;
+}
+
+.form-unit{
+  color: #999;
+}
+
+.form-list .form-unit{
+  position: absolute;
+  top: 0;
+  right: .4rem;
+}

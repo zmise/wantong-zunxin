@@ -1,0 +1,58 @@
+.status-green {
+    background-color: #64c858;
+    color: #fff;
+    padding: 0 .5rem;
+    font-size: .7rem;
+  }
+
+  .status-red {
+    background-color: #ff0e0e;
+    color: #fff;
+    padding: 0 .5rem;
+    font-size: .7rem;
+  }
+
+  .status-orange {
+    background-color: #ff9911;
+    color: #fff;
+    padding: 0 .5rem;
+    font-size: .7rem;
+  }
+
+  .list-block.media-list .item-media {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    width: 5.4rem;
+  }
+
+  .media-list ul {
+    padding: 0 .5rem;
+  }
+
+  .media-list .item-subtitle {
+    color: #1b1c20;
+    font-size: .7rem;
+  }
+
+  .media-list .item-text {
+    height: 1rem;
+    color: #adadad;
+    padding-left: .1rem;
+    font-size: .7rem;
+  }
+
+  .list-block .item-link .item-inner {
+    background-image: none;
+  }
+
+  .infinite-scroll-preloader {
+    margin-top: -5px;
+  }
+  .list-block .item-inner:after {
+    height: 0;
+  }
+  .iconfont{
+    font-size: 14px;
+    margin: 0 auto;
+    font-weight: bold;
+  }

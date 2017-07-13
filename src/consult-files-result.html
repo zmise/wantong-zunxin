@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>查档</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  .list-block {
+    margin-top: 1rem;
+  }
+
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3.3rem;
+  }
+
+  .content-block.mandatory-btn {
+    margin: 1.3rem 0;
+  }
+
+  .popup-list .item-title.short-label {
+    width: 25%;
+  }
+
+  .popup-list .item-title.short-label.long {
+    width: 70%;
+  }
+
+  .content-block-title {
+    color: #6d6d72;
+    padding: 0.5rem 0 0.8rem 0.4rem;
+  }
+
+  .subtitle.content-block-title {
+    color: #999;
+    font-weight: normal;
+    margin-top: -0.5rem;
+  }
+
+  .consult-time {
+    margin-top: 1rem;
+  }
+
+  .list-block ul.house-detail:after {
+    background: #fff;
+  }
+
+  .tips {
+    padding: 0 0.5rem;
+    color: #FF001E;
+  }
+
+  .result-numb {
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: inline-block;
+    line-height: 1.3rem;
+    text-align: center;
+    color: #fff;
+    margin-right: 0.4rem;
+  }
+
+  .no-result {
+    margin-left: 0.5rem;
+  }
+
+  .button-success {
+    width: 100%;
+  }
+
+  .button-success:disabled {
+    background: #ccc;
+  }
+
+  .search-tips {
+    margin-left: 10%;
+    color: #999;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="./consult-files.html" class="external button">立即查档</a>
+      <a href="./consult-files-record.html" class="external button">查档记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block">
+        <div class="list-block popup-list">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="certType">查档方式:</label>
+                  <div class="item-input" id="certType"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="certNo">房产证号:</label>
+                  <div class="item-input" id="certNo"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="personInfo">权利人:</label>
+                  <div class="item-input" id="personInfo"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-block mandatory-btn">
+          <div class="row">
+            <div class="col-80">
+              <button class="button button-big button-fill button-success" id="againSearch">再次查询</button>
+            </div>
+          </div>
+          <p class="search-tips">间隔一小时可查询一次</p>
+        </div>
+        <div id="resultContent"></div>
+        <p class="tips">此结果来自深圳市房地产信息中心</p>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="../js/consult-files-result.js"></script>
+</body>
+
+</html>

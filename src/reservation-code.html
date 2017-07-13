@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>预约取号</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .list-block {
+    margin-top: 1rem;
+  }
+
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3.3rem;
+  }
+
+  .public-popup .content-block {
+    margin-top: 0;
+  }
+
+  .content-block.mandatory-btn {
+    margin: 1.3rem 0;
+  }
+
+  .public-popup ul li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .public-popup ul li:active {
+    background: #ddd;
+  }
+
+  .content-block-title {
+    font-weight: normal;
+    background: #ddd;
+  }
+
+  .appointment-table {
+    font-size: 0.6rem;
+    margin-top: 1rem;
+    width: 100%;
+    height: 16.3rem;
+  }
+
+  .appointment-table td {
+    padding: 0.2rem;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .appointment-table .label span {
+    display: block;
+  }
+
+  .refresh-td {
+    vertical-align: middle;
+  }
+
+  .list-block button.refresh {
+    display: block;
+    color: #fff;
+    border-color: #f60;
+    margin: 0 0.1rem;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #f60;
+    width: 100%;
+  }
+
+  .button-fill.button-success.save-infor-btn {
+    background: #5ea51e;
+    margin-left: 0.5rem;
+  }
+
+  .button-fill.button-success.reservation-btn {
+    margin-right: 0.5rem;
+  }
+
+  .icon.icon-check {
+    float: right;
+    margin-right: 1rem;
+    color: #fff;
+    font-size: 0.6rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+    background-color: #5ea51e;
+    border-radius: 50%;
+  }
+
+  .list-block input {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .codes-img {
+    display: inline-block;
+    width: 50%;
+    height: 1.3rem;
+    vertical-align: top;
+  }
+
+  .codes-btn {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    vertical-align: bottom;
+  }
+
+  .appointment-cont {
+    height: 18rem;
+  }
+
+  .expiry {
+    color: #ccc;
+  }
+
+  .tickets {
+    color: #f60;
+  }
+
+  .select-appointment {
+    background-color: #5ea51e;
+    border-radius: 50%;
+    color: #fff;
+  }
+
+  .mortgage-select {
+    margin-left: 2%;
+  }
+
+  .mortgage-select label {
+    display: inline-block;
+    margin: 0 3%;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="javascript:;" class="external active button">手机预约</a>
+      <a href="javascript:;" class="external button" id="reservationCodeRecord">预约记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block">
+        <div class="list-block">
+          <form action="#" id="reservationForm">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="szItemNo">选择申办事项:</label>
+                    <div class="item-input">
+                      <input type="text" id="szItemNo" class="required" name="szItemNo" value="领取不动产权证书及登记证明" code="FZ20150730" data-type="-1060" readonly>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="mortgage-cont dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-input mortgage-select">
+                      <label for="xlType">
+                        <input type="radio" name="xlType" id="xlType">楼花抵押注销</label>
+                      <label for="xlType2">
+                        <input type="radio" name="xlType" id="xlType2">现楼抵押注销</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="registrationAreaOid">办理登记点:</label>
+                    <div class="item-input">
+                      <input type="text" id="registrationAreaOid" class="required" data-id="2" name="registrationAreaOid" value="滨海登记科（罗湖区和盐田区业务）" code="-1001" readonly>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li id="guangdongCont">
+                <div class="content-block-title">选择预约时间</div>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-input appointment-cont">
+                      <table class="appointment-table required" id="appointmentTable" cellspacing="0" cellpadding="0" align="center">
+                        <tbody id="appointmentBody"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="bookingSzAreaOid">房地产所在地:</label>
+                    <div class="item-input">
+                      <input type="text" id="bookingSzAreaOid" class="required" name="bookingSzAreaOid" placeholder="请输入" readonly>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="symbol-cont">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="fzFileNo">文号:</label>
+                    <div class="item-input">
+                      <input type="text" id="fzFileNo" name="fzFileNo" class="required" placeholder="请输入（字母大写）">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="house-cont dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="houseName">房地产名称:</label>
+                    <div class="item-input">
+                      <input type="text" id="houseName" name="houseName" class="required" placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="house-cont dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="proveType">权属证明类型:</label>
+                    <div class="item-input">
+                      <select name="proveType" id="proveType"></select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="house-cont dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="proveCode">权属证明编号:</label>
+                    <div class="item-input">
+                      <input type="text" id="proveCode" name="proveCode" class="required" placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="personName">申请人真实姓名:</label>
+                    <div class="item-input">
+                      <input type="text" id="personName" name="personName" class="required" placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="phoneNumber">手机号:</label>
+                    <div class="item-input">
+                      <input type="number" id="phoneNumber" name="phoneNumber" class="required" placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="certificateNo">二代身份证号:</label>
+                    <div class="item-input">
+                      <input type="text" id="certificateNo" name="certificateNo" class="required" placeholder="请输入(证件字母大写)">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="verificationcodereg"><img src="/trade-util/book/verify.pic" class="codes-img" id="codeImg" alt=""> <span class="codes-btn" id="codesBtn">看不清</span></label>
+                    <div class="item-input">
+                      <input type="text" id="verificationcodereg" name="verificationcodereg" class="required" placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+      <div class="content-block mandatory-btn">
+        <div class="row">
+          <div class="col-50"><a href="javascript:;" class="button button-big button-fill button-success save-infor-btn" id="saveInformation">保存信息</a></div>
+          <div class="col-50"><a href="javascript:;" class="button button-big button-fill button-success reservation-btn" id="inquireBtn">立即预约</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup public-popup">
+    <div class="content-block">
+      <ul id="szItemNoList"></ul>
+      <ul id="registrationAreaOidList"></ul>
+      <ul id="bookingSzAreaOidList"></ul>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+  <script src="js/reservation-code.js"></script>
+</body>
+
+</html>

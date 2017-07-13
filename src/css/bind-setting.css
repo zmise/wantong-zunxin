@@ -1,0 +1,131 @@
+.reset-block {
+  padding: 0;
+}
+
+.service-star {
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #fff;
+  color: #1b1c20;
+  font-size: .8rem;
+  padding-left: .7rem;
+}
+
+.star-title {
+  margin-left: .2rem;
+}
+
+.star {
+  width: .8rem;
+  height: .8rem;
+}
+
+.star-person {
+  width: 65px;
+  height: 65px;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.list-block .star-item {
+  height: 95px;
+  margin-bottom: 1px;
+  padding-left: .7rem;
+}
+
+.list-block.media-list .item-media {
+  position: relative;
+}
+
+.icon-huangguan {
+  position: absolute;
+  top: -11px;
+  left: 25px;
+  color: #ff9911;
+}
+
+.item-title {
+  font-size: .8rem;
+  color: #7e7e7e;
+}
+
+.item-subtitle {
+  font-size: .8rem;
+  color: #1b1b20;
+}
+
+.list-block .item-input {
+  width: 33%;
+}
+
+.single-checkbox {
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: #64c858;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+}
+
+.icon-weibiaoti521 {
+  font-size: 1.2rem;
+}
+
+.infinite-scroll-preloader {
+  margin-top: -5px;
+}
+
+.list-block.media-list .item-inner {
+  padding-top: 1.2rem;
+}
+
+.list-block .item-inner:after {
+  height: 0;
+}
+
+.row .col-100 {
+  margin-left: 0;
+}
+
+.reset-block {
+  margin-top: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: -18px;
+  width: 100%;
+  z-index: 20;
+  padding: 0;
+  margin: .8rem;
+}
+
+.searchbar {
+  padding: .4rem .5rem;
+  background-color: #5f646e;
+  position: fixed;
+  top: 0px;
+  z-index: 1000;
+  width: 100%;
+  margin-left: 0px;
+}
+
+.searchbar #search {
+  border-radius: .15rem;
+  border: 1px solid #ddd;
+}
+
+.search-input {
+  margin-left: 0!important;
+}
+
+.searchbar ~ .content {
+  top: 2.2rem;
+}
+
+.js-search {
+  background: #f91!important;
+  color: #fff;
+  border-radius: .15rem;
+}

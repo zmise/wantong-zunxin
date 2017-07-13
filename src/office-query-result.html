@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>办文查询</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  .list-block {
+    margin-top: 1rem;
+  }
+
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3.3rem;
+  }
+
+  .content-block.mandatory-btn {
+    margin: 1.3rem 0;
+  }
+
+  .popup-list .item-title.short-label {
+    width: 25%;
+  }
+
+  .popup-list .office-list .item-title.short-label {
+    width: 40%;
+  }
+
+  .popup-list .item-title.short-label.long {
+    width: 65%;
+  }
+
+  .content-block-title {
+    color: #6d6d72;
+    padding: 0.5rem 0 0.8rem 0.4rem;
+  }
+
+  .subtitle.content-block-title {
+    color: #999;
+    font-weight: normal;
+    margin-top: 1rem;
+  }
+
+  .consult-time {
+    margin-top: 1rem;
+  }
+
+  .list-block ul.house-detail:after {
+    background: #fff;
+  }
+
+  .search-tips {
+    margin-left: 10%;
+    color: #999;
+  }
+
+  .flow_no {
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+
+  .result-numb {
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: inline-block;
+    line-height: 1.3rem;
+    text-align: center;
+    color: #fff;
+    margin-right: 0.4rem;
+  }
+
+  .button-success {
+    width: 100%;
+  }
+
+  .button-success:disabled {
+    background: #ccc;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page-group">
+    <div class="page page-current">
+      <div class="buttons-tab">
+        <a href="./office-query.html" class="external  button">办文查询</a>
+        <a href="./office-query-record.html" class="external button">办文记录</a>
+      </div>
+      <div class="content">
+        <div class="content-block">
+          <div class="list-block popup-list">
+            <ul class="office-list">
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">办文编号:</label>
+                    <div class="item-input doc_no"></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">统一申办流水号:</label>
+                    <div class="item-input flow_no"></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">来问事项:</label>
+                    <div class="item-input for_what"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="content-block mandatory-btn">
+            <div class="row">
+              <div class="col-80"><button class="button button-big button-fill button-success" id="againSearch">再次查询</button></div>
+            </div>
+            <p class="search-tips">间隔一小时可查询一次</p>
+          </div>
+          <div id="resultContent"></div>
+        </div>
+      </div>
+    </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+    <script src="js/office-query-result.js"></script>
+</body>
+
+</html>

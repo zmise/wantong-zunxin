@@ -1,0 +1,59 @@
+.row {
+    background-color: #fff;
+    margin-left: 0;
+  }
+
+  .row div:last-child a{
+    border-right: 0;
+  }
+
+  .row .col-33 {
+    width: 33.333333%;
+    height: 5rem;
+    margin: 0;
+  }
+
+  .tools-area {
+    display: inline-block;
+    width: 100%;
+    height: 5rem;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    text-align: center;
+    line-height: 3.5rem;
+    font-size: .7rem;
+    color: #7e7e7e;
+    overflow: hidden;
+  }
+
+  .tools-area .iconfont {
+    display: block;
+    font-size: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .icon-chadang {
+    color: #ff9911;
+  }
+
+  .icon-zhengxinchaxun,
+  .icon-zhengceyaowen {
+    color: #269df1;
+  }
+
+  .icon-fangdaijisuanqi {
+    color: #9588e4;
+  }
+
+  .icon-chaxunguohujia {
+    color: #ff6000;
+  }
+
+  .icon-yuyuequhao ,
+  .icon-xuequpan {
+    color: #64c858;
+  }
+
+  .icon-banwenchaxun {
+    color: #fdb837;
+  }

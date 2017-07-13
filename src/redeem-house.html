@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>我要赎楼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="css/redeem-house.css">
+</head>
+
+<body>
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+    <div class="buttons-tab">
+        <a href="#tab1" class="tab-link button active">我要赎楼</a>
+        <a href="#tab2" class="tab-link button ">进度查询</a>
+      </div>
+      <div class="content">
+        <div class="list-block mtop">
+          <div class="tabs">
+            <div id="tab1" class="tab active">
+              <div class="list-block">
+                <ul>
+                  <!-- Text inputs -->
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="customerName">联系人<span class="mandatory">*</span>:</label>
+                        <div class="item-input">
+                          <input type="text" placeholder="请输入姓名" id="customerName">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="customerCell">联系电话<span class="mandatory">*</span>:</label>
+                        <div class="item-input">
+                          <input type="text" placeholder="请输入手机号码" id="customerCell">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="garden.id">物业名称:</label>
+                        <div class="item-input">
+                          <input type="text" id="garden.id" class="js-garden" placeholder="请选择物业" readonly/>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="building.id">楼栋单元:</label>
+                        <div class="item-input">
+                          <input type="text" id="building.id" class="js-building" readonly/>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="room.id">房间:</label>
+                        <div class="item-input">
+                          <input type="text" id="room.id" class="js-room" readonly/>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="buildarea">建筑面积(㎡)</label>
+                        <div class="item-input">
+                          <input type="email" placeholder="请输入建筑面积" id="buildarea">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="sellername">业主姓名</label>
+                        <div class="item-input">
+                          <input type="email" placeholder="请输入业主姓名" id="sellername">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="oldmortgagebankName">欠款银行:</label>
+                        <div class="item-input">
+                          <select id="arrearsBank.id" class="arrearsBank"></select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <label class="item-title label" for="amountinarear">欠款金额(万元)</label>
+                        <div class="item-input">
+                          <input type="email" placeholder="请输入欠款金额" id="amountinarear">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="card card-manager"></div>
+              <div class="content-block">
+                <div class="row">
+                  <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
+                  <div class="col-50"><a href="#" class="button button-big button-fill button-success js-submit">提交</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- house Popup -->
+  <div class="popup open-house">
+    <header class="bar bar-nav">
+      <h1 class='title'>选择小区信息</h1>
+    </header>
+    <div class="bar bar-header-secondary" id="gardenContent">
+      <div class="searchbar">
+        <a class="searchbar-cancel">取消</a>
+        <div class="search-input">
+          <label class="icon icon-search" for="search"></label>
+          <input type="search" id="search" placeholder="输入关键字..." class="autocomplete-input" />
+        </div>
+      </div>
+      <div class="autocomplete-result"></div>
+      <div class="row close-house">
+        <a href="javascript:;" class="button button-big button-fill button-warning close-popup">返回</a>
+      </div>
+    </div>
+    <div id="buildingContent"></div>
+    <div class="row no-gutter" id="floorContent">
+      <div class="col-33" id="floorWrapper"></div>
+      <div class="col-66" id="roomWrapper"></div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/zepto.autocomplete.js"></script>
+  <script src="js/house.js"></script>
+  <script src="js/redeem-house.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>按小区查学校</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="css/accord-school.css">
+</head>
+
+<body>
+  <div class="page-group">
+    <div class="page page-current">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav">
+        <h1 class="as-title">按小区查学校</h1>
+        <div class="searchbar">
+          <div class="search-input">
+            <label class="icon icon-search" for="search"></label>
+            <input type="search" id='search' placeholder='输入小区名' />
+            <span class="iconfont icon-shanchu1" id="searchDel"></span>
+          </div>
+        </div>
+        <!-- 历史记录 -->
+        <div class="asc-history">
+          <ul class="asc-list" id="searchList">
+            <!-- <li>
+              <a class="asc-list-content" href="javascript:;">
+                <span>麒麟花园一期，XXX</span>
+                <span>南山-南头</span>
+              </a>
+            </li>
+            <li>
+              <a class="asch-clear" href="javascript:;">
+                <span class="iconfont icon-qingkong"></span>清空历史
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </header>
+      <!-- 这里是页面内容区 -->
+      <div class="content infinite-scroll" data-distance="100">
+        <!-- 列表数据 -->
+        <div class="asc-block" id="listCont">
+          <div class="asc-title" id="schoolN"></div>
+          <div class="asc-nodata dn">
+            <div class="asc-nd-img"></div>
+            <p class="asc-nd-desc">该小区还没有学校哦~</p>
+          </div>
+          <ul class="asc-list">
+            <!-- <li>
+              <a class="asc-list-content" href="#">
+                <div class="pic">
+                  <img src="./images/news.jpg" alt="">
+                </div>
+                <div class="cont">
+                  <h3 class="ellips">福田福田小学</h3>
+                  <p class="box-middel tap"><span class="ellips flex">5个划片小区</span></p>
+                  <p class="box-middel tip"><span>福田</span><span>景田</span></p>
+                  <p class="box-middel tag"><span>小学</span><span>省一级</span><span>九年一贯</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="asc-list-content" href="#">
+                <div class="pic">
+                  <img src="./images/news.jpg" alt="">
+                </div>
+                <div class="cont">
+                  <h3 class="ellips">福田福田小学</h3>
+                  <p class="box-middel tap"><span class="ellips flex">5个划片小区</span></p>
+                  <p class="box-middel tip"><span>福田</span><span>景田</span></p>
+                  <p class="box-middel tag"><span>小学</span><span>省一级</span><span>九年一贯</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="asc-list-content" href="#">
+                <div class="pic">
+                  <img src="./images/news.jpg" alt="">
+                </div>
+                <div class="cont">
+                  <h3 class="ellips">福田福田小学</h3>
+                  <p class="box-middel tap"><span class="ellips flex">5个划片小区</span></p>
+                  <p class="box-middel tip"><span>福田</span><span>景田</span></p>
+                  <p class="box-middel tag"><span>小学</span><span>省一级</span><span>九年一贯</span></p>
+                </div>
+              </a>
+            </li> -->
+          </ul>
+          <div class="asc-list-loader dn">
+            <p>数据加载中……</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/accord-school.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>制作二维码</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/QRCode-commom.css">
+  <link rel="stylesheet" href="css/new-QRCode.css">
+</head>
+
+<body>
+  <div class="page-group">
+    <div class="page page-current">
+      <header class="flexbox h-top">
+        <p>
+          <span class="iconfont-box"><i class="iconfont icon-tubiaozhizuomoban"></i></span> 填写电话
+        </p>
+        <p class="wait">
+          <span class="iconfont-box"><i class="iconfont icon-xuanzemoban"></i></span> 选择模板
+        </p>
+        <p class="wait">
+          <span class="iconfont-box"><i class="iconfont icon-xiazai"></i></span> 保存图片
+        </p>
+      </header>
+      <div class="content">
+        <ul class="form-list">
+          <li>
+            <input type="text" placeholder="您的姓名" name="referrerName" id="referrerName">
+          </li>
+          <li class="bor-tom">
+            <input type="text" placeholder="您的手机号码" name="referrerCellphone" id="referrerCellphone">
+          </li>
+        </ul>
+        <div class="check-boxses">
+          <div class="infinite-scroll-preloader">
+            <div class="preloader"></div>
+          </div>
+          <div class="check-boxses-inner" id="listBox">
+          </div>
+        </div>
+        <div class="img-box" id="imgBox">
+          <ul class="bd" id="imgList"></ul>
+          <ul class="hd"></ul>
+        </div>
+        <a href="javascript:;" class="button button-default" id="next">下一步</a>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/TouchSlide.1.1.js"></script>
+  <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+  <script src="js/new-QRCode.js"></script>
+</body>
+
+</html>

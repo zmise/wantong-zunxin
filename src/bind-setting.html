@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>绑定账号</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="css/bind-setting.css">
+</head>
+
+<body>
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="searchbar row">
+        <div class="search-input col-80">
+          <input type="search" id='search' placeholder='搜索手机号码/姓名' />
+        </div>
+        <a class="button button-fill button-primary col-20 js-search" href="javascript:;">搜索</a>
+      </div>
+      <div class="content infinite-scroll infinite-scroll-bottom" data-distance="100">
+        <div class="content-block reset-block">
+          <div class="list-block media-list">
+            <ul id="customer-wrapper"></ul>
+          </div>
+        </div>
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader"></div>
+      </div>
+      <div class="content-block footer">
+        <div class="row">
+          <div class="col-100"><a href="#" class="button button-big button-fill button-success js-submit">确认</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/bind-setting.js"></script>
+</body>
+
+</html>

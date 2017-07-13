@@ -1,0 +1,346 @@
+.current {
+  display: inline-block!important;
+  padding: 0 .5rem!important;
+}
+
+.status-green {
+  background-color: #64c858;
+  color: #fff;
+  padding: 0 .5rem;
+  font-size: .7rem;
+}
+
+.status-red {
+  background-color: #ff0e0e;
+  color: #fff;
+  padding: 0 .5rem;
+  font-size: .7rem;
+}
+
+.status-orange {
+  background-color: #ff9911;
+  color: #fff;
+  padding: 0 .5rem;
+  font-size: .7rem;
+}
+
+.card-manager {
+  margin: 0;
+}
+
+.my-manager {
+  width: 65px;
+  height: 65px;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  float: left;
+}
+
+.manager-title {
+  color: #1b1c20;
+  font-size: .8rem;
+}
+
+.manager-info {
+  margin-top: .6rem;
+  margin-left: 1.25rem;
+  float: left;
+}
+
+.manager-name {
+  color: #7e7e7e;
+}
+
+.manager-phone {
+  color: #ff9911;
+}
+
+.list-block.media-list .item-media {
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
+.media-list ul {
+  padding: 0 .5rem;
+}
+
+.media-list .item-subtitle {
+  color: #1b1c20;
+  font-size: .8rem;
+}
+
+.media-list .item-text {
+  height: 1rem;
+  color: #adadad;
+  padding-left: .1rem;
+  font-size: .7rem;
+}
+
+.list-block .item-link .item-inner {
+  background-image: none;
+}
+
+.list-block .item-title.label {
+  font-size: .7rem;
+}
+
+.list-block .item-input input {
+  font-size: .7rem;
+}
+
+.content-block-title {
+  padding-left: 0.7rem;
+  font-size: 1rem;
+  color: #1b1c20;
+  font-weight: bold;
+}
+
+.progress-info {
+  padding: .7rem;
+  background-color: #fff;
+}
+
+.progress-info.last {
+  margin-top: .4rem;
+  padding: 0 .7rem;
+  height: 2.1rem;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.progress-info .col-100 {
+  color: #1b1c20;
+  font-size: .8rem;
+  font-weight: bold;
+  margin-bottom: .2rem;
+}
+
+.progress-info .col-33 {
+  color: #adadad;
+  font-size: .7rem;
+  width: 23%;
+}
+
+.progress-info .col-66 {
+  color: #1b1b20;
+  font-size: .7rem;
+  margin-left: 0;
+}
+
+.current-progress {
+  font-weight: normal;
+  margin-right: 0.5rem;
+}
+
+.switch-history {
+  display: inline-block;
+  color: #ff9911;
+  margin-left: 3rem;
+  vertical-align: middle;
+}
+
+.switch-history.up {
+  transform: rotate(180deg);
+}
+
+.icon-down {
+  font-size: 1.5rem;
+}
+
+.progress-flag {
+  position: absolute;
+  left: -.5rem;
+  top: 2rem;
+  color: #fff;
+  width: 0.85rem;
+  height: .85rem;
+  line-height: .75rem;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.progress-flag.success {
+  background-color: #64c858;
+}
+
+.progress-flag.history {
+  background-color: #ff9911;
+}
+
+.progress-detail-wrapper {
+  margin: 0 auto;
+  width: 15rem;
+  height: 4rem;
+  border-left: 2px solid #adadad;
+  position: relative;
+}
+
+.progress-detail-wrapper.last {
+  border: none;
+  margin-left: 2rem;
+}
+
+.progress-detail {
+  width: 14rem;
+  background-color: #fff;
+  border-radius: .5rem;
+  position: absolute;
+  bottom: 0;
+  margin-left: 1rem;
+  padding: .3rem .5rem;
+}
+
+.detail-info {
+  margin: 0;
+}
+
+.detail-status {
+  float: left;
+  font-size: .8rem;
+  color: #1b1c20;
+  font-weight: bold;
+}
+
+.detail-date {
+  float: right;
+  color: #adadad;
+  font-size: .7rem;
+}
+
+.detail-person {
+  margin: 0;
+  color: #adadad;
+  font-size: .7rem;
+}
+
+.switch-display {
+  animation: switch .5s;
+}
+
+.half-line {
+  border-left: 2px solid #adadad;
+  position: absolute;
+  height: 2rem;
+  left: -.13rem;
+}
+
+.autocomplete-result {
+  background: #ffffff;
+  border-radius: 3px;
+  color: #4C4C4C;
+  display: none;
+  font-size: 100%;
+  height: auto;
+  margin-top: 2px;
+  position: absolute;
+  width: 100%;
+  z-index: 15;
+  right: 0;
+  right: 0;
+}
+
+.autocomplete-result ol {
+  list-style: none outside none;
+  margin-left: 0;
+  margin-top: 2px;
+  padding: 0;
+  width: 100%;
+}
+
+.autocomplete-result li {
+  border-bottom: 1px solid #DCDCDC;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 5px;
+  width: auto;
+}
+
+.autocomplete-result li:hover,
+.autocomplete-result ul li:hover {
+  background-color: gray;
+}
+
+.autocomplete-result ol li:hover,
+.autocomplete-result ul li:hover {
+  background: #dfdfdf;
+}
+
+.building-ul li,
+.floor-ul li,
+.room-ul li {
+  border-bottom: 1px solid #ccc;
+  list-style: none;
+  padding: 5px!important;
+}
+
+#floorContent {
+  height: calc(100% - 44px);
+}
+
+#buildingContent,
+#floorContent {
+  margin-top: 2.6rem;
+}
+
+#floorWrapper {
+  border-right: 1px solid #ddd;
+}
+
+#floorWrapper,
+#roomWrapper {
+  overflow: scroll;
+  height: 100%;
+  text-align: center;
+}
+
+.building-ul {
+  margin: 0;
+  padding: 0;
+}
+
+.floor-ul {
+  margin-top: 0;
+  padding: 0;
+}
+
+.room-ul {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding-bottom: 2rem!important;
+}
+
+.searchbar .search-input input {
+  height: 1.7rem;
+}
+
+.searchbar {
+  height: 2.7rem;
+}
+
+.search-input input {
+  font-size: 1rem;
+}
+
+.item-input select {
+  font-size: .7rem;
+}
+
+.close-house {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.icon-dianhua {
+  font-size: 2rem;
+  color: #ff9911;
+}
+
+.dail-number {
+  float: right;
+}

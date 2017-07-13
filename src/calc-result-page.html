@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>房贷计算器</title>
+    <link type="text/css" rel="stylesheet" href="css/mortgage-calculator.css" />
+  </head>
+
+  <body>
+    <div class="form-body">
+      <div class="box-middle items">
+        <label class="lab">贷款月数：</label>
+        <em class="tar orange flex" id="periods">240</em>
+        <span class="unit">月</span>
+      </div>
+      <div id="interest">
+        <div class="box-middle items">
+          <label class="lab">每月还款：</label>
+          <em class="tar orange flex" id="monthlyMoney">6544</em>
+          <span class="unit">元</span>
+        </div>
+      </div>
+      <div id="principal" style="display:none;">
+        <div class="box-middle items">
+          <label class="lab">首月还款：</label>
+          <em class="tar orange flex" id="firstMonthlyMoney">6544</em>
+          <span class="unit">元</span>
+        </div>
+        <div class="box-middle items">
+          <label class="lab">每月递减：</label>
+          <em class="tar orange flex" id="declineMoney">24</em>
+          <span class="unit">元</span>
+        </div>
+      </div>
+      <div class="box-middle items">
+        <label class="lab">还款总额：</label>
+        <em class="tar flex" id="totalMoney">157.07</em>
+        <span class="unit">万元</span>
+      </div>
+      <div class="box-middle items">
+        <label class="lab">支付利息：</label>
+        <em class="tar flex" id="interestMoney">57.07</em>
+        <span class="unit">万元</span>
+      </div>
+    </div>
+    <div class="box-middle subimt-body">
+      <a class="submit flex" id="submit" href="javascript:void(0);">更多详情</a>
+    </div>
+    <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+    <script src="js/calc-result-page.js"></script>
+  </body>
+
+</html>

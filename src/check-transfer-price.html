@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>查询过户价</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3.3rem;
+  }
+
+  .type-select-cont div {
+    padding-left: 2rem;
+  }
+
+  .codes-btn {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    vertical-align: bottom;
+  }
+
+  .codes-img {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .mandatory-btn {
+    margin-top: 1rem;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="javascript:;" class="active button external">查过户价/税费</a>
+      <a href="javascript:;" class="button external" id="transferPriceRrecord">记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block">
+        <div class="row type-select-cont">
+          <div class="col-50">
+            <label for="transferPrice">
+              <input type="radio" name="type" id="transferPrice" class="type-select" data-type="1" checked> 查过户价
+            </label>
+          </div>
+          <div class="col-50">
+            <label for="taxCalculation">
+              <input type="radio" name="type" id="taxCalculation" class="type-select" data-type="2"> 计算税费
+            </label>
+          </div>
+        </div>
+        <div class="list-block">
+          <form action="#" id="transferPiceForm">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="radiobutton">权利人:</label>
+                    <div class="item-input">
+                      <select name="radiobutton" id="radiobutton" class="required">
+                        <option value="个人">个人</option>
+                        <option value="单位">单位</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li id="numberIdLi">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="id_no">身份证号:</label>
+                    <div class="item-input">
+                      <input type="text" id="id_no" name="id_no" placeholder="请输入" class="required">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li id="companyNameLi" class="dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="owner_name">单位名称:</label>
+                    <div class="item-input">
+                      <input type="text" id="owner_name" name="owner_name" placeholder="请输入" class="required">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li id="guangdongCont">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="zslx">证书类别:</label>
+                    <div class="item-input">
+                      <select name="zslx" id="zslx" class="required">
+                        <option value="房地产权证书">房地产权证书</option>
+                        <option value="不动产权证书">不动产权证书</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="cert_no">房产证号:</label>
+                    <div class="item-input">
+                      <input type="number" id="cert_no" name="cert_no" placeholder="请输入" class="required">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="area">建筑面积:</label>
+                    <div class="item-input">
+                      <input type="number" id="area" name="area" placeholder="请输入" class="required">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="tax-calculation dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="term">购房期限:</label>
+                    <div class="item-input">
+                      <select name="term" id="term" class="required">
+                        <option value="1"> 未满两年</option>
+                        <option value="2"> 满两年</option>
+                        <option value="3"> 满五年</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="tax-calculation dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="registerPrice">房产证登记价:</label>
+                    <div class="item-input">
+                      <input type="number" id="registerPrice" name="registerPrice" placeholder="请输入" class="required">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="tax-calculation dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="houseType">住宅类型:</label>
+                    <div class="item-input">
+                      <select name="houseType" id="houseType" class="required">
+                        <option value="1"> 普通住宅</option>
+                        <option value="2"> 非普通住宅</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="tax-calculation dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="isOnly">是否唯一住房:</label>
+                    <div class="item-input">
+                      <label class="label-switch">
+                        <input type="checkbox" id="isOnly" class="required">
+                        <div class="checkbox"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="tax-calculation dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="isFirst">买方是否家庭首套:</label>
+                    <div class="item-input">
+                      <label class="label-switch">
+                        <input type="checkbox" id="isFirst" class="required">
+                        <div class="checkbox"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="">
+                      <img src="/trade-util/house/price/verify.pic" alt="" id="codeImg" class="codes-img">
+                      <span class="codes-btn" id="codesBtn">看不清</span>
+                    </label>
+                    <div class="item-input">
+                      <input type="text" id="CERTCODE" name="CERTCODE" class="required"  placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+        </div>
+        <div class="mandatory-btn">
+          <div class="row">
+            <div class="col-80"><a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">查询</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+    <script src="js/check-transfer-price.js"></script>
+</body>
+
+</html>

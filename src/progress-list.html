@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>进度查询</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="css/progress-list.css">
+</head>
+
+<body>
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="buttons-tab">
+        <a href="#tab1" class="tab-link button ">我要赎楼</a>
+        <a href="#tab2" class="tab-link button active">进度查询</a>
+      </div>
+      <div class="content infinite-scroll infinite-scroll-bottom" data-distance="100">
+        <div class="list-block mtop">
+          <div class="tabs">
+            <div id="tab2" class="tab active">
+              <div class="list-block media-list">
+                <ul class="progress-list"></ul>
+              </div>
+              <!-- 加载提示符 -->
+              <div class="infinite-scroll-preloader"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/progress-list.js"></script>
+</body>
+
+</html>

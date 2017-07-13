@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>我要赎楼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="css/progress-detail.css">
+</head>
+
+<body>
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="buttons-tab">
+        <a href="#tab1" class="tab-link button ">我要赎楼</a>
+        <a href="#tab2" class="tab-link button active">进度查询</a>
+      </div>
+      <div class="content">
+        <div class="list-block mtop">
+          <div class="tabs">
+            <div id="tab2" class="tab active">
+              <div class="progress-block">
+                <div class="progress-info">
+                  <a href="javascript:;" class="user-dial"><i class="iconfont icon-dianhua"></i></a>
+                  <div class="row">
+                    <div class="col-100">业务信息:</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-33">联系人:</div>
+                    <div class="col-66" id="customerName"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-33">联系电话:</div>
+                    <div class="col-66" id="customerCell"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-33">业务编号:</div>
+                    <div class="col-66" id="billNumber"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-33">物业名称:</div>
+                    <div class="col-66" id="gardenName"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-33">提交时间:</div>
+                    <div class="col-66" id="createTime"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-33">业主姓名:</div>
+                    <div class="col-66" id="sellername"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-33">欠款银行:</div>
+                    <div class="col-66" id="arrearsBank"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-33">欠款金额:</div>
+                    <div class="col-66" id="amountinarear"></div>
+                  </div>
+                </div>
+                <div class="progress-info last">
+                  进度信息:<span class="current-progress">当前进度:</span>
+                  <a href="javascript:;" class="switch-history"><span class="icon icon-down step-arrow"></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/progress-detail.js"></script>
+</body>
+
+</html>

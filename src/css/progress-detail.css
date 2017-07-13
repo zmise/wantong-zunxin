@@ -1,0 +1,254 @@
+.current {
+  display: inline-block!important;
+  padding: 0 .5rem!important;
+}
+
+.status-green {
+  background-color: #64c858;
+  color: #fff;
+  padding: 0 .5rem;
+  font-size: .7rem;
+}
+
+.status-red {
+  background-color: #ff0e0e;
+  color: #fff;
+  padding: 0 .5rem;
+  font-size: .7rem;
+}
+
+.status-orange {
+  background-color: #ff9911;
+  color: #fff;
+  padding: 0 .5rem;
+  font-size: .7rem;
+}
+
+.card-manager {
+  margin: 0;
+  margin-top: 2rem;
+}
+
+.my-manager {
+  border-radius: 50%;
+  float: left;
+  border: 1px solid #ddd;
+}
+
+.manager-title {
+  color: #1b1c20;
+  font-size: .8rem;
+}
+
+.manager-info {
+  margin-top: .6rem;
+  margin-left: 1.25rem;
+  float: left;
+}
+
+.manager-name {
+  color: #7e7e7e;
+}
+
+.manager-phone {
+  color: #ff9911;
+}
+
+.list-block.media-list .item-media {
+  padding-top: .1rem;
+  padding-bottom: .1rem;
+}
+
+.media-list ul {
+  padding: 0 .5rem;
+}
+
+.media-list .item-subtitle {
+  color: #1b1c20;
+  font-size: .8rem;
+}
+
+.media-list .item-text {
+  height: 1rem;
+  color: #adadad;
+  padding-left: .1rem;
+  font-size: .7rem;
+}
+
+.list-block .item-link .item-inner {
+  background-image: none;
+}
+
+.list-block .item-title.label {
+  font-size: .7rem;
+}
+
+.list-block .item-input input {
+  font-size: .7rem;
+}
+
+.content-block-title {
+  padding-left: .7rem;
+  font-size: 1rem;
+  color: #1b1c20;
+  font-weight: bold;
+}
+
+.progress-info {
+  padding: .7rem;
+  background-color: #fff;
+  position: relative;
+}
+
+.progress-info.last {
+  margin-top: .4rem;
+  font-size: .8rem;
+  font-weight: bold;
+  padding: .2rem;
+  padding-left: .7rem;
+}
+
+.progress-info .col-100 {
+  color: #1b1c20;
+  font-size: .8rem;
+  font-weight: bold;
+  margin-bottom: .2rem;
+}
+
+.progress-info .col-33 {
+  color: #adadad;
+  font-size: .7rem;
+  width: 23%;
+}
+
+.progress-info .col-66 {
+  color: #1b1b20;
+  font-size: .7rem;
+  margin-left: 0;
+}
+
+.current-progress {
+  font-weight: normal;
+  margin-right: .5rem;
+}
+
+.switch-history {
+  margin-left: 2rem;
+  color: #f90;
+}
+
+.icon-down {
+  font-size: 1rem;
+}
+
+.progress-flag {
+  position: absolute;
+  left: -.45rem;
+  top: 2rem;
+  color: #fff;
+  width: 0.85rem;
+  height: .85rem;
+  line-height: .75rem;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.progress-flag.success {
+  background-color: #64c858;
+}
+
+.progress-flag.fail {
+  background-color: #ff0e0e;
+}
+
+.progress-flag.history {
+  background-color: #ff9911;
+}
+
+.progress-flag.next {
+  background-color: #ccc;
+}
+
+.progress-detail-wrapper {
+  margin: 0 auto;
+  width: 15rem;
+  height: 4rem;
+  border-left: 1px solid #adadad;
+  position: relative;
+}
+
+.progress-detail-wrapper.last {
+  border: none;
+  margin-left: 2rem;
+}
+
+.progress-detail {
+  width: 14rem;
+  background-color: #fff;
+  border-radius: .5rem;
+  position: absolute;
+  bottom: 0;
+  margin-left: 1rem;
+  padding: .3rem .5rem;
+}
+
+.detail-info {
+  margin: 0;
+}
+
+.detail-status {
+  float: left;
+  font-size: .8rem;
+  color: #1b1c20;
+}
+
+.detail-date {
+  float: right;
+  color: #adadad;
+  font-size: .55rem;
+}
+
+.detail-person {
+  margin: 0;
+  color: #adadad;
+  font-size: .55rem;
+}
+
+.switch-display {
+  animation: switch .5s;
+}
+
+.half-line {
+  border-left: 1px solid #adadad;
+  position: absolute;
+  height: 2rem;
+  left: -.13rem;
+}
+
+.step-arrow {
+  font-size: 1rem;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+}
+
+.step-up {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.user-dial {
+  position: absolute;
+  right: 1rem;
+  top: 2.3rem;
+  color: #f90;
+}
+
+.icon-dianhua {
+  font-size: 1.5rem;
+}
+
+.customer-cell{
+  color: #f91;
+}

@@ -1,0 +1,103 @@
+.intro-wrapper {
+  background-color: #fff;
+  padding: .8rem;
+  color: #000;
+}
+
+.intro-company {
+  font-size: .7rem;
+  margin: 0;
+  margin-bottom: 1.25rem;
+}
+
+.reset-block {
+  padding: 0;
+  margin-top: 0;
+}
+
+.service-star {
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #fff;
+  color: #1b1c20;
+  font-size: .8rem;
+  padding-left: .7rem;
+}
+
+.star-title {
+  margin-left: .2rem;
+}
+
+.star {
+  width: .8rem;
+  height: .8rem;
+}
+
+.star-person {
+  width: 65px;
+  height: 65px;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.list-block .star-item {
+  height: 95px;
+  margin-bottom: 1px;
+  padding-top: 0.8rem;
+  padding-left: .7rem;
+}
+
+.list-block.media-list .item-media {
+  position: relative;
+}
+
+.icon-huangguan {
+  position: absolute;
+  top: -11px;
+  left: 25px;
+  color: #ff9911;
+}
+
+.item-title {
+  font-size: .8rem;
+  color: #7e7e7e;
+}
+
+.item-subtitle {
+  font-size: .8rem;
+  color: #1b1b20;
+}
+
+.icon-jiangpai {
+  float: right;
+  margin-top: -3.5rem;
+  color: #ff9911;
+  font-size: 2.7rem;
+}
+
+.sort-num {
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  width: .9rem;
+  height: .9rem;
+  top: -.7rem;
+  left: -1.8rem;
+  text-align: center;
+  color: #fff;
+}
+
+.single-sort-num {
+  float: right;
+  color: #ff9911;
+  top: -2rem;
+}
+
+.infinite-scroll-preloader {
+  margin-top: -5px;
+}
+
+.list-block .item-inner:after {
+  height: 0;
+}

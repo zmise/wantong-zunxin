@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>办文查询</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  .list-block {
+    margin-top: 1rem;
+  }
+
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3.3rem;
+  }
+
+  .content-block.mandatory-btn {
+    margin: 1.3rem 0;
+  }
+
+  .fit-tile {
+    background: #efeff4;
+    margin-bottom: 1rem;
+    font-weight: normal;
+  }
+
+  .office-title {
+    margin-top: 1rem;
+  }
+
+  .numbering-text {
+    display: block;
+    margin-left: 10%;
+    height: 2rem;
+    width: 78%;
+    padding-left: 0.2rem;
+  }
+
+  .search-tips {
+    margin-left: 10%;
+    color: #999;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="javascript:;" class="external active button">办文查询</a>
+      <a href="javascript:;" class="external button" id="queryRecord">办文记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block">
+        <div class="content-block-title fit-tile">1、电话查询</div>
+        <div class="content-block mandatory-btn">
+          <div class="row">
+            <div class="col-80"><a href="tel:0755-83949114" class="button button-big button-fill button-success">拨打：0755-83949114</a></div>
+          </div>
+        </div>
+        <div class="content-block-title fit-tile office-title">2、输入办文编号查询</div>
+        <input type="text" placeholder="请输入办文编号" class="numbering-text">
+        <div class="content-block mandatory-btn">
+          <div class="row">
+            <div class="col-80"><a href="javascript:void(0);" class="button button-big button-fill button-success" id="submit">确定</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+  <script src="js/office-query.js"></script>
+</body>
+
+</html>

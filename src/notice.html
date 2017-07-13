@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Q房网交易中心</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body>
+  <div style="padding-top: 20%;text-align: center;">长按二维码关注公众号<br>即可登录系统！<br><img id="qrcode" /></div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script>
+    var urlParams = $.unparam(location.search.substring(1));
+    var qrcode = 'qrcode-';
+    console.log(urlParams.source)
+    if(urlParams.source){
+      qrcode += urlParams.source;
+    } else {
+      qrcode += 'xdt';
+    }
+    qrcode = 'images/' + qrcode + '.jpg';
+    document.getElementById('qrcode').src= qrcode;
+  </script>
+</body>
+</html>

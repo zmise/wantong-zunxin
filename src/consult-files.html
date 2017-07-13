@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>查档</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  .list-block {
+    margin-top: 1rem;
+  }
+
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3rem;
+  }
+
+  .content-block.mandatory-btn {
+    margin: 1rem 0;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="javascript:;" class="external active button">立即查档</a>
+      <a href="javascript:;" class="external button" id="consultRecord">查档记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block">
+        <div class="list-block">
+          <form action="#" id="consultFilesFrom">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="queryType">查档类型:</label>
+                    <div class="item-input">
+                      <select name="queryType" id="queryType" class="required">
+                        <option value="1">分户</option>
+                        <option value="2">分栋</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="certType">产权证书类型:</label>
+                    <div class="item-input">
+                      <select name="certType" id="certType" class="required">
+                        <option value="1">房地产权证书</option>
+                        <option value="2">不动产权证书</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li id="yearCont" class="dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="year">请输入年份:</label>
+                    <div class="item-input">
+                      <input type="text" name="year" id="year" class="required" placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="certNo">房产证号:</label>
+                    <div class="item-input">
+                      <input type="text" id="certNo" name="certNo" class="required" placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="personInfo">身份证号/权利人:</label>
+                    <div class="item-input">
+                      <input type="text" id="personInfo" name="personInfo" class="required" placeholder="请输入">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+      <div class="content-block mandatory-btn">
+        <div class="row">
+          <div class="col-80"><a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">查询</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/consult-files.js"></script>
+</body>
+
+</html>

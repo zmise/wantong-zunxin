@@ -1,0 +1,34 @@
+.recent-top {
+    background-color: #fff;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: .8rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    padding-left: 0.8rem;
+  }
+
+  .list-block ul {
+    padding-left: 0.8rem;
+  }
+
+  .item-title {
+    font-size: .8rem;
+  }
+
+  .list-block.media-list .item-inner {
+    padding-right: 0;
+    background-image: none;
+  }
+
+  .infinite-scroll-preloader {
+    margin-top: 10px;
+  }
+
+  .list-block .item-inner:after {
+    height: 0;
+  }
+
+.list-block .item-text{
+  font-size: .7rem;
+}

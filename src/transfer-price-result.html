@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>查询过户价</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <style>
+  .list-block {
+    margin-top: 1rem;
+  }
+
+  .list-block .item-title.short-label {
+    width: 40%;
+  }
+
+  .row .col-80 {
+    margin-left: 13%;
+  }
+
+  .content-block {
+    margin-top: 3.3rem;
+  }
+
+  .popup-list .item-title.short-label {
+    width: 34%;
+  }
+
+  .popup-list .item-title.short-label.long {
+    width: 65%;
+  }
+
+  .content-block-title {
+    color: #6d6d72;
+    padding: 0.5rem 0 0.2rem 0.4rem;
+  }
+
+  .subtitle.content-block-title {
+    color: #999;
+    font-weight: normal;
+    margin-top: 1rem;
+  }
+
+  .consult-time {
+    margin-top: 1rem;
+  }
+
+  .content-block.mandatory-btn {
+    margin: 1rem 0;
+  }
+
+  .list-block ul.house-detail:after {
+    background: #fff;
+  }
+
+  .tips {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    color: #FF001E;
+  }
+
+  .mandatory-btn {
+    margin-top: 1rem;
+  }
+
+  .verification {
+    font-weight: normal;
+    color: #FF001E;
+    line-height: 1.8rem;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="./check-transfer-price.html" class="button external">查过户价/税费</a>
+      <a href="./transfer-price-record.html" class="button external">记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block">
+        <div class="list-block popup-list">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">权利人:</label>
+                  <div class="item-input radiobutton"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">身份证号:</label>
+                  <div class="item-input id_no"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">房产证号:</label>
+                  <div class="item-input cert_no"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">查询时间:</label>
+                  <div class="item-input createTime"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="content-block-title">查询结果</div>
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">评估单价:</label>
+                  <div class="item-input"><span class="unitPrice"></span> 元/平方米</div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">生效时间:</label>
+                  <div class="item-input updateTime"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <label class="item-title short-label label" for="consult">国土局过户价:</label>
+                  <div class="item-input"><span class="price"></span> 元</div>
+                </div>
+              </div>
+            </li>
+            <p class="tips">此结果来自深圳市房地产系统</p>
+          </ul>
+        </div>
+        <div class="content-block mandatory-btn dn" id="taxCalculationBtn">
+          <div class="row">
+            <div class="col-80"><a href="javascript:;" class="button button-big button-fill button-success" id="taxCalculation">计算税费</a></div>
+          </div>
+        </div>
+        <div id="calculationCont" class="dn">
+          <div class="content-block-title">税费合计:
+            <span class="totalTaxAmount"></span>元（核定）
+            <div class="verification">核实:<span class="personalTaxHeshi"></span>元</div>
+          </div>
+          <div class="content-block-title">税费明细:</div>
+          <div class="list-block popup-list">
+            <ul id="taxesList">
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">个税:</label>
+                    <div class="item-input"><span class="personalTaxHeding"></span> 元(核定)</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">增值税:</label>
+                    <div class="item-input"><span class="extraTax"></span> 元</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">契税:</label>
+                    <div class="item-input"><span class="contractTax"></span> 元</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">交易手续费:</label>
+                    <div class="item-input">
+                      <sapn class="handlingTax"></sapn> 元</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">登记费:</label>
+                    <div class="item-input">
+                      <sapn class="registerAmount"></sapn> 元</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="consult">贴花:</label>
+                    <div class="item-input"><span class="tieHuaAmount"></span> 元</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="popup" id="calculationPop">
+    <div class="list-block">
+      <ul>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <label class="item-title short-label label" for="term">购房期限:</label>
+              <div class="item-input">
+                <select name="term" id="term" class="required">
+                  <option value="1"> 未满两年</option>
+                  <option value="2"> 满两年</option>
+                  <option value="3"> 满五年</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <label class="item-title short-label label" for="registerPrice">房产证登记价:</label>
+              <div class="item-input">
+                <input type="number" id="registerPrice" name="registerPrice" placeholder="请输入" class="required">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <label class="item-title short-label label" for="houseType">住宅类型:</label>
+              <div class="item-input">
+                <select name="houseType" id="houseType" class="required">
+                  <option value="1"> 普通住宅</option>
+                  <option value="2"> 非普通住宅</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <label class="item-title short-label label" for="isOnly">是否唯一住房:</label>
+              <div class="item-input">
+                <label class="label-switch">
+                  <input type="checkbox" id="isOnly" name="isOnly" class="required">
+                  <div class="checkbox"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <label class="item-title short-label label" for="isFirst">买方是否家庭首套:</label>
+              <div class="item-input">
+                <label class="label-switch">
+                  <input type="checkbox" id="isFirst" name="isFirst" class="required">
+                  <div class="checkbox"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="mandatory-btn">
+        <div class="row">
+          <div class="col-80"><a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">确定</a></div>
+        </div>
+      </div>
+    </div>
+    <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+    <script src="js/transfer-price-result.js"></script>
+</body>
+
+</html>

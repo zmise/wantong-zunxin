@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>新闻资讯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <style type="text/css">
+  .content-padded {
+    background-color: #fff;
+    margin: 0;
+    padding: .5rem;
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+   .news-detail{
+    font-size: .7rem;
+   }
+
+  .news-title{
+    font-weight: bold;
+    font-size: .8rem;
+  }
+
+  .news-date {
+    border-bottom: 1px dotted #dfdfdf;
+    color: #dfdfdf;
+    font-size: .7rem;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page-group">
+    <div class="page page-current">
+      <div class="content-padded news-detail">
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script>
+  $(function() {
+
+    var id = $.unparam(location.search.split('?')[1]).id;
+    $.ajax({
+      url: '/qfang-xdtapi/newsinformation/newsDetails',
+      data:{
+        id: id
+      },
+      success: function(data) {
+        if (data.code === 'C0000') {
+          var str = '<p class="news-title">' + data.data.title + '</p>' +
+          '<p class="news-date">' + data.data.publishTime + '</p> ' +
+          '<p>' + data.data.content + '</p>';
+          $('.news-detail').append(str);
+        }
+      }
+    });
+
+  });
+  </script>
+</body>
+
+</html>

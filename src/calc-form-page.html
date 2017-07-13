@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>房贷计算器</title>
+    <link type="text/css" rel="stylesheet" href="css/mortgage-calculator.css" />
+  </head>
+
+  <body>
+    <div class="form-body">
+      <div class="box-middle items">
+        <label class="lab">贷款类型：</label>
+        <a class="radio current" id="business" href="javascript:void(0);">商业</a>
+        <a class="radio" id="fund" href="javascript:void(0);">公积金</a>
+        <a class="radio" id="combo" href="javascript:void(0);">组合</a>
+      </div>
+      <div class="box-middle items">
+        <label class="lab">还款方式：</label>
+        <a class="radio current" id="equalRate" href="javascript:void(0);">等额本息</a>
+        <a class="radio" id="equalMoney" href="javascript:void(0);">等额本金</a>
+      </div>
+      <div id="total">
+        <div class="box-middle items">
+          <label class="lab">贷款总额：</label>
+          <input class="text flex" id="totalLoan" type="text" />
+          <span class="unit">万元</span>
+        </div>
+      </div>
+      <div id="combobox" style="display:none;">
+        <div class="box-middle items">
+          <label class="lab">商业贷款：</label>
+          <input class="text flex" id="businessLoan" type="text" />
+          <span class="unit">万元</span>
+        </div>
+        <div class="box-middle items">
+          <label class="lab">公积金：</label>
+          <input class="text flex" id="fundLoan" type="text" />
+          <span class="unit">万元</span>
+        </div>
+      </div>
+      <div class="box-middle items">
+        <label class="lab">贷款期限：</label>
+        <input class="text cent" id="year" type="text" value="0.5" />
+        <span class="unit">年</span>
+      </div>
+      <div class="box-middle items">
+        <div class="min-value">0.5</div>
+        <div class="rang flex" id="rang">
+          <div class="progress"></div>
+          <div class="slider" data-number="0"></div>
+        </div>
+        <div class="max-value">30</div>
+      </div>
+      <div class="box-align items">
+        <input class="text cent" id="loanRate" type="text" value="4.35" />
+        <span class="unit">%&nbsp;&nbsp;x&nbsp;&nbsp;</span>
+        <input class="text cent" id="multiple" type="text" value="1" />
+        <span class="unit">倍&nbsp;&nbsp;=&nbsp;&nbsp;</span>
+        <p class="info"><em id="totalRate">4.35%</em></p>
+      </div>
+      <div class="box-middle items">
+        <div class="box-align flex">
+          <p class="info">当前年限基准：<em id="businessMark">4.35%</em></p>
+        </div>
+        <div class="box-align flex">
+          <p class="info">公积金：<em id="fundMark">2.75%</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="box-middle subimt-body">
+      <a class="submit flex" id="submit" href="javascript:void(0);">马上计算</a>
+    </div>
+    <!--<div class="popup-body box-align">
+      <p class="info-prompt">不能为空</p>
+    </div>-->
+    <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+    <script src="js/calc-form-page.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+  function isArray(arr) {
+    return Object.prototype.toString.call(arr) === '[object Array]';
+  }
+
+  function unparam(params, coerce) {
+    var obj = {};
+    var coerceTypes = { true: !0, false: !1, null: null };
+    var arr = params.replace(/\+/g, ' ').split('&');
+    console.log(arr)
+    for (var counter = 0, len = arr.length; counter < len; counter++) {
+
+      var param = arr[counter].split('=');
+      var key = decodeURIComponent(param[0]);
+      var val;
+      var cur = obj;
+      var i = 0;
+      var keys = key.split('][');
+      var keysLast = keys.length - 1;
+
+      if (/\[/.test(keys[0]) && /\]$/.test(keys[keysLast])) {
+        keys[keysLast] = keys[keysLast].replace(/\]$/, '');
+        keys = keys.shift().split('[').concat(keys);
+        keysLast = keys.length - 1;
+      } else {
+        keysLast = 0;
+      }
+      if (param.length === 2) {
+        val = decodeURIComponent(param[1]);
+        if (coerce) {
+          val = val && !isNaN(val) ? +val : val === 'undefined' ? undefined : coerceTypes[val] !== undefined ? coerceTypes[val] : val; // string
+        }
+
+        if (keysLast) {
+          for (; i <= keysLast; i++) {
+            key = keys[i] === '' ? cur.length : keys[i];
+            cur = cur[key] = i < keysLast ? cur[key] || (keys[i + 1] && isNaN(keys[i + 1]) ? {} : []) : val;
+          }
+        } else {
+          if (isArray(obj[key])) {
+            obj[key].push(val);
+          } else if (obj[key] !== undefined) {
+            obj[key] = [obj[key], val];
+          } else {
+            obj[key] = val;
+          }
+        }
+
+      } else if (key) {
+        obj[key] = coerce ? undefined : '';
+      }
+    }
+
+    return obj;
+  };
+
+  var urlParams = unparam(location.search.substring(1));
+  if (urlParams.token && urlParams.target) {
+    sessionStorage.setItem('u', urlParams.token);
+    sessionStorage.setItem('token', urlParams.token);
+    location.replace(urlParams.target);
+  } else {
+    location.replace('notice.html?source=' + urlParams.source);
+  }
+  </script>
+</body>
+</html>
