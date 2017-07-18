@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>贷款匹配器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/loan-search.css">
+</head>
+
+<body>
+  <div class="page-group">
+    <div class="page page-current">
+      <div class="content">
+        <form>
+          <div class="forms-list">
+            <ul>
+              <li class="forms-inner">
+                <input class="winput" type="text" placeholder="贷款额度" name="amount" maxlength="13">
+                <span class="forms-unit">元</span>
+              </li>
+              <li class="forms-title">
+                <p>我的身份：</p>
+              </li>
+              <li class="forms-inner radio-group flex-wrap" id="identity">
+              </li>
+              <li class="forms-title">
+                <p>房产信息：</p>
+              </li>
+              <li class="forms-inner">
+                <ul class="inner-list" id="estate"></ul>
+              </li>
+              <li class="forms-title">
+                <p>保单信息：</p>
+              </li>
+              <li class="forms-inner radio-group flex-wrap" id="insurance">
+              </li>
+              <li class="forms-title">
+                <p>购车情况：</p>
+              </li>
+              <li class="forms-inner">
+                <ul class="inner-list" id="aboutCar"></ul>
+              </li>
+            </ul>
+          <p class="buttons-row"><a href="javascript:;" class="button" id="reset">重置</a><a href="javascript:;" class="button active" id="search">搜索</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/loan-mas.js"></script>
+  <script src="js/loan-match.js"></script>
+</body>
+
+</html>
