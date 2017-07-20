@@ -62,7 +62,7 @@ $(function () {
     //   console.log($('form').serialize() + extraVal());
       $.showPreloader('正在提交申请……')
       $.ajax({
-        url: '/bill/ct/fastArchiving.json',
+        url: '/qfang-credit/bill/ct/fastArchiving.json',
         type: 'POST',
         data: $('form').serialize() + extraVal()
       }).done(function (res) {

@@ -14,16 +14,27 @@
   <link rel="stylesheet" href="css/sm.css">
   <link rel="stylesheet" href="font/iconfont.css">
   <link rel="stylesheet" href="css/loan-search.css">
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLDXXLZ');</script>
+<!-- End Google Tag Manager -->
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <div class="page-group">
     <div class="page page-current">
       <header class="bar bar-nav">
         <div class="flex-box bar-item-box">
-          <a class="bar-item" href="javascript:;"><span>贷款额度</span><i class="iconfont icon-sanjiao"></i></a>
-          <a class="bar-item" href="javascript:;"><span>贷款特色</span><i class="iconfont icon-sanjiao"></i></a>
-          <a class="bar-item" href="javascript:;"><span>适合人群</span><i class="iconfont icon-sanjiao"></i></a>
+          <a class="bar-item" href="javascript:;"><span data-title="贷款额度">贷款额度</span><i class="iconfont icon-sanjiao"></i></a>
+          <a class="bar-item" href="javascript:;"><span data-title="贷款特色">贷款特色</span><i class="iconfont icon-sanjiao"></i></a>
+          <a class="bar-item" href="javascript:;"><span data-title="适合人群">适合人群</span><i class="iconfont icon-sanjiao"></i></a>
           <a class="bar-btn" href="javascript:;">筛选<span class="bar-btn-tip"></span></a>
         </div>
       </header>
@@ -49,8 +60,8 @@
             </div>
           </div>
 
-          <div class="forms-list item-cont">
-            <form>
+          <form class="item-cont">
+            <div class="forms-list btn-lign-buttom">
               <ul>
                 <li class="forms-title">
                   <p>机构类别：</p>
@@ -60,7 +71,7 @@
                 <li class="forms-title">
                 </li>
                 <li class="forms-inner">
-                  <input class="winput int-input" type="text" placeholder="年龄" name="age" >
+                  <input class="winput int-input" type="text" placeholder="年龄" name="age">
                   <span class="forms-unit">岁</span>
                 </li>
                 <li class="forms-title">
@@ -81,9 +92,9 @@
                   <ul class="inner-list" id="aboutCar"></ul>
                 </li>
               </ul>
-            </form>
-            <p class="buttons-row"><a href="javascript:;" class="button" id="reset">重置</a><a href="javascript:;" class="button active" id="search">搜索</a></p>
-          </div>
+            </div>
+            <p class="buttons-row align-bottom"><a href="javascript:;" class="button" id="reset">重置</a><a href="javascript:;" class="button active" id="search">搜索</a></p>
+          </form>
         </div>
       </div>
       <div class="content infinite-scroll infinite-scroll-bottom" data-distance="50">
@@ -99,8 +110,8 @@
           </ul>
         </div>
         <div class="infinite-scroll-preloader">
-              <div class="preloader"></div>
-          </div>
+          <div class="preloader"></div>
+        </div>
 
       </div>
       <p class="buttons-row"><a href="javascript:;" class="button external disabled" id="apply">办理贷款</a></p>

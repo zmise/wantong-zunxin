@@ -41,6 +41,20 @@ p {
 
 /* 贷款匹配器 */
 
+.forms-list.btn-lign-buttom {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  bottom: 2.2rem;
+  overflow-y: auto;
+}
+
+.buttons-row.align-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .forms-list {
   color: #333;
   font-size: .8rem;
@@ -296,9 +310,19 @@ p {
   line-height: 2.2rem;
 }
 
+.search-content form.item-cont {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #efeff4;
+}
+
 .bar .selected,
 .search-content .selected {
   color: #f91;
+}
+.bar-btn.active.selected{
+  color: #fff;
 }
 
 .input-box {
@@ -333,6 +357,16 @@ p {
   margin: 0;
   margin-top: .5rem;
   box-shadow: none;
+}
+
+.result-list .card-content-inner .two-item {
+  width: calc(50% - .375rem);
+  min-width: calc(50% - .375rem);
+  white-space: nowrap;
+}
+
+.result-list .card-content-inner .two-item:nth-child(2n+1) {
+  margin-right: .75rem;
 }
 
 .result-list .card .checkbox-file {
@@ -433,6 +467,7 @@ p {
   padding: 0 .7rem;
   font-size: .8rem;
   color: #3a3a3a;
+  list-style: none;
 }
 
 .own-modal .modal-title {
@@ -444,9 +479,9 @@ p {
 }
 
 .own-modal .own-modal-list li {
-  display: -webkit-flex;
-  display: flex;
-  padding: .75rem 0;
+  /* display: -webkit-flex;
+  display: flex; */
+  padding: .45rem 0;
   border-top: 1px solid #e7e8ea;
 }
 

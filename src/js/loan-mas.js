@@ -63,7 +63,12 @@ var searchTool = { //工具方法 及 数据
     });
   },
   searchDatas: {
-    amount: [{ //贷款额度
+    amount: [{ //贷款额度  
+      value: '',
+      minLoanAmount: '',
+      maxLoanAmount: '',
+      label: '不限'
+    }, {
       value: '1',
       minLoanAmount: 0,
       maxLoanAmount: 50000,
@@ -138,12 +143,17 @@ var searchTool = { //工具方法 及 数据
       label: '非银行机构'
     }]
   },
-  numberFormateMillion(num) {
-    if (isNaN(+num)) {
+  numberFormateMillion: function (num) {
+    num = +num;
+    if (isNaN(num)) {
       return null;
     }
 
-    return Math.round(+num / 10000);
+    if(num < 10000){
+      return num + '元';
+    }
+
+    return (+num / 10000) + '万';
   },
   /* 存储历史记录 */
   storeHistory: function (HistoryKey, list, time) {

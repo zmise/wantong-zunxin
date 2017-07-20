@@ -34,6 +34,10 @@ $(function () {
       if (res.status !== 0 || res.data.length === 0) {
         return;
       }
+      res.data.unshift({
+        id: '',
+        name: '不限'
+      });
 
       searchTool.renderList({
         container: '#characteristics',
@@ -84,6 +88,10 @@ $(function () {
       if (res.status !== 0 || res.data.length === 0) {
         return;
       }
+      res.data.unshift({
+        id: '',
+        name: '不限'
+      });
       searchTool.renderList({
         container: '#identity',
         name: 'crowdId',
@@ -144,15 +152,18 @@ $(function () {
     $('.bar-item-box a').on('click', function () {
       var $this = $(this);
       var index = $this.index();
-      var searchBox = $('.search-content');
-      var items = searchBox.find('.item-cont');
-      if (!$this.hasClass('bar-btn')) {
-        $this.addClass('selected');
-      }
+      var $searchBox = $('.search-content');
+      var $items = $searchBox.find('.item-cont');
       $this.siblings().removeClass('selected');
-      items.hide();
-      items.eq(index).show();
-      searchBox.show();
+      if (!$this.hasClass('selected')) {
+        $this.addClass('selected');
+        $items.hide();
+        $items.eq(index).show();
+        $searchBox.show();
+      } else {
+        $this.removeClass('selected');
+        $searchBox.hide();
+      }
     });
 
     // 单击选项外隐藏搜索条件
@@ -170,14 +181,14 @@ $(function () {
     });
 
     // 贷款额度自定义
-    $('input[name="amount"').on('input', function () {
+    $('input[name="amount"]').on('input', function () {
       $(this).closest('.item-cont').find('li').removeClass('selected');
     });
 
     // 重置
     $('#reset').on('click', function (e) {
       barBtnTip(0);
-      $(this).closest('.item-cont').find('form')[0].reset();
+      $(this).closest('.item-cont')[0].reset();
     });
 
     // 贷款额度的确定、筛选的搜索
@@ -220,23 +231,21 @@ $(function () {
 
     // 注册'infinite'事件处理函数
     $(document).on('infinite', '.infinite-scroll-bottom', function () {
-      console.log('infinite事件');
+      // console.log('infinite事件');
       var addsData = '';
       // 如果正在加载，则退出
       if (config.loading) return;
 
       // 设置flag
       config.loading = true;
-      addsData = 'page=' + config.pageIndex + '&sizePerPage=' + config.pageIndex;
+      addsData = 'pageIndex=' + config.pageIndex + '&sizePerPage=' + config.sizePerPage;
       query(config.loading, addsData);
-
-      config.pageIndex += 1;
 
       //容器发生改变,如果是js滚动，需要刷新滚动
       $.refreshScroller();
     });
 
-    $('#resultList').on('click.checkbox', 'input[type="checkbox"]', disBtn);
+    $('#resultList').on('change.checkbox', 'input[type="checkbox"]', disBtn);
 
   }
 
@@ -257,7 +266,7 @@ $(function () {
     var height = $(window).height() * 0.8 - 80;
     var _html = '<p class="modal-title">' +
       data.name + '&nbsp;' + searchTool.numberFormateMillion(data.minLoanAmount) + '-' +
-      searchTool.numberFormateMillion(data.maxLoanAmount) + '万</p><div class="own-modal-inner" style="height:' + height + 'px;"><ul class="own-modal-list" id="modalList"><li><label class="modal-label">利率：</label><p>' + data.minRate + '-' + data.maxRate + '</p></li><li><label class="modal-label">代码：</label><p>' + data.productCode + '</p></li><li><label class="modal-label">贷款期限：</label><p>' + data.minLoanDuration + '-' + data.maxLoanDuration + '期</p></li><li><label class="modal-label">还款：</label><p>' + data.repaymentType + '</p></li>';
+      searchTool.numberFormateMillion(data.maxLoanAmount) + '</p><div class="own-modal-inner" style="height:' + height + 'px;"><ul class="own-modal-list" id="modalList"><li><label class="modal-label">代码：</label><p>' + data.productCode + '</p></li><li><label class="modal-label">年龄范围：</label><p>' + data.minAge + '-' + data.maxAge + '岁</p></li><li><label class="modal-label">可贷金额：</label><p>' + searchTool.numberFormateMillion(data.minLoanAmount) + '-' + searchTool.numberFormateMillion(data.maxLoanAmount) + '</p></li><li><label class="modal-label">利率：</label><p>' + data.minRate + '-' + data.maxRate + '%</p></li><li><label class="modal-label">贷款期限：</label><p>' + data.minLoanDuration + '-' + data.maxLoanDuration + '月</p></li><li><label class="modal-label">还款：</label><p>' + data.repaymentType + '</p></li>';
     var list = data.customFieldList;
     var i = 0,
       len = list.length;
@@ -306,10 +315,17 @@ $(function () {
       if ($list.length > 0) {
         amount = $list.text();
         if (i === 0) { //特殊处理贷款额度
-          selected.push('minLoanAmount=' + $list.data('minloanamount'));
-          selected.push('maxLoanAmount=' + $list.data('maxloanamount'));
+          $list.data('minloanamount') && selected.push('minLoanAmount=' + $list.data('minloanamount'));
+          $list.data('maxloanamount') && selected.push('maxLoanAmount=' + $list.data('maxloanamount'));
+          if (!$list.data('minloanamount') && !$list.data('maxloanamount')) {
+            amount = $tab.data('title');
+          }
         } else {
-          selected.push($list.data('name') + '=' + $list.data('val'));
+          if ($list.data('val')) {
+            selected.push($list.data('name') + '=' + $list.data('val'));
+          } else {
+            amount = $tab.data('title');
+          }
         }
       } else if (i === 0) {
         $list = $items.eq(i).parent().find('input');
@@ -406,11 +422,14 @@ $(function () {
         config.pageCount = Math.ceil(res.data.total / config.sizePerPage);
         config.loading = false;
         if (config.pageCount === config.pageIndex) {
+          console.log(config.pageCount, config.pageIndex);
           // 加载完毕，则注销无限加载事件，以防不必要的加载
           $.detachInfiniteScroll($('.infinite-scroll-bottom'));
           // 隐藏加载提示符
           $('.infinite-scroll-preloader').hide();
         }
+
+        config.pageIndex += 1;
       } else {
         $('.infinite-scroll-preloader').hide();
       }
@@ -458,8 +477,8 @@ $(function () {
       var item = list[i];
       _html += '<li><div class="card"><div class="card-header"><label class="checkbox-file"><span>' +
         item.name + '&nbsp;' + searchTool.numberFormateMillion(item.minLoanAmount) + '-' +
-        searchTool.numberFormateMillion(item.maxLoanAmount) + '万</span><input type="checkbox" name="intentionProduct" value="' +
-        item.id + '" ' + (historyList.indexOf(item.id) > -1 ? 'checked' : '') + '></label></div><div class="card-content"><div class="card-content-inner flex-box flex-wrap"><p class="two-item"><label class="label-w70">利率：</label><span>' + item.minRate + '-' + item.maxRate + '</span></p><p class="two-item"><label>代码：</label><span>' + item.productCode + '</span></p><p class="two-item"><label class="label-w70">贷款期限：</label><span>' + item.minLoanDuration + '-' + item.maxLoanDuration + '期</span></p><p class="two-item"><label>还款：</label><span>' + item.repaymentType + '</span></p></div></div><div class="card-footer"><a class="link-btn" href="javascript:;" data-id="' + item.id + '">查看信息</a></div></div></li>';
+        searchTool.numberFormateMillion(item.maxLoanAmount) + '</span><input type="checkbox" name="intentionProduct" value="' +
+        item.id + '" ' + (historyList.indexOf(item.id) > -1 ? 'checked' : '') + '></label></div><div class="card-content"><div class="card-content-inner flex-box flex-wrap"><p class="two-item"><label>利率：</label><span>' + item.minRate + '-' + item.maxRate + '%</span></p><p class="two-item"><label>代码：</label><span>' + item.productCode + '</span></p><p class="two-item"><label>期限：</label><span>' + item.minLoanDuration + '-' + item.maxLoanDuration + '月</span></p><p class="two-item"><label>还款：</label><span>' + item.repaymentType + '</span></p></div></div><div class="card-footer"><a class="link-btn" href="javascript:;" data-id="' + item.id + '">查看信息</a></div></div></li>';
     }
 
     $container.append(_html);
@@ -472,7 +491,6 @@ $(function () {
   }
 
   // 无限滚动
-
 
   initTabs();
   initEvent();
