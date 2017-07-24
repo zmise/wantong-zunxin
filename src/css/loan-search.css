@@ -1,0 +1,500 @@
+.content {
+  top: 0;
+}
+
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.flex-box,
+.radio-group {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-wrap .three-item {
+  width: 33.33%;
+  min-width: 33.33%;
+}
+
+.flex-wrap .two-item {
+  width: 50%;
+  min-width: 50%;
+}
+
+.flex-item {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.inner-list.addpd {
+  padding: 0 .7rem;
+}
+
+
+/* 贷款匹配器 */
+
+.forms-list.btn-lign-buttom {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  bottom: 2.2rem;
+  overflow-y: auto;
+}
+
+.buttons-row.align-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.forms-list {
+  color: #333;
+  font-size: .8rem;
+}
+
+.forms-list ul {
+  list-style: none;
+}
+
+.forms-list li {
+  padding-left: .7rem;
+  padding-right: .7rem;
+}
+
+.forms-inner {
+  position: relative;
+  background-color: #fff;
+}
+
+.forms-inner .winput {
+  width: 100%;
+  padding: .75rem 0;
+  border: 0;
+}
+
+.forms-inner .forms-unit,
+.checkbox-file input {
+  position: absolute;
+  top: 50%;
+  right: .8rem;
+  transform: translateY(-50%);
+}
+
+.forms-title {
+  padding: .4rem 0;
+}
+
+.forms-list .inner-list li {
+  padding-right: 0;
+  border-top: 1px solid #e7e8ea;
+  line-height: 2.75rem;
+}
+
+.forms-list .inner-list li:first-child {
+  border: 0;
+}
+
+.forms-inner.radio-group {
+  padding: .5rem;
+  line-height: 1.7rem;
+}
+
+.checkbox-file {
+  position: relative;
+  display: block;
+}
+
+.checkbox-file input {
+  right: 0;
+  margin: 0;
+}
+
+.forms-list input[type="radio"],
+.forms-list input[type="checkbox"],
+.result-list input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.forms-list input[type="radio"] {
+  position: relative;
+  top: .1rem;
+  width: .8rem;
+  height: .8rem;
+  margin-right: .15rem;
+}
+
+.forms-list input[type="checkbox"],
+.forms-list input[type="checkbox"]:after,
+.result-list input[type="checkbox"],
+.result-list input[type="checkbox"]:after {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.forms-list input[type="radio"]:after,
+.forms-list input[type="radio"]:before,
+.forms-list input[type="checkbox"]:after,
+.result-list input[type="checkbox"]:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0)
+}
+
+.forms-list input[type="radio"]:after {
+  content: '';
+  width: 101%;
+  height: 101%;
+  border: 1px solid #f91;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 100;
+  visibility: visible;
+}
+
+.forms-list input[type="radio"]:checked:before {
+  content: '';
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: #f91;
+  z-index: 101;
+  visibility: visible;
+}
+
+.forms-list input[type="checkbox"]:after,
+.result-list input[type="checkbox"]:after {
+  content: '\e622';
+  color: #fff;
+  background-color: #a8a8a8;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.2rem;
+  font-family: "iconfont";
+  z-index: 100;
+  visibility: visible;
+}
+
+.forms-list input[type="checkbox"]:checked:after,
+.result-list input[type="checkbox"]:checked:after {
+  background-color: #64c858;
+}
+
+.forms-list .buttons-row {
+  margin-top: 1rem;
+}
+
+.buttons-row .button,
+.buttons-row .button:first-child {
+  height: 2rem;
+  border: 0;
+  color: #3a3a3a;
+  border-radius: 0;
+  font-size: .85rem;
+  line-height: 2rem;
+  background-color: #fff;
+}
+
+.buttons-row .button.active {
+  background-color: #f91;
+}
+
+
+/* 贷款查询 */
+
+.bar.bar-nav {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #dedfe0;
+}
+
+.bar-nav~.content {
+  bottom: 2rem;
+}
+
+.content~.buttons-row {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.content~.buttons-row .button {
+  background-color: #f91;
+  color: #fff;
+}
+
+.content~.buttons-row .button.disabled {
+  background-color: #ccc;
+}
+
+.input-box,
+.bar-item-box {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.bar-item-box {
+  padding: .4rem;
+  font-size: .7rem;
+  line-height: 1.4rem;
+}
+
+.bar-item-box .bar-item {
+  min-width: 3rem;
+  color: #3a3a3a;
+}
+
+.bar-item .icon-sanjiao {
+  font-size: 12px;
+}
+
+.bar-btn {
+  position: relative;
+  padding: 0 .6rem;
+  color: #f91;
+  border: 1px solid;
+  border-radius: .2rem;
+}
+
+.bar-btn .bar-btn-tip {
+  display: none;
+  position: absolute;
+  top: -.25rem;
+  right: -.45rem;
+  width: .9rem;
+  height: .9rem;
+  line-height: .9rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #f00;
+}
+
+.bar-btn.active {
+  color: #fff;
+  background-color: #f91;
+}
+
+.bar-btn.active .bar-btn-tip {
+  display: block;
+}
+
+.search-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 2.2rem;
+  width: 100%;
+  bottom: 0;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, .36);
+}
+
+.search-content .search-form {
+  max-height: 100%;
+  overflow: auto;
+  background-color: #efeff4;
+}
+
+.search-content .inner-list {
+  background-color: #fff;
+}
+
+.search-content .inner-list li {
+  line-height: 2.2rem;
+}
+
+.search-content form.item-cont {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #efeff4;
+}
+
+.bar .selected,
+.search-content .selected {
+  color: #f91;
+}
+.bar-btn.active.selected{
+  color: #fff;
+}
+
+.input-box {
+  padding: .6rem;
+  line-height: 1.5rem;
+  border-top: 1px solid #e7e8ea;
+}
+
+.input-box,
+.input-box .bar-btn {
+  background-color: #fff;
+}
+
+.input-box .bar-input {
+  width: 10.9rem;
+  padding-left: .9rem;
+  background-color: #f5f5f9;
+  border: 0;
+}
+
+.result-list ul {
+  list-style: none;
+}
+
+.result-list .li-title {
+  margin-top: .5rem;
+  padding: 0 .7rem;
+  font-size: .7rem;
+}
+
+.result-list .card {
+  margin: 0;
+  margin-top: .5rem;
+  box-shadow: none;
+}
+
+.result-list .card-content-inner .two-item {
+  width: calc(50% - .375rem);
+  min-width: calc(50% - .375rem);
+  white-space: nowrap;
+}
+
+.result-list .card-content-inner .two-item:nth-child(2n+1) {
+  margin-right: .75rem;
+}
+
+.result-list .card .checkbox-file {
+  width: 100%;
+}
+
+.result-list .card .label-w70 {
+  display: inline-block;
+  width: 70px;
+}
+
+.result-list .card .two-item {
+  overflow: hidden;
+}
+
+.result-list .card .link-btn {
+  display: block;
+  width: 100%;
+  color: #f91;
+  text-align: center;
+}
+
+
+/* 暂无数据 */
+
+.no-result {
+  display: none;
+  margin-top: 8rem;
+  color: #a8a8a8;
+  text-align: center;
+}
+
+.no-result .iconfont {
+  color: #dedfe0;
+  font-size: 4rem;
+}
+
+
+/*  贷款申请 */
+
+.loan-apply {
+  padding-top: 0;
+  height: 6.05rem;
+}
+
+.loan-apply~.content {
+  top: 6.05rem;
+}
+
+.content .form-list~.form-list {
+  margin-top: .35rem;
+}
+
+.form-list .selected-box {
+  padding-top: .5rem;
+  margin-bottom: -.4rem;
+  font-size: .65rem;
+  line-height: 1.1rem;
+}
+
+.selected-box .selected-item {
+  padding: .1rem .25rem;
+  margin-left: .4rem;
+  margin-bottom: .4rem;
+  border: 1px solid #ddd;
+  background-color: #eee;
+}
+
+
+/* 弹窗  */
+
+.own-modal {
+  width: auto;
+  left: 1rem;
+  right: 1rem;
+  margin-left: 0;
+  text-align: left;
+}
+
+.own-modal .modal-inner {
+  padding: 0;
+  background-color: #fff;
+}
+
+.own-modal-inner {
+  overflow-y: auto;
+}
+
+.own-modal .buttons-row .button {
+  background-color: #efeff4;
+}
+
+.own-modal .buttons-row .button.button.active {
+  background-color: #f91;
+}
+
+.own-modal .own-modal-list {
+  padding: 0 .7rem;
+  font-size: .8rem;
+  color: #3a3a3a;
+  list-style: none;
+}
+
+.own-modal .modal-title {
+  padding: .7rem;
+  font-size: .9rem;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 1px solid #e7e8ea;
+}
+
+.own-modal .own-modal-list li {
+  /* display: -webkit-flex;
+  display: flex; */
+  padding: .45rem 0;
+  border-top: 1px solid #e7e8ea;
+}
+
+.own-modal .own-modal-list li:first-child {
+  border: 0;
+}
+
+.own-modal .modal-label {
+  width: 6.4rem;
+  min-width: 6.4rem;
+  color: #a8a8a8;
+}
+
+.popup.popup-agreement {
+  padding-top: 0;
+}

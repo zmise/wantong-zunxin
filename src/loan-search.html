@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>贷款搜索</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/loan-search.css">
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLDXXLZ');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <div class="page-group">
+    <div class="page page-current">
+      <header class="bar bar-nav">
+        <div class="flex-box bar-item-box">
+          <a class="bar-item" href="javascript:;"><span data-title="贷款额度">贷款额度</span><i class="iconfont icon-sanjiao"></i></a>
+          <a class="bar-item" href="javascript:;"><span data-title="贷款特色">贷款特色</span><i class="iconfont icon-sanjiao"></i></a>
+          <a class="bar-item" href="javascript:;"><span data-title="适合人群">适合人群</span><i class="iconfont icon-sanjiao"></i></a>
+          <a class="bar-btn" href="javascript:;">筛选<span class="bar-btn-tip"></span></a>
+        </div>
+      </header>
+      <div class="search-content">
+        <div class="search-form">
+          <div class="forms-list">
+            <div class="item-cont">
+              <ul class="inner-list addpd" id="amount">
+              </ul>
+              <div class="flex-box input-box">
+                <input class="bar-input int-input" type="text" placeholder="自定义" name="amount" value="">
+                <span>万</span>
+                <button class="bar-btn" type="button" id="amountBtn">确定</button>
+              </div>
+            </div>
+            <div class="item-cont">
+              <ul class="inner-list addpd" id="characteristics">
+              </ul>
+            </div>
+            <div class="item-cont">
+              <ul class="inner-list addpd" id="identity">
+              </ul>
+            </div>
+          </div>
+
+          <form class="item-cont">
+            <div class="forms-list btn-lign-buttom">
+              <ul>
+                <li class="forms-title">
+                  <p>机构类别：</p>
+                </li>
+                <li class="forms-inner radio-group flex-wrap" id="bank">
+                </li>
+                <li class="forms-title">
+                </li>
+                <li class="forms-inner">
+                  <input class="winput int-input" type="text" placeholder="年龄" name="age">
+                  <span class="forms-unit">岁</span>
+                </li>
+                <li class="forms-title">
+                  <p>房产信息：</p>
+                </li>
+                <li class="forms-inner">
+                  <ul class="inner-list" id="estate"></ul>
+                </li>
+                <li class="forms-title">
+                  <p>保单信息：</p>
+                </li>
+                <li class="forms-inner radio-group flex-wrap" id="insurance">
+                </li>
+                <li class="forms-title">
+                  <p>购车情况：</p>
+                </li>
+                <li class="forms-inner">
+                  <ul class="inner-list" id="aboutCar"></ul>
+                </li>
+              </ul>
+            </div>
+            <p class="buttons-row align-bottom"><a href="javascript:;" class="button" id="reset">重置</a><a href="javascript:;" class="button active" id="search">搜索</a></p>
+          </form>
+        </div>
+      </div>
+      <div class="content infinite-scroll infinite-scroll-bottom" data-distance="50">
+        <!-- 没有数据 start -->
+        <div class="no-result">
+          <p><i class="iconfont icon-ziliaoshenhe"></i></p>
+          <p>哎呀，没有找到符合条件的贷款</p>
+          <p>换个条件试试吧</p>
+        </div>
+        <!-- 没有数据 end -->
+        <div class="result-list" id="resultList">
+          <ul>
+          </ul>
+        </div>
+        <div class="infinite-scroll-preloader">
+          <div class="preloader"></div>
+        </div>
+
+      </div>
+      <p class="buttons-row"><a href="javascript:;" class="button external disabled" id="apply">办理贷款</a></p>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/loan-mas.js"></script>
+  <script src="js/loan-search.js"></script>
+</body>
+
+</html>
