@@ -2,7 +2,7 @@ $(function () {
     var postInfo = {
         referrerCode: 'SYS_REFERRER_TYPE_0001',
         bizCode: 'SYS_1005',
-        sourceCode: 'SYS_SOURCE_0003'
+        sourceCode: 'SYS_SOURCE_0008'
     };
     // ?referrerName=张三&referrerCellphone=181384406263&sourceCode=XXX&agreeMentShow=N&customName=大家看好&customCellphone=13412345678&bizCode=SYS_1005&navCode=1
     var reInfo = {};

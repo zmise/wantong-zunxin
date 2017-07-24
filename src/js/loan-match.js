@@ -60,4 +60,5 @@ $(function () {
     window.location = 'loan-search.html?' + $('form').serialize();
   });
 
+$.init();
 });
