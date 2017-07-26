@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1499935265825'); /* IE9*/
-  src: url('iconfont.eot?t=1499935265825#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1499935265825') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1499935265825') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1499935265825#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1501033347343'); /* IE9*/
+  src: url('iconfont.eot?t=1501033347343#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1501033347343') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1501033347343') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1501033347343#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -96,4 +96,6 @@
 .icon-xiazai:before { content: "\e909"; }
 
 .icon-daikuanpipeiqi1:before { content: "\e976"; }
+
+.icon-chafangjia:before { content: "\e980"; }
 
