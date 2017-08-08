@@ -57,15 +57,17 @@ $(function () {
 
   function renderModal(data, id) {
     var height = $(window).height() * 0.8 - 80;
+    formatData(data);
+
     var _html = '<p class="modal-title">' +
-      data.name + '&nbsp;' + searchTool.numberFormateMillion(data.minLoanAmount) + '-' +
-      searchTool.numberFormateMillion(data.maxLoanAmount) + '</p><div class="own-modal-inner" style="height:' + height + 'px;"><ul class="own-modal-list" id="modalList"><li><label class="modal-label">代码：</label><p>' + data.productCode + '</p></li><li><label class="modal-label">年龄范围：</label><p>' + data.minAge + '-' + data.maxAge + '岁</p></li><li><label class="modal-label">可贷金额：</label><p>' + searchTool.numberFormateMillion(data.minLoanAmount) + '-' + searchTool.numberFormateMillion(data.maxLoanAmount) + '</p></li><li><label class="modal-label">利率：</label><p>' + data.minRate + '-' + data.maxRate + '%</p></li><li><label class="modal-label">贷款期限：</label><p>' + data.minLoanDuration + '-' + data.maxLoanDuration + '月</p></li><li><label class="modal-label">还款：</label><p>' + data.repaymentTypes + '</p></li>';
+      data.name + '&nbsp;，可贷' + searchTool.numberFormateMillion(data.minLoanAmount) + '-' +
+      searchTool.numberFormateMillion(data.maxLoanAmount) + '</p><div class="own-modal-inner" style="height:' + height + 'px;"><ul class="own-modal-list" id="modalList"><li><label class="modal-label">代码：</label><p class="fb">' + data.productCode + '</p></li><li><label class="modal-label">年龄范围：</label><p class="fb">' + data.minAge + '-' + data.maxAge + '岁</p></li><li><label class="modal-label">可贷金额：</label><p class="fb">' + searchTool.numberFormateMillion(data.minLoanAmount) + '-' + searchTool.numberFormateMillion(data.maxLoanAmount) + '</p></li><li><label class="modal-label">月息：</label><p class="fb">' + data.rateStr + '%</p></li><li><label class="modal-label">贷款期限：</label><p class="fb">' + data.durationStr + '月</p></li><li><label class="modal-label">还款：</label><p>' + data.repaymentTypes + '</p></li>';
     var list = data.customFieldList;
     var i = 0,
       len = list.length;
     for (; i < len; i++) {
       var item = list[i];
-      _html += '<li><label class="modal-label">' + item.name + '：</label><p>' + item.value + '</p></li>';
+      _html += '<li><label class="modal-label">' + item.name + '：</label><pre>' + item.value + '</pre></li>';
     }
 
     _html += '</ul></div><p class="buttons-row"><a href="javascript:;" class="button" id="cancel">取消</a><a href="javascript:;" class="button external active" id="addApply">选择</a></p>';
@@ -133,11 +135,13 @@ $(function () {
     var list = data.itemList;
     if (data.searchTimes !== 2) {
       _html += '<li class="li-title">找到' + data.total + '个贷款，月息' + data.minRate + '%-' + data.maxRate + '%，您可一次申请多个贷款</li>';
-    }else{
-      _html += '<li class="li-title">未找到' + JSON.parse(sessionStorage.getItem('amountloanSearch')).option.replace('>','大于') +'的贷款，您可进行组合贷款</li>';
+    } else {
+      _html += '<li class="li-title">未找到' + JSON.parse(sessionStorage.getItem('amountloanSearch')).option.replace('>', '大于') + '的贷款，您可进行组合贷款</li>';
     }
     for (var i = 0, len = list.length; i < len; i++) {
       var item = list[i];
+
+      formatData(item);
       var characteristics = item.characteristics;
       var tempHTML = '<p>';
       if (characteristics) {
@@ -148,15 +152,29 @@ $(function () {
       tempHTML += '</p>';
 
       _html += '<li><div class="card"><label><div class="card-header"><div class="checkbox-file"><p class="checkbox-title">' +
-        item.name + '&nbsp;' + searchTool.numberFormateMillion(item.minLoanAmount) + '-' +
+        item.name + '&nbsp;，可贷' + searchTool.numberFormateMillion(item.minLoanAmount) + '-' +
         searchTool.numberFormateMillion(item.maxLoanAmount) + '</p>' +
         tempHTML + '<input type="checkbox" name="intentionProduct" value="' +
-        item.id + '" ' + (historyList.indexOf(item.id) > -1 ? 'checked' : '') + '></div></div><div class="card-content"><div class="card-content-inner flex-box flex-wrap"><p class="two-item"><span class="label-gray">月息：</span><span>' + item.minRate + '-' + item.maxRate + '%</span></p><p class="two-item"><span class="label-gray">代码：</span><span>' + item.productCode + '</span></p><p class="two-item"><span class="label-gray">期限：</span><span>' + item.minLoanDuration + '-' + item.maxLoanDuration + '月</span></p><p class="two-item"><span class="label-gray">还款：</span><span>' + item.repaymentTypes + '</span></p></div></div></label><div class="card-footer"><a class="link-btn" href="javascript:;" data-id="' + item.id + '">查看更多</a></div></div></li>';
+        item.id + '" ' + (historyList.indexOf(item.id) > -1 ? 'checked' : '') + '></div></div><div class="card-content"><div class="card-content-inner flex-box flex-wrap"><p class="two-item"><span class="label-gray">月息：</span><span>' + item.rateStr + '%</span></p><p class="two-item"><span class="label-gray">代码：</span><span>' + item.productCode + '</span></p><p class="two-item"><span class="label-gray">期限：</span><span>' + item.durationStr + '月</span></p><p class="two-item"><span class="label-gray">还款：</span><span>' + item.repaymentTypes + '</span></p></div></div></label><div class="card-footer"><a class="link-btn" href="javascript:;" data-id="' + item.id + '">查看更多</a></div></div></li>';
     }
 
     $container.append(_html);
     // disBtn();
 
+  }
+
+  function formatData(data) {
+    var rateStr = data.minRate + '-' + data.maxRate;
+    var durationStr = data.minLoanDuration + '-' + data.maxLoanDuration;
+    if (data.minRate === data.maxRate) {
+      rateStr = data.minRate;
+    }
+    if (data.minLoanDuration === data.maxLoanDuration) {
+      durationStr = data.minLoanDuration;
+    }
+
+    data.rateStr = rateStr;
+    data.durationStr = durationStr;
   }
 
   initEvent();

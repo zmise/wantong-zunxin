@@ -63,20 +63,23 @@ p {
   text-align: center;
   background-color: #00b4ed;
 }
-.bar .flex-item{
+
+.bar .flex-item {
   position: relative;
 }
-.bar .flex-item:nth-child(-n+3)::after{
+
+.bar .flex-item:nth-child(-n+3)::after {
   content: '';
   position: absolute;
   left: 65%;
   top: 1.25rem;
   margin-top: -1px;
   width: 70%;
-  height: 1px ;
+  height: 1px;
   background-color: #fff;
   z-index: -1;
 }
+
 .bar .cur .iconfont {
   color: #fff;
 }
@@ -250,6 +253,7 @@ p {
 
 .result-list .card .two-item {
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .result-list .card .link-btn {
@@ -350,14 +354,17 @@ p {
   color: #a8a8a8;
   text-align: center;
 }
-.no-result .fb{
+
+.no-result .fb {
   margin-bottom: 1.5rem;
   color: #3a3a3a;
 }
-.no-result .button{
+
+.no-result .button {
   font-size: .9rem;
 }
-.no-result .button.active{
+
+.no-result .button.active {
   border-color: transparent;
 }
 
@@ -365,7 +372,6 @@ p {
   color: #dedfe0;
   font-size: 4rem;
 }
-
 
 
 /*  贷款申请 */
@@ -470,6 +476,7 @@ p {
   color: #9cca48;
   font-size: 2.75rem;
 }
+
 .no-result .button,
 .result .result-desc .button {
   width: 7.1rem;
@@ -483,16 +490,18 @@ p {
 .links-box {
   position: absolute;
   bottom: 0;
-  padding:.75rem;
+  padding: .75rem;
   width: 100%;
   line-height: 1;
   background-color: #fff;
 }
-.links-box .flex-box{
+
+.links-box .flex-box {
   margin-top: .75rem;
   color: #3a3a3a;
 }
-.links-box a{
+
+.links-box a {
   text-decoration: underline;
 }
 
@@ -577,6 +586,16 @@ p {
 
 .own-modal .own-modal-list li:first-child {
   border: 0;
+}
+
+.own-modal-list li .fb{
+  font-weight: bold;
+}
+
+.own-modal-list pre {
+  margin: 0;
+  font-size: .8rem;
+  white-space: pre-wrap;
 }
 
 .own-modal .modal-label {
