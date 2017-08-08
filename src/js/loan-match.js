@@ -18,17 +18,19 @@ $(function () {
 
   function showCrowd(opt) {
     var $animate = $(opt.container);
-    var className = opt.animateClass || 'an-top2bottom';
+    // var className = opt.animateClass || 'an-top2bottom';
     if (opt.show) {
       $animate.show();
-      setTimeout(function () {
-        $animate.addClass(className);
-      }, 0);
+      // setTimeout(function () {
+      //   $animate.addClass(className);
+      // }, 0);
     } else {
-      $animate.removeClass(className);
-      setTimeout(function () {
-        $animate.hide();
-      }, 400);
+      // $animate.removeClass(className);
+      // setTimeout(function () {
+      //   $animate.hide();
+      // }, 400);
+
+      $animate.hide();
     }
   }
 

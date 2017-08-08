@@ -33,9 +33,9 @@ p {
 }
 
 .animate {
-  height: 0px;
+  /* height: 0px; */
   overflow: hidden;
-  transition: height 400ms;
+  /* transition: height 400ms; */
 }
 
 .margin-top10px {
@@ -114,8 +114,8 @@ p {
 }
 
 .forms-list .forms-inner label {
-  max-width: 4.8rem;
-  min-width: 4.8rem;
+  max-width: 5rem;
+  min-width: 5rem;
   margin-right: .75rem;
 }
 
