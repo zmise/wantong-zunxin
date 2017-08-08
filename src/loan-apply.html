@@ -13,79 +13,101 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="css/sm.css">
   <link rel="stylesheet" href="font/iconfont.css">
-  <link rel="stylesheet" href="css/QRCode-commom.css">
-  <link rel="stylesheet" href="css/loan.css">
+  <!-- <link rel="stylesheet" href="css/QRCode-commom.css"> -->
+  <!-- <link rel="stylesheet" href="css/loan.css"> -->
   <link rel="stylesheet" href="css/loan-search.css">
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KLDXXLZ');</script>
-<!-- End Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
+
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div class="page-group">
     <div class="page page-current">
-      <div class="success">
+      <!-- <div class="success">
         <div class="success-desc"><i class="iconfont icon-dagou2"></i>
-        <p><span class="fb">您的申请已经受理</span><br>专业信贷顾问会及时与您联系</p></div>
-      </div>
-      <header class="loan-apply">
-        <div class="section flexbox">
-          <p class="se-item"><i class="iconfont icon-tijiaoshenqing"></i> 提交申请
-          </p>
-          <p class="se-item"><i class="iconfont icon-ziliaoshenhe"></i> 资料审核
-          </p>
-          <p class="se-item"><i class="iconfont icon-banlidaikuan"></i> 办理贷款
-          </p>
+          <p><span class="fb">您的申请已经受理</span><br>专业信贷顾问会及时与您联系</p>
+        </div>
+      </div> -->
+      <header class="bar flex-box">
+        <div class="cur flex-item"><i class="iconfont icon-pingguzizhi"></i>
+          <p>评估资质</p>
+        </div>
+        <div class="cur flex-item"><i class="iconfont icon-xuanzedaikuan"></i>
+          <p>选择贷款</p>
+        </div>
+        <div class="cur flex-item"><i class="iconfont icon-tijiaoshenqing1"></i>
+          <p>提交申请</p>
+        </div>
+        <div class="flex-item"><i class="iconfont icon-wancheng"></i>
+          <p>完成</p>
         </div>
       </header>
       <div class="content">
-        <form>
-          <ul class="form-list">
-            <li>
-              <input type="text" placeholder="您的姓名" name="name" id="name">
+        <form class="forms-list btn-lign-buttom">
+          <ul>
+            <li class="forms-inner">
+              <label>已选择贷款</label>
             </li>
-            <li>
-              <label class="radio-file">
-                <input type="radio" name="genderId" value="16d45b5b-4213-404f-b7fa-c6383de1d709" checked>男</label>
-              <label class="radio-file">
-                <input type="radio" name="genderId" value="22b0ce87-3548-469a-b2f6-bc827f9a2bb4">女</label>
-            </li>
-            <li>
-              <input type="text" placeholder="您的手机号码" name="cellphone" id="cellphone">
-            </li>
-            <li class="flex-box selected-box">
-              <label>已选</label>
+            <li class="flex-box selected-box forms-inner">
               <div class="flex-item flex-box flex-wrap" id="selectedItems">
-                <p class="selected-item">车抵贷30-50万</p>
-                <p class="selected-item">保单贷30-50万</p>
-                <p class="selected-item">保单贷30-50万</p>
-                <p class="selected-item">保单贷30-50万</p>
-                <p class="selected-item">保单贷30-50万</p>
               </div>
             </li>
           </ul>
-          <ul class="form-list">
-            <li>
-              <input type="text" placeholder="推荐人" name="referrerName" id="referrerName">
+
+
+          <ul class="margin-top10px main-list">
+            <li class="forms-inner">
+              <i class="iconfont icon-yonghuming"></i><input class="winput" type="text" placeholder="您的姓名" name="name" id="name">
             </li>
-            <li>
-              <input type="text" placeholder="推荐人手机" name="referrerCellphone" id="referrerCellphone">
+            <li class="forms-inner">
+              <i class="iconfont icon-shoujihaoma"></i>
+              <input class="winput" type="text" placeholder="您的手机号码" name="cellphone" id="cellphone">
             </li>
-            <li>
-              <label id="agreeMentShow">
-                <input type="checkbox" name="agree" checked disabled><a class="protocol open-agreement" href="javascript:;">本人已阅读并同意《尊信电子金融服务协议》</a></label>
+            <li class="forms-inner">
+              <label class="radio-file">
+                <input type="radio" name="genderId" value="16d45b5b-4213-404f-b7fa-c6383de1d709" checked>先生</label>
+              <label class="radio-file">
+                <input type="radio" name="genderId" value="22b0ce87-3548-469a-b2f6-bc827f9a2bb4">女士</label>
             </li>
           </ul>
+
+          <ul class="margin-top10px">
+            <li class="forms-inner">
+              <input class="winput" type="text" placeholder="推荐人" name="referrerName" id="referrerName">
+            </li>
+            <li class="forms-inner">
+              <input class="winput" type="text" placeholder="推荐人手机" name="referrerCellphone" id="referrerCellphone">
+            </li>
+          </ul>
+
+          <p class="margin-top10px margin-left10px"><label id="agreeMentShow">
+                <input type="checkbox" name="agree" checked disabled><a class="protocol open-agreement" href="javascript:;">本人已阅读并同意《尊信电子金融服务协议》</a></label></p>
         </form>
-        <a href="javascript:;" class="button button-default" id="save" external>立即申请</a>
+        <p class="buttons-row align-bottom"><a href="javascript:;" class="button" id="back" external>返回</a><a href="javascript:;" class="button active" id="save"
+            external>提交申请</a></p>
+
       </div>
     </div>
   </div>
@@ -105,8 +127,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>八、本协议未尽事宜，依据国家相关法律规定及金融惯例办理。</p>
         <p>您点击勾选“本人已阅读并同意《尊信电子金融服务协议》”，明确表示您清楚知晓并理解、确认上述内容及法律责任，并同意遵守上述内容及约定。</p>
       </section>
-      <div class="btn-bottom">
-        <a href="javascript:;" class="button button-default close-popup">关闭</a>
+      <div class="buttons-row align-bottom">
+        <a href="javascript:;" class="button active close-popup">关闭</a>
       </div>
     </div>
   </div>

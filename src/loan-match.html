@@ -15,57 +15,270 @@
   <link rel="stylesheet" href="font/iconfont.css">
   <link rel="stylesheet" href="css/loan-search.css">
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KLDXXLZ');</script>
-<!-- End Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
+
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div class="page-group">
     <div class="page page-current">
+      <header class="bar flex-box">
+        <div class="cur flex-item"><i class="iconfont icon-pingguzizhi"></i>
+          <p>评估资质</p>
+        </div>
+        <div class="flex-item"><i class="iconfont icon-xuanzedaikuan"></i>
+          <p>选择贷款</p>
+        </div>
+        <div class="flex-item"><i class="iconfont icon-tijiaoshenqing1"></i>
+          <p>提交申请</p>
+        </div>
+        <div class="flex-item"><i class="iconfont icon-wancheng"></i>
+          <p>完成</p>
+        </div>
+      </header>
       <div class="content">
-        <form>
-          <div class="forms-list btn-lign-buttom">
-            <ul>
-              <li class="forms-inner">
-                <input class="winput" type="text" placeholder="贷款额度" name="amount" maxlength="13">
-                <span class="forms-unit">万</span>
-              </li>
-              <li class="forms-title">
-                <p>我的身份：</p>
-              </li>
-              <li class="forms-inner radio-group flex-wrap" id="identity">
-              </li>
-              <li class="forms-title">
-                <p>房产信息：</p>
-              </li>
-              <li class="forms-inner">
-                <ul class="inner-list" id="estate"></ul>
-              </li>
-              <li class="forms-title">
-                <p>保单信息：</p>
-              </li>
-              <li class="forms-inner radio-group flex-wrap" id="insurance">
-              </li>
-              <li class="forms-title">
-                <p>购车情况：</p>
-              </li>
-              <li class="forms-inner">
-                <ul class="inner-list" id="aboutCar"></ul>
-              </li>
-            </ul>
-          </div>
-          <p class="buttons-row align-bottom"><a href="javascript:;" class="button" id="reset">重置</a><a href="javascript:;" class="button active" id="search">搜索</a></p>
-        </form>
+        <div class="forms-list btn-lign-buttom">
+          <ul>
+            <li class="forms-inner" data-popup="amount">
+              <label>申请额度<span class="require">*</span></label>
+              <p>
+                <span id="amount">请选择</span>
+                <i class="iconfont icon-xiangyou"></i>
+              </p>
+            </li>
+            <li class="forms-inner"  data-popup="crowdId">
+              <label>我的职业</label>
+              <p>
+                <span id="crowdId">请选择</span>
+                <i class="iconfont icon-xiangyou"></i>
+              </p>
+            </li>
+            <li class="none animate">
+              <ul>
+                <li class="forms-inner"  data-popup="hasSocialInsurance">
+                  <label>深圳社保</label>
+                  <p>
+                    <span id="hasSocialInsurance">请选择</span>
+                    <i class="iconfont icon-xiangyou"></i>
+                  </p>
+                </li>
+                <li class="forms-inner"  data-popup="hasHouseFund">
+                  <label>深圳公积金</label>
+                  <p>
+                    <span id="hasHouseFund">请选择</span>
+                    <i class="iconfont icon-xiangyou"></i>
+                  </p>
+                </li>
+                <li class="forms-inner"  data-popup="salaryTypeIds">
+                  <label>工资发放形式</label>
+                  <p>
+                    <span id="salaryTypeIds">请选择</span>
+                    <i class="iconfont icon-xiangyou"></i>
+                  </p>
+                </li>
+              </ul>
+            </li>
+            <li class="forms-inner"  data-popup="houseRequirementIds">
+              <label>有无房产</label>
+              <p>
+                <span id="houseRequirementIds">请选择</span>
+                <i class="iconfont icon-xiangyou"></i>
+              </p>
+            </li>
+            <li class="forms-inner"  data-popup="hasOrderRequirement">
+              <label>商业保险</label>
+              <p>
+                <span id="hasOrderRequirement">请选择</span>
+                <i class="iconfont icon-xiangyou"></i>
+              </p>
+            </li>
+            <li class="forms-inner"  data-popup="carRequirementIds">
+              <label>是否购车</label>
+              <p>
+                <span id="carRequirementIds">请选择</span>
+                <i class="iconfont icon-xiangyou"></i>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p class="buttons-row align-bottom"><a href="javascript:;" class="button active" id="search" external>立即评估</a></p>
       </div>
     </div>
+  </div>
+
+  <!-- 申请额度 Popup -->
+  <div class="popup popup-match">
+    <div data-popup="amount">
+      <p class="forms-title">申请额度</p>
+      <div class="forms-list">
+        <ul class="inner-list">
+          <li class="forms-inner" data-minLoanAmount="" data-maxLoanAmount="100000"  data-val="1">
+            &lt;10万（含）
+          </li>
+          <li class="forms-inner" data-minLoanAmount="100000" data-maxLoanAmount="300000" data-val="2">
+            10-30万（含）
+          </li>
+          <li class="forms-inner" data-minLoanAmount="300000" data-maxLoanAmount="500000" data-val="3">
+            30-50万（含）
+          </li>
+          <li class="forms-inner" data-minLoanAmount="500000" data-maxLoanAmount="1000000" data-val="4">
+            50-100万（含）
+          </li>
+          <li class="forms-inner bottom-border" data-minLoanAmount="1000000" data-maxLoanAmount="" data-val="5">
+            &gt;100万
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-popup="crowdId">
+      <p class="forms-title">我的职业</p>
+      <div class="forms-list">
+        <ul class="inner-list">
+          <li class="forms-inner" data-val="-1">
+            不限
+          </li>
+          <li class="forms-inner" data-val="28bdd5f3-8a01-4329-9558-949f83dadec7">
+            上班族
+          </li>
+          <li class="forms-inner bottom-border" data-val="9641e70d-504b-4607-a4c8-d329580d384c">
+            企业主/个体户
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-popup="hasSocialInsurance">
+      <p class="forms-title">深圳社保</p>
+      <div class="forms-list">
+        <ul class="inner-list">
+          <li class="forms-inner" data-val="-1">
+            不限
+          </li>
+          <li class="forms-inner" data-val="">
+            是，我深圳有社保
+          </li>
+          <li class="forms-inner bottom-border" data-val="NONE">
+            否，我没有深圳社保
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-popup="hasHouseFund">
+      <p class="forms-title">深圳公积金</p>
+      <div class="forms-list">
+        <ul class="inner-list">
+          <li class="forms-inner" data-val="-1">
+            不限
+          </li>
+          <li class="forms-inner" data-val="">
+            是，我深圳有公积金
+          </li>
+          <li class="forms-inner bottom-border" data-val="NONE">
+            否，没有深圳公积金
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-popup="salaryTypeIds">
+      <p class="forms-title">工资发放形式</p>
+      <div class="forms-list">
+        <ul class="inner-list">
+          <li class="forms-inner" data-val="-1">
+            不限
+          </li>
+          <li class="forms-inner" data-val="55D4240F119D3C05E055000000000001">
+            银行代发
+          </li>
+          <li class="forms-inner" data-val="55D4240F119E3C05E055000000000001">
+            现金转账
+          </li>
+          <li class="forms-inner bottom-border" data-val="">
+           部分代发，部分转账
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-popup="houseRequirementIds">
+      <p class="forms-title">有无房产（任何房产类型均可）</p>
+      <div class="forms-list">
+        <ul class="inner-list">
+          <li class="forms-inner" data-val="-1">
+            不限
+          </li>
+          <li class="forms-inner" data-val="a90e7e24-5ef3-44c4-bce2-76d569585b2f,d86b2b04-7e3f-403d-b654-477d5f131673">
+            深圳有房
+          </li>
+          <li class="forms-inner" data-val="332b32e2-25b5-4ca9-b3df-66eeb435f935,2e438801-a665-403c-8a70-6a4c32093e03">
+            外地有房
+          </li>
+          <li class="forms-inner" data-val="">
+            深圳和外地都有房
+          </li>
+          <li class="forms-inner bottom-border" data-val="NONE">
+            我没有房
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-popup="hasOrderRequirement">
+      <p class="forms-title">商业保险</p>
+      <div class="forms-list">
+        <ul class="inner-list">
+          <li class="forms-inner" data-val="-1">
+            不限
+          </li>
+          <li class="forms-inner" data-val="">
+            是，我买了商业保险
+          </li>
+          <li class="forms-inner bottom-border" data-val="NONE">
+            否，没买商业保险
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-popup="carRequirementIds">
+      <p class="forms-title">车辆信息</p>
+      <div class="forms-list">
+        <ul class="inner-list">
+          <li class="forms-inner" data-val="-1">
+            不限
+          </li>
+          <li class="forms-inner" data-val="30e41767-c873-4994-862d-1e5863f7cf8e">
+            有车，已结清车贷
+          </li>
+          <li class="forms-inner" data-val="60cbcb89-3e14-4185-9bf9-fd828e6e6f78">
+            有车，还在按揭中
+          </li>
+          <li class="forms-inner" data-val="">
+            有按揭车，也有已结清的车
+          </li>
+          <li class="forms-inner bottom-border" data-val="NONE">
+            否，我没有车
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <!--build:js js/common.min.js -->
   <script src="js/zepto.js"></script>
   <script src="js/sm.js"></script>

@@ -1,5 +1,6 @@
 $(function () {
   var intentionProductIds = [];
+  var remark = "客来自匹配器，申请提交条件为：" + sessionStorage.getItem('loanremark');
   var defaultInfos = {
     sourceCode: 'SYS_SOURCE_0008',
     referrerCode: 'SYS_REFERRER_TYPE_0001'
@@ -24,7 +25,7 @@ $(function () {
       }
       $selectedItems.html(_html);
     } else {
-      $selectedItems.parent().hide();
+      $selectedItems.closest('ul').hide();
     }
 
   }
@@ -44,10 +45,10 @@ $(function () {
   }
 
   function extraVal() {
-      var str = '&intentionProductIds='+ intentionProductIds.join(',') +'&sourceCode=' + defaultInfos.sourceCode;
+    var str = '&intentionProductIds=' + intentionProductIds.join(',') + '&sourceCode=' + defaultInfos.sourceCode + '&remark=' + remark;
     if (!$.trim($('#referrerCellphone').val()) && !$.trim($('#referrerName').val())) {
       return str;
-    } 
+    }
     return str + '&referrerCode=' + defaultInfos.referrerCode;
   }
 
@@ -57,9 +58,14 @@ $(function () {
     $.popup('.popup-agreement');
   });
 
+  // 返回
+  $('#back').on('click', function () {
+    history.back();
+  });
+
   $('#save').on('click', function () {
     if (vaiForm()) {
-    //   console.log($('form').serialize() + extraVal());
+      //   console.log($('form').serialize() + extraVal());
       $.showPreloader('正在提交申请……')
       $.ajax({
         url: '/qfang-credit/bill/ct/fastArchiving.json',
@@ -68,9 +74,10 @@ $(function () {
       }).done(function (res) {
         // console.log(res);
         $.hidePreloader();
-        $('.success').show();
-        $('.success').siblings().hide();
+        sessionStorage.setItem('loanresult',JSON.stringify(res.data));
+        location = 'loan-result.html';
       });
+      //  location = 'loan-result.html';
     }
   });
 });

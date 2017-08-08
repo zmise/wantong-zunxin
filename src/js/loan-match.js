@@ -1,64 +1,119 @@
 $(function () {
-  // 我的身份
-  $.ajax({
-    url: '/qfang-credit/product/ct/searchCrowds.json',
-    dataType: 'json'
-  }).done(function (res) {
-    if (res.status !== 0 || res.data.length === 0) {
-      return;
+  function init() {
+    var items = $('span[id]:visible');
+    for (var i = 0, len = items.length; i < len; i++) {
+      var ids = items[i].id;
+      var val = JSON.parse(sessionStorage.getItem(ids + 'loanSearch'));
+      if (!val) {
+        continue;
+      }
+
+      $('[data-popup="' + ids + '"]').find('[data-val="' + val['val'] + '"]').trigger('click', 'reload');
+      if (ids === 'crowdId') {
+        items = $('span[id]:visible');
+        len = items.length;
+      }
     }
-    searchTool.renderRadio({
-      container: '#identity',
-      name: 'crowdId',
-      data: res.data,
-      valueFiled:'id',
-      nameFiled:'name',
-      perLineNumber: 2
-    });
-  });
+  }
 
-  // 保单情况
-  searchTool.renderRadio({
-    container: '#insurance',
-    name: 'orderRequirementId',
-    data: searchTool.searchDatas.insurance,
-    perLineNumber: 2
-  });
+  function showCrowd(opt) {
+    var $animate = $(opt.container);
+    var className = opt.animateClass || 'an-top2bottom';
+    if (opt.show) {
+      $animate.show();
+      setTimeout(function () {
+        $animate.addClass(className);
+      }, 0);
+    } else {
+      $animate.removeClass(className);
+      setTimeout(function () {
+        $animate.hide();
+      }, 400);
+    }
+  }
 
-  // 购车情况
-  searchTool.renderCheckboxLine({
-    container: '#aboutCar',
-    name: 'carRequirementIds',
-    data: searchTool.searchDatas.aboutCar,
-    perLineNumber: 2
-  });
 
-  // 房产信息
-  searchTool.renderCheckboxLine({
-    container: '#estate',
-    name: 'houseRequirementIds',
-    data: searchTool.searchDatas.estate
-  });
-
-  // 复选框互斥
-  searchTool.singleMCheckBoxLine({
-    singleValue:'NONE'
-  });
-
-  $('.winput').on('input',function(){
+  $('.popup').on('click', '.forms-inner', function (e, data) {
     var $this = $(this);
-    $this.val($this.val().replace(/[^\d]/g,''));
+    var $parent = $this.closest('.forms-list');
+    var ids = $parent.parent().data('popup');
+    var tempdata;
+    $parent.find('.selected').removeClass('selected');
+    $this.addClass('selected');
+    $('#' + ids).text($this.text());
+    $.closeModal();
+
+    if (ids === 'crowdId') {
+      showCrowd({
+        container: $('#' + ids).closest('li').next(),
+        show: $this.data('val') === '28bdd5f3-8a01-4329-9558-949f83dadec7'
+      });
+
+    }
+
+    if (sessionStorage && data !== 'reload') {
+      tempdata = $this.data();
+      tempdata.name = $('#' + ids).parent().prev().text().replace(/[*]/g, '');
+      tempdata.option = $.trim($this.text());
+      // if (!$this.data('val')) {
+      // sessionStorage.removeItem(ids + 'loanSearch');
+      // return;
+      // }
+      sessionStorage.setItem(ids + 'loanSearch', JSON.stringify(tempdata));
+    }
   });
 
-  // 重置
-  $('#reset').on('click', function (e) {
-    $('form')[0].reset();
+  $('.content').on('click', '.forms-inner', function (e) {
+    var ids = $(this).data('popup');
+    $.popup('.popup');
+    $('.popup').find('[data-popup="' + ids + '"]').show().siblings().hide();
   });
-  
+
+  $(document).on('click', '.popup-overlay', function (e) {
+    $.closeModal();
+  });
+
   // 搜索
   $('#search').on('click', function (e) {
-    window.location = 'loan-search.html?' + $('form').serialize();
+    var items = $('span[id]:visible');
+    var search = [];
+    var remarkIndex = 1;
+    var loanremark = '';
+    for (var i = 0, len = items.length; i < len; i++) {
+      var ids = items[i].id;
+      var val = JSON.parse(sessionStorage.getItem(ids + 'loanSearch'));
+      var value;
+      if (!val) {
+
+        // 额度 必填
+        if (ids === 'amount') {
+          $.toast("客官，选一下申请额度吧");
+          return;
+        }
+
+        continue;
+      }
+
+      value = val['val'];
+
+      // 额度 特殊处理
+      if (ids === 'amount') {
+        search.push('minLoanAmount=' + val['minloanamount']);
+        search.push('maxLoanAmount=' + val['maxloanamount']);
+
+        loanremark += remarkIndex + '.申请额度：' + val['option'] + '；';
+        remarkIndex++;
+      } else if (value != -1) {
+        search.push(ids + '=' + value);
+        loanremark += remarkIndex + '.' + val['name'] + '：' + val['option'] + '；';
+        remarkIndex++;
+      }
+
+    }
+    sessionStorage.setItem('loanremark',loanremark);
+    // return;
+    window.location = 'loan-search.html?' + search.join('&');
   });
 
-$.init();
+  init();
 });
