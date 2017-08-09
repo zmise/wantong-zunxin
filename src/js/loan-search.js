@@ -35,7 +35,7 @@ $(function () {
 
     // 
     $('#back,#restart').on('click', function () {
-      history.back();
+      location = 'loan-match.html';
     });
 
     // $('#resultList').on('change.checkbox', 'input[type="checkbox"]', disBtn);

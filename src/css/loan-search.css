@@ -555,7 +555,8 @@ p {
 }
 
 .own-modal-inner {
-  overflow-y: auto;
+   overflow: auto; 
+   -webkit-overflow-scrolling: touch;
 }
 
 .own-modal .buttons-row .button {
