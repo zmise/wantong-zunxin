@@ -35,7 +35,7 @@ $(function () {
   }
 
 
-  $('.popup').on('click', '.forms-inner', function (e, data) {
+  $(document).on('click.select', '.popup .forms-inner', function (e, data) {
     var $this = $(this);
     var $parent = $this.closest('.forms-list');
     var ids = $parent.parent().data('popup');
@@ -65,19 +65,19 @@ $(function () {
     }
   });
 
-  $('.content').on('click', '.forms-inner', function (e) {
+  $(document).on('click.popup', '.content .forms-inner', function (e) {
     var ids = $(this).data('popup');
     $.popup('.popup');
     $('.popup').find('[data-popup="' + ids + '"]').show().siblings().hide();
   });
 
-  $(document).on('click', '.popup-overlay', function (e) {
+  $(document).on('click.closepopup', '.popup-overlay', function (e) {
     $.closeModal();
     $('.popup-overlay').removeClass('modal-overlay-visible');
   });
 
   // 搜索
-  $('#search').on('click', function (e) {
+  $(document).on('click.search', '#search',function (e) {
     var items = $('span[id]:visible');
     var search = [];
     var remarkIndex = 1;

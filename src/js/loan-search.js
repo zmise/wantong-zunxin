@@ -6,14 +6,14 @@ $(function () {
   function initEvent() {
 
     // 查看信息
-    $('.result-list').on('click', '.link-btn', function () {
+    $(document).on('click.view', '.result-list .link-btn', function () {
       $.showPreloader();
       linkModel($(this).data('id'));
     });
 
 
     // 办理贷款
-    $('#apply,#applyNow').on('click', function (e) {
+    $(document).on('click.apply', '#apply,#applyNow', function (e) {
       if ($(this).hasClass('disabled')) {
         return false;
       }
@@ -34,7 +34,7 @@ $(function () {
     });
 
     // 
-    $('#back,#restart').on('click', function () {
+    $(document).on('click.back','#back,#restart', function () {
       location = 'loan-match.html';
     });
 

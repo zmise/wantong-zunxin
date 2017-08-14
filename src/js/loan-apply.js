@@ -54,16 +54,16 @@ $(function () {
 
   initDefault();
 
-  $('.open-agreement').on('click', function () {
+  $(document).on('click.agreement','.open-agreement', function () {
     $.popup('.popup-agreement');
   });
 
   // 返回
-  $('#back').on('click', function () {
+  $(document).on('click.back','#back', function () {
     history.back();
   });
 
-  $('#save').on('click', function () {
+  $(document).on('click.save','#save', function () {
     if (vaiForm()) {
       //   console.log($('form').serialize() + extraVal());
       $.showPreloader('正在提交申请……')
