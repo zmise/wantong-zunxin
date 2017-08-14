@@ -73,6 +73,7 @@ $(function () {
 
   $(document).on('click', '.popup-overlay', function (e) {
     $.closeModal();
+    $('.popup-overlay').removeClass('modal-overlay-visible');
   });
 
   // 搜索
@@ -113,6 +114,8 @@ $(function () {
 
     }
     sessionStorage.setItem('loanremark',loanremark);
+
+    searchTool.clearHistory(sessionStorage.getItem('token') + 'loanProductIds');
     // return;
     window.location = 'loan-search.html?' + search.join('&');
   });

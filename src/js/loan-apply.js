@@ -75,6 +75,7 @@ $(function () {
         // console.log(res);
         $.hidePreloader();
         sessionStorage.setItem('loanresult',JSON.stringify(res.data));
+        searchTool.clearHistory(sessionStorage.getItem('token') + 'loanProductIds');
         location = 'loan-result.html';
       });
       //  location = 'loan-result.html';

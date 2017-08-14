@@ -12,6 +12,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../font/iconfont.css">
   <link rel="stylesheet" href="../css/detail.css">
   <style>
   .list-block {
@@ -32,6 +33,10 @@
 
   .content-block.mandatory-btn {
     margin: 1rem 0;
+  }
+  .item-inner .iconfont{
+    position: absolute;
+    right: 0;
   }
   </style>
 </head>
@@ -57,6 +62,7 @@
                         <option value="2">分栋</option>
                       </select>
                     </div>
+                    <i class="iconfont icon-xiangyou"></i>
                   </div>
                 </div>
               </li>
@@ -70,15 +76,16 @@
                         <option value="2">不动产权证书</option>
                       </select>
                     </div>
+                    <i class="iconfont icon-xiangyou"></i>
                   </div>
                 </div>
               </li>
               <li id="yearCont" class="dn">
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label" for="year">请输入年份:</label>
+                    <label class="item-title short-label label" for="year">年份:</label>
                     <div class="item-input">
-                      <input type="text" name="year" id="year" class="required" placeholder="请输入">
+                      <input type="text" name="year" id="year" class="required" placeholder="产权证书年份，如“2016”">
                     </div>
                   </div>
                 </div>
@@ -86,7 +93,7 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title label short-label" for="certNo">房产证号:</label>
+                    <label class="item-title label short-label" for="certNo">产权证号:</label>
                     <div class="item-input">
                       <input type="text" id="certNo" name="certNo" class="required" placeholder="请输入">
                     </div>
@@ -96,7 +103,7 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label" for="personInfo">身份证号/权利人:</label>
+                    <label class="item-title short-label label" for="personInfo">身份证号:</label>
                     <div class="item-input">
                       <input type="text" id="personInfo" name="personInfo" class="required" placeholder="请输入">
                     </div>
