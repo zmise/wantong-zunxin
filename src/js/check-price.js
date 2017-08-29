@@ -4,6 +4,7 @@ function sendData(opt) {
   var searchStr = '';
   console.log(opt);
   opt.data.queryType = '1';
+  $.showPreloader('正在查询');
 
   // 查档
   $.ajax({
@@ -15,7 +16,6 @@ function sendData(opt) {
     async: false,
     beforeSend: function () {
       opt.el.prop('disabled', true);
-      $.showPreloader('正在查询');
     },
     success: function (data) {
       if (data.code === 'ok') {

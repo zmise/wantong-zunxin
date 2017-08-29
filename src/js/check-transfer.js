@@ -43,7 +43,7 @@ $(function () {
   // 地址带参数
   vTools.setDeafaultForm();
 
-  $('#codesBtn').on('click', function () {
+  $('#codeImg,#codesBtn').on('click', function () {
     $('#codeImg').attr('src', '/trade-util/house/price/verify.pic?' + Math.random() + '');
   });
 
