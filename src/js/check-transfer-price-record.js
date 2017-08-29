@@ -1,14 +1,9 @@
 $(function () {
+
   var $consultList = $('#consultList');
   var loading = false;
   var pageCount = 1;
   var pageIndex = 1;
-
-  // 点击列表进入详情，详情表现与查询结果一致
-  $('#consultList').on('click', '.list-block', function () {
-    location.href = './consult-files-result.html?id=' + $(this).data('id');
-    return false;
-  });
 
   function addItems(params) {
     var html = '';
@@ -17,7 +12,7 @@ $(function () {
     }, params);
 
     $.ajax({
-      url: '/trade-util/data/houseInfo/listData.json',
+      url: '/trade-util/data/price/listData.json',
       data: data,
       beforeSend: function () {
         if (!$('.infinite-scroll-preloader').find('.preloader').length) {
@@ -31,7 +26,7 @@ $(function () {
         if (data.code == 'ok') {
           var items = data.data.list;
           if (!items.length) {
-            $consultList.html('<div class="no-data">暂无数据</div>');
+            $consultList.parent().append('<div class="no-data">暂无数据</div>');
             $('.infinite-scroll-preloader').empty();
             return;
           }
@@ -46,12 +41,10 @@ $(function () {
             var tempHTML = $('#tempHTML .list-block').clone();
             // console.log(tempHTML, v);
             tempHTML.attr('data-id', v.id);
-            if (!v.status) {
-              tempHTML.find('.result-title').text('没有找到匹配的房产记录');
-            }
+            tempHTML.attr('data-type', v.type);
 
-            var list = tempHTML.find('.item-content [data-id]');
-            tempHTML.find('.item-content [data-id]').each(function () {
+            // var list = tempHTML.find('[data-id]');
+            tempHTML.find('[data-id]').each(function () {
               var $this = $(this);
               var key = $this.data('id');
               var element = v[key];
@@ -59,7 +52,8 @@ $(function () {
                 if (typeof element === 'number') {
                   element = vTools.formatNumber(element);
                 }
-                if (key === 'certNo') {
+                
+                if (key === 'certCode') {
                   var $temp = $this.prev();
                   if (v['certType'] === '2') {
                     element = '粤' + v['year'] + '不动产权第' + element + '号';
@@ -67,8 +61,10 @@ $(function () {
                   } else {
                     $temp.text('房产证号');
                   }
-                } else if (key === 'queryType') {
-                  element = element > 1 ? '分栋' : '分户';
+                } else if (key === 'amount') {
+                  $this.parent().prev().text(v.type === '1' ? '过户价' : '税费');
+                } else if (key === 'idno' || key === 'ownerName') {
+                  $this.closest('li').removeClass('dn');
                 }
                 $this.text(element);
               }
@@ -106,6 +102,16 @@ $(function () {
       $.refreshScroller();
     }, 1000);
   });
+
+  // 点击列表进入详情，详情表现与查询结果一致
+  $('#consultList').on('click', '.list-block', function () {
+    var $this = $(this);
+    var type = $this.data('type');
+    var key = (type === 1 ? 'transfer' : 'price');
+    location.href = './check-' + key + '-result.html?id=' + $this.data('id');
+    return false;
+  });
+
 
   $.init();
 });

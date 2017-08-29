@@ -13,138 +13,123 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="../css/sm.css">
   <link rel="stylesheet" href="../css/detail.css">
-  <style>
-  .list-block {
-    margin-top: 1rem;
-  }
+  <link rel="stylesheet" href="../css/consult-files.css">
 
-  .list-block .item-title.short-label {
-    width: 40%;
-  }
-
-  .row .col-80 {
-    margin-left: 13%;
-  }
-
-  .content-block {
-    margin-top: 3.3rem;
-  }
-
-  .content-block.mandatory-btn {
-    margin: 1.3rem 0;
-  }
-
-  .popup-list .item-title.short-label {
-    width: 25%;
-  }
-
-  .popup-list .item-title.short-label.long {
-    width: 70%;
-  }
-
-  .content-block-title {
-    color: #6d6d72;
-    padding: 0.5rem 0 0.8rem 0.4rem;
-  }
-
-  .subtitle.content-block-title {
-    color: #999;
-    font-weight: normal;
-    margin-top: -0.5rem;
-  }
-
-  .consult-time {
-    margin-top: 1rem;
-  }
-
-  .list-block ul.house-detail:after {
-    background: #fff;
-  }
-
-  .tips {
-    padding: 0 0.5rem;
-    color: #FF001E;
-  }
-
-  .result-numb {
-    background-color: red;
-    border: 1px solid red;
-    border-radius: 50%;
-    width: 1.3rem;
-    height: 1.3rem;
-    display: inline-block;
-    line-height: 1.3rem;
-    text-align: center;
-    color: #fff;
-    margin-right: 0.4rem;
-  }
-
-  .no-result {
-    margin-left: 0.5rem;
-  }
-
-  .button-success {
-    width: 100%;
-  }
-
-  .button-success:disabled {
-    background: #ccc;
-  }
-
-  .search-tips {
-    margin-left: 10%;
-    color: #999;
-  }
-
-  </style>
 </head>
 
 <body>
   <div class="page page-current">
     <div class="buttons-tab">
-      <a href="./consult-files.html" class="external button">立即查档</a>
+      <a href="./consult-files.html" class="external active button">立即查档</a>
       <a href="./consult-files-record.html" class="external button">查档记录</a>
     </div>
     <div class="content">
-      <div class="content-block">
-        <div class="list-block popup-list">
+      <div class="content-block result-list">
+        <div class="list-block">
           <ul>
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <label class="item-title short-label label" for="certType">查档方式:</label>
-                  <div class="item-input" id="certType"></div>
+                  <p class="result-title">权利人在<span data-id="address"></span>有房产，产权状态为：<span class="result" data-id="status"></span></p>
                 </div>
               </div>
             </li>
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <label class="item-title short-label label" for="certNo">房产证号:</label>
-                  <div class="item-input" id="certNo"></div>
+                  <div class="item-title">抵押权人</div>
+                  <div class="item-after" data-id="mortgagePerson"></div>
                 </div>
               </div>
             </li>
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <label class="item-title short-label label" for="personInfo">权利人:</label>
-                  <div class="item-input" id="personInfo"></div>
+                  <div class="item-title">抵押日期</div>
+                  <div class="item-after" data-id="mortgageDate"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">类别</div>
+                  <div class="item-after" data-id="houseType"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">面积</div>
+                  <div class="item-after" data-id="area"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">登记价</div>
+                  <div class="item-after" data-id="registerPrice"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">竣工时间</div>
+                  <div class="item-after" data-id="finishDate"></div>
                 </div>
               </div>
             </li>
           </ul>
         </div>
-        <div class="content-block mandatory-btn">
-          <div class="row">
-            <div class="col-80">
-              <button class="button button-big button-fill button-success" id="againSearch">再次查询</button>
-            </div>
-          </div>
-          <p class="search-tips">间隔一小时可查询一次</p>
+        <div class="list-block">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">查档方式</div>
+                  <div class="item-after" data-id="queryType"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">房产证号</div>
+                  <div class="item-after" data-id="certNo"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">身份证号/姓名</div>
+                  <div class="item-after" data-id="personInfo"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">查档时间</div>
+                  <div class="item-after" data-id="createTime"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div id="resultContent"></div>
-        <p class="tips">此结果来自深圳市房地产信息中心</p>
+        <p class="infos-tips">来自深圳市房产信息系统，最终结果以实际办理为准</p>
+        <div class="content-block mandatory-btn">
+          <a href="javascript:;" class="button button-big button-fill button-success" id="research">再次查询</a>
+        </div>
+        <div class="content-block mandatory-btn">
+          <a href="javascript:;" class="button button-big button-fill button-success" id="transfer">查过户价</a>
+        </div>
+        <div class="content-block mandatory-btn">
+          <a href="javascript:;" class="button button-big button-fill button-success" id="price">查税费</a>
+        </div>
       </div>
     </div>
   </div>
@@ -153,6 +138,7 @@
   <script src="js/sm.js"></script>
   <script src="js/common.js"></script>
   <!-- endbuild -->
+  <script src="js/vTool-2.4.3.js"></script>
   <script src="../js/consult-files-result.js"></script>
 </body>
 

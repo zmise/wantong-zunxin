@@ -1,0 +1,339 @@
+/* 
+  20170823
+  信贷V2.4.3(尊信公众号小工具优化)
+  粟靖文
+*/
+
+.page {
+  background-color: #f6f6f6;
+}
+
+.list-block .item-inner {
+  min-height: 2.75rem;
+}
+
+.list-block .item-title.short-label {
+  width: 40%;
+  color: #3a3a3a;
+}
+
+.content-block {
+  margin-top: 3rem;
+}
+
+.content-block.mandatory-btn {
+  margin: 1rem 0;
+}
+
+.content-block.mandatory-btn .button-big {
+  border-radius: 0;
+  font-weight: normal;
+}
+
+.mandatory-btn .button-fill.button-success {
+  background-color: #f8b500;
+}
+
+.mandatory-btn .button-fill.button-default {
+  color: #3a3a3a;
+  background-color: #ebebeb;
+}
+
+
+/* Tab  */
+
+.buttons-tab .button.active {
+  color: #3a3a3a;
+  border-color: #f8b500;
+}
+
+
+/* 输入框右对齐 */
+
+.list-block .item-input input {
+  text-align: right;
+}
+
+
+/* 单选 */
+
+.item-radio-box {
+  position: relative;
+  font-size: 0;
+}
+
+.item-radio-box input[type='radio'] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.item-radio-box input:checked {
+  background-color: red;
+}
+
+.item-radio-box input:checked+.item-radio {
+  color: #fff;
+  background-color: #00b4ed;
+}
+
+.item-radio {
+  position: relative;
+  display: inline-block;
+  padding: 0 .75rem;
+  font-size: .8rem;
+  line-height: 1.6rem;
+  border: 1px solid #00b4ed;
+}
+
+.item-radio:not(:last-child) {
+  border-right-width: 0;
+}
+
+
+/* 选择年份  */
+
+.list-block .item2 {
+  padding-left: .5rem;
+  color: #3a3a3a;
+}
+
+.list-block .item2 .item-year-select {
+  width: 4rem;
+  height: 2rem;
+  padding-left: .3rem;
+  padding-right: .7rem;
+  border: 1px solid #ebebeb;
+}
+
+.item2 .item-year-box {
+  position: relative;
+}
+
+.item2 .item-year-box .icon-sanjiao {
+  position: absolute;
+  right: .15rem;
+  top: 50%;
+  margin-top: -.45rem;
+  font-size: .6rem;
+}
+
+.item2 .item-year-box~.item-input {
+  width: 6.5rem;
+  border-bottom: 1px solid #ebebeb;
+}
+
+
+/* 结果列表 */
+
+.result-title {
+  margin: 0;
+  padding-left: .75rem;
+  font-weight: bold;
+  line-height: 2.1rem;
+}
+
+.result-title .result,
+.ct-record .result {
+  color: #f8b500;
+}
+
+.result-list .list-block .item-title {
+  padding-left: .75rem;
+  min-width: 4rem;
+  color: #a8a8a8;
+}
+
+.ct-record li:nth-of-type(1) .item-title {
+  font-weight: bold;
+  color: #3a3a3a;
+}
+
+.result-list .list-block .item-after {
+  max-height: 2.8rem;
+  white-space: normal;
+  max-width: calc(100% - 5rem);
+  flex-wrap: wrap;
+  color: #3a3a3a;
+}
+
+.result-list .list-block {
+  font-size: .8rem;
+  color: #3a3a3a;
+}
+
+.result-list .infos-tips {
+  padding-left: .75rem;
+  font-size: .6rem;
+  color: #a8a8a8;
+}
+
+.result-list .mandatory-btn {
+  margin: .5rem 0;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+
+/* 查过户价 */
+
+.codes-btn {
+  display: inline-block;
+  width: 40%;
+  text-align: center;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  vertical-align: bottom;
+}
+
+.codes-img {
+  display: inline-block;
+  width: 50%;
+}
+
+
+/* 查询税费 */
+
+.steps-box {
+  display: -webkit-flex;
+  display: flex;
+  background-color: #ebebeb;
+}
+
+.steps-box .step {
+  position: relative;
+  margin: 0;
+  flex: 1;
+  font-size: .7rem;
+  line-height: 2.2rem;
+  text-align: center;
+  color: #3a3a3a;
+  text-overflow: hidden;
+}
+
+.steps-box .step:nth-child(n+2):before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1.1rem;
+  border: 1.1rem solid #ebebeb;
+  border-right: none;
+  border-left-color: transparent;
+}
+
+.steps-box .step.active {
+  color: #fff;
+  background-color: #00b4ed;
+}
+
+.steps-box .step.active:before {
+  border-top-color: #00b4ed;
+  border-bottom-color: #00b4ed;
+}
+
+
+/* 页面表单提示 */
+
+.step-tips {
+  display: none;
+  padding-top: .35rem;
+  padding-bottom: .35rem;
+  padding-left: .5rem;
+  font-size: .6rem;
+  line-height: .8rem;
+  color: #e72420;
+  background-color: #f5e7e7;
+}
+
+
+/* 提示问号 */
+
+.icon-question {
+  margin-left: .1rem;
+  color: #00b4ed;
+  font-size: .7rem;
+}
+
+
+/* 提示弹窗  */
+
+.icon-tips.modal {
+  width: auto;
+  left: 1.5rem;
+  right: 1.5rem;
+  margin-left: 0;
+  text-align: left;
+}
+
+.icon-tips.modal,
+.icon-tips .modal-inner,
+.icon-tips .modal-buttons .modal-button {
+  border-radius: 0;
+}
+
+.icon-tips .modal-inner {
+  color: #3a3a3a;
+  background-color: #fff;
+}
+
+.icon-tips .modal-text {
+  font-size: .8rem;
+}
+
+.icon-tips .modal-button {
+  color: #fff;
+  background-color: #00b4ed;
+}
+
+.tips-table {
+  line-height: 1.6rem;
+  border: 1px solid #e7e8ea;
+}
+
+.tips-table .col-50 {
+  padding-left: .75rem;
+  border-right: 1px solid #e7e8ea;
+  border-bottom: 1px solid #e7e8ea;
+}
+
+.tips-table .row:last-child .col-50 {
+  border-bottom: none;
+}
+
+.tips-table .col-50:last-child {
+  border-right: none;
+}
+
+
+/* 税费结果 */
+
+.price-result {
+  text-align: center;
+  background-color: #fff;
+}
+
+.price-result .row:first-child>div {
+  padding: .5rem 0;
+  line-height: 1.2rem;
+  background-color: #ebebeb;
+}
+
+.price-result .row:nth-child(n+2)>div {
+  padding: 1rem 0;
+  height: 3.4rem;
+  line-height: 1.4rem;
+  border-bottom: 1px solid #e7e8ea;
+}
+
+.price-result .row:nth-child(n+2) .col-20 {
+  color: #a8a8a8;
+}
+
+.price-result .row:last-child>div {
+  border-bottom: none;
+}
+
+.price-result .row>div:nth-child(-n+2) {
+  border-right: 1px solid #e7e8ea;
+}

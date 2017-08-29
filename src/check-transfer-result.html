@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>查询过户价</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../font/iconfont.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <link rel="stylesheet" href="../css/consult-files.css">
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="./check-transfer.html" class="active button external">查过户价</a>
+      <a href="./check-price.html" class="button external">税费</a>
+      <a href="./check-transfer-price-record.html" class="button external">记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block result-list">
+        <div class="list-block">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title" data-tips="
+                  房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">房产登记价<i class="iconfont icon-question"></i></div>
+                  <div class="item-after"><span class="font-bold" data-id="registerPrice"></span>元</div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">面积</div>
+                  <div class="item-after"><span data-id="area"></span>㎡</div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title" data-tips="为国土局对本房产评估单价，与房产实际成交价无关">评估单价<i class="iconfont icon-question"></i></div>
+                  <div class="item-after"><span class="font-bold" data-id="unitPrice"></span>元/㎡</div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title" data-tips="
+                  过户价 为评估单价 × 建筑面积的结果，与房产实际成交价无关">国土过户价<i class="iconfont icon-question"></i></div>
+                  <div class="item-after"><span class="font-bold" data-id="price"></span>元</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p class="infos-tips">来自深圳市房产信息系统，最终结果以实际办理为准</p>
+        <div class="list-block">
+          <ul>
+            <li class="dn">
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">身份证号</div>
+                  <div class="item-after" data-id="idno"></div>
+                </div>
+              </div>
+            </li>
+            <li class="dn">
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">单位名称</div>
+                  <div class="item-after" data-id="ownerName"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">房产证号</div>
+                  <div class="item-after" data-id="certNo"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">查询时间</div>
+                  <div class="item-after" data-id="createTime"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-block mandatory-btn none">
+          <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">计算税费</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/vTool-2.4.3.js"></script>
+  <script src="js/check-transfer-result.js"></script>
+</body>
+
+</html>

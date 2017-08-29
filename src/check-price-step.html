@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>查询税费-填写房产详情</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../font/iconfont.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <link rel="stylesheet" href="../css/consult-files.css">
+  <style>
+    .list-block .item-title.short-label {
+      width: auto;
+      max-width: 40%;
+    }
+    
+    #term .item-radio {
+      padding: 0 .65rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page page-current">
+    <div class="buttons-tab">
+      <a href="./check-transfer.html" class="button external">查过户价</a>
+      <a href="javascript:;" class="active button external">税费</a>
+      <a href="./check-transfer-price-record.html" class="button external">记录</a>
+    </div>
+    <div class="content">
+      <div class="content-block">
+        <div class="steps-box">
+          <p class="step">获取登记价</p>
+          <p class="step active">填写房产详情</p>
+          <p class="step">查看计算结果</p>
+        </div>
+        <form action="#" id="transferPriceForm">
+          <p class="step-tips js-houseType">抱歉，您的房产类型为“商业”，我们暂不支持商业税费查询</p>
+          <p class="step-tips js-registerPrice">未能查到您的登记价，请手动输入</p>
+          <p class="step-tips js-unitPrice">未能查到您的过户价单价，将无法计算税费，请返回重新检查</p>
+          <input type="hidden" id="id" name="id">
+          <input type="hidden" id="unitPrice" name="unitPrice">
+          <div class="list-block">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="registerPrice" data-tips="
+                    房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">房产登记价(元)<i class="iconfont icon-question"></i></label>
+                    <div class="item-input">
+                      <input type="number" id="registerPrice" name="registerPrice" class="required" placeholder="请输入(必填)" data-label="请输入房产登记价">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="area">建筑面积(㎡)</label>
+                    <div class="item-input">
+                      <input type="number" id="area" name="area" class="required" placeholder="请输入(必填)" data-label="请输入建筑面积">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list-block">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" data-tips="指与房产登记的时间差，<br/>如您在2015年1月1日登记，到2017年1月1日时，就是满2年了">购房期限<i class="iconfont icon-question"></i></label>
+                    <div class="item-radio-box" id="term">
+                      <input type="radio" name="term" value="1" id="term1" checked><label class="item-radio" for="term1">未满2年</label><input type="radio" name="term" value="2" id="term2"><label class="item-radio" for="term2">满2年</label>
+                      <input type="radio" name="term" value="3" id="term3"><label class="item-radio" for="term3">满5年</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" data-tips="key2house">住宅类型<i class="iconfont icon-question"></i></label>
+                    <div class="item-radio-box" id="houseType">
+                      <input type="radio" name="houseType" value="1" id="houseType1" checked><label class="item-radio" for="houseType1">普通住宅</label><input type="radio" name="houseType" value="2" id="houseType2"><label class="item-radio" for="houseType2">非普通住宅</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label">卖方唯一住房</label>
+                    <div class="item-radio-box" id="isOnly">
+                      <input type="radio" name="isOnly" value="1" id="isOnly1" checked><label class="item-radio" for="isOnly1">是</label><input type="radio" name="isOnly" value="2" id="isOnly2"><label class="item-radio" for="isOnly2">否</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label">买方首套住房</label>
+                    <div class="item-radio-box" id="isFirst">
+                      <input type="radio" name="isFirst" value="1" id="isFirst1" checked><label class="item-radio" for="isFirst1">是</label><input type="radio" name="isFirst" value="2" id="isFirst2"><label class="item-radio" for="isFirst2">否</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </form>
+        <div class="content-block mandatory-btn">
+          <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">立即查税费</a>
+        </div>
+        <div class="content-block mandatory-btn">
+          <a href="javascript:;" class="button button-big button-fill button-default" id="backBtn">返回</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dn" id="key2house">
+    <p>普通住宅：面积≤144平米且过户评估价不超过区域指导价,见下方区域指导价</p>
+    <p>非普通住宅：容积率≤1.0，建筑面积≥144平米且套内面积≥120平米或≥区域指导价</p>
+    <p>深圳普通住房认定指导价:</p>
+    <div class="tips-table">
+      <div class="row no-gutter">
+        <div class="col-50">罗湖 ≤390万</div>
+        <div class="col-50">福田 ≤470万</div>
+      </div>
+
+      <div class="row no-gutter">
+        <div class="col-50">南山 ≤490万</div>
+        <div class="col-50">盐田 ≤330万</div>
+      </div>
+
+      <div class="row no-gutter">
+        <div class="col-50">宝安 ≤360万</div>
+        <div class="col-50">龙华 ≤320万</div>
+      </div>
+
+      <div class="row no-gutter">
+        <div class="col-50">龙岗 ≤280万</div>
+        <div class="col-50">光明 ≤ 250万</div>
+      </div>
+
+      <div class="row no-gutter">
+        <div class="col-50">坪山 ≤ 200万</div>
+        <div class="col-50">大鹏 ≤230万</div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/vTool-2.4.3.js"></script>
+  <script src="js/check-price-step.js"></script>
+</body>
+
+</html>

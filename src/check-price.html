@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>查档</title>
+  <title>查询税费-获取登记价</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
   <meta name="format-detection" content="telephone=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,20 +20,26 @@
 <body>
   <div class="page page-current">
     <div class="buttons-tab">
-      <a href="javascript:;" class="external active button">立即查档</a>
-      <a href="./consult-files-record.html" class="external button">查档记录</a>
+      <a href="./check-transfer.html" class="button external">查过户价</a>
+      <a href="javascript:;" class="active button external">税费</a>
+      <a href="./check-transfer-price-record.html" class="button external">记录</a>
     </div>
     <div class="content">
       <div class="content-block">
-        <form action="#" id="consultFilesFrom">
+        <div class="steps-box">
+          <p class="step active">获取登记价</p>
+          <p class="step">填写房产详情</p>
+          <p class="step">查看计算结果</p>
+        </div>
+        <form action="#" id="transferPriceForm">
           <div class="list-block">
             <ul>
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label">查档类型:</label>
-                    <div class="item-radio-box">
-                      <input type="radio" name="queryType" value="1" id="queryType1" checked><label class="item-radio" for="queryType1">分户</label><input type="radio" name="queryType" value="2" id="queryType2"><label class="item-radio" for="queryType2">分栋</label>
+                    <label class="item-title short-label label">权利人类型:</label>
+                    <div class="item-radio-box" id="ownerType">
+                      <input type="radio" name="ownerType" value="1" id="ownerType1" checked><label class="item-radio" for="ownerType1">个人</label><input type="radio" name="ownerType" value="2" id="ownerType2"><label class="item-radio" for="ownerType2">单位</label>
                     </div>
                   </div>
                 </div>
@@ -55,9 +61,9 @@
               <li class="js-certType">
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title label short-label" for="certNo">房地产证编号:</label>
+                    <label class="item-title label short-label" for="certNo">房产证号:</label>
                     <div class="item-input">
-                      <input type="text" id="certNo" name="certNo" class="required" placeholder="请输入(必填)" data-label="请输入正确房产证号">
+                      <input type="number" id="certNo" name="certNo" class="required" placeholder="请输入房产证号(必填)" data-label="请输入房产证号">
                     </div>
                   </div>
                 </div>
@@ -74,18 +80,41 @@
                     </div>
                     <span>不动产权第</span>
                     <div class="item-input">
-                      <input type="text" id="certNo" name="certNo" class="required" placeholder="请输入" data-label="请输入正确不动产权证号">
+                      <input type="number" id="certNo" name="certNo" class="required" placeholder="请输入" data-label="请输入不动产权证号">
                     </div>
                     <span>号</span>
+                  </div>
+                </div>
+              </li>
+              <li class="js-ownerType">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="idno">身份证号:</label>
+                    <div class="item-input">
+                      <input type="phone" id="idno" name="idno" class="required" placeholder="请输入身份证号(必填)" data-label="身份证号格式不正确" max-length="18">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-ownerType dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="ownerName">单位名称:</label>
+                    <div class="item-input">
+                      <input type="text" id="ownerName" name="ownerName" class="required" placeholder="请输入单位名称(必填)" data-label="请输入单位名称">
+                    </div>
                   </div>
                 </div>
               </li>
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label" for="personInfo">身份证号/姓名:</label>
+                    <label class="item-title short-label label">
+                      <img src="/trade-util/house/price/verify.pic" alt="验证码" id="codeImg" class="codes-img">
+                      <span class="codes-btn" id="codesBtn">刷新</span>
+                    </label>
                     <div class="item-input">
-                      <input type="text" id="personInfo" name="personInfo" class="required" placeholder="身份证号或姓名(必填)" data-label="身份证号格式不正确">
+                      <input type="text" id="verifyCode" name="verifyCode" class="required" placeholder="请输入验证码" data-label="验证码不正确">
                     </div>
                   </div>
                 </div>
@@ -93,9 +122,9 @@
             </ul>
           </div>
         </form>
-      </div>
-      <div class="content-block mandatory-btn">
-        <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">查询</a>
+        <div class="content-block mandatory-btn">
+          <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">下一步，填写房产信息</a>
+        </div>
       </div>
     </div>
   </div>
@@ -105,7 +134,8 @@
   <script src="js/common.js"></script>
   <!-- endbuild -->
   <script src="js/vTool-2.4.3.js"></script>
-  <script src="js/consult-files.js"></script>
+  <script src="js/check-transfer.js"></script>
+  <script src="js/check-price.js"></script>
 </body>
 
 </html>

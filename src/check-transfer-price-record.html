@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>查档</title>
+  <title>查询过户价</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
   <meta name="format-detection" content="telephone=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,11 +19,12 @@
 <body>
   <div class="page page-current">
     <div class="buttons-tab">
-      <a href="./consult-files.html" class="external button">立即查档</a>
-      <a href="javascript:;" class="external button active">查档记录</a>
+      <a href="./check-transfer.html" class="button external">查过户价</a>
+      <a href="./check-price.html" class="button external">税费</a>
+      <a href="javascript:;" class="active button external">记录</a>
     </div>
     <div class="content infinite-scroll infinite-scroll-bottom" data-distance="100">
-      <div class="content-block result-list" id="consultList">
+      <div class="content-block result-list ct-record" id="consultList">
       </div>
       <div class="dn" id="tempHTML">
         <div class="list-block" data-id="">
@@ -31,7 +32,8 @@
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <p class="result-title">权利人在<span data-id="address"></span>有房产，产权状态为：<span class="result" data-id="status"></span></p>
+                  <div class="item-title">税费</div>
+                  <div class="item-after"><span class="result font-bold" data-id="amount"></span>元</div>
                 </div>
               </div>
             </li>
@@ -39,15 +41,23 @@
               <div class="item-content">
                 <div class="item-inner">
                   <div class="item-title">房产证号</div>
-                  <div class="item-after" data-id="certNo"></div>
+                  <div class="item-after" data-id="certCode"></div>
                 </div>
               </div>
             </li>
-            <li>
+            <li class="dn">
               <div class="item-content">
                 <div class="item-inner">
-                  <div class="item-title">身份证号/姓名</div>
-                  <div class="item-after" data-id="personInfo"></div>
+                  <div class="item-title">身份证号</div>
+                  <div class="item-after" data-id="idno"></div>
+                </div>
+              </div>
+            </li>
+            <li class="dn">
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">单位名称</div>
+                  <div class="item-after" data-id="ownerName"></div>
                 </div>
               </div>
             </li>
@@ -62,16 +72,18 @@
           </ul>
         </div>
       </div>
-      <div class="infinite-scroll-preloader"></div>
+      <div class="infinite-scroll-preloader">
+        <div class="preloader"></div>
+      </div>
     </div>
-  </div>
   </div>
   <!--build:js js/common.min.js -->
   <script src="js/zepto.js"></script>
   <script src="js/sm.js"></script>
   <script src="js/common.js"></script>
   <!-- endbuild -->
-  <script src="js/consult-files-record.js"></script>
+  <script src="js/vTool-2.4.3.js"></script>
+  <script src="js/check-transfer-price-record.js"></script>
 </body>
 
 </html>

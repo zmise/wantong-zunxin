@@ -3,13 +3,13 @@
  *
  */
 ;
-(function($) {
-  $.unparam = function(params, coerce) {
+(function ($) {
+  $.unparam = function (params, coerce) {
     var obj = {};
     var coerceTypes = { 'true': !0, 'false': !1, 'null': null };
 
     // Iterate over all name=value pairs.
-    $.each(params.replace(/\+/g, ' ').split('&'), function(j, v) {
+    $.each(params.replace(/\+/g, ' ').split('&'), function (j, v) {
       var param = v.split('=');
       var key = decodeURIComponent(param[0]);
       var val;
@@ -45,8 +45,8 @@
         if (coerce) {
           val = val && !isNaN(val) ? +val
             : val === 'undefined' ? undefined
-            : coerceTypes[val] !== undefined ? coerceTypes[val]
-            : val; // string
+              : coerceTypes[val] !== undefined ? coerceTypes[val]
+                : val; // string
         }
 
         if (keysLast) {
@@ -95,7 +95,7 @@
 
 /*身份证验证*/
 var cardObj = {
-  IdCardValidate: function(idCard) {
+  IdCardValidate: function (idCard) {
     var a_idCard;
     idCard = this.trim(idCard.replace(RegExp(' ', 'g'), ''));
     if (idCard.length === 18) {
@@ -110,11 +110,11 @@ var cardObj = {
     }
   },
 
-  trim: function(str) {
+  trim: function (str) {
     return str.replace(/(^\s*)|(\s*$)/g, '');
   },
 
-  isValidityBrithBy18IdCard: function(idCard18) {
+  isValidityBrithBy18IdCard: function (idCard18) {
     var day, month, temp_date, year;
     year = idCard18.substring(6, 10);
     month = idCard18.substring(10, 12);
@@ -127,7 +127,7 @@ var cardObj = {
     }
   },
 
-  isTrueValidateCodeBy18IdCard: function(a_idCard) {
+  isTrueValidateCodeBy18IdCard: function (a_idCard) {
     var i, sum, valCodePosition;
     var Wi = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1];
     var ValideCode = [1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2];
@@ -157,34 +157,34 @@ $.config = { router: false };
 
 $.ajaxSettings.cache = false;
 
-$(document).on('ajaxBeforeSend', function(e, xhr) {
-  xhr.setRequestHeader('u', sessionStorage.getItem('token'));
-  xhr.setRequestHeader('token', sessionStorage.getItem('token'));
-  // xhr.setRequestHeader('u', '13713925018');
-  // xhr.setRequestHeader('token', 'oE1gsv-bMfUNvBpsc8JoQpLpjrtc');
+$(document).on('ajaxBeforeSend', function (e, xhr) {
+  // xhr.setRequestHeader('u', sessionStorage.getItem('token'));
+  // xhr.setRequestHeader('token', sessionStorage.getItem('token'));
+  xhr.setRequestHeader('u', '13713925018');
+  xhr.setRequestHeader('token', 'oE1gsv-bMfUNvBpsc8JoQpLpjrtc');
 });
 
-$(document).on('ajaxSuccess', function(data, status) {
+$(document).on('ajaxSuccess', function (data, status) {
   if (status.response.indexOf('C0005') > -1) {
     $('.modal, .modal-overlay').remove();
-    $.alert('对不起，该账号已经在另一设备登录，请重新登录。', function() {
+    $.alert('对不起，该账号已经在另一设备登录，请重新登录。', function () {
       location.href = '/login.html';
     });
   } else if (status.response.indexOf('C0004') > -1) {
     $('.modal, .modal-overlay').remove();
-    $.alert('对不起，您尚未登录，请重新登录。', function() {
+    $.alert('对不起，您尚未登录，请重新登录。', function () {
       location.href = '/login.html';
     });
   }
 });
 
-$(document).on('ajaxError', function(data, status) {
+$(document).on('ajaxError', function (data, status) {
   $('.modal, .modal-overlay').remove();
   $.alert('服务器异常，请稍后重试！');
 });
 
 /* 从推送消息中的链接跳转的地址需要进行解析 */
-(function($) {
+(function ($) {
   var urlParams = $.unparam(location.search.substring(1));
   if (urlParams.token) {
     sessionStorage.setItem('token', urlParams.token);

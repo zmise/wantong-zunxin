@@ -1,11 +1,14 @@
 $(function () {
   var urlParams = $.unparam(location.search.substring(1));
-  var searchStr;
 
+  // 弹窗
+  vTools.commomEvent();
+  initData();
 
   function initData() {
+
     $.ajax({
-      url: '/trade-util/data/houseInfo/loadById.json',
+      url: '/trade-util/data/price/loadById.json',
       data: { id: urlParams.id },
       beforeSend: function () {
         $.showPreloader();
@@ -15,16 +18,6 @@ $(function () {
         var items = data;
         if (items.code == 'ok') {
           var item = items.data;
-
-          // 没有结果
-          if (!item.address) {
-            // 隐藏查询结果项
-            $('.result-title').text('没有找到匹配的房产记录').closest('li').siblings().hide();
-            // 隐藏 查过户价 和 查税费 按钮
-            $('.mandatory-btn').first().siblings('.mandatory-btn').hide();
-
-          }
-
           for (var key in item) {
             var $item = $('.item-content [data-id="' + key + '"]');
             if (item.hasOwnProperty(key) && $item[0]) {
@@ -40,23 +33,31 @@ $(function () {
                 } else {
                   $temp.text('房产证号');
                 }
-              } else if (key === 'queryType') {
-                element = element > 1 ? '分栋' : '分户';
+              } else if (key === 'idno' || key === 'ownerName') {
+                $item.closest('li').removeClass('dn');
               }
               $item.text(element);
+            } else if (key === 'hd' || key === 'hs') {
+              element = item[key];
+              var sum = 0;
+              for (var k in element) {
+                $item = $('[data-id="' + key + '-' + k + '"]');
+                if (element.hasOwnProperty(k) && $item[0]) {
+                  var temp = element[k];
+                  sum += +temp;
+                  $item.text(vTools.formatNumber(temp));
+                }
+              }
+
+              $('[data-id="' + key + '-count"]').text(vTools.formatNumber(sum));
             }
           }
 
-          // if (!searchStr) {
-          searchStr = 'queryType=' + item.queryType
-            + '&certType=' + item.certType
-            + '&certNo=' + item.certNo
-            + '&personInfo=' + item.personInfo;
-          if (item.year) {
-            searchStr += '&year=' + item.year;
+          // 若评估单价为不为0或不为空，则显示本按钮
+          if (item.unitPrice > 0) {
+            searchStr = 'unitPrice=' + item.unitPrice + '&price=' + item.price + '&area' + item.area;
+            $('.mandatory-btn').removeClass('none');
           }
-          // }
-
         } else {
           $.alert(items.msg);
         }
@@ -68,19 +69,4 @@ $(function () {
     });
   }
 
-  initData();
-
-
-  // 再次查询
-  $('#research').on('click', function () {
-    location.assign('./consult-files.html?' + searchStr);
-  });
-  // 查过户价
-  $('#transfer').on('click', function () {
-    location.assign('./check-transfer.html?' + searchStr);
-  });
-  // 查税费
-  $('#price').on('click', function () {
-    location.assign('./check-price.html?' + searchStr);
-  });
 });
