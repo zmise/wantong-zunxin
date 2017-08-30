@@ -320,6 +320,11 @@ $(function() {
   $('#codesBtn').on('click', function() {
     $('#codeImg').attr('src', '/trade-util/book/verify.pic?' + Math.random() + '');
   });
+  
+  $(document).on('click.closepopup', '.popup-overlay', function (e) {
+    $.closeModal();
+    $('.popup-overlay').removeClass('modal-overlay-visible');
+  });
 
   $('#inquireBtn').on('click', function() {
     var self = $(this);
