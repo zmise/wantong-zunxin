@@ -49,6 +49,8 @@ $(function () {
                 } else {
                   $temp.text('身份证号/姓名');
                 }
+              }else if( key ==='houseType'){
+                element = element > 1 ? '商用' : '住宅';
               }
               $item.text(element);
             }

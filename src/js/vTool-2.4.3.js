@@ -6,11 +6,11 @@ var vTools = {
   /* 初始化年份 选项的值有为2015 至 当前年份 */
   setYearSelect: function (selector, boolean) {
     var year = 2015;
-    var currentYear = new Date().getFullYear();
+    var lastYear = new Date().getFullYear();
     var _html = '';
-    while (year <= currentYear) {
-      _html += '<option value="' + year + '">' + year + '</option>';
-      year++;
+    while (year <= lastYear) {
+      _html += '<option value="' + lastYear + '">' + lastYear + '</option>';
+      lastYear--;
     }
     if (boolean) {
       $(selector).html(_html);
