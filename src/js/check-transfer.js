@@ -50,13 +50,13 @@ $(function () {
   $('#inquireBtn').on('click', function () {
     var self = $(this);
     var result = vTools.formVaild({
-      container: '#transferPriceForm',
-      vails: [{// 身份证号 / 姓名
-        selector: '#idno'
+      container: '#transferPriceForm'
+      // vails: [{// 身份证号 / 姓名
+        // selector: '#idno'
         // regex: function (el) {
         //   return cardObj.IdCardValidate($.trim($(el).val()));
         // }
-      }]
+      // }]
     });
 
     if (!result) {

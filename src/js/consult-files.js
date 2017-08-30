@@ -28,24 +28,24 @@ $(function () {
   $('#inquireBtn').on('click', function () {
     var self = $(this);
     var result = vTools.formVaild({
-      container: '#consultFilesFrom',
-      vails: [{// 身份证号 / 姓名
-        selector: '#personInfo'
-        // regex: function (el) {
-        //   var value = $.trim($(el).val());
-        //   if (!cardObj.IdCardValidate(value) && !/^[\u4E00-\u9FA5]{2,4}$/.test(value)) {
-        //     return false;
-        //   }
+      container: '#consultFilesFrom'
+      // vails: [{// 身份证号 / 姓名
+      //   selector: '#personInfo'
+      //   regex: function (el) {
+      //     var value = $.trim($(el).val());
+      //     if (!cardObj.IdCardValidate(value) && !/^[\u4E00-\u9FA5]{2,4}$/.test(value)) {
+      //       return false;
+      //     }
 
-        //   return true;
-        // }
-      }, {
-        selector: '#certNo',
-        regex: function (el) {
-          return /^[0-9]*$/.test($.trim($(el).val()))
-        },
-        message: '产权证号只能输入数字'
-      }]
+      //     return true;
+      //   }
+      // }, {
+      //   selector: '#certNo',
+      //   regex: function (el) {
+      //     return /^[0-9]*$/.test($.trim($(el).val()))
+      //   },
+      //   message: '产权证号只能输入数字'
+      // }]
     });
 
     if (!result) {
