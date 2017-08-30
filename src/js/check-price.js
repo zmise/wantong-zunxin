@@ -82,7 +82,7 @@ function sendData(opt) {
   });
 
 
-  console.log(searchStr);
+  // console.log(searchStr);
   // location.assign('./check-price-step.html?sessionKey=' + sessionKey + searchStr)
 }
 
