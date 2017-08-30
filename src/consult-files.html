@@ -31,7 +31,7 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label">查档类型:</label>
+                    <label class="item-title short-label label">查档类型</label>
                     <div class="item-radio-box">
                       <input type="radio" name="queryType" value="1" id="queryType1" checked><label class="item-radio" for="queryType1">分户</label><input type="radio" name="queryType" value="2" id="queryType2"><label class="item-radio" for="queryType2">分栋</label>
                     </div>
@@ -41,7 +41,17 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label">产权证书类型:</label>
+                    <label class="item-title short-label label">权利人类型</label>
+                    <div class="item-radio-box" id="ownerType">
+                      <input type="radio" name="ownerType" value="1" id="ownerType1" checked><label class="item-radio" for="ownerType1">个人</label><input type="radio" name="ownerType" value="2" id="ownerType2"><label class="item-radio" for="ownerType2">单位</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label">产权证书类型</label>
                     <div class="item-radio-box" id="certType">
                       <input type="radio" name="certType" value="1" id="certType1" checked><label class="item-radio" for="certType1">房地产证</label><input type="radio" name="certType" value="2" id="certType2"><label class="item-radio" for="certType2">不动产证</label>
                     </div>
@@ -55,7 +65,7 @@
               <li class="js-certType">
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title label short-label" for="certNo">房地产证编号:</label>
+                    <label class="item-title label short-label" for="certNo">房地产证编号</label>
                     <div class="item-input">
                       <input type="text" id="certNo" name="certNo" class="required" placeholder="请输入(必填)" data-label="请输入正确房产证号">
                     </div>
@@ -80,12 +90,22 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li class="js-ownerType">
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label" for="personInfo">身份证号/姓名:</label>
+                    <label class="item-title short-label label" for="personInfo1">身份证号/姓名</label>
                     <div class="item-input">
-                      <input type="text" id="personInfo" name="personInfo" class="required" placeholder="身份证号或姓名(必填)" data-label="身份证号格式不正确">
+                      <input type="text" id="personInfo1" name="personInfo" class="required" placeholder="身份证号或姓名(必填)" data-label="身份证号格式不正确">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-ownerType dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" for="personInfo2">单位名称</label>
+                    <div class="item-input">
+                      <input type="text" id="personInfo2" name="personInfo" class="required" placeholder="单位名称(必填)" data-label="请输入单位名称">
                     </div>
                   </div>
                 </div>

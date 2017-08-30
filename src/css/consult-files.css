@@ -175,6 +175,10 @@
   font-weight: bold;
 }
 
+.font-error {
+  color: #e72420;
+}
+
 
 /* 查过户价 */
 
@@ -209,14 +213,16 @@
   line-height: 2.2rem;
   text-align: center;
   color: #3a3a3a;
-  text-overflow: hidden;
+  text-overflow: clip;
 }
 
 .steps-box .step:nth-child(n+2):before {
   content: '';
+  height: 0;
+  width: 0;
   position: absolute;
   top: 0;
-  left: -1.1rem;
+  left: -1.05rem;
   border: 1.1rem solid #ebebeb;
   border-right: none;
   border-left-color: transparent;

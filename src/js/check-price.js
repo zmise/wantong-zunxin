@@ -1,10 +1,11 @@
 function sendData(opt) {
-  var sessionKey = 'checkPrice' + Math.floor(Math.random() * 100);
+  $.showPreloader('正在查询');
 
-  var searchStr = '';
+  var searchO = {};
+  var houseInfo = false;
+  var housePrice = false;
   console.log(opt);
   opt.data.queryType = '1';
-  $.showPreloader('正在查询');
 
   // 查档
   $.ajax({
@@ -13,16 +14,31 @@ function sendData(opt) {
     data: $.extend({
       personInfo: opt.data.idno || opt.data.ownerName
     }, opt.data),
-    async: false,
     beforeSend: function () {
       opt.el.prop('disabled', true);
     },
     success: function (data) {
+      houseInfo = true;
       if (data.code === 'ok') {
         console.log(data);
-        searchStr += '&houseType=' + data.data.result.houseType
-          + '&registerPrice=' + data.data.result.registerPrice
-          + '&area=' + data.data.result.area;
+        data = data.data.result;
+        if (data.houseType) {
+          searchO.houseType = data.houseType;
+        }
+
+        if (data.registerPrice) {
+          searchO.registerPrice = data.registerPrice;
+        }
+
+        if (data.area) {
+          searchO.area = data.area;
+        }
+
+      }
+    },
+    complete: function () {
+      if (houseInfo && housePrice) {
+        turnToNext(searchO, opt.data);
       }
     }
   });
@@ -32,26 +48,61 @@ function sendData(opt) {
     url: '/trade-util/query/housePrice.json',
     type: 'POST',
     data: opt.data,
-    async: false,
     success: function (data) {
+      housePrice = true;
       if (data.code === 'ok') {
-        console.log(data);
-        searchStr += '&unitPrice=' + data.data.unitPrice + '&id='+data.data.id;
+        data = data.data;
+        if (data.houseType) {
+          searchO.houseType = data.houseType;
+        }
+
+        if (data.registerPrice) {
+          searchO.registerPrice = data.registerPrice;
+        }
+
+        if (data.area) {
+          searchO.area = data.area;
+        }
+
+        if (data.unitPrice) {
+          searchO.unitPrice = data.unitPrice;
+        }
+
+        if (data.id) {
+          searchO.id = data.id;
+        }
       }
     },
 
     complete: function () {
-      $.hidePreloader();
+      if (houseInfo && housePrice) {
+        turnToNext(searchO, opt.data);
+      }
     }
   });
 
-  delete opt.data.verifyCode;
-  if (sessionStorage) {
-    sessionStorage.setItem(sessionKey, JSON.stringify(opt.data));
-  }
 
   console.log(searchStr);
+  // location.assign('./check-price-step.html?sessionKey=' + sessionKey + searchStr)
+}
+
+function turnToNext(obj, data) {
+  $.hidePreloader();
+  var sessionKey = 'checkPrice' + Math.floor(Math.random() * 100);
+  var searchStr = '';
+
+  delete data.verifyCode;
+  if (sessionStorage) {
+    sessionStorage.setItem(sessionKey, JSON.stringify(data));
+  }
+
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      var element = obj[key];
+      if (element) {
+        searchStr += '&' + key + '=' + element;
+      }
+    }
+  }
   location.assign('./check-price-step.html?sessionKey=' + sessionKey + searchStr)
 }
-$(function () {
-});

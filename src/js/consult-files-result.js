@@ -42,6 +42,13 @@ $(function () {
                 }
               } else if (key === 'queryType') {
                 element = element > 1 ? '分栋' : '分户';
+              } else if (key === 'personInfo') {
+                var $temp = $item.prev();
+                if (item['ownerType'] === '2') {
+                  $temp.text('单位名称');
+                } else {
+                  $temp.text('身份证号/姓名');
+                }
               }
               $item.text(element);
             }
@@ -51,6 +58,7 @@ $(function () {
           searchStr = 'queryType=' + item.queryType
             + '&certType=' + item.certType
             + '&certNo=' + item.certNo
+            + '&ownerType=' + item.ownerType
             + '&personInfo=' + item.personInfo;
           if (item.year) {
             searchStr += '&year=' + item.year;

@@ -41,8 +41,27 @@ $(function () {
 
           // 若评估单价为不为0或不为空，则显示本按钮
           if (item.unitPrice > 0) {
-            searchStr = 'unitPrice=' + item.unitPrice + '&registerPrice=' + item.registerPrice + '&area=' + item.area + '&id=' + item.id;
+            searchStr = 'unitPrice=' + item.unitPrice + '&registerPrice=' + item.registerPrice  + '&houseType=' + item.houseType + '&area=' + item.area + '&id=' + item.id;
             $('.mandatory-btn').removeClass('none');
+          } else {
+            // 未查到过户价
+            searchStr = 'certNo=' + item.certNo + '&certType=' + item.certType + '&ownerType=' + item.ownerType;
+
+            if (item.ownerName) {
+              searchStr += '&ownerName=' + item.ownerName;
+            }
+
+            if (item.idno) {
+              searchStr += '&idno=' + item.idno;
+            }
+
+            if (item.year) {
+              searchStr += '&year=' + item.year;
+            }
+
+            $('[data-id="unitPrice"]').parent().html('<span>抱歉，未能查询到评估单价</span>').closest('li').siblings().hide();
+            $('#inquireBtn').hide();
+            $('#reSearchBtn').removeClass('dn');
           }
         } else {
           $.alert(items.msg);
@@ -60,5 +79,8 @@ $(function () {
 
   $('#inquireBtn').on('click', function () {
     location.assign('./check-price-step.html?' + searchStr);
+  });
+  $('#reSearchBtn').on('click', function () {
+    location.assign('./check-transfer.html?' + searchStr);
   });
 });

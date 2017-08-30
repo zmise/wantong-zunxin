@@ -1,22 +1,25 @@
 $(function () {
 
   // 判断服务器是否正常
-  $.ajax({
-    url: '/trade-util/data/houseInfo/checkServer.json',
-    success: function (data) {
-      if (!data.data) {
-        $.alert('服务器异常,请稍后再查询', function () {
-          WeixinJSBridge.call('closeWindow');
-        });
-      };
-    }
-  });
+  // $.ajax({
+  //   url: '/trade-util/data/houseInfo/checkServer.json',
+  //   success: function (data) {
+  //     if (!data.data) {
+  //       $.alert('服务器异常,请稍后再查询', function () {
+  //         WeixinJSBridge.call('closeWindow');
+  //       });
+  //     };
+  //   }
+  // });
 
   // 初始化年份 选项的值有为2015 至 当前年份，默认"请选择"
   vTools.setYearSelect('#year');
 
   // 房地产证 切换
   vTools.radioLink('certType');
+
+  // 权利人类型
+  vTools.radioLink('ownerType');
 
   // 地址带参数
   vTools.setDeafaultForm();
@@ -52,14 +55,15 @@ $(function () {
     var serializeObj = {};
     $.each($('#consultFilesFrom').serializeArray(), function () {
       if (this.value) {
-        if (this.name == 'year') {
+        var name = this.name;
+        if (name == 'year') {
           if ($('#year').is(':visible')) {
-            serializeObj[this.name] = this.value;
+            serializeObj[name] = this.value;
           }
-        } else if (this.name == 'certNo') {
-          serializeObj[this.name] = $('[name="certNo"]:visible').val();
+        } else if (name == 'certNo' || name == 'personInfo') {
+          serializeObj[name] = $('[name="' + name + '"]:visible').val();
         } else {
-          serializeObj[this.name] = this.value;
+          serializeObj[name] = this.value;
         }
       }
 

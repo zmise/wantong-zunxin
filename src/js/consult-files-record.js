@@ -69,6 +69,14 @@ $(function () {
                   }
                 } else if (key === 'queryType') {
                   element = element > 1 ? '分栋' : '分户';
+
+                } else if (key === 'personInfo') {
+                  var $temp = $this.prev();
+                  if (v['ownerType'] === '2') {
+                    $temp.text('单位名称');
+                  } else {
+                    $temp.text('身份证号/姓名');
+                  }
                 }
                 $this.text(element);
               }

@@ -134,14 +134,21 @@ var vTools = {
         var element = data[key];
         $item = $('[name="' + key + '"]');
         if ($item[0] && key !== 'certNo') {
-          if ($item.attr('type') === 'radio') {
+          if (key === 'personInfo') {
+            $('#personInfo' + data.ownerType).val(element);
+          } else if ($item.attr('type') === 'radio') {
             $('[name="' + key + '"][value="' + element + '"]').trigger('click');
           } else {
             $item.val(element);
           }
-        } else if (key === 'personInfo' && !(/.*[\u4e00-\u9fa5]+.*$/.test(element))) {
-          // 身份证号
-          $('#idno').val(element);
+        } else if (key === 'personInfo') {
+          if (!/.*[\u4e00-\u9fa5]+.*$/.test(element)) {
+            // 身份证号
+            $('#idno:visible').val(element);
+          } else if (data.ownerType === '2') {
+            // 单位名称
+            $('#ownerName:visible').val(element);
+          }
         }
       }
     }

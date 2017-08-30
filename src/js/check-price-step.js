@@ -3,7 +3,7 @@ $(function () {
 
   // 房产类型
   function houseType(type) {
-    if (type && type === '商业') {
+    if (type && type === '2') {
       $('.js-houseType').show();
       $('#inquireBtn').hide();
     }

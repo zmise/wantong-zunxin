@@ -67,6 +67,10 @@ $(function () {
                   $this.closest('li').removeClass('dn');
                 }
                 $this.text(element);
+              }else if(key === 'amount'){
+                var str = v.type === '1' ? '过户价' : '税费';
+                $this.parent().prev().text(str);
+                $this.parent().html('<span class="font-error">抱歉，未能查到'+str+'</span>');
               }
             });
 
