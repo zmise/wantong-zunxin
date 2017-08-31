@@ -172,8 +172,8 @@ $(function() {
       if($.trim($('#totalLoan').val()) === '') {
         infoPrompt('贷款总额不能为空！');
         return false;
-      } else if(!reg.test($('#totalLoan').val()) || parseFloat($('#totalLoan').val()) > 60) {
-        infoPrompt('贷款总额在0-60万之间的数且小数不能超过两位！');
+      } else if(!reg.test($('#totalLoan').val()) || parseFloat($('#totalLoan').val()) > 90) {
+        infoPrompt('贷款总额在0-90万之间的数且小数不能超过两位！');
         return false;
       } else {
         return true;
@@ -211,8 +211,8 @@ $(function() {
     if($.trim($('#fundLoan').val()) === '') {
       infoPrompt('公积金贷款不能为空！');
       return false;
-    } else if(!reg1.test($('#fundLoan').val()) || parseFloat($('#fundLoan').val()) > 60) {
-      infoPrompt('公积金贷款在0-60万之间的数且小数不能超过两位！');
+    } else if(!reg1.test($('#fundLoan').val()) || parseFloat($('#fundLoan').val()) > 90) {
+      infoPrompt('公积金贷款在0-90万之间的数且小数不能超过两位！');
       return false;
     } else {
       return true;
