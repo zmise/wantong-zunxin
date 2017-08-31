@@ -85,7 +85,7 @@ $(function () {
   });
   // 查过户价
   $('#transfer').on('click', function () {
-    location.assign('./check-transfer.html?' + searchStr);
+    location.assign('./check-transfer-price.html?' + searchStr);
   });
   // 查税费
   $('#price').on('click', function () {

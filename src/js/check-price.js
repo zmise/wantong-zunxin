@@ -22,6 +22,9 @@ function sendData(opt) {
       if (data.code === 'ok') {
         console.log(data);
         data = data.data.result;
+        if (!data) {
+          return;
+        }
         if (data.houseType) {
           searchO.houseType = data.houseType;
         }
@@ -71,6 +74,10 @@ function sendData(opt) {
         if (data.id) {
           searchO.id = data.id;
         }
+      } else if (data.msg.indexOf('验证码') > -1) {
+        housePrice = false;
+        $.hidePreloader();
+        $.alert(data.msg);
       }
     },
 

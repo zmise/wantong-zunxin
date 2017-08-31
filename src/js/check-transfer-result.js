@@ -81,6 +81,6 @@ $(function () {
     location.assign('./check-price-step.html?' + searchStr);
   });
   $('#reSearchBtn').on('click', function () {
-    location.assign('./check-transfer.html?' + searchStr);
+    location.assign('./check-transfer-price.html?' + searchStr);
   });
 });
