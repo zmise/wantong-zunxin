@@ -3,7 +3,8 @@ $(function () {
 
   // 房产类型
   function houseType(type) {
-    if (type && type === '2') {
+    var list = ['商业', '酒店', '厂房', '商铺'];
+    if (type && list.indexOf(type) > -1) {
       $('.js-houseType').show();
       $('#inquireBtn').hide();
     }
