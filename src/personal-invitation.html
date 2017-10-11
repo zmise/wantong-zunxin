@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>我的邀请码</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/personal.css">
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="buttons-tab invit-tab">
+        <a href="javascript:;" class="external active button">我的邀请码</a>
+        <a href="./personal-invitation-record.html" class="external button">邀请记录<span>(<span id="invitateNo">0</span>)</span></a>
+      </div>
+      <div class="content">
+        <div class="invit-code">
+          <div class="code-box">
+            <img id="qrCodeUrl" src="" alt="">
+            <p>正在生成二维码</p>
+            <!-- 加载提示符 -->
+            <div class="infinite-scroll-preloader">
+              <div class="preloader"></div>
+            </div>
+          </div>
+          <div class="code-info flexbox">
+            <div class="invit-logo">
+              <img src="./images/zx-logo.png" alt="">
+            </div>
+            <div>
+              <p class="info-name" id="name">张三丰</p>
+              <p id="phone"></p>
+              <p>万千渠道 极速融通</p>
+            </div>
+          </div>
+          <p class="code-desc">长按二维码可保存至手机</p>
+        </div>
+        <div class="desc code">
+          <p class="desc-title">邀请好友说明</p>
+          <p>1.邀请好码扫码关注公众号，并请Ta绑定手机</p>
+          <p>2.好友在公众号提单，成功办理贷款您就能获得邀请收益</p>
+          <p>3.邀请收益会在成功办理的7个工作日内发放</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/personal-invitation.js"></script>
+</body>
+
+</html>

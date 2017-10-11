@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>邀请记录</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/personal.css">
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="buttons-tab invit-tab">
+        <a href="./personal-invitation.html" class="external button">我的邀请码</a>
+        <a href="javascript:;" class="external active button">邀请记录<span>(<span id="inviteNo">6</span>)</span></a>
+      </div>
+      <div class="content infinite-scroll-bottom">
+        <div class="infos-box flexbox">
+          <div class="invitate infos-box-item">
+            <p class="infos-box-no"><span id="inviteNum"></span>人</p>
+            <p>累计邀请</p>
+          </div>
+          <div class="success infos-box-item">
+            <p class="infos-box-no"><span id="successedNum"></span>单</p>
+            <p>成功办理</p>
+          </div>
+          <div class="earning infos-box-item">
+            <p class="infos-box-no"><span id="income"></span>元</p>
+            <p>获得收益</p>
+          </div>
+        </div>
+        <div class="infos-tab flexbox">
+          <p class="infos-tab-item cur" data-val="1">所有</p>
+          <p class="infos-tab-item" data-val="2">已绑定手机</p>
+          <p class="infos-tab-item" data-val="3">已成功办理</p>
+          <p class="infos-tab-item" data-val="4">取消关注</p>
+        </div>
+        <div class="list-block" id="listBlock">
+        </div>
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader">
+          <div class="preloader"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="tempLate" style="display:none;">
+    <div class="list-card" data-id="{userId}">
+      <div class="list-content flexbox">
+        <div class="list-pic">
+          <img src="{headimgUrl}" alt="头像">
+        </div>
+        <div class="flexitem list-info">
+          <p class="list-name">{name}</p>
+          <p class="list-status">{cellphone}</p>
+        </div>
+        <p class="list-time">关注时间：<span>{subscribeDate}</span></p>
+      </div>
+      <div class="infos-box flexbox">
+        <div class="infos-box-item">
+          <p class="infos-box-no">{orderNum}单</p>
+          <p>提单</p>
+        </div>
+        <div class="infos-box-item">
+          <p class="infos-box-no">{successedNum}单</p>
+          <p>成功办理</p>
+        </div>
+        <div class="infos-box-item">
+          <p class="infos-box-no">{myImcome}元</p>
+          <p>我的收益</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/personal-invitation-record.js"></script>
+</body>
+
+</html>

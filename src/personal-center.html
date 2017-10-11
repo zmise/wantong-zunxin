@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>个人中心</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/personal.css">
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="content">
+        <header>
+          <div class="flexbox earnings">
+            <p class="amount"><span class="figure" id="amount">00.00</span>元</p>
+            <p>收益已发放至您的银行卡</p>
+          </div>
+          <div class="flexbox earn">
+            <div class="bill">
+              <p class="amount" data-id="ordrIncomeAmount">00.00</p>
+              <p>提单收益(元)</p>
+            </div>
+            <div class="invite">
+              <p class="amount" data-id="inviteIncomeAmount">00.00</p>
+              <p>邀请收益(元)</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="list-block">
+          <ul>
+            <li class="item-content">
+              <div class="item-inner list-title">
+                个人资料
+              </div>
+            </li>
+            <li class="item-content item-link" data-url="personal-cell.html">
+              <div class="item-inner">
+                <div class="item-title">手机号</div>
+                <div class="item-after item-place" id="cellphone">未绑定手机</div>
+              </div>
+            </li>
+            <li class="item-content item-link" data-url="personal-bank.html">
+              <div class="item-inner">
+                <div class="item-title">我的银行卡</div>
+                <div class="item-after item-place" id="bankCardNo">未绑定</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="list-block">
+          <ul>
+            <li class="item-content item-link" data-url="personal-invitation.html">
+              <div class="item-inner">
+                <div class="item-title">我的邀请码</div>
+                <div class="item-after">已成功邀请<span data-id="successInvitedCount">0</span>人</div>
+              </div>
+            </li>
+            <li class="item-content item-link" data-url="personal-lading-record.html">
+              <div class="item-inner">
+                <div class="item-title">我的提单记录</div>
+                <div class="item-after">已提单<span data-id="orderCount">0</span>单</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="list-block">
+          <ul>
+            <li class="item-content item-link" data-url="account-manager.html">
+              <div class="item-inner">
+                <div class="item-title">联系客户经理</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="list-block">
+          <ul>
+            <li class="item-content item-link" data-url="about-zencent.html">
+              <div class="item-inner">
+                <div class="item-title">关于尊信</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/personal-center.js"></script>
+</body>
+
+</html>

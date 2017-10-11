@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>绑定手机</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/personal.css">
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="content">
+        <div class="list-block">
+          <form>
+          <ul>
+            <li class="item-content">
+              <div class="item-inner">
+                <i class="iconfont icon-xingming"></i>
+                <div class="item-input">
+                  <input type="text" placeholder="真实姓名" maxlength="20" name="name" id="name">
+                </div>
+              </div>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <i class="iconfont icon-shouji"></i>
+                <div class="item-input">
+                  <input type="tel" placeholder="手机号" name="cellphone" id="cellphone">
+                </div>
+              </div>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <i class="iconfont icon-duanxin"></i>
+                <div class="item-input">
+                  <input type="text" placeholder="短信验证码" name="verifyCode">
+                </div>
+                <a href="javascript:;" class="button button-filly" id="fetchVerifyCode">获取验证码</a>
+              </div>
+            </li>
+          </ul>
+          </form>
+        </div>
+        <div class="content-block">
+          <p><a href="javascript:;" class="button button-filly" id="bind">立即绑定</a></p>
+        </div>
+
+        <div class="desc">
+          <p class="desc-title">温馨提示</p>
+          <p>1.请填写真实姓名和手机号，以便信贷经理与您联系</p>
+          <p>2.若有任何疑问，请致电0755-86539675</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/personal-cell.js"></script>
+</body>
+
+</html>

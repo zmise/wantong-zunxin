@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>提单记录</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/personal.css">
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="page page-current">
+        <a class="lading-btn external" href="personal-lading.html"><i class="iconfont icon-banlidaikuan1"></i></a>
+        <div class="lading-tab flexbox">
+          <a href="javascript:;" class="active  tab-item" data-val="1">已提单(<span id="status1">0</span>)</a>
+          <a href="javascript:;" class="tab-item" data-val="2">正在沟通(<span id="status2">0</span>)</a>
+          <a href="javascript:;" class="tab-item" data-val="4">正在办理(<span id="status4">0</span>)</a>
+          <a href="javascript:;" class="tab-item" data-val="5">办理成功(<span id="status5">0</span>)</a>
+          <a href="javascript:;" class="tab-item" data-val="3">客户拒绝(<span id="status3">0</span>)</a>
+          <a href="javascript:;" class="tab-item" data-val="6">办理失败(<span id="status6">0</span>)</a>
+        </div>
+        <div class="content infinite-scroll  infinite-scroll-bottom lading" data-distance="50">
+          <div class="list-block" id="listBlock">
+
+          </div>
+          <!-- 加载提示符 -->
+          <div class="infinite-scroll-preloader">
+            <div class="preloader"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="tempLate" style="display:none;">
+
+      <div class="list-card" data-id="{userId}">
+        <div class="list-content flexbox">
+          <p class="list-gender">{gender}</p>
+          <div class="flexitem list-info">
+            <p><span class="list-name mr10">{lenderName}</span><span>{lenderCellphone}</span></p>
+            <p class="list-time">{createTime}</p>
+          </div>
+          <div>
+            <p class="list-time">{lenderAmount}</p>
+            <p class="list-status">{status}</p>
+          </div>
+        </div>
+        <div class="list-box">
+          <p><span>信贷经理：</span><span class="mr10">{productMatcherName}</span><a href="tel:{productMatcherPhone}">{productMatcherPhone}</a></p>
+        </div>
+      </div>
+
+
+    </div>
+    <!--build:js js/common.min.js -->
+    <script src="js/zepto.js"></script>
+    <script src="js/sm.js"></script>
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+    <script src="js/personal-lading-record.js"></script>
+</body>
+
+</html>

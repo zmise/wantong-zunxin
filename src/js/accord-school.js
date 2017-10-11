@@ -181,7 +181,7 @@ $(function() {
 
 
   /* 搜索小区 */
-  $('#search').on('keyup', function() {
+  $('#search').on('input', function() {
     resetList();
     if (this.value.length > 0) {
       searchHandle(this.value);
