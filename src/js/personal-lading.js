@@ -44,6 +44,9 @@ $(function () {
   $(document).on('click', '.open-agreement', function () {
     $.popup('.popup-agreement');
 
+  }).on('click', '#agreement', function () {
+    $('#save').toggleClass('button-disabled', !this.checked);
+
   }).on('click', '#ladingTips', function () {
     $('#ownModal').show();
 
@@ -62,7 +65,7 @@ $(function () {
 
 
     $save.addClass('button-disabled');
-    $.showPreloader('请稍后...');
+    $.showPreloader('请稍候...');
 
     $.ajax({
       url: '/qfang-credit/wx/order/apply.json',

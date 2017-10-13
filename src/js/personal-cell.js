@@ -9,7 +9,10 @@ $(function () {
   }).done(function (res) {
     // console.log(res);
     if (res.data.cellphone) {
-      $('#bind').text('修改手机号');
+      document.title = '修改资料';
+      $('#name').val(res.data.name);
+      $('#cellphone').val(res.data.cellphone);
+      $('#bind').text('保存');
     }
   });
 
@@ -77,7 +80,7 @@ $(function () {
     }
 
     $bind.addClass('button-disabled');
-    $.showPreloader('请稍后...');
+    $.showPreloader('请稍候...');
     console.log(data);
     $.ajax({
       url: '/qfang-credit/userCenter/bindCellphone.json',

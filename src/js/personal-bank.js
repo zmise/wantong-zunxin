@@ -22,7 +22,7 @@ $(function () {
       $('#bind').text('保存修改');
     }
   });
-  
+
   function bankCard(carno) {
     return carno.substr(0, 4) + carno.replace(/\d+(?=\d{4})/, '********');
   }
@@ -66,7 +66,7 @@ $(function () {
     }
 
     $bind.addClass('button-disabled');
-    $.showPreloader('请稍后...');
+    $.showPreloader('请稍候...');
     // console.log(11);
     $.ajax({
       url: '/qfang-credit/userCenter/bindBankCard.json',

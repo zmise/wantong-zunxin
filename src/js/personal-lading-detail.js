@@ -82,25 +82,29 @@ $(function () {
   function setCommissions(data) {
     var i = 0; len = data.length;
     var doc = document.createDocumentFragment();
+    var sum = 0;
     for (; i < len; i++) {
+      var item = data[i];
       var $temp = $('#tempLate .list-block').clone();
-      renderData($temp, data[i]);
+      renderData($temp, item);
+      sum += item.amount;
       doc.appendChild($temp[0]);
     }
 
+    if (len > 0) {
+      $('#incomSum').text(sum);
+      $('.lading-income').show();
+    }
     $('#listBlock').append(doc);
   }
 
   function renderData($container, data) {
     for (var key in data) {
-      if (data.hasOwnProperty(key)) {
-        var item = data[key];
-        var $el = $container.find('[data-id="' + key + '"]');
-        if (item && $el[0]) {
-          item += (key === 'lenderAmount' ? '元' : '');
-          $el.text(item);
-        }
-
+      var item = data[key];
+      var $el = $container.find('[data-id="' + key + '"]');
+      if (item && $el[0]) {
+        item += (key === 'lenderAmount' ? '元' : '');
+        $el.text(item);
       }
     }
   }

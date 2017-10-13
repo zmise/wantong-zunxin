@@ -427,6 +427,30 @@ input::-moz-placeholder {
   border-top: 1px solid #ddd;
 }
 
+.lading .record-no-data {
+  display: none;
+  margin-top: 2.3rem;
+  text-align: center;
+}
+
+.lading .record-no-data .no-date-desc {
+  font-size: .9rem;
+  color: #333;
+}
+
+.lading .record-no-data .icon-nanshoubiaoqing {
+  margin: .75rem;
+  font-size: 2.9rem;
+  color: #ddd;
+}
+
+.lading .record-no-data .button-filly {
+  width: 10rem;
+  height: 2.2rem;
+  margin: 2.2rem auto 0;
+  line-height: 2.2rem;
+}
+
 
 /* 提单详情 */
 
@@ -491,6 +515,20 @@ input::-moz-placeholder {
 .lading-status .status-item.active,
 .lading-status .status-item.active p {
   color: #9bc948;
+}
+
+.lading-income {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  z-index: 9999;
+  width: 100%;
+  margin: 0;
+  border-top: 1px solid #ddd;
+}
+
+.lading-income~.content {
+  bottom: 2.75rem;
 }
 
 .list-block .item-content.dnone {

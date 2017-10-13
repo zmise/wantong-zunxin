@@ -46,7 +46,7 @@
       <div class="page page-current">
         <a class="lading-btn external" href="personal-lading.html"><i class="iconfont icon-banlidaikuan1"></i></a>
         <div class="lading-tab flexbox">
-          <a href="javascript:;" class="active  tab-item" data-val="1">已提单(<span id="status1">0</span>)</a>
+          <a href="javascript:;" class="active  tab-item" data-val="1">待处理(<span id="status1">0</span>)</a>
           <a href="javascript:;" class="tab-item" data-val="2">正在沟通(<span id="status2">0</span>)</a>
           <a href="javascript:;" class="tab-item" data-val="4">正在办理(<span id="status4">0</span>)</a>
           <a href="javascript:;" class="tab-item" data-val="5">办理成功(<span id="status5">0</span>)</a>
@@ -61,12 +61,18 @@
           <div class="infinite-scroll-preloader">
             <div class="preloader"></div>
           </div>
+          <!-- 无数据 -->
+          <div class="record-no-data">
+            <p><i class="iconfont icon-nanshoubiaoqing"></i></p>
+            <p class="no-date-desc">暂时还没有数据哦~</p>
+            <p><a href="personal-lading.html" class="button button-filly" external>立即提单</a></p>
+          </div>
         </div>
       </div>
     </div>
     <div id="tempLate" style="display:none;">
 
-      <div class="list-card" data-id="{userId}">
+      <div class="list-card" data-id="{id}">
         <div class="list-content flexbox">
           <p class="list-gender">{gender}</p>
           <div class="flexitem list-info">

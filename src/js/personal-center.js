@@ -12,21 +12,16 @@ $(function () {
   }).done(function (res) {
     $.hidePreloader();
     console.log(res);
-    if (res.code != 'ok') {
+    if (res.code !== 'ok') {
       return;
     }
 
     var data = res.data;
     for (var key in data) {
-      if (data.hasOwnProperty(key)) {
-        var element = data[key];
-        var $el = $('[data-id="' + key + '"]');
-        if ($el[0]) {
-          $el.text(element);
-        }
-        if (key === 'bankCardNo' && element) {
-          $('#bankCardNo').closest('li').attr('data-url', 'personal-bank.html?bankCardNo=true');
-        }
+      var element = data[key];
+      var $el = $('[data-id="' + key + '"]');
+      if ($el[0]) {
+        $el.text(element);
       }
     }
 
@@ -35,6 +30,10 @@ $(function () {
       $('#amount').text(sum);
     } else {
       $('#amount').parent().next().text('还没有收益哦，加油吧');
+    }
+
+    if (data.bankCardNo) {
+      $('#bankCardNo').closest('li').data('url', 'personal-bank.html?bankCardNo=true');
     }
 
     if (data.cellphone) {

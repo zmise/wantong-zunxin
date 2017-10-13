@@ -27,11 +27,11 @@ $(function () {
   var loading = false;
   var $container = $('#listBlock');
   var $contBox = $container.parent();
-  var temp = ['userId', 'gender', 'lenderName', 'lenderCellphone', 'createTime', 'lenderAmount', 'status', 'productMatcherName', 'productMatcherPhone'];
+  var temp = ['id', 'gender', 'lenderName', 'lenderCellphone', 'createTime', 'lenderAmount', 'status', 'productMatcherName', 'productMatcherPhone'];
 
   function getStatus(key) {
     switch (key) {
-      case 1: return '已提单';
+      case 1: return '待处理';
       case 2: return '正在沟通';
       case 3: return '客户拒绝';
       case 4: return '正在办理';
@@ -79,8 +79,18 @@ $(function () {
     $.refreshScroller();
   }
 
+  function noData(bool) {
+    if (bool) {
+      $('.record-no-data').show();
+      $('.lading-btn').hide();
+    } else {
+      $('.record-no-data').hide();
+      $('.lading-btn').show();
+    }
+  }
 
   function fetchData() {
+    noData(false);
     if (pageIndex === 1) {
       // 第一页 清空容器，重置滚动条到顶部
       $contBox.scrollTop(0);
@@ -103,7 +113,11 @@ $(function () {
 
       // 已获取数据
       loading = false;
-      res.data.list.length && addItems(res.data.list);
+      if (!res.data.list.length) {
+        pageIndex === 1 && noData(true);
+      } else {
+        addItems(res.data.list);
+      }
 
       // 总页数
       pages = res.data.paginator.pages;
