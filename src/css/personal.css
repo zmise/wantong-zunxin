@@ -361,13 +361,18 @@ input::-moz-placeholder {
 }
 
 .lading-tab .tab-item {
-  width: 5.5rem;
+  width: calc((100% - .8rem)/3);
   height: 1.75rem;
+  margin-right: .4rem;
   line-height: 1.75rem;
   text-align: center;
   font-size: .65rem;
   color: #333;
   background-color: #fff;
+}
+
+.lading-tab .tab-item:nth-child(3n) {
+  margin-right: 0;
 }
 
 .lading-tab .tab-item:nth-child(-n+3) {
@@ -380,7 +385,7 @@ input::-moz-placeholder {
 }
 
 .lading-tab~.content {
-  top: 5.7rem;
+  top: 5.35rem;
 }
 
 .lading-tab~.content .list-block {
@@ -509,12 +514,17 @@ input::-moz-placeholder {
 }
 
 .lading-status .status-item:nth-child(2):before {
-  width: calc(100% + 28px);
+  width: calc(100% + 27px);
 }
 
 .lading-status .status-item.active,
 .lading-status .status-item.active p {
   color: #9bc948;
+}
+
+.lading-status .status-item.reject,
+.lading-status .status-item.reject p {
+  color: #e71a20;
 }
 
 .lading-income {

@@ -9,7 +9,7 @@ $(function () {
   }).done(function (res) {
     // console.log(res);
     if (!res.data.cellphone) {
-      location.assign('./personal-cell.html');
+      location.replace('./personal-cell.html');
     }
 
     $('#rname').text(res.data.name);

@@ -161,20 +161,13 @@
   overflow: hidden;
 }
 
-.slide-box .slide-content {
-  position: absolute;
+.slide-box .tempWrap {
   top: 0;
-  bottom: 2.7rem;
-  overflow: hidden;
 }
 
-.slide-content .slide-item {
-  float: left;
+.slide-box .slide-content,
+.slide-box .slide-item {
   height: 100%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
 }
 
 .slide-box .slide-index {
@@ -203,16 +196,20 @@
   cursor: pointer;
 }
 
-.slide-box .slide-index .slide-current {
+.slide-box .slide-index .on {
   color: #fff;
   background-color: #ff9911;
+}
+
+.slide-box .slide-content:before {
+  content: initial;
 }
 
 
 /* 引导页 */
 
 .slide-content .slide-item {
-  /* line-height:  */
+  text-align: center;
 }
 
 .slide-content .slide-item img {

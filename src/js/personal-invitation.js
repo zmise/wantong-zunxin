@@ -34,7 +34,7 @@ $(function () {
     }
 
     if (!res.data.cellphone) {
-      location.assign('./personal-cell.html');
+      location.replace('./personal-cell.html');
     }
 
     $('#name').text(res.data.name);

@@ -34,17 +34,15 @@ $(function () {
       var tempHTML = $('#tempLate')[0].innerHTML;
       var item = list[i];
       for (var key in item) {
-        if (item.hasOwnProperty(key)) {
-          var element = item[key];
-          if (!element) {
-            if (key === 'headimgUrl') {
-              element = staticPic;
-            } else if (key === 'cellphone') {
-              element = '未绑定手机';
-            }
+        var element = item[key];
+        if (!element) {
+          if (key === 'headimgUrl') {
+            element = staticPic;
+          } else if (key === 'cellphone') {
+            element = '未绑定手机';
           }
-          tempHTML = tempHTML.replace('{' + key + '}', element);
         }
+        tempHTML = tempHTML.replace('{' + key + '}', element);
       }
       _html += tempHTML;
     }

@@ -30,9 +30,15 @@ $(function () {
 
   }
 
+  function errorText($items, index, text) {
+    $items.eq(index).find('.iconfont').attr('class', 'iconfont icon-shanchu1');
+    $items.eq(index).find('p').text(text);
+  }
+
   function setStatus(status) {
     var index = 0;
     var str = '';
+    var error = false;
     var $items = $('.lading-status .status-item');
     switch (status) {
       case 1:
@@ -45,7 +51,8 @@ $(function () {
         break;
       case 3:
         index = 1;
-        $items.eq(1).find('p').text('客户拒接');
+        error = true;
+        errorText($items, index, '客户拒绝');
         str = '客户已拒绝办理';
         $('#reason').show();
         break;
@@ -59,7 +66,8 @@ $(function () {
         break;
       case 6:
         index = 3;
-        $items.eq(3).find('p').text('办理失败');
+        error = true;
+        errorText($items, index, '办理失败');
         str = '办理失败';
         $('#reason').show();
         break;
@@ -68,6 +76,11 @@ $(function () {
     $items.filter(function (i) {
       return i <= index;
     }).addClass('active');
+
+    if (error) {
+      $items.eq(index).attr('class', 'status-item reject');
+    }
+
     $('#status').text(str);
   }
 

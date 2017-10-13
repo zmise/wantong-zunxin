@@ -65,6 +65,11 @@ $(function () {
       return false;
     }
 
+    if (data.bankCardNo.length < 12) {
+      $.toast('银行卡号最少要12位数字哦~');
+      return false;
+    }
+
     $bind.addClass('button-disabled');
     $.showPreloader('请稍候...');
     // console.log(11);

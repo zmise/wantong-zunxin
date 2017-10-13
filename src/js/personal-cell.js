@@ -1,4 +1,5 @@
 $(function () {
+  var info = $.unparam(location.search.substring(1));
   dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
 
   // 手机是否已绑定
@@ -75,7 +76,10 @@ $(function () {
 
     });
 
-    if (!flag && vailCell(cellphone)) {
+    if (!flag) {
+      return false;
+    }
+    if (!vailCell(data.cellphone)) {
       return false;
     }
 
@@ -84,8 +88,8 @@ $(function () {
     console.log(data);
     $.ajax({
       url: '/qfang-credit/userCenter/bindCellphone.json',
-      // type: 'POST',
-      type: 'GET',
+      type: 'POST',
+      // type: 'GET',
       data: data
     }).done(function (res) {
       console.log(res);
@@ -102,7 +106,7 @@ $(function () {
 
       $.toast('绑定成功');
       setTimeout(function () {
-        location.assign('personal-bank.html?from=' + document.referrer + '&name=' + $('#name').val());
+        location.assign('personal-bank.html?from=' + info.turnTo ? info.turnTo : document.referrer + '&name=' + $('#name').val());
       }, 2000);
 
     });
@@ -129,4 +133,5 @@ $(function () {
       setCount(count);
     }, 1000);
   }
+  $.init();
 });
