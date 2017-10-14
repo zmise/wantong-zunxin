@@ -541,6 +541,10 @@ input::-moz-placeholder {
   bottom: 2.75rem;
 }
 
+.lading-income .fb {
+  font-size: .9rem;
+}
+
 .list-block .item-content.dnone {
   display: none;
 }

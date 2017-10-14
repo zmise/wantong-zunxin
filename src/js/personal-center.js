@@ -32,10 +32,6 @@ $(function () {
       $('#amount').parent().next().text('还没有收益哦，加油吧');
     }
 
-    if (data.bankCardNo) {
-      $('#bankCardNo').closest('li').data('url', 'personal-bank.html?bankCardNo=true');
-    }
-
     if (data.cellphone) {
       $('#cellphone').text(data.cellphone).removeClass('item-place');
     } else {
@@ -43,15 +39,18 @@ $(function () {
     }
 
     if (data.bankCardNo) {
+      $('#bankCardNo').closest('li').data('url', 'personal-bank.html?bankCardNo=true');
       $('#bankCardNo').text('已绑定').removeClass('item-place');
     }
 
+    // Google Tag Manager  自定义参数
     var layerdata = {
-      'dimension1': data.id,
-      'dimension2': data.nickName
+      dimension1: data.id,
+      dimension2: data.nickName
     };
     dataLayer.push(layerdata);
 
+    // 其他页面也需要传 Google Tag Manager  自定义参数
     sessionStorage.setItem('userInfo.dataLayer', JSON.stringify(layerdata));
   });
 

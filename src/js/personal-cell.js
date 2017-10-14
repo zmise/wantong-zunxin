@@ -1,5 +1,6 @@
 $(function () {
   var info = $.unparam(location.search.substring(1));
+  var isStick = true;
   dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
 
   // 手机是否已绑定
@@ -10,14 +11,13 @@ $(function () {
   }).done(function (res) {
     // console.log(res);
     if (res.data.cellphone) {
+      isStick = false;
       document.title = '修改资料';
       $('#name').val(res.data.name);
       $('#cellphone').val(res.data.cellphone);
       $('#bind').text('保存');
     }
   });
-
-
 
   $(document).on('click', '#fetchVerifyCode', function () {
     if ($(this).hasClass('button-disabled')) {
@@ -106,7 +106,14 @@ $(function () {
 
       $.toast('绑定成功');
       setTimeout(function () {
-        location.assign('personal-bank.html?from=' + (info.turnTo ? info.turnTo : document.referrer) + '&name=' + $('#name').val());
+        var target = info.turnTo ? info.turnTo : document.referrer;
+        var url;
+        if (!isStick) {
+          url = target;
+        } else {
+          url = 'personal-bank.html?from=' + target + '&name=' + $('#name').val();
+        }
+        location.assign(url);
       }, 2000);
 
     });

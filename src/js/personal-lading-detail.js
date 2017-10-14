@@ -116,7 +116,13 @@ $(function () {
       var item = data[key];
       var $el = $container.find('[data-id="' + key + '"]');
       if (item && $el[0]) {
-        item += (key === 'lenderAmount' ? '元' : '');
+        if (key === 'finalLoanAmount') {
+          item = Math.floor(item / 10000) + '万';
+        } else if (key === 'lenderAmount') {
+          item += '元';
+        } else if (key === 'lenderCellphone') {
+          item = item.replace(/(?!^)(\d{4})(?=(?:\d{4})*$)/g, '-$1');
+        }
         $el.text(item);
       }
     }
