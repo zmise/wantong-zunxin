@@ -12,8 +12,6 @@ $(function () {
     }
   });
 
-
-
   $('.slide-box').height($(window).height() - 8.3 * parseInt($('html').css('font-size'), 10));
 
   TouchSlide({

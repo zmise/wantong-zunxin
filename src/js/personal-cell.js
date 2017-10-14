@@ -106,7 +106,7 @@ $(function () {
 
       $.toast('绑定成功');
       setTimeout(function () {
-        location.assign('personal-bank.html?from=' + info.turnTo ? info.turnTo : document.referrer + '&name=' + $('#name').val());
+        location.assign('personal-bank.html?from=' + (info.turnTo ? info.turnTo : document.referrer) + '&name=' + $('#name').val());
       }, 2000);
 
     });

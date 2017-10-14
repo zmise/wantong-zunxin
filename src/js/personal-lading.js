@@ -31,6 +31,13 @@ $(function () {
       $.toast('贷款人手机号不正确');
       return false;
     }
+
+    var lenderAmount = $.trim($('#lenderAmount').val());
+
+    if (lenderAmount && !/^\d+$/.test(lenderAmount)) {
+      $.toast('期望贷款额只能输入数字');
+      return false;
+    }
     return true;
   }
 
@@ -62,7 +69,6 @@ $(function () {
     if (!vail()) {
       return false;
     }
-
 
     $save.addClass('button-disabled');
     $.showPreloader('请稍候...');

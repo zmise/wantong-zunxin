@@ -38,7 +38,10 @@ $(function () {
 
     if (data.cellphone) {
       $('#cellphone').text(data.cellphone).removeClass('item-place');
+    } else {
+      $('#invitedCount').data('url', './personal-cell.html?turnTo=' + $('#invitedCount').data('url'));
     }
+
     if (data.bankCardNo) {
       $('#bankCardNo').text('已绑定').removeClass('item-place');
     }

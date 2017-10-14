@@ -15,36 +15,15 @@
   <link rel="stylesheet" href="font/iconfont.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/personal.css">
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
-  </script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div class="page-group public-min-width">
     <div class="page page-current">
       <div class="success-content">
-        <p><i class="iconfont icon-wancheng"></i></p>
+        <p>
+          <i class="iconfont icon-wancheng"></i>
+        </p>
         <div class="desc">
           <p class="desc-title">感谢，您已成功提单</p>
           <p>信贷经理将会及时与您的客户联系 </p>
@@ -72,8 +51,10 @@
               <li class="item-content">
                 <div class="item-inner">
                   <div class="item-radios">
-                    <label class="labelm"><input class="radio" type="radio" name="lenderGender" value="1" checked>男</label>
-                    <label><input class="radio" type="radio" name="lenderGender"  value="2">女</label>
+                    <label class="labelm">
+                      <input class="radio" type="radio" name="lenderGender" value="1" checked>男</label>
+                    <label>
+                      <input class="radio" type="radio" name="lenderGender" value="2">女</label>
                   </div>
                 </div>
               </li>
@@ -89,7 +70,7 @@
                 <div class="item-inner">
                   <i class="iconfont icon-jine"></i>
                   <div class="item-input">
-                    <input type="tel" placeholder="期望贷款额/元(非必填)" name="lenderAmount" maxlength="13">
+                    <input type="tel" placeholder="期望贷款额/元(非必填)" name="lenderAmount" maxlength="13" id="lenderAmount">
                   </div>
                 </div>
               </li>
@@ -99,7 +80,9 @@
             <ul>
               <li class="item-content">
                 <div class="item-inner">
-                  <div class="item-title">提单人：<span id="rname"></span>(<span id="rcellphone"></span>)
+                  <div class="item-title">提单人：
+                    <span id="rname"></span>(
+                    <span id="rcellphone"></span>)
                     <input type="hidden" name="referrerName" id="referrerName">
                     <input type="hidden" name="referrerCellphone" id="referrerCellphone">
                   </div>
@@ -108,29 +91,46 @@
             </ul>
           </div>
         </form>
-        <p class="lading-desc"><label><input type="checkbox" checked id="agreement">本人已阅读并同意</label><a class="open-agreement" href="javascript:;">《尊信电子金融服务协议》</a></p>
+        <p class="lading-desc">
+          <label>
+            <input type="checkbox" checked id="agreement">本人已阅读并同意</label>
+          <a class="open-agreement" href="javascript:;">《尊信电子金融服务协议》</a>
+        </p>
         <div class="content-block">
-          <p><a href="#" class="button button-filly" id="save">立即申请</a></p>
+          <p>
+            <a href="#" class="button button-filly" id="save">立即申请</a>
+          </p>
         </div>
 
         <div class="lading-step">
           <div class="flexbox flex-between lading-step-title">
             <p class="color-000">提单拿收益</p>
-            <p id="ladingTips"><i class="iconfont icon-question"></i>提单说明</p>
+            <p id="ladingTips">
+              <i class="iconfont icon-question"></i>提单说明</p>
           </div>
           <div class="flexbox flex-around lading-step-cont">
             <div class="tc">
-              <p class="icon-box"><i class="iconfont icon-tidan"></i></p>
+              <p class="icon-box">
+                <i class="iconfont icon-tidan"></i>
+              </p>
               <p>提单</p>
             </div>
-            <p><i class="iconfont icon-xiangyou1"></i></p>
+            <p>
+              <i class="iconfont icon-xiangyou1"></i>
+            </p>
             <div class="tc">
-              <p class="icon-box"><i class="iconfont icon-banlidaikuan1"></i></p>
+              <p class="icon-box">
+                <i class="iconfont icon-banlidaikuan1"></i>
+              </p>
               <p>办理贷款</p>
             </div>
-            <p><i class="iconfont icon-xiangyou1"></i></p>
+            <p>
+              <i class="iconfont icon-xiangyou1"></i>
+            </p>
             <div class="tc">
-              <p class="icon-box"><i class="iconfont icon-huodeshouyi"></i></p>
+              <p class="icon-box">
+                <i class="iconfont icon-huodeshouyi"></i>
+              </p>
               <p>获得收益</p>
             </div>
           </div>
@@ -141,7 +141,9 @@
   </div>
   <div class="own-bg" id="ownModal">
     <div class="own-modal">
-      <a href="javascript:;" class="ow-m-close" id="ownModalClose"><i class="iconfont icon-weibiaoti522"></i></a>
+      <a href="javascript:;" class="ow-m-close" id="ownModalClose">
+        <i class="iconfont icon-weibiaoti522"></i>
+      </a>
       <div class="ow-m-title">
         <p>温馨提示</p>
       </div>
@@ -177,12 +179,20 @@
       </div>
     </div>
   </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!--build:js js/common.min.js -->
   <script src="js/zepto.js"></script>
   <script src="js/sm.js"></script>
   <script src="js/common.js"></script>
   <!-- endbuild -->
   <script src="js/personal-lading.js"></script>
+  <!-- Google Tag Manager -->
+  <script src="js/own-gtm.js"></script>
+  <!-- End Google Tag Manager -->
 </body>
 
 </html>

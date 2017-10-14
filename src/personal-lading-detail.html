@@ -15,167 +15,152 @@
   <link rel="stylesheet" href="font/iconfont.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/personal.css">
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
-  </script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <a class="lading-btn external" href="personal-lading.html"><i class="iconfont icon-banlidaikuan1"></i></a>
+      <div class="lading-income list-block">
+        <ul>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">累计收益</div>
+              <div class="item-after"> <span id="incomSum">0</span>元</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="lading-status flexbox">
+          <div class="status-item">
+            <i class="iconfont icon-dagou2"></i>
+            <p>提单</p>
+          </div>
+          <div class="status-item">
+            <i class="iconfont icon-dagou2"></i>
+            <p>客户沟通</p>
+          </div>
+          <div class="status-item">
+            <i class="iconfont icon-dagou2"></i>
+            <p>办理贷款</p>
+          </div>
+          <div class="status-item">
+            <i class="iconfont icon-dagou2"></i>
+            <p>获得收益</p>
+          </div>
+        </div>
+        <div class="list-block">
+          <ul>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">办理状态</div>
+                <div class="item-after" id="status"></div>
+              </div>
+            </li>
+            <li class="item-content dnone" id="reason">
+              <div class="item-inner">
+                <div class="item-title min-label">原因</div>
+                <div class="flexitem" data-id="reson"></div>
+              </div>
+            </li>
+            <li class="item-content" id="productMatcher">
+              <div class="item-inner">
+                <div class="item-title">信贷经理</div>
+                <div class="item-after"><span class="mr10" data-id="productMatcherName"></span>
+                  <a href="javascript:;" data-id="productMatcherPhone"></a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="list-block">
+          <ul>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">贷款人</div>
+                <div class="item-after" data-id="lenderName"></div>
+              </div>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">贷款人手机</div>
+                <div class="item-after" data-id="lenderCellphone"></div>
+              </div>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">需求额度</div>
+                <div class="item-after" data-id="lenderAmount"></div>
+              </div>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">提单时间</div>
+                <div class="item-after" data-id="createTime"></div>
+              </div>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">提单流水号</div>
+                <div class="item-after" data-id="orderNo"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div id="listBlock">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="tempLate" style="display:none;">
+    <div class="list-block">
+      <ul>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">贷款额</div>
+            <div class="item-after" data-id="finalLoanAmount"></div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">提单收益</div>
+            <div class="item-after" data-id="amount"></div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title min-label">发放银行卡</div>
+            <div class="flexitem tr">
+              <p><span data-id="name"></span>,<span data-id="bankCardNo"></span></p>
+              <p data-id="bankName"></p>
+            </div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">收益发放日期</div>
+            <div class="item-after" data-id="payTime"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <div class="page-group public-min-width">
-    <div class="page page-current">
-      <div class="page page-current">
-        <a class="lading-btn external" href="personal-lading.html"><i class="iconfont icon-banlidaikuan1"></i></a>
-        <div class="lading-income list-block">
-          <ul>
-            <li class="item-content">
-              <div class="item-inner">
-                <div class="item-title">累计收益</div>
-                <div class="item-after"> <span id="incomSum">0</span>元</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="content">
-          <div class="lading-status flexbox">
-            <div class="status-item">
-              <i class="iconfont icon-dagou2"></i>
-              <p>提单</p>
-            </div>
-            <div class="status-item">
-              <i class="iconfont icon-dagou2"></i>
-              <p>客户沟通</p>
-            </div>
-            <div class="status-item">
-              <i class="iconfont icon-dagou2"></i>
-              <p>办理贷款</p>
-            </div>
-            <div class="status-item">
-              <i class="iconfont icon-dagou2"></i>
-              <p>获得收益</p>
-            </div>
-          </div>
-          <div class="list-block">
-            <ul>
-              <li class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">办理状态</div>
-                  <div class="item-after" id="status"></div>
-                </div>
-              </li>
-              <li class="item-content dnone" id="reason">
-                <div class="item-inner">
-                  <div class="item-title min-label">原因</div>
-                  <div class="flexitem" data-id="reson"></div>
-                </div>
-              </li>
-              <li class="item-content" id="productMatcher">
-                <div class="item-inner">
-                  <div class="item-title">信贷经理</div>
-                  <div class="item-after"><span class="mr10" data-id="productMatcherName"></span>
-                    <a href="javascript:;" data-id="productMatcherPhone"></a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="list-block">
-            <ul>
-              <li class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">贷款人</div>
-                  <div class="item-after" data-id="lenderName"></div>
-                </div>
-              </li>
-              <li class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">贷款人手机</div>
-                  <div class="item-after" data-id="lenderCellphone"></div>
-                </div>
-              </li>
-              <li class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">需求额度</div>
-                  <div class="item-after" data-id="lenderAmount"></div>
-                </div>
-              </li>
-              <li class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">提单时间</div>
-                  <div class="item-after" data-id="createTime"></div>
-                </div>
-              </li>
-              <li class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">提单流水号</div>
-                  <div class="item-after" data-id="orderNo"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div id="listBlock">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="tempLate" style="display:none;">
-      <div class="list-block">
-        <ul>
-          <li class="item-content">
-            <div class="item-inner">
-              <div class="item-title">贷款额</div>
-              <div class="item-after" data-id="finalLoanAmount"></div>
-            </div>
-          </li>
-          <li class="item-content">
-            <div class="item-inner">
-              <div class="item-title">提单收益</div>
-              <div class="item-after" data-id="amount"></div>
-            </div>
-          </li>
-          <li class="item-content">
-            <div class="item-inner">
-              <div class="item-title min-label">发放银行卡</div>
-              <div class="flexitem tr">
-                <p><span data-id="name"></span>,<span data-id="bankCardNo"></span></p>
-                <p data-id="bankName"></p>
-              </div>
-            </div>
-          </li>
-          <li class="item-content">
-            <div class="item-inner">
-              <div class="item-title">收益发放日期</div>
-              <div class="item-after" data-id="payTime"></div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!--build:js js/common.min.js -->
-    <script src="js/zepto.js"></script>
-    <script src="js/sm.js"></script>
-    <script src="js/common.js"></script>
-    <!-- endbuild -->
-    <script src="js/personal-lading-detail.js"></script>
+
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script src="js/personal-lading-detail.js"></script>
+  <!-- Google Tag Manager -->
+  <script src="js/own-gtm.js"></script>
+  <!-- End Google Tag Manager -->
 </body>
 
 </html>

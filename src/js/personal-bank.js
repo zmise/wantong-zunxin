@@ -13,9 +13,9 @@ $(function () {
   }).done(function (res) {
     // console.log(res);
     if (info.bankCardNo && res.data.bankCardNo) {
-      $('#name').val(res.data.bankCardName).prop('disabled', true);
-      $('#bankCardNo').val(bankCard(res.data.bankCardNo)).prop('disabled', true);
-      $('#bankName').val(res.data.bankName || ' ').prop('disabled', true);
+      $('#name').val(res.data.bankCardName).prop('readOnly', true);
+      $('#bankCardNo').val(bankCard(res.data.bankCardNo)).prop('readOnly', true);
+      $('#bankName').val(res.data.bankName || ' ').prop('readOnly', true);
       $('#bind').text('修改银行卡').attr('change', '1');
       $('#stick').hide();
     } else if (res.data.bankCardNo) {
@@ -37,7 +37,7 @@ $(function () {
     }
 
     if ($bind.attr('change')) {
-      $('input').prop('disabled', false);
+      $('input').prop('readOnly', false);
       $('#bankCardNo,#bankName').val('');
       $bind.removeAttr('change');
       $('#bind').text('保存修改');

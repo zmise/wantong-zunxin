@@ -14,88 +14,73 @@
   <link rel="stylesheet" href="../css/sm.css">
   <link rel="stylesheet" href="../css/detail.css">
   <link rel="stylesheet" href="../css/consult-files.css">
-  <!-- Google Tag Manager -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
-
-  </script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
+  <div class="page-group public-min-width">
+    <div class="page page-current">
+      <div class="buttons-tab">
+        <a href="./consult-files.html" class="external button">立即查档</a>
+        <a href="javascript:;" class="external button active">查档记录</a>
+      </div>
+      <div class="content infinite-scroll infinite-scroll-bottom" data-distance="100">
+        <div class="content-block result-list" id="consultList">
+        </div>
+        <div class="dn" id="tempHTML">
+          <div class="list-block" data-id="">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <p class="result-title">权利人在<span data-id="address"></span>有房产，产权状态为：<span class="result" data-id="status"></span></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">房产证号</div>
+                    <div class="item-after" data-id="certNo"></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">身份证号/姓名</div>
+                    <div class="item-after" data-id="personInfo"></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">查档时间</div>
+                    <div class="item-after" data-id="createTime"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="infinite-scroll-preloader"></div>
+      </div>
+    </div>
+  </div>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <div class="page page-current">
-    <div class="buttons-tab">
-      <a href="./consult-files.html" class="external button">立即查档</a>
-      <a href="javascript:;" class="external button active">查档记录</a>
-    </div>
-    <div class="content infinite-scroll infinite-scroll-bottom" data-distance="100">
-      <div class="content-block result-list" id="consultList">
-      </div>
-      <div class="dn" id="tempHTML">
-        <div class="list-block" data-id="">
-          <ul>
-            <li>
-              <div class="item-content">
-                <div class="item-inner">
-                  <p class="result-title">权利人在<span data-id="address"></span>有房产，产权状态为：<span class="result" data-id="status"></span></p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">房产证号</div>
-                  <div class="item-after" data-id="certNo"></div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">身份证号/姓名</div>
-                  <div class="item-after" data-id="personInfo"></div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">查档时间</div>
-                  <div class="item-after" data-id="createTime"></div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="infinite-scroll-preloader"></div>
-    </div>
-  </div>
-  </div>
   <!--build:js js/common.min.js -->
   <script src="js/zepto.js"></script>
   <script src="js/sm.js"></script>
   <script src="js/common.js"></script>
   <!-- endbuild -->
   <script src="js/consult-files-record.js"></script>
+  <!-- Google Tag Manager -->
+  <script src="js/own-gtm.js"></script>
+  <!-- End Google Tag Manager -->
 </body>
 
 </html>

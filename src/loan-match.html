@@ -14,33 +14,9 @@
   <link rel="stylesheet" href="css/sm.css">
   <link rel="stylesheet" href="font/iconfont.css">
   <link rel="stylesheet" href="css/loan-search.css">
-  <!-- Google Tag Manager -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
-
-  </script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div class="page-group">
     <div class="page page-current">
       <header class="bar flex-box">
@@ -67,7 +43,7 @@
                 <i class="iconfont icon-xiangyou"></i>
               </p>
             </li>
-            <li class="forms-inner"  data-popup="crowdId">
+            <li class="forms-inner" data-popup="crowdId">
               <label>我的职业</label>
               <p>
                 <span id="crowdId">请选择</span>
@@ -76,21 +52,21 @@
             </li>
             <li class="none animate">
               <ul>
-                <li class="forms-inner"  data-popup="hasSocialInsurance">
+                <li class="forms-inner" data-popup="hasSocialInsurance">
                   <label>深圳社保</label>
                   <p>
                     <span id="hasSocialInsurance">请选择</span>
                     <i class="iconfont icon-xiangyou"></i>
                   </p>
                 </li>
-                <li class="forms-inner"  data-popup="hasHouseFund">
+                <li class="forms-inner" data-popup="hasHouseFund">
                   <label>深圳公积金</label>
                   <p>
                     <span id="hasHouseFund">请选择</span>
                     <i class="iconfont icon-xiangyou"></i>
                   </p>
                 </li>
-                <li class="forms-inner"  data-popup="salaryTypeIds">
+                <li class="forms-inner" data-popup="salaryTypeIds">
                   <label>工资发放形式</label>
                   <p>
                     <span id="salaryTypeIds">请选择</span>
@@ -99,21 +75,21 @@
                 </li>
               </ul>
             </li>
-            <li class="forms-inner"  data-popup="houseRequirementIds">
+            <li class="forms-inner" data-popup="houseRequirementIds">
               <label>有无房产</label>
               <p>
                 <span id="houseRequirementIds">请选择</span>
                 <i class="iconfont icon-xiangyou"></i>
               </p>
             </li>
-            <li class="forms-inner"  data-popup="hasOrderRequirement">
+            <li class="forms-inner" data-popup="hasOrderRequirement">
               <label>商业保险</label>
               <p>
                 <span id="hasOrderRequirement">请选择</span>
                 <i class="iconfont icon-xiangyou"></i>
               </p>
             </li>
-            <li class="forms-inner"  data-popup="carRequirementIds">
+            <li class="forms-inner" data-popup="carRequirementIds">
               <label>是否购车</label>
               <p>
                 <span id="carRequirementIds">请选择</span>
@@ -133,7 +109,7 @@
       <p class="forms-title">申请额度</p>
       <div class="forms-list">
         <ul class="inner-list">
-          <li class="forms-inner" data-minLoanAmount="" data-maxLoanAmount="100000"  data-val="1">
+          <li class="forms-inner" data-minLoanAmount="" data-maxLoanAmount="100000" data-val="1">
             &lt;10万（含）
           </li>
           <li class="forms-inner" data-minLoanAmount="100000" data-maxLoanAmount="300000" data-val="2">
@@ -213,7 +189,7 @@
             现金转账
           </li>
           <li class="forms-inner bottom-border" data-val="">
-           部分代发，部分转账
+            部分代发，部分转账
           </li>
         </ul>
       </div>
@@ -279,6 +255,11 @@
       </div>
     </div>
   </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!--build:js js/common.min.js -->
   <script src="js/zepto.js"></script>
   <script src="js/sm.js"></script>
@@ -286,6 +267,9 @@
   <!-- endbuild -->
   <script src="js/loan-mas.js"></script>
   <script src="js/loan-match.js"></script>
+  <!-- Google Tag Manager -->
+  <script src="js/own-gtm.js"></script>
+  <!-- End Google Tag Manager -->
 </body>
 
 </html>
