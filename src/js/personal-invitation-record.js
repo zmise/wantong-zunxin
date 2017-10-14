@@ -27,6 +27,35 @@ $(function () {
   var $container = $('#listBlock');
   var $contBox = $container.parent();
 
+  function nodateStatus(container, type) {
+    var $container = $(container);
+    var str = '';
+    switch (type) {
+      case 1: str = '还没有好友加入，加油邀请吧~'; break;
+      case 2: str = '还没有已绑定手机的好友哦'; break;
+      case 3: str = '还没有成功办理的好友哦'; break;
+      case 4: str = '太好了，还没有取消关注的好友'; break;
+      default: str = '';
+    }
+    $container.find('.no-date-desc').text(str);
+    if (type === 1) {
+      $container.find('.button').css('display', '');
+    } else {
+      $container.find('.button').hide();
+    }
+
+  }
+
+  function noData(bool, type) {
+    var $nodata = $('.record-no-data');
+    if (bool) {
+      nodateStatus($nodata, type);
+      $nodata.show();
+    } else {
+      $nodata.hide();
+    }
+  }
+
   function addItems(list) {
     var _html = '';
     var i = 0, len = list.length;
@@ -52,6 +81,7 @@ $(function () {
 
 
   function fetchData() {
+    noData(false);
     if (pageIndex === 1) {
       // 第一页 清空容器，重置滚动条到顶部
       $contBox.scrollTop(0);
@@ -72,7 +102,12 @@ $(function () {
         return;
       }
       loading = false;
-      res.data.list.length && addItems(res.data.list);
+      if (!res.data.list.length) {
+        pageIndex === 1 && noData(true, type);
+      } else {
+        addItems(res.data.list);
+      }
+      // res.data.list.length && addItems(res.data.list);
 
       // 总页数
       maxIndex = res.data.paginator.pages;
