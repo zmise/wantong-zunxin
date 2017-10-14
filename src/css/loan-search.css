@@ -492,7 +492,7 @@ p {
   bottom: 0;
   padding: .75rem;
   width: 100%;
-  line-height: 1;
+  line-height: 1.5;
   background-color: #fff;
 }
 
@@ -555,8 +555,8 @@ p {
 }
 
 .own-modal-inner {
-   overflow: auto; 
-   -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .own-modal .buttons-row .button {
@@ -589,7 +589,7 @@ p {
   border: 0;
 }
 
-.own-modal-list li .fb{
+.own-modal-list li .fb {
   font-weight: bold;
 }
 

@@ -17,6 +17,10 @@ $(function () {
       $('#cellphone').val(res.data.cellphone);
       $('#bind').text('保存');
     }
+
+    if (res.data.bankCardNo) {
+      isStick = false;
+    }
   });
 
   $(document).on('click', '#fetchVerifyCode', function () {
