@@ -93,7 +93,7 @@ $(function () {
       dataType: 'json',
       data: {
         pageIndex: pageIndex,
-        pageSize: pageSize,
+        sizePerPage: pageSize,
         type: type
       }
     }).done(function (res) {

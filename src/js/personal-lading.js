@@ -1,5 +1,6 @@
 $(function () {
-  dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
+  var layerdata = JSON.parse(sessionStorage.getItem('userInfo.dataLayer'));
+  layerdata && dataLayer.push(layerdata);
 
   // 手机是否已绑定
   $.ajax({
@@ -16,6 +17,18 @@ $(function () {
     $('#rcellphone').text(res.data.cellphone);
     $('#referrerName').val(res.data.name);
     $('#referrerCellphone').val(res.data.cellphone);
+
+    if (!layerdata) {
+      // Google Tag Manager  自定义参数
+      var layerdata = {
+        dimension1: res.data.id,
+        dimension2: res.data.nickName
+      };
+      dataLayer.push(layerdata);
+
+      // 其他页面也需要传 Google Tag Manager  自定义参数
+      sessionStorage.setItem('userInfo.dataLayer', JSON.stringify(layerdata));
+    }
   });
 
 
@@ -75,8 +88,8 @@ $(function () {
 
     $.ajax({
       url: '/qfang-credit/wx/order/apply.json',
-      // type: 'POST',
-      type: 'GET',
+      type: 'POST',
+      // type: 'GET',
       data: $('#form').serialize()
     }).done(function (res) {
       console.log(res);

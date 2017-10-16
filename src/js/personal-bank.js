@@ -75,8 +75,8 @@ $(function () {
     // console.log(11);
     $.ajax({
       url: '/qfang-credit/userCenter/bindBankCard.json',
-      type: 'GET',
-      // type: 'POST',
+      // type: 'GET',
+      type: 'POST',
       data: data
     }).done(function (res) {
       console.log(res);
