@@ -92,6 +92,11 @@ $(function () {
     renderData($container, data);
 
   }
+
+  function bankCard(carno) {
+    return carno.substr(0, 4) + carno.replace(/\d+(?=\d{4})/, '********');
+  }
+
   function setCommissions(data) {
     var i = 0; len = data.length;
     var doc = document.createDocumentFragment();
@@ -122,6 +127,10 @@ $(function () {
           item += '元';
         } else if (key === 'lenderCellphone') {
           item = item.replace(/(?!^)(\d{4})(?=(?:\d{4})*$)/g, '-$1');
+        } else if (key === 'productMatcherPhone') {
+          $el.attr('href', 'tel:' + item);
+        } else if (key === 'bankCardNo') {
+          item = bankCard(data.bankCardNo);
         }
         $el.text(item);
       }

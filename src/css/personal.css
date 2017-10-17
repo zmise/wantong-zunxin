@@ -307,6 +307,9 @@ input::-moz-placeholder {
 
 .list-card .list-content {
   padding: .5rem;
+}
+
+.list-card .list-content.bbcddd {
   border-bottom: 1px solid #ddd;
 }
 
