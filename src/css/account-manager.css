@@ -11,6 +11,7 @@ p {
   margin-top: .5rem;
   color: #3a3a3a;
   background-color: #fff;
+  overflow: hidden;
 }
 
 
