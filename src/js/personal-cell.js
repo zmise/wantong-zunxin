@@ -125,7 +125,7 @@ $(function () {
   });
 
   function vailPhone(phone) {
-    return /^1(3[1-9]|([578]\d{1}))\d{8}$/.test(phone);
+    return /^1[3578]\d{9}$/.test(phone);
   }
 
   function enableDtn() {
