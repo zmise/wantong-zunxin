@@ -15,6 +15,15 @@
   <link rel="stylesheet" href="../font/iconfont.css">
   <link rel="stylesheet" href="../css/detail.css">
   <link rel="stylesheet" href="../css/consult-files.css">
+  <style>
+    .fb {
+      font-weight: bold;
+    }
+    
+    .modal-text p {
+      margin: 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -71,41 +80,51 @@
         </div>
         <div class="list-block price-result">
           <div class="row no-gutter">
-            <div class="col-20">名称</div>
-            <div class="col-40" data-tips="
+            <div class="col-25">名称</div>
+            <div class="col-75 tl-r">金额</div>
+            <!-- <div class="col-375" data-tips="
             税计的方式基准国土过户价，计税的方式是固定的，公式=过户价-增值税×税率">核定<i class="iconfont icon-question"></i></div>
-            <div class="col-40" data-tips="
-            计税的方式是以当前的房产的增值部份做为计税基准；公式=（国土过户价 - 登记价）× 税率<br/>如该房产购买时的登记价为100万，当前的国土过户价为150万，那么增值就是50万">核实<i class="iconfont icon-question"></i></div>
+            <div class="col-375" data-tips="
+            计税的方式是以当前的房产的增值部份做为计税基准；公式=（国土过户价 - 登记价）× 税率<br/>如该房产购买时的登记价为100万，当前的国土过户价为150万，那么增值就是50万">核实<i class="iconfont icon-question"></i></div> -->
           </div>
           <div class="row no-gutter">
-            <div class="col-20">增值税</div>
-            <div class="col-40" data-id="hd-addedTax"></div>
-            <div class="col-40" data-id="hs-addedTax"></div>
+            <div class="col-25">增值税</div>
+            <div class="col-75" data-id="hd-addedTax"></div>
+            <!-- <div class="col-40" data-id="hs-addedTax"></div> -->
           </div>
           <div class="row no-gutter">
-            <div class="col-20">契税</div>
-            <div class="col-40" data-id="hd-deedTax"></div>
-            <div class="col-40" data-id="hs-deedTax"></div>
+            <div class="col-25" id="deedTax">契税<i class="iconfont icon-question"></i></div>
+            <div class="col-75" data-id="hd-deedTax"></div>
+            <!-- <div class="col-40" data-id="hs-deedTax"></div> -->
           </div>
           <div class="row no-gutter">
-            <div class="col-20">个税</div>
-            <div class="col-40" data-id="hd-personalTax"></div>
-            <div class="col-40" data-id="hs-personalTax"></div>
+            <div class="col-25">个税(2选1)</div>
+            <div class="col-375 rowtwo">
+              <p id="hd">核定法<i class="iconfont icon-question"></i></p>
+              <p data-id="hd-personalTax"></p>
+            </div>
+            <div class="col-375 rowtwo">
+              <p id="hs">核实法<i class="iconfont icon-question"></i></p>
+              <p data-id="hs-personalTax"></p>
+            </div>
           </div>
           <div class="row no-gutter">
-            <div class="col-20">登记费</div>
-            <div class="col-40" data-id="hd-registerCost"></div>
-            <div class="col-40" data-id="hs-registerCost"></div>
+            <div class="col-25">登记费</div>
+            <div class="col-75" data-id="hd-registerCost"></div>
+            <!-- <div class="col-40" data-id="hs-registerCost"></div> -->
           </div>
           <div class="row no-gutter">
-            <div class="col-20">贴花</div>
-            <div class="col-40" data-id="hd-stampCost"></div>
-            <div class="col-40" data-id="hs-stampCost"></div>
+            <div class="col-25">贴花</div>
+            <div class="col-75" data-id="hd-stampCost"></div>
+            <!-- <div class="col-40" data-id="hs-stampCost"></div> -->
           </div>
           <div class="row no-gutter">
-            <div class="col-20">总计</div>
-            <div class="col-40 font-bold" data-id="hd-count"></div>
-            <div class="col-40 font-bold" data-id="hs-count"></div>
+            <div class="col-25">总计(2选1)</div>
+            <div class="col-375 font-bold" data-id="hd-count"></div>
+            <div class="col-375 font-bold" data-id="hs-count"></div>
+          </div>
+          <div class="row no-gutter" id="regest">
+            <div class="col-100 tl-r"></div>
           </div>
         </div>
         <p class="infos-tips">来自深圳市房产信息系统，最终结果以实际办理为准</p>

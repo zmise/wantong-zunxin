@@ -41,7 +41,12 @@ $(function () {
 
           // 若评估单价为不为0或不为空，则显示本按钮
           if (item.unitPrice > 0) {
-            searchStr = 'unitPrice=' + item.unitPrice + '&registerPrice=' + item.registerPrice  + '&houseType=' + item.houseType + '&area=' + item.area + '&id=' + item.id;
+            searchStr = 'unitPrice=' + item.unitPrice + '&registerPrice=' + item.registerPrice + '&houseType=' + item.houseType + '&area=' + item.area + '&id=' + item.id;
+
+            if (item.region) {
+              searchStr += '&address=' + item.region;
+            }
+
             $('.mandatory-btn').removeClass('none');
           } else {
             // 未查到过户价

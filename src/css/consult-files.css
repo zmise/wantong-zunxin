@@ -258,7 +258,7 @@
 .icon-question {
   margin-left: .1rem;
   color: #00b4ed;
-  font-size: .7rem;
+  font-size: .9rem;
 }
 
 
@@ -319,6 +319,7 @@
   background-color: #fff;
 }
 
+.price-result .row .col-100.tl-r,
 .price-result .row:first-child>div {
   padding: .5rem 0;
   line-height: 1.2rem;
@@ -326,14 +327,27 @@
 }
 
 .price-result .row:nth-child(n+2)>div {
-  padding: 1rem 0;
-  height: 3.4rem;
+  padding: .85rem 0;
+  height: 3.1rem;
   line-height: 1.4rem;
   border-bottom: 1px solid #e7e8ea;
 }
 
-.price-result .row:nth-child(n+2) .col-20 {
+.price-result .row:nth-child(n+2) .col-25 {
   color: #a8a8a8;
+}
+
+.price-result .row .col-375 {
+  width: 37.5%
+}
+
+.price-result .row .col-375.rowtwo {
+  padding: .15rem 0;
+  padding-right: .75rem;
+}
+
+.price-result .rowtwo p {
+  margin: 0;
 }
 
 .price-result .row:last-child>div {
@@ -342,4 +356,16 @@
 
 .price-result .row>div:nth-child(-n+2) {
   border-right: 1px solid #e7e8ea;
+}
+
+.price-result .row .col-100.tl-r,
+.price-result .row>div:nth-child(n+2) {
+  padding-right: .75rem;
+  text-align: right;
+}
+
+.price-result .row .col-100.tl-r {
+  height: auto;
+  font-size: .7rem;
+  background-color: #fff;
 }

@@ -29,11 +29,29 @@ $(function () {
     }
   }
 
-  // 面积
-  function area(area) {
+  // 区域指导价
+  function areaPrice(area, price, address) {
+    var total = 0;
+    switch (address) {
+      case '罗湖': total = 390; break;
+      case '福田': total = 470; break;
+      case '南山': total = 490; break;
+      case '盐田': total = 330; break;
+      case '宝安': total = 360; break;
+      case '龙华': total = 320; break;
+      case '龙岗': total = 280; break;
+      case '光明': total = 250; break;
+      case '坪山': total = 200; break;
+      case '大鹏': total = 230;
+    }
+    return (area * price) / 10000 > total;
+  }
+
+  // 面积  住宅类型
+  function area(area, price, address) {
     if (area) {
       $('#area').val(area);
-      if (area > 144) {
+      if (area > 144 || (address && areaPrice(area, price, address))) {
         $('#houseType2').trigger('click');
       }
     }
@@ -44,7 +62,7 @@ $(function () {
     houseType(urlParams.houseType);
     registerPrice(urlParams.registerPrice);
     unitPrice(urlParams.unitPrice);
-    area(urlParams.area);
+    area(urlParams.area, urlParams.unitPrice, urlParams.address);
     $('#id').val(urlParams.id);
   }
 

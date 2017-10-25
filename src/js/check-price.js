@@ -37,6 +37,10 @@ function sendData(opt) {
           searchO.area = data.area;
         }
 
+        if (data.address) {
+          searchO.address = data.address;
+        }
+
       }
     },
     complete: function () {
@@ -69,6 +73,10 @@ function sendData(opt) {
 
         if (data.unitPrice) {
           searchO.unitPrice = data.unitPrice;
+        }
+
+        if (!searchO.address && data.region) {
+          searchO.address = data.region;
         }
 
         if (data.id) {
