@@ -803,3 +803,15 @@ input::-moz-placeholder {
 .pzx-title-sub {
   font-size: .65rem;
 }
+
+.cell-title {
+  margin-top: .5rem;
+  text-align: center;
+  line-height: 2.5rem;
+  font-size: .75rem;
+  color: #333;
+}
+
+.cell-title+.list-block {
+  margin-top: 0;
+}
