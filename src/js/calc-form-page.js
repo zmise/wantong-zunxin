@@ -171,7 +171,7 @@ $(function () {
 
   /* 商业贷款 */
   $('#businessLoan').on('blur', businessBlur = function () {
-    var reg = /^[1-9]\d{1,5}(\.\d{1,2})?$/;
+    var reg = /^[1-9]\d{0,2}(\.\d{1,2})?$/;
     if ($.trim($('#businessLoan').val()) === '') {
       infoPrompt('商业贷款不能为空！');
       return false;
@@ -185,7 +185,7 @@ $(function () {
   /* 公积金贷款 */
   $('#fundLoan').on('blur', fundBlur = function () {
     // var reg = /^[1-9]\d{1,5}(\.\d{1,2})?$/;
-    var reg1 = /^[1-9]\d{1,2}(\.\d{1,2})?$/;
+    var reg1 = /^[1-9]\d{0,2}(\.\d{1,2})?$/;
     if ($.trim($('#fundLoan').val()) === '') {
       infoPrompt('公积金贷款不能为空！');
       return false;
