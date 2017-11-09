@@ -5,7 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <title>房贷计算器</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/consult-files.css">
   <link type="text/css" rel="stylesheet" href="css/mortgage-calculator.css" />
+  <style>
+    .tl {
+      text-align: left!important;
+      text-align-last: initial!important;
+    }
+    
+    .form-body .lab {
+      width: 90px;
+      text-align: right;
+    }
+    
+    .popup-body {
+      pointer-events: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -21,56 +40,108 @@
       <a class="radio current" id="equalRate" href="javascript:void(0);">等额本息</a>
       <a class="radio" id="equalMoney" href="javascript:void(0);">等额本金</a>
     </div>
-    <div id="total">
-      <div class="box-middle items">
-        <label class="lab">贷款总额：</label>
-        <input class="text flex" id="totalLoan" type="text" />
-        <span class="unit">万元</span>
-      </div>
+    <div class="box-middle items js-business">
+      <label class="lab">商业贷款：</label>
+      <input class="text flex tl" id="businessLoan" type="tel" />
+      <span class="unit">万元</span>
     </div>
-    <div id="combobox" style="display:none;">
-      <div class="box-middle items">
-        <label class="lab">商业贷款：</label>
-        <input class="text flex" id="businessLoan" type="text" />
-        <span class="unit">万元</span>
-      </div>
-      <div class="box-middle items">
-        <label class="lab">公积金：</label>
-        <input class="text flex" id="fundLoan" type="text" />
-        <span class="unit">万元</span>
-      </div>
+    <div class="box-middle items js-fund">
+      <label class="lab">公积金贷：</label>
+      <input class="text flex tl" id="fundLoan" type="tel" />
+      <span class="unit">万元</span>
     </div>
     <div class="box-middle items">
       <label class="lab">贷款期限：</label>
-      <input class="text cent" id="year" type="text" value="0.5" />
+      <select class="text select" id="ayear">
+        <option value="30">30年</option>
+        <option value="25">25年</option>
+        <option value="20">20年</option>
+        <option value="15">15年</option>
+        <option value="10">10年</option>
+        <option value="5">5年</option>
+        <option value="">其他时长</option>
+      </select>
+      <input class="text tl" id="year" type="tel" value="" />
       <span class="unit">年</span>
     </div>
-    <div class="box-middle items">
-      <div class="min-value">0.5</div>
-      <div class="rang flex" id="rang">
-        <div class="progress"></div>
-        <div class="slider" data-number="0"></div>
-      </div>
-      <div class="max-value">30</div>
+    <div class="box-middle items js-business">
+      <label class="lab tr">商贷利率：</label>
+      <select class="text select" id="brate">
+        <option value="0.7">房贷基准利率7折</option>
+        <option value="0.75">房贷基准利率7.5折</option>
+        <option value="0.8">房贷基准利率8折</option>
+        <option value="0.85">房贷基准利率8.5折</option>
+        <option value="0.9">房贷基准利率9折</option>
+        <option value="0.95">房贷基准利率9.5折</option>
+        <option value="1" selected>房贷基准利率</option>
+        <option value="1.1">房贷基准利率1.1倍</option>
+        <option value="1.2">房贷基准利率1.2倍</option>
+        <option value="1.3">房贷基准利率1.3倍</option>
+        <option value="-1">其他利率</option>
+      </select>
+      <input class="text tl" id="businessRate" type="tel" value="4.90" />
+      <span class="unit">%</span>
     </div>
-    <div class="box-align items">
-      <input class="text cent" id="loanRate" type="text" value="4.35" />
-      <span class="unit">%&nbsp;&nbsp;x&nbsp;&nbsp;</span>
-      <input class="text cent" id="multiple" type="text" value="1" />
-      <span class="unit">倍&nbsp;&nbsp;=&nbsp;&nbsp;</span>
-      <p class="info"><em id="totalRate">4.35%</em></p>
+    <div class="box-middle items js-fund">
+      <label class="lab tr">公积金利率：</label>
+      <select class="text select" id="frate">
+        <option value="1" selected>公积金基准利率</option>
+        <option value="1.1">公积金基准利率1.1倍</option>
+        <option value="1.2">公积金基准利率1.2倍</option>
+        <option value="1.3">公积金基准利率1.3倍</option>
+      </select>
+      <input class="text tl" id="fundRate" type="tel" value="3.25" />
+      <span class="unit">%</span>
     </div>
     <div class="box-middle items">
-      <div class="box-align flex">
-        <p class="info">当前年限基准：<em id="businessMark">4.35%</em></p>
+      <div class="box-align flex js-business">
+        <p class="info" data-tipsFor="key2business" id="businessMark"><i class="iconfont icon-question"></i>商业贷款利率</p>
       </div>
-      <div class="box-align flex">
-        <p class="info">公积金：<em id="fundMark">2.75%</em></p>
+      <div class="box-align flex js-fund">
+        <p class="info" data-tipsFor="key2fund" id="fundMark"><i class="iconfont icon-question"></i>公积金贷款利率</p>
       </div>
     </div>
   </div>
   <div class="box-middle subimt-body">
     <a class="submit flex" id="submit" href="javascript:void(0);">马上计算</a>
+  </div>
+  <div class="dnone" id="key2business">
+    <p class="fb mb10">2015-10-24 央行公布的商业银行贷款利率</p>
+    <div class="tips-table">
+      <div class="row no-gutter">
+        <div class="col-50">时长</div>
+        <div class="col-50">商业贷</div>
+      </div>
+      <div class="row no-gutter">
+        <div class="col-50">1年及以下</div>
+        <div class="col-50">4.35%</div>
+      </div>
+      <div class="row no-gutter">
+        <div class="col-50">1-5年(含5年)</div>
+        <div class="col-50">4.75%</div>
+      </div>
+      <div class="row no-gutter">
+        <div class="col-50">5年以上</div>
+        <div class="col-50">4.90%</div>
+      </div>
+    </div>
+  </div>
+  <div class="dnone" id="key2fund">
+    <p class="fb mb10">2015-10-24 央行公布的公积金贷款利率</p>
+    <div class="tips-table">
+      <div class="row no-gutter">
+        <div class="col-50">时长</div>
+        <div class="col-50">商业贷</div>
+      </div>
+      <div class="row no-gutter">
+        <div class="col-50">5年及以下</div>
+        <div class="col-50">2.75%</div>
+      </div>
+      <div class="row no-gutter">
+        <div class="col-50">5年以上</div>
+        <div class="col-50">3.25%</div>
+      </div>
+    </div>
   </div>
   <!-- Google Tag Manager (noscript) -->
   <noscript>

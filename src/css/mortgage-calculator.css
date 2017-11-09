@@ -358,3 +358,27 @@ table {
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+
+/* 20171103 新增样式 房贷计算器改版 */
+
+.text.select {
+  width: 160px;
+  height: 33px;
+  padding: 5px;
+  margin-right: 10px;
+  text-align: left;
+  text-align-last: initial;
+}
+
+.icon-tips .modal-text {
+  font-size: 16px;
+}
+
+.tips-table .row {
+  line-height: 34px;
+}
+
+.tips-table .row:nth-child(1) {
+  background-color: #f7f7f7;
+}
