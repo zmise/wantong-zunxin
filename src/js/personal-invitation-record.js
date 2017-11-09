@@ -85,6 +85,8 @@ $(function () {
     if (pageIndex === 1) {
       // 第一页 清空容器，重置滚动条到顶部
       $contBox.scrollTop(0);
+      //容器发生改变,如果是js滚动，需要刷新滚动
+      $.refreshScroller();
       $container.empty();
     }
     $.ajax({
@@ -134,7 +136,7 @@ $(function () {
     $(this).addClass('cur').siblings().removeClass('cur');
 
     // 注册'infinite'事件处理函数
-  }).on('infinite', '.infinite-scroll-bottom', function () {
+  }).on('infinite', '.infinite-scroll.infinite-scroll-bottom', function () {
 
     // 如果正在加载，则退出
     if (loading) return;
@@ -145,6 +147,8 @@ $(function () {
     // 设置flag
     loading = true;
     fetchData();
+    //容器发生改变,如果是js滚动，需要刷新滚动
+    $.refreshScroller();
   });
 
   fetchData();
