@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
   var str = window.location.search;
   var dataJson;
   var oldPv;
@@ -10,13 +10,13 @@ $(function() {
   var timeoutObject = null;
   /* 提示信息 */
   function infoPrompt(info) {
-    if($('.popup-body').length) {
+    if ($('.popup-body').length) {
       $('.popup-body').find('.info-prompt').text(info);
       $('.popup-body').removeAttr('style');
     } else {
       $('body').append('<div class="popup-body box-align"><p class="info-prompt">' + info + '</p></div>');
     }
-    setTimeout(function() {
+    setTimeout(function () {
       $('.popup-body').hide();
     }, 2000);
   };
@@ -42,7 +42,7 @@ $(function() {
   /* 设置表体 */
   function setTableBody(data) {
     var _html = '<table>';
-    $.each(data, function(i, v) {
+    $.each(data, function (i, v) {
       _html += '<tr><td style="width:12%;" class="tac">' + v.no + '</td><td style="width:20%;">' + v.money + '</td><td style="width:20%;">' + v.loan + '</td><td style="width:20%;">' + v.interest + '</td><td style="width:20%;">' + v.surplus + '</td></tr>';
     });
     _html += '</table>';
@@ -51,7 +51,7 @@ $(function() {
   /* 设置组合表体 */
   function setComboTableBody(data) {
     var _html = '<table>';
-    $.each(data, function(i, v) {
+    $.each(data, function (i, v) {
       _html += '<tr><td style="width:13%;" class="tac">' + v.no + '</td><td style="width:29%;">' + v.money + '</td><td style="width:29%;">' + v.business + '</td><td style="width:29%;">' + v.fund + '</td></tr>';
     });
     _html += '</table>';
@@ -84,7 +84,7 @@ $(function() {
   /* 获取等额本息表格数据 */
   function getEqualRateData(data, frist, last) {
     var tableData = [];
-    for(var i = frist; i < last; i++) {
+    for (var i = frist; i < last; i++) {
       var money = PMT(data.rate, data.nper, data.pv);
       var loan = PPMT(data.rate, i + 1, data.nper, data.pv);
       var interest = IPMT(data.rate, i + 1, data.nper, data.pv);
@@ -104,7 +104,7 @@ $(function() {
   /* 获取等额本金表格数据 */
   function getEqualMoneyData(data, frist, last) {
     var tableData = [];
-    for(var i = frist; i < last; i++) {
+    for (var i = frist; i < last; i++) {
       var money = EPMT(data.rate, data.nper, data.pv, oldPv);
       var loan = EPPMT(data.nper, data.pv);
       var interest = EIPMT(data.rate, oldPv);
@@ -124,7 +124,7 @@ $(function() {
   /* 获取等额本息组合表格数据 */
   function getEqualRateComboData(data, frist, last) {
     var tableData = [];
-    for(var i = frist; i < last; i++) {
+    for (var i = frist; i < last; i++) {
       var business = PMT(data.rate, data.nper, data.pv);
       var fund = PMT(data.rate2, data.nper, data.pv2);
       var money = business + fund;
@@ -141,7 +141,7 @@ $(function() {
   /* 获取等额本金组合表格数据 */
   function getEqualMoneyComboData(data, frist, last) {
     var tableData = [];
-    for(var i = frist; i < last; i++) {
+    for (var i = frist; i < last; i++) {
       var business = EPMT(data.rate, data.nper, data.pv, oldPv);
       var fund = EPMT(data.rate2, data.nper, data.pv2, oldPv2);
       var money = business + fund;
@@ -159,13 +159,13 @@ $(function() {
   };
   /* 加载数据 */
   function init() {
-    switch(dataJson.type) {
+    switch (dataJson.type) {
       case '1':
       case '2':
-        switch(dataJson.ment) {
+        switch (dataJson.ment) {
           case '1':
             var tableData;
-            if(Math.ceil(dataJson.nper / pageSize) > pageNo) {
+            if (Math.ceil(dataJson.nper / pageSize) > pageNo) {
               tableData = getEqualRateData(dataJson, (pageNo - 1) * pageSize, pageNo * pageSize);
             } else {
               tableData = getEqualRateData(dataJson, (pageNo - 1) * pageSize, dataJson.nper);
@@ -175,7 +175,7 @@ $(function() {
             break;
           case '2':
             var tableData;
-            if(Math.ceil(dataJson.nper / pageSize) > pageNo) {
+            if (Math.ceil(dataJson.nper / pageSize) > pageNo) {
               tableData = getEqualMoneyData(dataJson, (pageNo - 1) * pageSize, pageNo * pageSize);
             } else {
               tableData = getEqualMoneyData(dataJson, (pageNo - 1) * pageSize, dataJson.nper);
@@ -185,17 +185,17 @@ $(function() {
             break;
           default:
             infoPrompt('参数有误！');
-            setTimeout(function() {
+            setTimeout(function () {
               window.location.href = 'calc-result-page.html';
             }, 2000);
             break;
         }
         break;
       case '3':
-        switch(dataJson.ment) {
+        switch (dataJson.ment) {
           case '1':
             var tableData;
-            if(Math.ceil(dataJson.nper / pageSize) > pageNo) {
+            if (Math.ceil(dataJson.nper / pageSize) > pageNo) {
               tableData = getEqualRateComboData(dataJson, (pageNo - 1) * pageSize, pageNo * pageSize);
             } else {
               tableData = getEqualRateComboData(dataJson, (pageNo - 1) * pageSize, dataJson.nper);
@@ -205,7 +205,7 @@ $(function() {
             break;
           case '2':
             var tableData;
-            if(Math.ceil(dataJson.nper / pageSize) > pageNo) {
+            if (Math.ceil(dataJson.nper / pageSize) > pageNo) {
               tableData = getEqualMoneyComboData(dataJson, (pageNo - 1) * pageSize, pageNo * pageSize);
             } else {
               tableData = getEqualMoneyComboData(dataJson, (pageNo - 1) * pageSize, dataJson.nper);
@@ -215,7 +215,7 @@ $(function() {
             break;
           default:
             infoPrompt('参数有误！');
-            setTimeout(function() {
+            setTimeout(function () {
               window.location.href = 'calc-result-page.html';
             }, 2000);
             break;
@@ -223,39 +223,48 @@ $(function() {
         break;
       default:
         infoPrompt('参数有误！');
-        setTimeout(function() {
+        setTimeout(function () {
           window.location.href = 'calc-result-page.html';
         }, 2000);
         break;
     }
   };
-  if(str === '') {
+
+  // 
+  if (str === '') {
     window.location.href = 'calc-result-page.html';
   } else {
     str = str.replace(/\?/, '{"').replace(/\=/g, '":"').replace(/\&/g, '","') + '"}';
     try {
       dataJson = JSON.parse(str);
-    } catch(e) {
+    } catch (e) {
       infoPrompt('参数有误！');
-      setTimeout(function() {
+      setTimeout(function () {
         window.location.href = 'calc-result-page.html';
       }, 2000);
     }
     oldPv = parseFloat(dataJson.pv);
     oldPv2 = parseFloat(dataJson.pv2);
+
+    // 判断手机窗口高度，修改pageSize
+    var Wheight = $(window).height();
+    var TRHeight = 33;
+    console.log(Wheight / TRHeight);
+    pageSize = Math.ceil(Wheight / TRHeight) + 1;
+
     init();
     $('.table-head').empty().append(tableHead);
     $('.table-body').empty().append(tableBody);
 
     /* 滚动分页事件   */
-    $(window).on('scroll', function() {
-      if(timeoutObject) {
+    $(window).on('scroll', function () {
+      if (timeoutObject) {
         clearTimeout(timeoutObject);
       }
-      timeoutObject = setTimeout(function() {
-        var heg = $('body').height() - $(window).height() - 50;
-        if($(window).scrollTop() > heg && heg > 50) {
-          if(Math.ceil(dataJson.nper / pageSize) > pageNo) {
+      timeoutObject = setTimeout(function () {
+        var heg = $('body').height() - Wheight - 50;
+        if ($(window).scrollTop() > heg && heg > 50) {
+          if (Math.ceil(dataJson.nper / pageSize) > pageNo) {
             pageNo++;
             init();
             $('.table-body').append(tableBody);
