@@ -43,6 +43,9 @@ $(function () {
   // 地址带参数
   vTools.setDeafaultForm();
 
+  // 自动将输入框中的小写变为大写
+  setUPperCase($('#idno'));
+
   $('#codeImg,#codesBtn').on('click', function () {
     $('#codeImg').attr('src', '/trade-util/house/price/verify.pic?' + Math.random() + '');
   });
@@ -52,10 +55,10 @@ $(function () {
     var result = vTools.formVaild({
       container: '#transferPriceForm'
       // vails: [{// 身份证号 / 姓名
-        // selector: '#idno'
-        // regex: function (el) {
-        //   return cardObj.IdCardValidate($.trim($(el).val()));
-        // }
+      // selector: '#idno'
+      // regex: function (el) {
+      //   return cardObj.IdCardValidate($.trim($(el).val()));
+      // }
       // }]
     });
 

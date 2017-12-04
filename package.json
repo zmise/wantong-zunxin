@@ -27,5 +27,6 @@
     "gulp-useref": "^3.0.7",
     "gulp-zip": "^3.2.0",
     "run-sequence": "^1.1.5"
-  }
+  },
+  "browserslist": ["Chrome>22"]
 }

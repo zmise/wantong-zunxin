@@ -25,7 +25,7 @@ $(function () {
       $('#unitPrice').val(price);
     } else {
       $('.js-unitPrice').show();
-      $('#inquireBtn').hide();
+      // $('#inquireBtn').hide();
     }
   }
 
@@ -71,6 +71,11 @@ $(function () {
   vTools.commomEvent();
 
   initForm();
+
+  $('#unitPrice').on('input', function () {
+    var value = this.value;
+    $(this).val(value.replace(/[^\d.]/g, ''));
+  });;
 
   $('#inquireBtn').on('click', function () {
     var result = vTools.formVaild();

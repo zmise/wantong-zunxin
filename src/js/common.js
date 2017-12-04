@@ -190,3 +190,19 @@ $(document).on('ajaxError', function (data, status) {
     sessionStorage.setItem('token', urlParams.token);
   }
 })(Zepto);
+
+
+// 自动将输入框中的小写变为大写
+function setUPperCase(element) {
+  $(element).on('input', function () {
+    var $this = $(this);
+
+    var value = $this.val().replace(/\w/g, function (m) {
+      return m.toUpperCase();
+    });
+
+    // console.log(value);
+
+    $this.val(value);
+  });
+}

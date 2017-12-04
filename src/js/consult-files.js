@@ -24,6 +24,10 @@ $(function () {
   // 地址带参数
   vTools.setDeafaultForm();
 
+  // 自动将输入框中的小写变为大写
+  setUPperCase($('#personInfo1'));
+
+
   // 确定 按钮
   $('#inquireBtn').on('click', function () {
     var self = $(this);

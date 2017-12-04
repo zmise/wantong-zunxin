@@ -38,7 +38,12 @@ $(function () {
       $.toast('请输入贷款人姓名');
       return false;
     }
+
     var phone = $.trim($('#cellphone').val());
+    // ios 通讯录复制过来的号码会有特殊字符
+    // var phone = $('#cellphone').val().replace(/\s+|"‬"/g, '');
+    // console.log(phone.length);
+
     phone = !(phone && /^1(3[1-9]|([578]\d{1}))\d{8}$/.test(phone));
     if (phone) {
       $.toast('贷款人手机号不正确');

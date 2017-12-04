@@ -15,33 +15,9 @@
   <link rel="stylesheet" href="../font/iconfont.css">
   <link rel="stylesheet" href="../css/detail.css">
   <link rel="stylesheet" href="../css/consult-files.css">
-  <!-- Google Tag Manager -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
-
-  </script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div class="page page-current">
     <div class="buttons-tab">
       <a href="javascript:;" class="external active button">立即查档</a>
@@ -91,7 +67,7 @@
                   <div class="item-inner">
                     <label class="item-title label short-label" for="certNo">房地产证编号</label>
                     <div class="item-input">
-                      <input type="text" id="certNo" name="certNo" class="required" placeholder="请输入(必填)" data-label="请输入正确房产证号">
+                      <input type="number" id="certNo" name="certNo" class="required" placeholder="请输入(必填)" data-label="请输入正确房产证号">
                     </div>
                   </div>
                 </div>
@@ -143,6 +119,11 @@
       </div>
     </div>
   </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!--build:js js/common.min.js -->
   <script src="js/zepto.js"></script>
   <script src="js/sm.js"></script>
@@ -150,6 +131,9 @@
   <!-- endbuild -->
   <script src="js/vTool-2.4.3.js"></script>
   <script src="js/consult-files.js"></script>
+  <!-- Google Tag Manager -->
+  <script src="js/own-gtm.js"></script>
+  <!-- End Google Tag Manager -->
 </body>
 
 </html>

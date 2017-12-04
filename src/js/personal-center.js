@@ -48,7 +48,12 @@ $(function () {
       dimension1: data.id,
       dimension2: data.nickName
     };
-    dataLayer.push(layerdata);
+    // dataLayer.push(layerdata);
+
+    UID = data.id;
+    wechatName = data.nickName;
+    dataLayer.push(UID);
+    dataLayer.push(wechatName);
 
     // 其他页面也需要传 Google Tag Manager  自定义参数
     sessionStorage.setItem('userInfo.dataLayer', JSON.stringify(layerdata));

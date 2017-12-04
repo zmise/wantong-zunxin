@@ -27,7 +27,7 @@
   </style>
   <!-- Google Tag Manager -->
   <script>
-    (function (w, d, s, l, i) {
+    (function(w, d, s, l, i) {
       w[l] = w[l] || [];
       w[l].push({
         'gtm.start': new Date().getTime(),
@@ -41,7 +41,6 @@
         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
-
   </script>
   <!-- End Google Tag Manager -->
 </head>
@@ -68,11 +67,21 @@
         <form action="#" id="transferPriceForm">
           <p class="step-tips js-houseType">抱歉，您的房产类型为“商业”，我们暂不支持商业税费查询</p>
           <p class="step-tips js-registerPrice">未能查到您的登记价，请手动输入</p>
-          <p class="step-tips js-unitPrice">未能查到您的过户价单价，将无法计算税费，请返回重新检查</p>
+          <p class="step-tips js-unitPrice">未能查到您的过户价单价，请手动输入</p>
           <input type="hidden" id="id" name="id">
-          <input type="hidden" id="unitPrice" name="unitPrice">
+          <!-- <input type="hidden" id="unitPrice" name="unitPrice"> -->
           <div class="list-block">
             <ul>
+              <li class="js-unitPrice" style="display:none;">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="area">国土过户价</label>
+                    <div class="item-input">
+                      <input type="text" id="unitPrice" name="unitPrice" class="required" maxlength="20" placeholder="请输入国土过户价" data-label="请输入国土过户价">
+                    </div>
+                  </div>
+                </div>
+              </li>
               <li>
                 <div class="item-content">
                   <div class="item-inner">
