@@ -15,6 +15,10 @@ $(function () {
     $('#inviteNo,#inviteNum').text(res.data.inviteNum);
     $('#successedNum').text(res.data.successedNum);
     $('#income').text(res.data.income || 0);
+    $('#all').text(res.data.all || 0);
+    $('#bind').text(res.data.bind || 0);
+    $('#successed').text(res.data.successed || 0);
+    $('#unsubscribe').text(res.data.unsubscribe || 0);
   });
 
 

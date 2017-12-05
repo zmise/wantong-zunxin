@@ -39,6 +39,10 @@ $(function () {
             }
           }
 
+          // 如果是单位则不显示计算税费按钮
+          if (item.ownerType === '2') {
+            $('#inquireBtn').hide();
+          }
           // 若评估单价为不为0或不为空，则显示本按钮
           if (item.unitPrice > 0) {
             searchStr = 'unitPrice=' + item.unitPrice + '&registerPrice=' + item.registerPrice + '&houseType=' + item.houseType + '&area=' + item.area + '&id=' + item.id;
@@ -47,7 +51,7 @@ $(function () {
               searchStr += '&address=' + item.region;
             }
 
-            $('.mandatory-btn').removeClass('none');
+            // $('.mandatory-btn').removeClass('none');
           } else {
             // 未查到过户价
             searchStr = 'certNo=' + item.certNo + '&certType=' + item.certType + '&ownerType=' + item.ownerType;

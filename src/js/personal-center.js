@@ -17,6 +17,23 @@ $(function () {
     }
 
     var data = res.data;
+
+    // 
+    var inviteIncomeAmount = data.inviteIncomeAmount;
+    var ordrIncomeAmount = data.ordrIncomeAmount;
+    if (inviteIncomeAmount > 0) {
+      data.inviteIncomeAmount = num2str(inviteIncomeAmount);
+    }
+    if (ordrIncomeAmount > 0) {
+      data.ordrIncomeAmount = num2str(ordrIncomeAmount);
+    }
+
+    var sum = inviteIncomeAmount + ordrIncomeAmount;
+    if (sum > 0) {
+      $('#amount').text(num2str(sum));
+    } else {
+      $('#amount').parent().next().text('还没有收益哦，加油吧');
+    }
     for (var key in data) {
       var element = data[key];
       var $el = $('[data-id="' + key + '"]');
@@ -25,12 +42,6 @@ $(function () {
       }
     }
 
-    var sum = data.inviteIncomeAmount + data.ordrIncomeAmount;
-    if (sum > 0) {
-      $('#amount').text(sum);
-    } else {
-      $('#amount').parent().next().text('还没有收益哦，加油吧');
-    }
 
     if (data.cellphone) {
       $('#cellphone').text(data.cellphone).removeClass('item-place');
@@ -59,7 +70,16 @@ $(function () {
     sessionStorage.setItem('userInfo.dataLayer', JSON.stringify(layerdata));
   });
 
+  // 数字截取小数点后两位
+  function num2str(number) {
+    var str = number + '';
+    var index = str.indexOf('.');
+    if (index > -1) {
+      str = str.substring(0, index + 3);
+    }
 
+    return str;
+  }
 
   $(document).on('click.link', '.item-link', function () {
     location.assign($(this).data('url'));

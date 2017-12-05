@@ -25,7 +25,8 @@
         <a href="javascript:;" class="external active button">邀请记录<span>(<span id="inviteNo">0</span>)</span></a>
       </div>
       <div class="content infinite-scroll infinite-scroll-bottom lading" data-distance="50">
-        <div class="infos-box flexbox">
+        <p class="infos-title">累计邀请<span id="inviteNum"></span>人，获得收益<span id="income"></span>元</p>
+        <!-- <div class="infos-box flexbox">
           <div class="invitate infos-box-item">
             <p class="infos-box-no"><span id="inviteNum"></span>人</p>
             <p>累计邀请</p>
@@ -38,12 +39,24 @@
             <p class="infos-box-no"><span id="income"></span>元</p>
             <p>获得收益</p>
           </div>
-        </div>
+        </div> -->
         <div class="infos-tab flexbox">
-          <p class="infos-tab-item cur" data-val="1">所有</p>
-          <p class="infos-tab-item" data-val="2">已绑定手机</p>
-          <p class="infos-tab-item" data-val="3">已成功办理</p>
-          <p class="infos-tab-item" data-val="4">取消关注</p>
+          <div class="infos-tab-item cur" data-val="1">
+            <p>正在关注</p>
+            <p id="all">0</p>
+          </div>
+          <div class="infos-tab-item" data-val="2">
+            <p>已绑定手机</p>
+            <p id="bind">0</p>
+          </div>
+          <div class="infos-tab-item" data-val="3">
+            <p>已成功办理</p>
+            <p id="successed">0</p>
+          </div>
+          <div class="infos-tab-item" data-val="4">
+            <p>取消关注</p>
+            <p id="unsubscribe">0</p>
+          </div>
         </div>
         <div class="list-block" id="listBlock">
         </div>

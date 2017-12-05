@@ -41,6 +41,13 @@ $(function () {
         cellphone: cellphone
       }
     }).done(function (res) {
+      if (res.code != 'ok') {
+        $.alert(res.msg);
+        if (res.msg.indexOf('验证码太快了') !== -1) {
+          setCount(59);
+        }
+        return;
+      }
       setCount(59);
       // console.log(res);
     });
@@ -132,12 +139,16 @@ $(function () {
     $('#fetchVerifyCode').html('获取验证码').removeClass('button-disabled').addClass('button-filly');
   }
   function disableDtn() {
-    $('#fetchVerifyCode').html('<span id="second">60</span>秒后重新获取').removeClass('button-filly').addClass('button-disabled');
+    $('#fetchVerifyCode').removeClass('button-filly').addClass('button-disabled');
   }
   function setCount(count) {
     if (count === 0) {
       enableDtn();
       return;
+    }
+
+    if (count === 59) {
+      $('#fetchVerifyCode').html('<span id="second">60</span>秒后重新获取');
     }
     setTimeout(function () {
       $('#second').text(count--);

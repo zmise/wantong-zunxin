@@ -815,3 +815,21 @@ input::-moz-placeholder {
 .cell-title+.list-block {
   margin-top: 0;
 }
+
+
+/* 邀请记录页面修改 20171205 */
+
+.infos-title {
+  margin-bottom: .75rem;
+  font-size: .65rem;
+  text-align: center;
+  line-height: 2.25rem;
+  background-color: #fff;
+}
+
+.infos-tab .infos-tab-item {
+  padding: .4rem 0;
+  font-weight: normal;
+  line-height: .9rem;
+  background-color: #fff;
+}

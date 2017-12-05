@@ -2,6 +2,16 @@ $(function () {
   var layerdata = JSON.parse(sessionStorage.getItem('userInfo.dataLayer'));
   layerdata && dataLayer.push(layerdata);
 
+  var infos = $.unparam(location.search.substr(1));
+  console.log(infos);
+  if (infos.type === 'Qsd') {
+    $('#from').show();
+    $('#remark').val('推荐办理Q税贷');
+    $('#productId').val(infos.productId);
+  } else {
+    $('#from').hide();
+  }
+
   // 手机是否已绑定
   $.ajax({
     url: '/qfang-credit/userCenter/userInfo.json',
@@ -39,10 +49,16 @@ $(function () {
       return false;
     }
 
-    var phone = $.trim($('#cellphone').val());
+    // var phone = $.trim($('#cellphone').val());
     // ios 通讯录复制过来的号码会有特殊字符
-    // var phone = $('#cellphone').val().replace(/\s+|"‬"/g, '');
+    var phone = $('#cellphone').val().replace(/\s+/g, '');
     // console.log(phone.length);
+    encodeURI(phone).replace(/\d{11}/, function (m) {
+      console.log(m);
+      phone = m;
+      return '';
+    });
+
 
     phone = !(phone && /^1(3[1-9]|([578]\d{1}))\d{8}$/.test(phone));
     if (phone) {
