@@ -1,5 +1,5 @@
 $(function () {
-
+  dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
   //产品ID
   // $.ajax({
   //   url: '/qfang-credit/userCenter/inviteRecordStatistics.json',

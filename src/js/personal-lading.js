@@ -60,7 +60,7 @@ $(function () {
     });
 
 
-    phone = !(phone && /^1(3[1-9]|([578]\d{1}))\d{8}$/.test(phone));
+    phone = !(phone && /^1(3[0-9]|([578]\d{1}))\d{8}$/.test(phone));
     if (phone) {
       $.toast('贷款人手机号不正确');
       return false;

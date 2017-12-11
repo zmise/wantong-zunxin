@@ -43,9 +43,7 @@ $(function () {
     }).done(function (res) {
       if (res.code != 'ok') {
         $.alert(res.msg);
-        if (res.msg.indexOf('验证码太快了') !== -1) {
-          setCount(59);
-        }
+        enableDtn();
         return;
       }
       setCount(59);
