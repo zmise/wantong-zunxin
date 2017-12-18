@@ -25,7 +25,7 @@ $(function () {
   vTools.setDeafaultForm();
 
   // 自动将输入框中的小写变为大写
-  setUPperCase($('#personInfo1'));
+  // setUPperCase($('#personInfo1'));
 
 
   // 确定 按钮

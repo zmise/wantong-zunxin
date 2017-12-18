@@ -9,7 +9,7 @@ function sendData(opt) {
 
 
   // 自动将输入框中的小写变为大写
-  setUPperCase($('#idno'));
+  // setUPperCase($('#idno'));
 
   // 查档
   $.ajax({

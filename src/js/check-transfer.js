@@ -44,7 +44,7 @@ $(function () {
   vTools.setDeafaultForm();
 
   // 自动将输入框中的小写变为大写
-  setUPperCase($('#idno'));
+  // setUPperCase($('#idno'));
 
   $('#codeImg,#codesBtn').on('click', function () {
     $('#codeImg').attr('src', '/trade-util/house/price/verify.pic?' + Math.random() + '');

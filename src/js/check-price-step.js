@@ -63,7 +63,7 @@ $(function () {
     registerPrice(urlParams.registerPrice);
     unitPrice(urlParams.unitPrice);
     area(urlParams.area, urlParams.unitPrice, urlParams.address);
-    $('#id').val(urlParams.id);
+    $('#id').val(urlParams.id || '');
   }
 
 
@@ -72,13 +72,20 @@ $(function () {
 
   initForm();
 
-  $('#unitPrice').on('input', function () {
+  $('#price').on('input', function () {
     var value = this.value;
     $(this).val(value.replace(/[^\d.]/g, ''));
   });;
 
   $('#inquireBtn').on('click', function () {
-    var result = vTools.formVaild();
+    var result = vTools.formVaild({
+      vails: [{// 国土过户价
+        selector: '#price',
+        regex: function (el) {
+          return !isNaN($(el).val());
+        }
+      }]
+    });
     var $self = $(this);
     if (!result) {
       return false;
@@ -95,7 +102,7 @@ $(function () {
 
       success: function (data) {
         if (data.code !== 'ok') {
-          $.alert('天啦噜~网络出错了</br>再试一下吧');
+          $.alert(data.msg);
           $self.prop('disabled', false);
           return;
         }
