@@ -46,13 +46,14 @@ $(function () {
             // var list = tempHTML.find('[data-id]');
             tempHTML.find('[data-id]').each(function () {
               var $this = $(this);
+              var $parent = $this.parent();
               var key = $this.data('id');
               var element = v[key];
               if (element) {
                 if (typeof element === 'number') {
                   element = vTools.formatNumber(element);
                 }
-                
+
                 if (key === 'certCode') {
                   var $temp = $this.prev();
                   if (v['certType'] === '2') {
@@ -62,15 +63,25 @@ $(function () {
                     $temp.text('房产证号');
                   }
                 } else if (key === 'amount') {
-                  $this.parent().prev().text(v.type === '1' ? '过户价' : '税费');
+                  $this.next().text('元').parent().prev().text(v.type === '1' ? '过户总价' : '税费');
                 } else if (key === 'idno' || key === 'ownerName') {
                   $this.closest('li').removeClass('dn');
                 }
                 $this.text(element);
-              }else if(key === 'amount'){
-                var str = v.type === '1' ? '过户价' : '税费';
-                $this.parent().prev().text(str);
-                $this.parent().html('<span class="font-error">抱歉，未能查到'+str+'</span>');
+              } else if (key === 'amount') {
+                var str = '税费';
+                if (v.type === '1') {
+                  if (v.unitPrice > 0) {
+                    str = '过户单价';
+                    $this.text(v.unitPrice).next().text('元/m²').parent().prev().text('过户单价');
+                  } else {
+                    str = '过户价';
+                    $parent.html('<span class="font-error">过户单价为0或空</span>');
+                  }
+                } else {
+                  $parent.html('<span class="font-error">抱歉，未能查到' + str + '</span>');
+                }
+                $parent.prev().text(str);
               }
             });
 
