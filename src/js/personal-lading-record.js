@@ -1,5 +1,5 @@
 $(function () {
-  dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
+  setGoogleItems();
 
   //提单状态信息
   $.ajax({

@@ -377,6 +377,7 @@ p {
 /*  贷款申请 */
 
 .main-list .forms-inner {
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
 
@@ -396,6 +397,8 @@ p {
 }
 
 .forms-inner .winput {
+  padding-left: .3rem;
+  -webkit-flex: 1;
   flex: 1;
   border: 0;
 }

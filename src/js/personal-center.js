@@ -1,4 +1,6 @@
 $(function () {
+  // 设置Google两个变量
+  var isGoogle = setGoogleItems();
 
   // 获取个人信息
   $.showPreloader('请稍候...');
@@ -18,7 +20,7 @@ $(function () {
 
     var data = res.data;
 
-    // 
+    // 计算
     var inviteIncomeAmount = data.inviteIncomeAmount;
     var ordrIncomeAmount = data.ordrIncomeAmount;
     if (inviteIncomeAmount > 0) {
@@ -42,7 +44,6 @@ $(function () {
       }
     }
 
-
     if (data.cellphone) {
       $('#cellphone').text(data.cellphone).removeClass('item-place');
     } else {
@@ -54,20 +55,7 @@ $(function () {
       $('#bankCardNo').text('已绑定').removeClass('item-place');
     }
 
-    // Google Tag Manager  自定义参数
-    var layerdata = {
-      dimension1: data.id,
-      dimension2: data.nickName
-    };
-    // dataLayer.push(layerdata);
-
-    UID = data.id;
-    wechatName = data.nickName;
-    dataLayer.push(UID);
-    dataLayer.push(wechatName);
-
-    // 其他页面也需要传 Google Tag Manager  自定义参数
-    sessionStorage.setItem('userInfo.dataLayer', JSON.stringify(layerdata));
+    !isGoogle && data2dataLayer(data);
   });
 
   // 数字截取小数点后两位

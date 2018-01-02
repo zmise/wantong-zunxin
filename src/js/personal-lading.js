@@ -1,6 +1,6 @@
 $(function () {
-  var layerdata = JSON.parse(sessionStorage.getItem('userInfo.dataLayer'));
-  layerdata && dataLayer.push(layerdata);
+  // 设置Google两个变量
+  var isGoogle = setGoogleItems();
 
   var infos = $.unparam(location.search.substr(1));
   console.log(infos);
@@ -18,27 +18,18 @@ $(function () {
     type: 'GET',
     dataType: 'json'
   }).done(function (res) {
+    var data = res.data;
     // console.log(res);
-    if (!res.data.cellphone) {
+    if (!data.cellphone) {
       location.replace('./personal-cell.html');
     }
 
-    $('#rname').text(res.data.name);
-    $('#rcellphone').text(res.data.cellphone);
-    $('#referrerName').val(res.data.name);
-    $('#referrerCellphone').val(res.data.cellphone);
+    $('#rname').text(data.name);
+    $('#rcellphone').text(data.cellphone);
+    $('#referrerName').val(data.name);
+    $('#referrerCellphone').val(data.cellphone);
 
-    if (!layerdata) {
-      // Google Tag Manager  自定义参数
-      var layerdata = {
-        dimension1: res.data.id,
-        dimension2: res.data.nickName
-      };
-      dataLayer.push(layerdata);
-
-      // 其他页面也需要传 Google Tag Manager  自定义参数
-      sessionStorage.setItem('userInfo.dataLayer', JSON.stringify(layerdata));
-    }
+    !isGoogle && data2dataLayer(data);
   });
 
 
@@ -56,11 +47,12 @@ $(function () {
     encodeURI(phone).replace(/\d{11}/, function (m) {
       console.log(m);
       phone = m;
+      $('#cellphone').val(m)
       return '';
     });
 
 
-    phone = !(phone && /^1(3[0-9]|([578]\d{1}))\d{8}$/.test(phone));
+    phone = !(phone && vailPhoneCommon(phone).result);
     if (phone) {
       $.toast('贷款人手机号不正确');
       return false;

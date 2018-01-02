@@ -36,6 +36,7 @@ $(function () {
               } else if (key === 'idno' || key === 'ownerName') {
                 $item.closest('li').removeClass('dn');
               }
+
               $item.text(element);
             } else if (key === 'hd' || key === 'hs') {
               element = item[key];
@@ -58,6 +59,8 @@ $(function () {
           if (item.unitPrice > 0) {
             searchStr = 'unitPrice=' + item.unitPrice + '&price=' + item.price + '&area' + item.area;
             $('.mandatory-btn').removeClass('none');
+          } else {
+            $('.item-content [data-id="unitPrice"]').closest('li').addClass('dn');
           }
 
           // 判断提示信息

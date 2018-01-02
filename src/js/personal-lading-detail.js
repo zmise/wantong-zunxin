@@ -1,6 +1,5 @@
 $(function () {
-
-  dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
+  setGoogleItems();
   var info = $.unparam(location.search.substring(1));
   console.log(info);
 

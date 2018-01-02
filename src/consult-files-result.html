@@ -12,36 +12,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="../css/sm.css">
+  <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/detail.css">
   <link rel="stylesheet" href="../css/consult-files.css">
-  <!-- Google Tag Manager -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
-
-  </script>
-  <!-- End Google Tag Manager -->
-
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div class="page page-current">
     <div class="buttons-tab">
       <a href="./consult-files.html" class="external active button">立即查档</a>
@@ -154,9 +130,17 @@
         <div class="content-block mandatory-btn">
           <a href="javascript:;" class="button button-big button-fill button-success" id="price">查税费</a>
         </div>
+        <div class="footer-copy-right">
+          <p>本工具由<a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
+        </div>
       </div>
     </div>
   </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!--build:js js/common.min.js -->
   <script src="js/zepto.js"></script>
   <script src="js/sm.js"></script>
@@ -164,6 +148,9 @@
   <!-- endbuild -->
   <script src="js/vTool-2.4.3.js"></script>
   <script src="../js/consult-files-result.js"></script>
+  <!-- Google Tag Manager -->
+  <script src="js/own-gtm.js"></script>
+  <!-- End Google Tag Manager -->
 </body>
 
 </html>

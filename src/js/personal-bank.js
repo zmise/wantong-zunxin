@@ -27,7 +27,7 @@ $(function () {
     return carno.substr(0, 4) + carno.replace(/\d+(?=\d{4})/, '********');
   }
 
-  dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
+  setGoogleItems();
 
 
   $(document).on('click', '#bind', function () {

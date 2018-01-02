@@ -1,5 +1,5 @@
 $(function () {
-  dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
+  setGoogleItems();
 
 
   //邀请信息

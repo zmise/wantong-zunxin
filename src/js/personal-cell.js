@@ -1,7 +1,7 @@
 $(function () {
   var info = $.unparam(location.search.substring(1));
   var isStick = true;
-  dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
+  setGoogleItems();
 
   // 手机是否已绑定
   $.ajax({
@@ -23,7 +23,9 @@ $(function () {
     }
   });
 
+
   $(document).on('click', '#fetchVerifyCode', function () {
+
     if ($(this).hasClass('button-disabled')) {
       return;
     }
@@ -33,21 +35,28 @@ $(function () {
       return;
     };
 
-    disableDtn();
-    $.ajax({
-      url: '/qfang-credit/userCenter/verifyCode.json',
-      type: 'POST',
-      data: {
-        cellphone: cellphone
+    // 图形验证
+    verifyImg.vaid({
+      // 成功
+      success: function (data) {
+        // return;
+        disableDtn();
+        $.ajax({
+          url: '/qfang-credit/userCenter/verifyCode.json',
+          type: 'POST',
+          data: {
+            cellphone: cellphone
+          }
+        }).done(function (res) {
+          if (res.code != 'ok') {
+            $.alert(res.msg);
+            enableDtn();
+            return;
+          }
+          setCount(59);
+          // console.log(res);
+        });
       }
-    }).done(function (res) {
-      if (res.code != 'ok') {
-        $.alert(res.msg);
-        enableDtn();
-        return;
-      }
-      setCount(59);
-      // console.log(res);
     });
 
   });

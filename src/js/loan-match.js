@@ -1,4 +1,7 @@
 $(function () {
+  // 设置Google两个变量
+  !setGoogleItems() && loadInfo();
+
   function init() {
     var items = $('span[id]:visible');
     for (var i = 0, len = items.length; i < len; i++) {
@@ -77,7 +80,7 @@ $(function () {
   });
 
   // 搜索
-  $(document).on('click.search', '#search',function (e) {
+  $(document).on('click.search', '#search', function (e) {
     var items = $('span[id]:visible');
     var search = [];
     var remarkIndex = 1;
@@ -113,7 +116,7 @@ $(function () {
       }
 
     }
-    sessionStorage.setItem('loanremark',loanremark);
+    sessionStorage.setItem('loanremark', loanremark);
 
     searchTool.clearHistory(sessionStorage.getItem('token') + 'loanProductIds');
     // return;

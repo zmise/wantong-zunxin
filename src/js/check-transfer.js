@@ -30,6 +30,8 @@ $(function () {
   // 切换页面
   // vTools.tabLink($('.buttons-tab'));
 
+  // 设置Google两个变量
+  !setGoogleItems() && loadInfo();
 
   // 初始化年份 选项的值有为2015 至 当前年份，默认"请选择"
   vTools.setYearSelect('#year');

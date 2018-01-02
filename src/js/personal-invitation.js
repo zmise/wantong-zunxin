@@ -1,6 +1,6 @@
 $(function () {
   var qrCode = JSON.parse(sessionStorage.getItem('userInfo.qrCode'));
-  dataLayer.push(JSON.parse(sessionStorage.getItem('userInfo.dataLayer')));
+  setGoogleItems();
 
   // 获取邀请二维码信息
   function getQCode() {

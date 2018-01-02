@@ -1,0 +1,146 @@
+/* 弹窗  */
+
+.base-modal {
+  width: auto;
+  left: 1rem;
+  right: 1rem;
+  margin-left: 0;
+  text-align: left;
+  z-index: 10900;
+}
+
+.base-modal .modal-inner {
+  padding: 0;
+  background-color: #fff;
+}
+
+.base-modal-inner {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* 图片验证样式 */
+
+.pic-modal {
+  overflow: hidden;
+}
+
+.pic-modal .base-modal-inner {
+  position: relative;
+}
+
+.pic-modal .pic-title-box {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: .8rem;
+  font-size: .7rem;
+  line-height: 1.1rem;
+  border: 1px solid #e6e6ee;
+}
+
+.pic-modal .em {
+  color: #ff9933;
+}
+
+.pic-modal .pic-img-box {
+  padding: 1rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.pic-modal .pic-img-box .pic-img {
+  width: 6.875rem;
+  height: 5.175rem;
+  line-height: 5.175rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.pic-img-box .pic-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.pic-modal .pic-modal-load {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.pic-modal .pic-loading {
+  background-image: url(../images/load-u23.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pic-modal .pic-img-box .pic-img-on {
+  position: relative;
+}
+
+.pic-modal .pic-img-box .pic-img-on::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: .1rem solid #ff9933;
+  background: url(../images/selected.png) center no-repeat;
+  background-size: 1.5rem;
+}
+
+.pic-modal .pic-img-box .pic-img:nth-child(n+3) {
+  margin-top: 1rem;
+}
+
+.pic-modal .pic-btn-row {
+  height: 3.2rem;
+  padding: 0 1rem 1rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  line-height: 2.2rem;
+  text-align: center;
+}
+
+.pic-modal .pic-btn {
+  min-width: 4rem;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #c0c0c0;
+}
+
+.pic-modal .pic-btn.active {
+  -webkit-flex: 1;
+  flex: 1;
+  background-color: #ff9933;
+}
+
+.pic-modal .pic-btn~.pic-btn {
+  margin-left: .7rem;
+}
+
+.picloader-indicator-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-left: -2.25rem;
+  margin-top: -2.25rem;
+  background: #fff url(../images/load-u23.gif) center no-repeat;
+  z-index: 11001;
+  border-radius: .25rem;
+  border: 1px solid #ddd;
+}

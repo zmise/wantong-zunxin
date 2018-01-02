@@ -158,10 +158,11 @@ $.config = { router: false };
 $.ajaxSettings.cache = false;
 
 $(document).on('ajaxBeforeSend', function (e, xhr) {
-  xhr.setRequestHeader('u', sessionStorage.getItem('token'));
-  xhr.setRequestHeader('token', sessionStorage.getItem('token'));
+  // xhr.setRequestHeader('u', sessionStorage.getItem('token'));
+  // xhr.setRequestHeader('token', sessionStorage.getItem('token'));
   // xhr.setRequestHeader('u', '13713925018');
-  // xhr.setRequestHeader('token', 'oE1gsv-bMfUNvBpsc8JoQpLpjrtc');
+  xhr.setRequestHeader('u', 'olUEKwG8omSnwANkRzgc3QsZlQnw');
+  xhr.setRequestHeader('token', 'olUEKwG8omSnwANkRzgc3QsZlQnw');
 });
 
 $(document).on('ajaxSuccess', function (data, status) {
@@ -205,4 +206,31 @@ function setUPperCase(element) {
 
     $this.val(value);
   });
+}
+
+// 校验手机号码 
+function vailPhoneCommon(element) {
+  var phone;
+  var isPhone = typeof element === 'string';
+  if (isPhone) {
+    phone = element;
+  } else {
+    phone = $(element).val();
+  }
+  var regx = /^1[34578]\d{9}$/;
+  var result;
+
+  // 去掉空格
+  phone = phone.replace(/\s+/g, '');
+  result = regx.test(phone);
+
+  if (!isPhone && result) {
+    $(element).val(phone);
+  }
+
+  return isPhone ? {
+    phone: phone,
+    result: result
+  } : result;
+
 }

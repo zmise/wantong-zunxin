@@ -43,13 +43,38 @@ $(function () {
           if (item.ownerType === '2') {
             $('#inquireBtn').hide();
           }
+
           // 若评估单价为不为0或不为空，则显示本按钮
           if (item.unitPrice > 0) {
-            searchStr = 'unitPrice=' + item.unitPrice + '&registerPrice=' + item.registerPrice + '&houseType=' + item.houseType + '&area=' + item.area + '&id=' + item.id;
+            searchStr = 'unitPrice=' + item.unitPrice + '&houseType=' + item.houseType + '&id=' + item.id;
+
+            //房产登记价 若为空值或0，则整行隐藏
+            if (item.registerPrice > 0) {
+              searchStr += '&registerPrice=' + item.registerPrice;
+            } else {
+              $('[data-id="registerPrice"]').closest('li').addClass('dn');
+            }
+            //面积 若为空值或0，则整行隐藏
+            if (item.area > 0) {
+              searchStr += '&area=' + item.area;
+            } else {
+              $('[data-id="area"]').closest('li').addClass('dn');
+
+            }
+
+            //国土过户价 若为空值或0，则整行隐藏
+            if (item.price > 0) {
+              searchStr += '&price=' + item.price;
+            } else {
+              $('[data-id="price"]').closest('li').addClass('dn');
+
+            }
+
 
             if (item.region) {
               searchStr += '&address=' + item.region;
             }
+
 
             // $('.mandatory-btn').removeClass('none');
           } else {

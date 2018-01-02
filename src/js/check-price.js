@@ -125,3 +125,8 @@ function turnToNext(obj, data) {
   }
   location.assign('./check-price-step.html?sessionKey=' + sessionKey + searchStr)
 }
+
+$(function () {
+  // 设置Google两个变量
+  !setGoogleItems() && loadInfo();
+});
