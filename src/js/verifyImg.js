@@ -10,6 +10,19 @@ var verifyImg = (function () {
   // 一个页面只存在一个verifyImg
   var _html = '<div class="base-modal-inner" id="modal"><div class="flexbox flex-between pic-title-box"><p class="pic-title">请挑出一下<span class="em">「倒置」</span>的图片</p><a class="pic-change" href="javascript:;" id="loadVerifyImg">换一组</a></div><div class="pic-img-box" id="imgList"><div class="pic-img pic-loading"></div><div class="pic-img pic-loading"></div><div class="pic-img pic-loading"></div><div class="pic-img pic-loading"></div></div></div><p class="pic-btn-row"><a href="javascript:;" class="pic-btn" id="cancel">取消</a><a href="javascript:;" class="pic-btn external active" id="addApply">确认</a></p>';
 
+  // 时间戳+随机数
+  function generateToken() {
+    return +new Date() + random4Str();
+  }
+
+  // 获取4位随机数
+  function random4Str() {
+    var num = "";
+    for (var i = 0; i < 4; i++) {
+      num += Math.floor(Math.random() * 10)
+    }
+    return num;
+  }
 
   // 渲染图片
   function renderImg(container, list) {
@@ -22,12 +35,15 @@ var verifyImg = (function () {
 
   // 获取图片
   function loadVerifyImg(opt) {
-    console.log(this);
+    // console.log(this);
     var _this = this;
     _this.isloading = true;
 
     $.ajax({
-      url: '/qfang-credit/userCenter/loadVerifyImg.json',
+      url: '/qfang-credit/userCenter/ct/loadVerifyImg.json',
+      beforeSend: function () {
+        !sessionStorage.getItem('token') && sessionStorage.setItem('token', generateToken());
+      },
       type: 'POST'
     }).done(function (res) {
       if (res.code === 'ok') {
@@ -45,7 +61,7 @@ var verifyImg = (function () {
   function verifyImg(opt) {
     var _this = this;
     $.ajax({
-      url: '/qfang-credit/userCenter/verifyImg.json',
+      url: '/qfang-credit/userCenter/ct/verifyImg.json',
       type: 'POST',
       data: {
         urls: opt.urls

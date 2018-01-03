@@ -38,15 +38,15 @@ var ssh = new GulpSSH({
   sshConfig: sshConfig
 });
 
-gulp.task('js', function() {
+gulp.task('js', function () {
   return gulp.src([
-      config.src + config.jsDir + '**/*.js',
-      'tmp/js/**/*.js',
-      '!' + config.src + config.jsDir + 'common.js',
-      '!' + config.src + config.jsDir + 'sm.js',
-      '!' + config.src + config.jsDir + 'sm-extend.js',
-      '!' + config.src + config.jsDir + 'zepto.js'
-    ])
+    config.src + config.jsDir + '**/*.js',
+    'tmp/js/**/*.js',
+    '!' + config.src + config.jsDir + 'common.js',
+    '!' + config.src + config.jsDir + 'sm.js',
+    '!' + config.src + config.jsDir + 'sm-extend.js',
+    '!' + config.src + config.jsDir + 'zepto.js'
+  ])
     .pipe(uglify({
       compress: {
         drop_console: true
@@ -58,32 +58,32 @@ gulp.task('js', function() {
     .pipe(gulp.dest('tmp/rev/js'));
 });
 
-gulp.task('css', function() {
+gulp.task('css', function () {
   return gulp.src([config.src + config.cssDir + '*.css'])
-    .pipe(cssnano())
+    .pipe(cssnano({ zindex: false }))
     .pipe(rev())
     .pipe(gulp.dest(config.distDir + config.cssDir))
     .pipe(rev.manifest())
     .pipe(gulp.dest('tmp/rev/css'));
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function () {
   return gulp.src([
-      config.src + config.cssDir + '*.svg',
-      config.src + config.cssDir + '*.ttf',
-      config.src + config.cssDir + '*.woff'
-    ])
+    config.src + config.cssDir + '*.svg',
+    config.src + config.cssDir + '*.ttf',
+    config.src + config.cssDir + '*.woff'
+  ])
     .pipe(gulp.dest(config.distDir + config.cssDir));
 });
 
-gulp.task('icon', function() {
+gulp.task('icon', function () {
   return gulp.src([
-      config.src + config.iconDir + '*.*'
-    ])
+    config.src + config.iconDir + '*.*'
+  ])
     .pipe(gulp.dest(config.distDir + config.iconDir));
 });
 
-gulp.task('images', function() {
+gulp.task('images', function () {
   return gulp.src([config.src + config.imgDir + '**/*'])
     .pipe(imagemin({
       interlaced: true
@@ -91,11 +91,11 @@ gulp.task('images', function() {
     .pipe(gulp.dest(config.distDir + config.imgDir));
 });
 
-gulp.task('html', function() {
+gulp.task('html', function () {
   return gulp.src([
-      'tmp/rev/**/*.json',
-      'tmp/**/*.html'
-    ])
+    'tmp/rev/**/*.json',
+    'tmp/**/*.html'
+  ])
     .pipe(revCollector())
     .pipe(htmlmin({
       removeComments: true,
@@ -108,51 +108,51 @@ gulp.task('html', function() {
     .pipe(gulp.dest(config.distDir));
 });
 
-gulp.task('prepare', function() {
+gulp.task('prepare', function () {
   return del([
     config.distDir
   ]);
 });
 
-gulp.task('useref', function() {
+gulp.task('useref', function () {
   return gulp.src([
-      config.src + config.htmlDir + '**/*.html',
-      '!' + config.distDir + '**/*',
-      '!node_modules/**/*.html'
-    ])
+    config.src + config.htmlDir + '**/*.html',
+    '!' + config.distDir + '**/*',
+    '!node_modules/**/*.html'
+  ])
     .pipe(useref())
     .pipe(gulp.dest('tmp'));
 });
 
-gulp.task('zip', function() {
-  return gulp.src('dist/wantong-zunxin/**', {base: './dist/'})
-  .pipe(zip('wantong-zunxin.zip'))
-  .pipe(gulp.dest('dist'));
+gulp.task('zip', function () {
+  return gulp.src('dist/wantong-zunxin/**', { base: './dist/' })
+    .pipe(zip('wantong-zunxin.zip'))
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('txt', function() {
+gulp.task('txt', function () {
   return gulp.src('src/*.txt')
-  .pipe(gulp.dest('dist/wantong-zunxin'));
+    .pipe(gulp.dest('dist/wantong-zunxin'));
 });
 
-gulp.task('deploy195', function() {
+gulp.task('deploy195', function () {
   return gulp.src(
-   'dist/wantong-zunxin/**/*.*'
+    'dist/wantong-zunxin/**/*.*'
   )
-  .pipe(ssh.dest('/data/www/wantong-zunxin'));
+    .pipe(ssh.dest('/data/www/wantong-zunxin'));
 });
 
-gulp.task('clean', function() {
+gulp.task('clean', function () {
   return del([
     'tmp'
   ]);
 });
 
-gulp.task('default', function(callback) {
+gulp.task('default', function (callback) {
   runner(
     'prepare',
     'useref', ['js', 'css', 'images', 'fonts', 'icon'],
-    'html','txt',
+    'html', 'txt',
     'clean',
     'zip',
     callback);

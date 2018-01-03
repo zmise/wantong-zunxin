@@ -158,11 +158,11 @@ $.config = { router: false };
 $.ajaxSettings.cache = false;
 
 $(document).on('ajaxBeforeSend', function (e, xhr) {
-  // xhr.setRequestHeader('u', sessionStorage.getItem('token'));
-  // xhr.setRequestHeader('token', sessionStorage.getItem('token'));
+  xhr.setRequestHeader('u', sessionStorage.getItem('token'));
+  xhr.setRequestHeader('token', sessionStorage.getItem('token'));
   // xhr.setRequestHeader('u', '13713925018');
-  xhr.setRequestHeader('u', 'olUEKwG8omSnwANkRzgc3QsZlQnw');
-  xhr.setRequestHeader('token', 'olUEKwG8omSnwANkRzgc3QsZlQnw');
+  // xhr.setRequestHeader('u', 'olUEKwG8omSnwANkRzgc3QsZlQnw');
+  // xhr.setRequestHeader('token', 'olUEKwG8omSnwANkRzgc3QsZlQnw');
 });
 
 $(document).on('ajaxSuccess', function (data, status) {
