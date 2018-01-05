@@ -109,6 +109,12 @@ $(function () {
         }).done(function (res) {
           // console.log(res);
           $.hidePreloader();
+
+          if (res.code !== 'ok') {
+            $.alert(res.msg);
+            return false;
+          }
+
           sessionStorage.setItem('loanresult', JSON.stringify(res.data));
           searchTool.clearHistory(sessionStorage.getItem('token') + 'loanProductIds');
           location = 'loan-result.html';

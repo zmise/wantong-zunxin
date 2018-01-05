@@ -108,14 +108,14 @@ var verifyImg = (function () {
       if ($container.find('.picloader-indicator-modal')[0]) {
         return;
       }
-      $container.data('vailoaded', 'loading');
+      $container.attr('vailoaded', 'loading');
       $container.append('<div class="picloader-indicator-modal"></div>');
     },
     vailoaded: function (container) {
       var $container = container ? $(container) : $('body');
-      if ($container.data('vailoaded') === 'loading') {
+      if ($container.attr('vailoaded') === 'loading') {
         $container.find('.picloader-indicator-modal').remove();
-        $container.data('vailoaded', '');
+        $container.attr('vailoaded', '');
       }
     },
     _renderModal: function () {

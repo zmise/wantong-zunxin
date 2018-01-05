@@ -88,7 +88,7 @@ $(function () {
 
   function vaildForm() {
     var name = $('input[name=name]').val();
-    var cellphone = vailPhoneCommon($('input[name=cellphone]').val());
+    var cellphone = $('input[name=cellphone]').val().replace(/\s+/g, '');
     var agree = $('input[name=agree]:checked').val();
     var genderId = $('input[name=genderId]:checked').val();
     var loanAmount = parseFloat($('input[name=loanAmount]').val()) ? parseFloat($('input[name=loanAmount]').val()) : '';
@@ -104,6 +104,12 @@ $(function () {
       return false;
     }
 
+    if (!cellphone) {
+      $.alert('请输入正确的手机号码');
+      return false;
+    }
+    cellphone = encodeURI(cellphone).match(/\d{11}/)[0];
+    cellphone = vailPhoneCommon(cellphone);
     if (!cellphone.result) {
       $.alert('请输入正确的手机号码');
       return false;
