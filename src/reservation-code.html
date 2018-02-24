@@ -20,66 +20,66 @@
       padding: 0;
       list-style: none;
     }
-    
+
     .list-block {
       margin-top: 1rem;
     }
-    
+
     .list-block .item-title.short-label {
       width: 40%;
     }
-    
+
     .row .col-80 {
       margin-left: 13%;
     }
-    
+
     .content-block {
       margin-top: 3.3rem;
     }
-    
+
     .public-popup .content-block {
       margin-top: 0;
     }
-    
+
     .content-block.mandatory-btn {
       margin: 1.3rem 0;
     }
-    
+
     .public-popup ul li {
       padding: 0.5rem;
       border-bottom: 1px solid #ddd;
     }
-    
+
     .public-popup ul li:active {
       background: #ddd;
     }
-    
+
     .content-block-title {
       font-weight: normal;
       background: #ddd;
     }
-    
+
     .appointment-table {
       font-size: 0.6rem;
       margin-top: 1rem;
       width: 100%;
       height: 16.3rem;
     }
-    
+
     .appointment-table td {
       padding: 0.2rem;
       vertical-align: middle;
       text-align: center;
     }
-    
+
     .appointment-table .label span {
       display: block;
     }
-    
+
     .refresh-td {
       vertical-align: middle;
     }
-    
+
     .list-block button.refresh {
       display: block;
       color: #fff;
@@ -90,16 +90,16 @@
       background-color: #f60;
       width: 100%;
     }
-    
+
     .button-fill.button-success.save-infor-btn {
       background: #5ea51e;
       margin-left: 0.5rem;
     }
-    
+
     .button-fill.button-success.reservation-btn {
       margin-right: 0.5rem;
     }
-    
+
     .icon.icon-check {
       float: right;
       margin-right: 1rem;
@@ -112,20 +112,20 @@
       background-color: #5ea51e;
       border-radius: 50%;
     }
-    
+
     .list-block input {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-    
+
     .codes-img {
       display: inline-block;
       width: 50%;
       height: 1.3rem;
       vertical-align: top;
     }
-    
+
     .codes-btn {
       display: inline-block;
       width: 40%;
@@ -134,34 +134,34 @@
       line-height: 1.5rem;
       vertical-align: bottom;
     }
-    
+
     .appointment-cont {
       height: 18rem;
     }
-    
+
     .expiry {
       color: #ccc;
     }
-    
+
     .tickets {
       color: #f60;
     }
-    
+
     .select-appointment {
       background-color: #5ea51e;
       border-radius: 50%;
       color: #fff;
     }
-    
+
     .mortgage-select {
       margin-left: 2%;
     }
-    
+
     .mortgage-select label {
       display: inline-block;
       margin: 0 3%;
     }
-    
+
     .popup {
       top: 8rem;
       height: auto;
@@ -186,7 +186,8 @@
                   <div class="item-inner">
                     <label class="item-title short-label label" for="szItemNo">选择申办事项:</label>
                     <div class="item-input">
-                      <input type="text" id="szItemNo" class="required" name="szItemNo" value="领取不动产权证书及登记证明" code="FZ20150730" data-type="-1060" readonly>
+                      <input type="text" id="szItemNo" class="required" name="szItemNo" value="领取不动产权证书及登记证明" code="FZ20150730" data-type="-1060"
+                        readonly>
                     </div>
                   </div>
                 </div>
@@ -208,7 +209,8 @@
                   <div class="item-inner">
                     <label class="item-title short-label label" for="registrationAreaOid">办理登记点:</label>
                     <div class="item-input">
-                      <input type="text" id="registrationAreaOid" class="required" data-id="2" name="registrationAreaOid" value="滨海登记科（罗湖区和盐田区业务）" code="-1001" readonly>
+                      <input type="text" id="registrationAreaOid" class="required" data-id="2" name="registrationAreaOid" value="罗湖盐田登记所（罗湖区和盐田区业务）"
+                        code="-1001" readonly>
                     </div>
                   </div>
                 </div>
@@ -308,7 +310,10 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label" for="verificationcodereg"><img src="/trade-util/book/verify.pic" class="codes-img" id="codeImg" alt=""> <span class="codes-btn" id="codesBtn">看不清</span></label>
+                    <label class="item-title short-label label" for="verificationcodereg">
+                      <img src="/trade-util/book/verify.pic" class="codes-img" id="codeImg" alt="">
+                      <span class="codes-btn" id="codesBtn">看不清</span>
+                    </label>
                     <div class="item-input">
                       <input type="text" id="verificationcodereg" name="verificationcodereg" class="required" placeholder="请输入">
                     </div>
@@ -322,7 +327,9 @@
       <div class="content-block mandatory-btn">
         <div class="row">
           <!-- <div class="col-50"><a href="javascript:;" class="button button-big button-fill button-success save-infor-btn" id="saveInformation">保存信息</a></div> -->
-          <div class="col-100"><a href="javascript:;" class="button button-big button-fill button-success reservation-btn" id="inquireBtn">立即预约</a></div>
+          <div class="col-100">
+            <a href="javascript:;" class="button button-big button-fill button-success reservation-btn" id="inquireBtn">立即预约</a>
+          </div>
         </div>
       </div>
     </div>
