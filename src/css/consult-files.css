@@ -80,7 +80,7 @@
 .item-radio {
   position: relative;
   display: inline-block;
-  padding: 0 .75rem;
+  padding: 0 .5rem;
   font-size: .8rem;
   line-height: 1.6rem;
   border: 1px solid #00b4ed;
@@ -316,7 +316,7 @@
 /* 税费结果 */
 
 .price-result {
-  text-align: center;
+  /* text-align: center; */
   background-color: #fff;
 }
 
@@ -328,7 +328,7 @@
 }
 
 .price-result .row:nth-child(n+2)>div {
-  padding: .85rem 0;
+  padding: .85rem .7rem;
   height: 3.1rem;
   line-height: 1.4rem;
   border-bottom: 1px solid #e7e8ea;
@@ -373,4 +373,19 @@
 
 .price-result .color-gray {
   color: #a8a8a8;
+}
+
+.price-result .row.h46>div {
+  height:4.6rem;
+}
+
+.price-result .row.h46 .col-44 {
+  line-height:2.9rem;
+}
+
+.item-radio-box input:checked+.item-radio .icon-question{
+  color: #fff;
+}
+.price-result .summary{
+  color: #f8b500;
 }

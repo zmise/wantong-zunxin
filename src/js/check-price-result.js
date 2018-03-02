@@ -5,6 +5,22 @@ $(function () {
   vTools.commomEvent();
   initData();
 
+  $('.item-radio-box').on('click', function () {
+    var value = $(this).find('input:checked').val();
+    if (value === '1') {
+      $('.price-result .js-hd').show();
+      $('.price-result .js-hs').hide();
+    } else {
+      $('.price-result .js-hd').hide();
+      $('.price-result .js-hs').show();
+    }
+  });
+
+  function initResult() {
+    $('.price-result .js-hd').show();
+    $('.price-result .js-hs').hide();
+  }
+
   function initData() {
 
     $.ajax({
@@ -51,7 +67,7 @@ $(function () {
               }
 
               item[key + 'count'] = sum;
-              $('[data-id="' + key + '-count"]').text(vTools.formatNumber(sum));
+              $('[data-id="' + key + '-count"]').text('￥' + vTools.formatNumber(sum));
             }
           }
 
@@ -64,11 +80,18 @@ $(function () {
           }
 
           // 判断提示信息
-          if (item.hscount !== item.hdcount) {
-            $('#regest').find('div').text('建议您选择核' + (item.hscount > item.hdcount ? '定' : '实') + '法缴纳个税，总税费更少');
+          // if (item.hscount !== item.hdcount) {
+          //   $('#regest').find('div').text('建议您选择核' + (item.hscount > item.hdcount ? '定' : '实') + '法缴纳个税，总税费更少');
+          // } else {
+          //   $('#regest').hide();
+          // }
+          // 个税： 若核实法 < 核定法，则选择核实法， 若核实法 > 核定法，则选中核定法 若相等，选择核实法
+          if (item.hscount > item.hdcount) {
+            $('#hd').trigger('click');
           } else {
-            $('#regest').hide();
+            $('#hs').trigger('click');
           }
+
 
           // 契税
           var str = '';
@@ -128,9 +151,13 @@ $(function () {
         } else {
           $.alert(items.msg);
         }
+
+
       },
 
       complete: function () {
+
+        initResult();
         $.hidePreloader();
       }
     });

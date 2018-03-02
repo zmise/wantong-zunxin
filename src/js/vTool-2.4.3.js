@@ -87,6 +87,28 @@ var vTools = {
       }
     });
 
+    if (opt && opt.ortherVails) {
+      // 自定义校验
+      list = opt.ortherVails;
+      if (list && list.length > 0) {
+        for (var i = 0, len = list.length; i < len; i++) {
+          temp = list[i];
+          $items = $(temp.selector + ':visible');
+          if ($items[0]) {
+            if ($.isFunction(temp.regex) && !temp.regex($items)) {
+              if (temp.message) {
+                $.toast(temp.message);
+              } else {
+                $.toast(msg);
+              }
+              flag = false;
+              return false;
+            }
+          }
+        }
+      }
+    }
+
     return flag;
   },
 
@@ -164,6 +186,10 @@ var vTools = {
    */
   formatNumber: function (number) {
     number = number.toFixed(2);
+    // 如果是负数
+    if (number.indexOf('-') === 0) {
+      return '-' + number.substring(1).replace(/(?!^)(?=(?:\d{3})+(?!\d))/g, ",");
+    }
     return number.replace(/(?!^)(?=(?:\d{3})+(?!\d))/g, ",");
   }
 

@@ -20,9 +20,17 @@
     .fb {
       font-weight: bold;
     }
-    
+
     .modal-text p {
       margin: 0;
+    }
+
+    .col-44 {
+      width: 45%;
+    }
+
+    .col-56 {
+      width: 55%;
     }
   </style>
 </head>
@@ -41,14 +49,84 @@
           <p class="step">填写房产详情</p>
           <p class="step active">查看计算结果</p>
         </div>
+        <div class="list-block price-result">
+          <div class="row no-gutter">
+            <div class="col-44">名称</div>
+            <div class="col-56 tl-r">金额</div>
+            <!-- <div class="col-375" data-tips="
+            税计的方式基准国土过户价，计税的方式是固定的，公式=过户价-增值税×税率">核定<i class="iconfont icon-question"></i></div>
+            <div class="col-375" data-tips="
+            计税的方式是以当前的房产的增值部份做为计税基准；公式=（国土过户价 - 登记价）× 税率<br/>如该房产购买时的登记价为100万，当前的国土过户价为150万，那么增值就是50万">核实<i class="iconfont icon-question"></i></div> -->
+          </div>
+          <div class="row no-gutter">
+            <div class="col-44" id="addedTax">增值税
+              <i class="iconfont icon-question"></i>
+            </div>
+            <div class="col-56" data-id="hd-addedTax"></div>
+            <!-- <div class="col-40" data-id="hs-addedTax"></div> -->
+          </div>
+          <div class="row no-gutter">
+            <div class="col-44" id="addedTax" data-tips="包含城市维护建设税、教育费附加、地方教育附加三个税种，总计为增值税的12%<br/>城市维护建设税=增值税×7％<br/>教育费附加=增值税×3％<br/>地方教育附加=增值税×2％">城建及教育附加<i class="iconfont icon-question"></i></div>
+            <div class="col-56" data-id="hd-buildAndEducationTax"></div>
+            <!-- <div class="col-40" data-id="hs-addedTax"></div> -->
+          </div>
+          <div class="row no-gutter">
+            <div class="col-44" id="deedTax">契税
+              <i class="iconfont icon-question"></i>
+            </div>
+            <div class="col-56" data-id="hd-deedTax"></div>
+            <!-- <div class="col-40" data-id="hs-deedTax"></div> -->
+          </div>
+          <div class="row no-gutter h46">
+            <div class="col-44">个税</div>
+            <div class="col-56">
+              <div class="item-radio-box" id="certType">
+                <input type="radio" name="certType" value="2" id="certType2">
+                <label class="item-radio" for="certType2" id="hs">核实
+                  <i class="iconfont icon-question"></i>
+                </label>
+                <input type="radio" name="certType" value="1" id="certType1" checked="">
+                <label class="item-radio" for="certType1" id="hd">核定
+                  <i class="iconfont icon-question"></i>
+                </label>
+              </div>
+
+              <div data-id="hd-personalTax" class="js-hd"></div>
+              <div data-id="hs-personalTax" class="js-hs"></div>
+            </div>
+          </div>
+          <div class="row no-gutter">
+            <div class="col-44">登记费</div>
+            <div class="col-56" data-id="hd-registerCost"></div>
+            <!-- <div class="col-40" data-id="hs-registerCost"></div> -->
+          </div>
+          <div class="row no-gutter">
+            <div class="col-44">贴花</div>
+            <div class="col-56" data-id="hd-stampCost"></div>
+            <!-- <div class="col-40" data-id="hs-stampCost"></div> -->
+          </div>
+          <div class="row no-gutter">
+            <div class="col-44">总计</div>
+            <div class="col-56 summary">
+              <div data-id="hd-count" class="js-hd"></div>
+              <div data-id="hs-count" class="js-hs"></div>
+            </div>
+          </div>
+          <!-- <div class="row no-gutter" id="regest">
+            <div class="col-100 tl-r"></div>
+          </div> -->
+        </div>
+        <p class="infos-tips">来自深圳市房产信息系统，最终结果以实际办理为准</p>
         <div class="list-block">
           <ul>
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <div class="item-title" data-tips="
-                  房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">房产登记价<i class="iconfont icon-question"></i></div>
-                  <div class="item-after"><span class="font-bold" data-id="registerPrice"></span>元</div>
+                  <div class="item-title" data-tips="为国土局对本房产评估单价，与房产实际成交价无关">评估单价
+                    <i class="iconfont icon-question"></i>
+                  </div>
+                  <div class="item-after">
+                    <span class="font-bold red" data-id="unitPrice"></span>元/㎡</div>
                 </div>
               </div>
             </li>
@@ -56,79 +134,35 @@
               <div class="item-content">
                 <div class="item-inner">
                   <div class="item-title">建筑面积</div>
-                  <div class="item-after"><span data-id="area"></span>㎡</div>
+                  <div class="item-after">
+                    <span data-id="area"></span>㎡</div>
                 </div>
               </div>
             </li>
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <div class="item-title" data-tips="为国土局对本房产评估单价，与房产实际成交价无关">评估单价<i class="iconfont icon-question"></i></div>
-                  <div class="item-after"><span class="font-bold" data-id="unitPrice"></span>元/㎡</div>
+                  <div class="item-title" data-tips="过户价 为评估单价 × 建筑面积的结果，与房产实际成交价无关">国土过户价
+                    <i class="iconfont icon-question"></i>
+                  </div>
+                  <div class="item-after">
+                    <span class="font-bold red" data-id="price"></span>元</div>
                 </div>
               </div>
             </li>
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <div class="item-title" data-tips="
-                  过户价 为评估单价 × 建筑面积的结果，与房产实际成交价无关">国土过户价<i class="iconfont icon-question"></i></div>
-                  <div class="item-after"><span class="font-bold" data-id="price"></span>元</div>
+                  <div class="item-title" data-tips="房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">房产原登记价
+                    <i class="iconfont icon-question"></i>
+                  </div>
+                  <div class="item-after">
+                    <span class="font-bold" data-id="registerPrice"></span>元</div>
                 </div>
               </div>
             </li>
           </ul>
         </div>
-        <div class="list-block price-result">
-          <div class="row no-gutter">
-            <div class="col-25">名称</div>
-            <div class="col-75 tl-r">金额</div>
-            <!-- <div class="col-375" data-tips="
-            税计的方式基准国土过户价，计税的方式是固定的，公式=过户价-增值税×税率">核定<i class="iconfont icon-question"></i></div>
-            <div class="col-375" data-tips="
-            计税的方式是以当前的房产的增值部份做为计税基准；公式=（国土过户价 - 登记价）× 税率<br/>如该房产购买时的登记价为100万，当前的国土过户价为150万，那么增值就是50万">核实<i class="iconfont icon-question"></i></div> -->
-          </div>
-          <div class="row no-gutter">
-            <div class="col-25" id="addedTax">增值税<i class="iconfont icon-question"></i></div>
-            <div class="col-75" data-id="hd-addedTax"></div>
-            <!-- <div class="col-40" data-id="hs-addedTax"></div> -->
-          </div>
-          <div class="row no-gutter">
-            <div class="col-25" id="deedTax">契税<i class="iconfont icon-question"></i></div>
-            <div class="col-75" data-id="hd-deedTax"></div>
-            <!-- <div class="col-40" data-id="hs-deedTax"></div> -->
-          </div>
-          <div class="row no-gutter">
-            <div class="col-25">个税(2选1)</div>
-            <div class="col-375 rowtwo">
-              <p id="hd" class="color-gray">核定法<i class="iconfont icon-question"></i></p>
-              <p data-id="hd-personalTax"></p>
-            </div>
-            <div class="col-375 rowtwo">
-              <p id="hs" class="color-gray">核实法<i class="iconfont icon-question"></i></p>
-              <p data-id="hs-personalTax"></p>
-            </div>
-          </div>
-          <div class="row no-gutter">
-            <div class="col-25">登记费</div>
-            <div class="col-75" data-id="hd-registerCost"></div>
-            <!-- <div class="col-40" data-id="hs-registerCost"></div> -->
-          </div>
-          <div class="row no-gutter">
-            <div class="col-25">贴花</div>
-            <div class="col-75" data-id="hd-stampCost"></div>
-            <!-- <div class="col-40" data-id="hs-stampCost"></div> -->
-          </div>
-          <div class="row no-gutter">
-            <div class="col-25">总计(2选1)</div>
-            <div class="col-375 font-bold" data-id="hd-count"></div>
-            <div class="col-375 font-bold" data-id="hs-count"></div>
-          </div>
-          <div class="row no-gutter" id="regest">
-            <div class="col-100 tl-r"></div>
-          </div>
-        </div>
-        <p class="infos-tips">来自深圳市房产信息系统，最终结果以实际办理为准</p>
         <div class="list-block">
           <ul>
             <li class="dn">
@@ -167,7 +201,8 @@
         </div>
 
         <div class="footer-copy-right">
-          <p>本工具由<a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
+          <p>本工具由
+            <a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
         </div>
       </div>
     </div>

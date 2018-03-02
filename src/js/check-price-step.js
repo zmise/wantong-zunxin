@@ -3,7 +3,7 @@ $(function () {
 
   // 房产类型
   function houseType(type) {
-    var list = ['商业', '酒店', '厂房', '商铺'];
+    var list = ['商业', '酒店', '厂房', '商铺', '商务公寓', '办公', '公寓式办公', '写字楼'];
     if (type && list.indexOf(type) > -1) {
       $('.js-houseType').show();
       $('#inquireBtn').hide();
@@ -24,7 +24,7 @@ $(function () {
     if (price && price > 0) {
       $('#unitPrice').val(price);
     } else {
-      $('.js-unitPrice').show();
+      // $('.js-unitPrice').show();
       // $('#inquireBtn').hide();
     }
   }
@@ -63,6 +63,7 @@ $(function () {
     registerPrice(urlParams.registerPrice);
     unitPrice(urlParams.unitPrice);
     area(urlParams.area, urlParams.unitPrice, urlParams.address);
+    urlParams.price && $('#price').val(urlParams.price);
     $('#id').val(urlParams.id || '');
   }
 
@@ -84,6 +85,19 @@ $(function () {
         regex: function (el) {
           return !isNaN($(el).val());
         }
+      }],
+      ortherVails: [{// 卖方唯一住房
+        selector: '#isOnly',
+        regex: function (el) {
+          return $(el).find(':checked')[0];
+        },
+        message: '请选择是否卖方唯一住房'
+      }, {// 买方首套住房
+        selector: '#isFirst',
+        regex: function (el) {
+          return $(el).find(':checked')[0];
+        },
+        message: '请选择是否买方首套住房'
       }]
     });
     var $self = $(this);

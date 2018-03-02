@@ -14,48 +14,82 @@
   <link rel="stylesheet" href="../css/sm.css">
   <link rel="stylesheet" href="../css/detail.css">
   <style>
-  .list-block {
-    margin-top: 1rem;
-  }
+    .list-block {
+      margin-top: 1rem;
+    }
 
-  .list-block .item-title.short-label {
-    width: 40%;
-  }
+    .list-block .item-title.short-label {
+      width: 40%;
+    }
 
-  .row .col-80 {
-    margin-left: 13%;
-  }
+    .row .col-80 {
+      margin-left: 13%;
+    }
 
-  .content-block {
-    margin-top: 3.3rem;
-  }
+    .content-block {
+      margin-top: 3.3rem;
+    }
 
-  .content-block.mandatory-btn {
-    margin: 1.3rem 0;
-  }
+    .content-block.mandatory-btn {
+      margin: 1.3rem 0;
+    }
 
-  .fit-tile {
-    background: #efeff4;
-    margin-bottom: 1rem;
-    font-weight: normal;
-  }
+    .fit-tile {
+      background: #efeff4;
+      margin-bottom: 1rem;
+      font-weight: normal;
+    }
 
-  .office-title {
-    margin-top: 1rem;
-  }
+    .office-title {
+      margin-top: 1rem;
+    }
 
-  .numbering-text {
-    display: block;
-    margin-left: 10%;
-    height: 2rem;
-    width: 78%;
-    padding-left: 0.2rem;
-  }
+    .tab-box {
+      float: left;
+    }
 
-  .search-tips {
-    margin-left: 10%;
-    color: #999;
-  }
+    .tab-box .tab-item {
+      float: left;
+      width: 2.5rem;
+      font-size: .8rem;
+      line-height: 1.9rem;
+      text-align: center;
+      border: 1px solid #00b4ed;
+    }
+
+    .tab-box .tab-item.on {
+      color: #fff;
+      background-color: #00b4ed;
+    }
+
+    .split {
+      position: relative;
+      margin-right: 1.5rem;
+    }
+
+    .split:after {
+      content: '';
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      width: .5rem;
+      height: 2px;
+      background-color: #333;
+    }
+
+    .numbering-text {
+      float: left;
+      width: -webkit-calc(100% - 6.5rem);
+      width: calc(100% - 6.5rem);
+      height: 2rem;
+      padding-left: 0.2rem;
+      font-size: .7rem;
+    }
+
+    .search-tips {
+      margin-left: 10%;
+      color: #999;
+    }
   </style>
 </head>
 
@@ -70,25 +104,46 @@
         <div class="content-block-title fit-tile">1、电话查询</div>
         <div class="content-block mandatory-btn">
           <div class="row">
-            <div class="col-80"><a href="tel:0755-83949114" class="button button-big button-fill button-success">拨打：0755-83949114</a></div>
+            <div class="col-80">
+              <a href="tel:0755-83949114" class="button button-big button-fill button-success">拨打：0755-83949114</a>
+            </div>
           </div>
         </div>
         <div class="content-block-title fit-tile office-title">2、输入办文编号查询</div>
-        <input type="text" placeholder="请输入办文编号" class="numbering-text">
+
+        <div class="row">
+          <div class="col-80">
+            <div class="tab-box split">
+              <div class="tab-item on">9C</div>
+              <div class="tab-item">9D</div>
+            </div>
+            <input type="text" placeholder="文号编码,无需输9C/9D" class="numbering-text">
+          </div>
+        </div>
         <div class="content-block mandatory-btn">
           <div class="row">
-            <div class="col-80"><a href="javascript:void(0);" class="button button-big button-fill button-success" id="submit">确定</a></div>
+            <div class="col-80">
+              <a href="javascript:void(0);" class="button button-big button-fill button-success" id="submit">确定</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!--build:js js/common.min.js -->
-    <script src="js/zepto.js"></script>
-    <script src="js/sm.js"></script>
-    <script src="js/common.js"></script>
-    <!-- endbuild -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
   <script src="js/office-query.js"></script>
+  <!-- Google Tag Manager -->
+  <script src="js/own-gtm.js"></script>
+  <!-- End Google Tag Manager -->
 </body>
 
 </html>

@@ -79,6 +79,10 @@ function sendData(opt) {
           searchO.unitPrice = data.unitPrice;
         }
 
+        if (data.price) {
+          searchO.price = data.price;
+        }
+
         if (!searchO.address && data.region) {
           searchO.address = data.region;
         }

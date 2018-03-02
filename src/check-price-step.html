@@ -19,39 +19,16 @@
   <style>
     .list-block .item-title.short-label {
       width: auto;
-      max-width: 40%;
+      max-width: 42%;
     }
-    
+
     #term .item-radio {
       padding: 0 .65rem;
     }
   </style>
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KLDXXLZ');
-  </script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div class="page page-current">
     <div class="buttons-tab">
       <a href="./check-transfer-price.html" class="button external">查过户价</a>
@@ -73,12 +50,12 @@
           <input type="hidden" id="unitPrice" name="unitPrice">
           <div class="list-block">
             <ul>
-              <li class="js-unitPrice" style="display:none;">
+              <li class="js-unitPrice">
                 <div class="item-content">
                   <div class="item-inner">
                     <label class="item-title label short-label" for="price">国土过户价</label>
                     <div class="item-input">
-                      <input type="text" id="price" name="price" class="required" maxlength="20" placeholder="请输入正确的过户价" data-label="请输入国土过户价">
+                      <input type="text" id="price" name="price" maxlength="20" placeholder="请输入正确的过户价" data-label="请输入国土过户价">
                     </div>
                   </div>
                 </div>
@@ -86,8 +63,7 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title label short-label" for="registerPrice" data-tips="
-                    房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">房产登记价(元)<i class="iconfont icon-question"></i></label>
+                    <label class="item-title label short-label" for="registerPrice" data-tips="房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">房产原登记价(元)<i class="iconfont icon-question"></i></label>
                     <div class="item-input">
                       <input type="number" id="registerPrice" name="registerPrice" class="required" placeholder="请输入(必填)" data-label="请输入正确的登记价">
                     </div>
@@ -111,10 +87,16 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label" data-tips="指与房产登记的时间差，<br/>如您在2015年1月1日登记，到2017年1月1日时，就是满2年了">购房期限<i class="iconfont icon-question"></i></label>
+                    <label class="item-title short-label label" data-tips="指与房产登记的时间差，<br/>如您在2015年1月1日登记，到2017年1月1日时，就是满2年了">购房期限
+                      <i class="iconfont icon-question"></i>
+                    </label>
                     <div class="item-radio-box" id="term">
-                      <input type="radio" name="term" value="1" id="term1" checked><label class="item-radio" for="term1">未满2年</label><input type="radio" name="term" value="2" id="term2"><label class="item-radio" for="term2">满2年</label>
-                      <input type="radio" name="term" value="3" id="term3"><label class="item-radio" for="term3">满5年</label>
+                      <input type="radio" name="term" value="1" id="term1" checked>
+                      <label class="item-radio" for="term1">未满2年</label>
+                      <input type="radio" name="term" value="2" id="term2">
+                      <label class="item-radio" for="term2">满2年</label>
+                      <input type="radio" name="term" value="3" id="term3">
+                      <label class="item-radio" for="term3">满5年</label>
                     </div>
                   </div>
                 </div>
@@ -122,9 +104,14 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label" data-tips="key2house">住宅类型<i class="iconfont icon-question"></i></label>
+                    <label class="item-title short-label label" data-tips="key2house">住宅类型
+                      <i class="iconfont icon-question"></i>
+                    </label>
                     <div class="item-radio-box" id="houseType">
-                      <input type="radio" name="houseType" value="1" id="houseType1" checked><label class="item-radio" for="houseType1">普通住宅</label><input type="radio" name="houseType" value="2" id="houseType2"><label class="item-radio" for="houseType2">非普通住宅</label>
+                      <input type="radio" name="houseType" value="1" id="houseType1" checked>
+                      <label class="item-radio" for="houseType1">普通住宅</label>
+                      <input type="radio" name="houseType" value="2" id="houseType2">
+                      <label class="item-radio" for="houseType2">非普通住宅</label>
                     </div>
                   </div>
                 </div>
@@ -134,7 +121,10 @@
                   <div class="item-inner">
                     <label class="item-title short-label label">卖方唯一住房</label>
                     <div class="item-radio-box" id="isOnly">
-                      <input type="radio" name="isOnly" value="1" id="isOnly1" checked><label class="item-radio" for="isOnly1">是</label><input type="radio" name="isOnly" value="2" id="isOnly2"><label class="item-radio" for="isOnly2">否</label>
+                      <input type="radio" name="isOnly" value="1" id="isOnly1">
+                      <label class="item-radio" for="isOnly1">是</label>
+                      <input type="radio" name="isOnly" value="2" id="isOnly2">
+                      <label class="item-radio" for="isOnly2">否</label>
                     </div>
                   </div>
                 </div>
@@ -144,7 +134,10 @@
                   <div class="item-inner">
                     <label class="item-title short-label label">买方首套住房</label>
                     <div class="item-radio-box" id="isFirst">
-                      <input type="radio" name="isFirst" value="1" id="isFirst1" checked><label class="item-radio" for="isFirst1">是</label><input type="radio" name="isFirst" value="2" id="isFirst2"><label class="item-radio" for="isFirst2">否</label>
+                      <input type="radio" name="isFirst" value="1" id="isFirst1">
+                      <label class="item-radio" for="isFirst1">是</label>
+                      <input type="radio" name="isFirst" value="2" id="isFirst2">
+                      <label class="item-radio" for="isFirst2">否</label>
                     </div>
                   </div>
                 </div>
@@ -159,7 +152,8 @@
           <a href="javascript:;" class="button button-big button-fill button-default" id="backBtn">返回</a>
         </div>
         <div class="footer-copy-right">
-          <p>本工具由<a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
+          <p>本工具由
+            <a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
         </div>
       </div>
     </div>
@@ -195,6 +189,11 @@
       </div>
     </div>
   </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLDXXLZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!--build:js js/common.min.js -->
   <script src="js/zepto.js"></script>
   <script src="js/sm.js"></script>
@@ -202,6 +201,9 @@
   <!-- endbuild -->
   <script src="js/vTool-2.4.3.js"></script>
   <script src="js/check-price-step.js"></script>
+  <!-- Google Tag Manager -->
+  <script src="js/own-gtm.js"></script>
+  <!-- End Google Tag Manager -->
 </body>
 
 </html>
