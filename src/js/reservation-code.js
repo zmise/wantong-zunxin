@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
   var $szItemNo = $('#szItemNo');
   var $registrationAreaOid = $('#registrationAreaOid');
@@ -6,7 +6,7 @@ $(function() {
   var $symbolCont = $('.symbol-cont');
   var $mortgageCont = $('.mortgage-cont');
 
-  $('#reservationCodeRecord').on('click', function() {
+  $('#reservationCodeRecord').on('click', function () {
     window.location.replace('./reservation-code-record.html');
     return false;
   });
@@ -16,12 +16,19 @@ $(function() {
     $.ajax({
       url: '/trade-util/book/loadHistorySingle.json',
       data: { id: urlParams.id },
-      success: function(data) {
+      success: function (data) {
         var items = data;
         if (items.code == 'ok') {
-          $.each(items.data, function(k, v) {
+          $.each(items.data, function (k, v) {
             if (k == 'szItemNo') {
               $szItemNo.attr('code', v);
+              // 判断如果已经有默认值去掉默认值
+              var $szItemNoList = $('#szItemNoList');
+              if ($szItemNoList.find('.icon-check')[0]) {
+                $szItemNoList.find('.icon-check').remove();
+              }
+              $szItemNoList.find('li[code="' + v + '"]').append('<span class="icon icon-check"></span>');
+
             } else if (k == 'bussName') {
               $szItemNo.val(v);
             } else if (k == 'bookingType') {
@@ -49,6 +56,13 @@ $(function() {
               }
             } else if (k == 'registrationAreaOid') {
               $registrationAreaOid.attr('code', v);
+              // 判断如果已经有默认值去掉默认值
+              var $registrationAreaOidList = $('#registrationAreaOidList');
+              if ($registrationAreaOidList.find('.icon-check')[0]) {
+                $registrationAreaOidList.find('.icon-check').remove();
+              }
+              $registrationAreaOidList.find('li[code="' + v + '"]').append('<span class="icon icon-check"></span>');
+
             } else if (k == 'registrationAreaName') {
               $registrationAreaOid.val(v);
             } else if (k == 'bookingSzAreaOid') {
@@ -71,21 +85,21 @@ $(function() {
         }
 
       }
-    }).done(function() {
+    }).done(function () {
       appointmentTable($registrationAreaOid.attr('code'), $szItemNo.attr('data-type'));
     });
   } else {
     appointmentTable('-1001', '-1060');
   }
 
-  $('#szItemNo,#registrationAreaOid,#bookingSzAreaOid').on('click', function() {
+  $('#szItemNo,#registrationAreaOid,#bookingSzAreaOid').on('click', function () {
     var self = $(this);
     $('.public-popup').find('ul').hide();
     var id = $(this).attr('id');
     $('#' + id + 'List').show();
     $.popup('.public-popup');
 
-    $('#' + id + 'List').off('click').on('click', 'li', function() {
+    $('#' + id + 'List').off('click').on('click', 'li', function () {
       var parentEl = $(this).parent();
       self.val($(this).text());
       parentEl.find('.icon').remove();
@@ -125,12 +139,24 @@ $(function() {
     $.ajax({
       url: '/trade-util/book/loadBasicData.json',
       data: { type: type },
-      success: function(data) {
+      success: function (data) {
+        var defaultCode;
         if (data.code == 'ok') {
           var html = '';
-          $.each(data.data, function(k, v) {
+
+          // 获取默认值
+          if (type == 1) {
+            defaultCode = $registrationAreaOid.attr('code');
+          } else if (type == 3) {
+            defaultCode = $szItemNo.attr('code');
+          }
+
+          $.each(data.data, function (k, v) {
             if (type == 1 || type == 3) {
-              if (k == 0 && !urlParams.id) {
+              // if (k == 0 && !urlParams.id) {
+
+              // 新的预约进入页面，默认选中
+              if (defaultCode === v.dicCode) {
                 if (type == 3) {
                   html += '<li code="' + v.dicCode + '" data-type="' + v.dicDesc + '">' + v.dicName + '<span class="icon icon-check"></span></li>';
                 } else {
@@ -182,13 +208,13 @@ $(function() {
       url: '/trade-util/book/loadDateRelatedData.json',
       type: 'POST',
       data: param,
-      beforeSend: function() {
+      beforeSend: function () {
         if (loadFlag) {
           $.showPreloader();
         }
       },
 
-      success: function(data) {
+      success: function (data) {
         if (data.data) {
           var s0 = data.data.replace(/DWREngine._handleResponse/, '');
           if (dataName == 'dayList') {
@@ -205,7 +231,7 @@ $(function() {
         }
       },
 
-      complete: function() {
+      complete: function () {
         if (loadFlag) {
           $.hidePreloader();
         }
@@ -256,10 +282,10 @@ $(function() {
 
     self ? self.prop('disabled', true) : null;
 
-    $.when(d1, d2, d3).done(function() {
+    $.when(d1, d2, d3).done(function () {
       self ? self.prop('disabled', false) : null;
       var htmlHead = '<tr class="label" id="dateHead"><td class="refresh-td"><button class="button refresh">刷新</button></td>'
-      $.each(dayList, function(k, v) {
+      $.each(dayList, function (k, v) {
         var index = v.workDayLabel.indexOf('-');
         var wordIndex = v.workDayLabel.indexOf(' ');
         var date = v.workDayLabel.slice(index + 1, wordIndex);
@@ -271,10 +297,10 @@ $(function() {
       var newDate = new Date();
       var dateFlag = false;
       var nowDate = newDate.getFullYear() + '-' + zeroFill((newDate.getMonth() + 1)) + '-' + zeroFill(newDate.getDate());
-      $.each(timeList, function(k, v) {
+      $.each(timeList, function (k, v) {
         htmltBody += '<tr><td data-workTimeSoltOid="' + v.workTimeSoltOid + '">' + v.workTimeSoltName + '</td>';
 
-        $.each(dayList, function(n, m) {
+        $.each(dayList, function (n, m) {
           var count = countMap[dayList[n].workDay.substring(0, 10) + "_" + timeList[k].workTimeSoltOid] || 0;
           dayList[n].workDay = dayList[n].workDay.substring(0, 10);
 
@@ -307,31 +333,31 @@ $(function() {
     });
   }
 
-  $appointmentBody.on('click', 'td.tickets', function() {
+  $appointmentBody.on('click', 'td.tickets', function () {
     $appointmentBody.find('td').removeClass('select-appointment');
     $(this).addClass('select-appointment');
   });
 
-  $appointmentBody.on('click', '.refresh', function() {
+  $appointmentBody.on('click', '.refresh', function () {
     var self = $(this);
     appointmentTable($registrationAreaOid.attr('code'), $szItemNo.attr('data-type'), self);
   });
 
-  $('#codesBtn').on('click', function() {
+  $('#codesBtn').on('click', function () {
     $('#codeImg').attr('src', '/trade-util/book/verify.pic?' + Math.random() + '');
   });
-  
+
   $(document).on('click.closepopup', '.popup-overlay', function (e) {
     $.closeModal();
     $('.popup-overlay').removeClass('modal-overlay-visible');
   });
 
-  $('#inquireBtn').on('click', function() {
+  $('#inquireBtn').on('click', function () {
     var self = $(this);
     reservationFun(2, self);
   });
 
-  $('#saveInformation').on('click', function() {
+  $('#saveInformation').on('click', function () {
     var self = $(this);
     reservationFun(1, self);
   });
@@ -348,7 +374,7 @@ $(function() {
       }
     }
 
-    $.each(requireds, function(k, v) {
+    $.each(requireds, function (k, v) {
       if (!$(v).val() && type == 2) {
         if ($(v).is('#appointmentTable')) {
           if (!$(v).find('.select-appointment').length) {
@@ -404,7 +430,7 @@ $(function() {
     var index = $selectAppointment.index();
     var $dateHead = $('#dateHead');
     var serializeObj = {};
-    $.each($('#reservationForm').serializeArray(), function() {
+    $.each($('#reservationForm').serializeArray(), function () {
       if (this.name == 'xlType' && $mortgageCont.is(':visible')) {
         if ($('#' + this.name + ':checked').length) {
           serializeObj[this.name] = 2;
@@ -444,15 +470,15 @@ $(function() {
       url: '/trade-util/book/submit.json',
       type: 'POST',
       data: serializeObj,
-      beforeSend: function() {
+      beforeSend: function () {
         self.prop('disabled', true);
         $.showPreloader();
       },
 
-      success: function(data) {
+      success: function (data) {
         $.alert(data.msg);
         if (data.code == 'ok') {
-          setTimeout(function() {
+          setTimeout(function () {
             location.href = './reservation-code-record.html';
           }, 1000);
         } else {
@@ -460,7 +486,7 @@ $(function() {
         }
       },
 
-      complete: function() {
+      complete: function () {
         $.hidePreloader();
       }
     });

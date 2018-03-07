@@ -46,7 +46,7 @@ $(function() {
             var hrefStr = '';
             if (v.status == 1) {
               statusHtml = '<span class="button reservation-btn">预约取号</sapn>';
-              hrefStr = '/tools-version/reservation-code.html?id=' + v.id + '&status=' + v.status + '';
+              hrefStr = '/reservation-code.html?id=' + v.id + '&status=' + v.status + '';
             } else if (v.status == 2) {
 
               var workTime = v.workTimeSoltName;
