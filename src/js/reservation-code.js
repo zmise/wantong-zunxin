@@ -423,6 +423,7 @@ $(function () {
     });
 
     if (!flag) {
+      $('#codesBtn').trigger('click');
       return false;
     }
 
@@ -482,6 +483,8 @@ $(function () {
             location.href = './reservation-code-record.html';
           }, 1000);
         } else {
+
+          $('#codesBtn').trigger('click');
           self.prop('disabled', false);
         }
       },

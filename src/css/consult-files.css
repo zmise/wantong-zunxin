@@ -387,5 +387,7 @@
   color: #fff;
 }
 .price-result .summary{
-  color: #f8b500;
+  /* color: #f8b500; */
+  font-weight: bold;
+  color: #f00;
 }
