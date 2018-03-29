@@ -109,7 +109,11 @@ $(function () {
       $.hidePreloader();
       $save.removeClass('button-disabled');
       if (res.code !== 'ok') {
-        $.alert('网络出错了，请重试！');
+        var str = '网络出错了，请重试！';
+        if(res.msg){
+          str = msg;
+        }
+        $.alert(str);
         return false;
       }
 
