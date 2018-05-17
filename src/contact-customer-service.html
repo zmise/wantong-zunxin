@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>联系客服</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="css/sm.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="css/contact-customer-service.css">
+</head>
+
+<body>
+  <div class="article-body">
+    <h2>长按二维码，撩客服妹子</h2>
+    <img src="./images/contact-customer-service/qrcode.png" alt="">
+    <div class="text">
+      <p>添加客服微信后，您可以：</p>
+      <p>-贷款咨询</p>
+      <p>-了解贷款资讯</p>
+      <p>-提单帮助</p>
+    </div>
+  </div>
+  <!--build:js js/common.min.js -->
+  <script src="js/zepto.js"></script>
+  <script src="js/sm.js"></script>
+  <script src="js/common.js"></script>
+  <!-- endbuild -->
+  <script>
+    $(function () {
+      $(document).on('click.qcode', '.btn-qcode', function (e) {
+        var $container = $(this).closest('.list-item');
+        $container.find('.infos-qcode').addClass('animate-in');
+        $container.find('.infos-qcode-bg').show();
+      });
+      $(document).on('click.qcodeHide', '.infos-qcode-bg', function () {
+        var $container = $(this).closest('.list-item');
+        $container.find('.infos-qcode').removeClass('animate-in');
+        $container.find('.infos-qcode-bg').hide();
+      });
+    });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+.article-body {
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #226ea4;
+  color: #fff;
+}
+
+.article-body h2 {
+  padding-top: 3rem;
+  margin: .6rem 0;
+  font-size: .85rem;
+  font-weight: 300;
+}
+
+.article-body img {
+  width: 7.75rem;
+  height: 7.75rem;
+}
+
+.article-body .text {
+  width: 7.75rem;
+}
+
+.article-body .text p {
+  font-size: .6rem;
+}
+
+.article-body .text p:first-child {
+  font-weight: 100;
+}
