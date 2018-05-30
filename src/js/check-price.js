@@ -1,5 +1,4 @@
 var urlParams = $.unparam(location.search.substring(1));
-urlParams.propertyType, urlParams.ownerType, urlParams.tradeType, urlParams.buyerType
 
 if (urlParams.propertyType === '1' && urlParams.ownerType === '2') {
   $('.js-ownerTypeExtra').removeClass('dn');
@@ -9,6 +8,9 @@ if (urlParams.propertyType === '1' && urlParams.ownerType === '2') {
 
   }
 }
+
+
+
 
 function sendData(opt) {
   $.showPreloader('正在查询');

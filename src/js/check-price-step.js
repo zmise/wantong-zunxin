@@ -9,6 +9,24 @@ $(function () {
   //   }
   // }
 
+  $('#taxType').on('click', function () {
+    if (urlParams.propertyType === '2' && urlParams.ownerType === '1') {
+
+      if ($('#taxType').find(':checked').attr('value') === '2') {
+        $('.js-privateHouse').removeClass('dn');
+        $('.js-companyBuysHouse').removeClass('dn');
+        $('.js-business').removeClass('dn');
+        $('.js-companySellsHouseCompany').addClass('dn');
+        $('.js-companySellsHousePrivate').addClass('dn');
+      } else {
+        $('.js-companySellsHouseCompany').removeClass('dn');
+        $('.js-companySellsHousePrivate').removeClass('dn');
+        $('.js-privateHouse').addClass('dn');
+        $('.js-companyBuysHouse').addClass('dn');
+        $('.js-business').addClass('dn');
+      }
+    }
+  });
   // 登记价
   function registerPrice(price) {
     if (price && price > 0) {
@@ -61,18 +79,18 @@ $(function () {
     $('.list-block').removeClass('dn')
 
     if (property === '2') {
-      // $('.js-privateHouse').remove();
-      // $('.js-companyBuysHouse').remove();
-      // $('.js-business').remove();
-      $('.js-companySellsHouseCompany').remove();
-      $('.js-companySellsHousePrivate').remove();
       var str = ''
       if (owner === '2') {
+        $('.js-companySellsHouseCompany').remove();
+        $('.js-companySellsHousePrivate').remove();
         str = '公司产权的物业只能按核实方法计征个税'
         $('#taxType2').attr('checked', 'checked');
         $('#taxType1').removeAttr('checked');
         $('label[for="taxType1"]').addClass('dn');
       } else {
+        $('.js-privateHouse').addClass('dn');
+        $('.js-companyBuysHouse').addClass('dn');
+        $('.js-business').addClass('dn');
         str = '个税计征的两种方式，一般来讲核定法的计征方式税费会更低'
       }
       $('#taxText').attr('data-tips', str);
