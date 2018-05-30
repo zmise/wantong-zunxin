@@ -26,7 +26,7 @@ $(function () {
     if (urlParams.propertyType == '1' && urlParams.ownerType == '1') {
       $('.js-trade').remove();
     }
-
+    $('.js-landRevenue').addClass('dn');
     $.ajax({
       url: '/trade-util/data/price/loadById.json',
       data: { id: urlParams.id },
@@ -73,6 +73,14 @@ $(function () {
               item[key + 'count'] = sum;
               $('[data-id="count"]').text('￥' + vTools.formatNumber(sum));
             }
+          }
+
+          console.log(items)
+
+          // 土地收益金
+          if (item && item.taxDetail && item.taxDetail.landRevenue !== -1) {
+            console.log(232)
+            $('.js-landRevenue').removeClass('dn');
           }
 
           // 若评估单价为不为0或不为空，则显示本按钮
@@ -165,7 +173,6 @@ $(function () {
               $('[data-id="count"]').css('line-height', '1').parent().append('<i>结果不包含个税，需前往国土局核实</i>');
             }
           }
-
         }
 
       },
