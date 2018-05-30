@@ -1,6 +1,6 @@
 $(function () {
   var urlParams = $.unparam(location.search.substring(1));
-
+  console.log($('[data-id="count"]').parent());
   // 弹窗
   vTools.commomEvent();
   initData();
@@ -23,9 +23,10 @@ $(function () {
   }
 
   function initData() {
-    if (urlParams.propertyType == '1') {
+    if (urlParams.propertyType == '1' && urlParams.ownerType == '1') {
       $('.js-trade').remove();
     }
+
     $.ajax({
       url: '/trade-util/data/price/loadById.json',
       data: { id: urlParams.id },
@@ -155,6 +156,14 @@ $(function () {
           $.alert(items.msg);
         }
 
+        if (urlParams.propertyType == '1' && urlParams.ownerType == '2') {
+          if (urlParams.taxType == '1') {
+            $('[data-id="personalTax"]').text('0');
+          } else {
+            $('[data-id="personalTax"]').text('请前重往国土局核实');
+            $('[data-id="count"]').css('line-height','1').parent().append('<i>结果不包含个税，需前往国土局核实</i>');
+          }
+        }
 
       },
 

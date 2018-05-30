@@ -183,7 +183,7 @@ $(function () {
           return;
         }
 
-        location.href = '././check-price-result.html?id=' + data.data.id + '&propertyType=' + urlParams.propertyType;
+        location.href = '././check-price-result.html?id=' + data.data.id + '&propertyType=' + urlParams.propertyType + '&ownerType=' + urlParams.ownerType + '&taxType=' + $('#transferPriceForm').serialize().taxType;
       },
 
       complete: function () {
