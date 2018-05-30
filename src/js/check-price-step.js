@@ -77,13 +77,19 @@ $(function () {
   //根据propertyType和ownerType的值来渲染页面
   function htmlType(property, owner, trade, buyer) {
     $('.list-block').removeClass('dn')
+    var str = ''
+
+    if (owner === '2') {
+      str = '公司产权的物业只能按核实方法计征个税';
+    } else {
+      str = '个税计征的两种方式，一般来讲核定法的计征方式税费会更低';
+    }
+    $('#taxText').attr('data-tips', str);
 
     if (property === '2') {
-      var str = ''
       if (owner === '2') {
         $('.js-companySellsHouseCompany').remove();
         $('.js-companySellsHousePrivate').remove();
-        str = '公司产权的物业只能按核实方法计征个税'
         $('#taxType2').attr('checked', 'checked');
         $('#taxType1').removeAttr('checked');
         $('label[for="taxType1"]').addClass('dn');
@@ -91,9 +97,7 @@ $(function () {
         $('.js-privateHouse').addClass('dn');
         $('.js-companyBuysHouse').addClass('dn');
         $('.js-business').addClass('dn');
-        str = '个税计征的两种方式，一般来讲核定法的计征方式税费会更低'
       }
-      $('#taxText').attr('data-tips', str);
     } else if (property === '1' && owner === '2' && trade === '1') {
       $('.js-privateHouse').remove();
       $('.js-companyBuysHouse').remove();
@@ -166,6 +170,7 @@ $(function () {
       return false;
     }
     console.log($('#transferPriceForm').serialize());
+    console.log($('#transferPriceForm').serialize().taxType);
     $.ajax({
       url: '/trade-util/query/houseTaxNew.json',
       // type: 'POST',
@@ -182,8 +187,21 @@ $(function () {
           $self.prop('disabled', false);
           return;
         }
+        var url = '././check-price-result.html?id=' + data.data.id
+        if (urlParams.propertyType) {
+          url += '&propertyType=' + urlParams.propertyType;
+        }
+        if (urlParams.ownerType) {
+          url += '&ownerType=' + urlParams.ownerType;
+        }
+        if (urlParams.tradeType) {
+          url += '&tradeType=' + urlParams.tradeType;
+        }
+        if (urlParams.buyerType) {
+          url += '&buyerType=' + urlParams.buyerType;
+        }
 
-        location.href = '././check-price-result.html?id=' + data.data.id + '&propertyType=' + urlParams.propertyType + '&ownerType=' + urlParams.ownerType + '&taxType=' + $('#transferPriceForm').serialize().taxType;
+        location.href = url + '&taxType=' + $('#taxType').find(':checked').attr('value');
       },
 
       complete: function () {

@@ -157,12 +157,15 @@ $(function () {
         }
 
         if (urlParams.propertyType == '1' && urlParams.ownerType == '2') {
-          if (urlParams.taxType == '1') {
-            $('[data-id="personalTax"]').text('0');
-          } else {
-            $('[data-id="personalTax"]').text('请前重往国土局核实');
-            $('[data-id="count"]').css('line-height','1').parent().append('<i>结果不包含个税，需前往国土局核实</i>');
+          if (urlParams.tradeType == '2') {
+            if (urlParams.taxType == '1') {
+              $('[data-id="personalTax"]').text('0');
+            } else {
+              $('[data-id="personalTax"]').text('请前重往国土局核实');
+              $('[data-id="count"]').css('line-height', '1').parent().append('<i>结果不包含个税，需前往国土局核实</i>');
+            }
           }
+
         }
 
       },
