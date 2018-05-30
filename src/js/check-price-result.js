@@ -5,6 +5,7 @@ $(function () {
   vTools.commomEvent();
   initData();
 
+
   $('.item-radio-box').on('click', function () {
     var value = $(this).find('input:checked').val();
     if (value === '1') {
@@ -22,7 +23,9 @@ $(function () {
   }
 
   function initData() {
-
+    if (urlParams.propertyType == '1') {
+      $('.js-trade').remove();
+    }
     $.ajax({
       url: '/trade-util/data/price/loadById.json',
       data: { id: urlParams.id },
@@ -54,11 +57,11 @@ $(function () {
               }
 
               $item.text(element);
-            } else if (key === 'hd' || key === 'hs') {
+            } else if (key === 'taxDetail') {
               element = item[key];
               var sum = 0;
               for (var k in element) {
-                $item = $('[data-id="' + key + '-' + k + '"]');
+                $item = $('[data-id="' + k + '"]');
                 var temp = element[k];
                 sum += +temp;
                 if ($item[0]) {
@@ -67,7 +70,7 @@ $(function () {
               }
 
               item[key + 'count'] = sum;
-              $('[data-id="' + key + '-count"]').text('￥' + vTools.formatNumber(sum));
+              $('[data-id="count"]').text('￥' + vTools.formatNumber(sum));
             }
           }
 
@@ -86,11 +89,11 @@ $(function () {
           //   $('#regest').hide();
           // }
           // 个税： 若核实法 < 核定法，则选择核实法， 若核实法 > 核定法，则选中核定法 若相等，选择核实法
-          if (item.hscount > item.hdcount) {
-            $('#hd').trigger('click');
-          } else {
-            $('#hs').trigger('click');
-          }
+          // if (item.hscount > item.hdcount) {
+          //   $('#hd').trigger('click');
+          // } else {
+          //   $('#hs').trigger('click');
+          // }
 
 
           // 契税

@@ -1,16 +1,21 @@
+var urlParams = $.unparam(location.search.substring(1));
+
+
 function sendData(opt) {
   $.showPreloader('正在查询');
 
   var searchO = {};
   var houseInfo = false;
   var housePrice = false;
-  console.log(opt);
+  // console.log(opt.data);
   opt.data.queryType = '1';
 
 
   // 自动将输入框中的小写变为大写
   // setUPperCase($('#idno'));
-
+  console.log($.extend({
+    personInfo: opt.data.idno || opt.data.ownerName
+  }, opt.data));
   // 查档
   $.ajax({
     url: '/trade-util/query/houseInfo.json',
@@ -24,7 +29,6 @@ function sendData(opt) {
     success: function (data) {
       houseInfo = true;
       if (data.code === 'ok') {
-        console.log(data);
         data = data.data.result;
         if (!data) {
           return;
@@ -53,6 +57,7 @@ function sendData(opt) {
       }
     }
   });
+  console.log('zmise+', opt.data);
 
   // 过户价
   $.ajax({
@@ -63,10 +68,14 @@ function sendData(opt) {
       housePrice = true;
       if (data.code === 'ok') {
         data = data.data;
+        // console.log('data=', data)
+        // data.propertyType ? (searchO.propertyType = data.propertyType) : (searchO.propertyType = '住房')
+        // data.ownerType ? (searchO.ownerType = data.ownerType) : (searchO.ownerType = '个人')
+        // data.tradeType ? (searchO.tradeType = data.tradeType) : (searchO.tradeType = '购买住宅')
+        // data.buyerTypeType ? (searchO.buyerTypeType = data.buyerTypeType) : (searchO.buyerTypeType = '个人')
         if (data.houseType) {
           searchO.houseType = data.houseType;
         }
-
         if (data.registerPrice) {
           searchO.registerPrice = data.registerPrice;
         }
@@ -109,6 +118,9 @@ function sendData(opt) {
   // location.assign('./check-price-step.html?sessionKey=' + sessionKey + searchStr)
 }
 
+// 弹窗
+vTools.commomEvent();
+
 function turnToNext(obj, data) {
   $.hidePreloader();
   var sessionKey = 'checkPrice' + Math.floor(Math.random() * 100);
@@ -118,6 +130,7 @@ function turnToNext(obj, data) {
   if (sessionStorage) {
     sessionStorage.setItem(sessionKey, JSON.stringify(data));
   }
+  console.log('zmise', obj);
 
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) {
@@ -127,6 +140,22 @@ function turnToNext(obj, data) {
       }
     }
   }
+  // console.log(obj);
+  console.log(data);
+
+  if (data.propertyType) {
+    searchStr += '&propertyType=' + data.propertyType
+  }
+  if (data.ownerType) {
+    searchStr += '&ownerType=' + data.ownerType
+  }
+  if (data.tradeType) {
+    searchStr += '&tradeType=' + data.tradeType
+  }
+  if (data.buyerType) {
+    searchStr += '&buyerType=' + data.buyerType
+  }
+  console.log(searchStr);
   location.assign('./check-price-step.html?sessionKey=' + sessionKey + searchStr)
 }
 

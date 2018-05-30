@@ -143,6 +143,8 @@ var vTools = {
     var data = $.unparam(location.search.substring(1));
     var sessionKey;
     var $item;
+    console.log(data.certNo)
+
     if (!data) {
       return;
     }
@@ -174,9 +176,9 @@ var vTools = {
         }
       }
     }
-
     // 房产证号
-    if (data.certNo) {
+
+    if (data.certNo ) {
       $('[name="certNo"]:visible').val(data.certNo);
     }
 

@@ -25,6 +25,7 @@
     #term .item-radio {
       padding: 0 .65rem;
     }
+
   </style>
 </head>
 
@@ -38,12 +39,12 @@
     <div class="content">
       <div class="content-block">
         <div class="steps-box">
-          <p class="step">获取登记价</p>
-          <p class="step active">填写房产详情</p>
-          <p class="step">查看计算结果</p>
+          <p class="step">1.获取登记价</p>
+          <p class="step active">2.完善信息</p>
+          <p class="step">3.查看结果</p>
         </div>
         <form action="#" id="transferPriceForm">
-          <p class="step-tips js-houseType">抱歉，您的房产类型为“商业”，我们暂不支持商业税费查询</p>
+          <p class="step-tips js-≈">抱歉，您的房产类型为“商业”，我们暂不支持商业税费查询</p>
           <p class="step-tips js-registerPrice">未能查到您的登记价，请手动输入</p>
           <p class="step-tips js-unitPrice">未能查到您的过户价，请手动输入</p>
           <input type="hidden" id="id" name="id">
@@ -55,7 +56,7 @@
                   <div class="item-inner">
                     <label class="item-title label short-label" for="price">国土过户价</label>
                     <div class="item-input">
-                      <input type="text" id="price" name="price" maxlength="20" placeholder="请输入正确的过户价" data-label="请输入国土过户价">
+                      <input type="text" id="price" name="price" class="required" maxlength="20" placeholder="请输入正确的过户价" data-label="请输入国土过户价">
                     </div>
                   </div>
                 </div>
@@ -63,7 +64,9 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title label short-label" for="registerPrice" data-tips="房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">房产原登记价(元)<i class="iconfont icon-question"></i></label>
+                    <label class="item-title label short-label" for="registerPrice" data-tips="房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">原登记价(元)
+                      <i class="iconfont icon-question"></i>
+                    </label>
                     <div class="item-input">
                       <input type="number" id="registerPrice" name="registerPrice" class="required" placeholder="请输入(必填)" data-label="请输入正确的登记价">
                     </div>
@@ -82,12 +85,27 @@
               </li>
             </ul>
           </div>
-          <div class="list-block">
+          <div class="list-block dn">
             <ul>
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label" data-tips="指与房产登记的时间差，<br/>如您在2015年1月1日登记，到2017年1月1日时，就是满2年了">购房期限
+                    <label class="item-title short-label label" id="taxText">计征方式
+                      <i class="iconfont icon-question"></i>
+                    </label>
+                    <div class="item-radio-box" id="taxType">
+                      <input type="radio" name="taxType" value="1" id="taxType1" checked>
+                      <label class="item-radio" for="taxType1">核定</label>
+                      <input type="radio" name="taxType" value="2" id="taxType2">
+                      <label class="item-radio" for="taxType2">核实</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-companySellsHousePrivate">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label" data-tips="指与房产登记的时间差，如您在2015年1月1日登记，到2017年1月1日时，就是满2年了">距上次交易
                       <i class="iconfont icon-question"></i>
                     </label>
                     <div class="item-radio-box" id="term">
@@ -101,7 +119,7 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li class="js-business js-companySellsHousePrivate">
                 <div class="item-content">
                   <div class="item-inner">
                     <label class="item-title short-label label" data-tips="key2house">住宅类型
@@ -116,12 +134,12 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li class="js-companyBuysHouse js-companySellsHousePrivate">
                 <div class="item-content">
                   <div class="item-inner">
                     <label class="item-title short-label label">卖方唯一住房</label>
                     <div class="item-radio-box" id="isOnly">
-                      <input type="radio" name="isOnly" value="1" id="isOnly1">
+                      <input type="radio" name="isOnly" value="1" id="isOnly1" checked>
                       <label class="item-radio" for="isOnly1">是</label>
                       <input type="radio" name="isOnly" value="2" id="isOnly2">
                       <label class="item-radio" for="isOnly2">否</label>
@@ -129,15 +147,65 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li class="js-companyBuysHouse js-companySellsHouseCompany">
                 <div class="item-content">
                   <div class="item-inner">
                     <label class="item-title short-label label">买方首套住房</label>
                     <div class="item-radio-box" id="isFirst">
-                      <input type="radio" name="isFirst" value="1" id="isFirst1">
+                      <input type="radio" name="isFirst" value="1" id="isFirst1" checked>
                       <label class="item-radio" for="isFirst1">是</label>
                       <input type="radio" name="isFirst" value="2" id="isFirst2">
                       <label class="item-radio" for="isFirst2">否</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-privateHouse">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="registDate" data-tips="为上次登记房产的日期，在产权证上可以看到点'立即计算'时:验证是否填写,如未填写,则提示 '请选择原登记日期
+                      '">原登记日期
+                      <i class="iconfont icon-question"></i>
+                    </label>
+                    <div class="item-input">
+                      <input type="number" id="registDate" value='' name="registDate" class="required" placeholder="请选择日期(必填)" data-label="请输入原登记日期"
+                        onfocus="(this.type='date')">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-privateHouse">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="oriContractTax" data-tips="为上次登记房产时缴纳的契税，计算土地征值税时会先减去该费用">原购置契税
+                      <i class="iconfont icon-question"></i>
+                    </label>
+                    <div class="item-input">
+                      <input type="number" id="oriContractTax" name="oriContractTax" placeholder="元(非必填)">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-privateHouse">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="oriStampTax" data-tips="为上次登记房产时缴纳的印花税，计算土地征值税时会先减去该费用">原印花税
+                      <i class="iconfont icon-question"></i>
+                    </label>
+                    <div class="item-input">
+                      <input type="number" id="oriStampTax" name="oriStampTax" placeholder="元(非必填)">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-privateHouse">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title label short-label" for="otherCost" data-tips="如按揭贷款供楼利息佣金等，计算土地征值税时会先减去该费用">其它费用
+                      <i class="iconfont icon-question"></i>
+                    </label>
+                    <div class="item-input">
+                      <input type="number" id="otherCost" name="otherCost" placeholder="元(非必填)">
                     </div>
                   </div>
                 </div>
@@ -146,7 +214,7 @@
           </div>
         </form>
         <div class="content-block mandatory-btn">
-          <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">立即查税费</a>
+          <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">立即计算</a>
         </div>
         <div class="content-block mandatory-btn">
           <a href="javascript:;" class="button button-big button-fill button-default" id="backBtn">返回</a>

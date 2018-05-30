@@ -32,6 +32,7 @@
     .col-56 {
       width: 55%;
     }
+
   </style>
 </head>
 
@@ -45,9 +46,9 @@
     <div class="content">
       <div class="content-block result-list">
         <div class="steps-box">
-          <p class="step">获取登记价</p>
-          <p class="step">填写房产详情</p>
-          <p class="step active">查看计算结果</p>
+          <p class="step">1.获取登记价</p>
+          <p class="step">2.完善信息</p>
+          <p class="step active">3.查看结果</p>
         </div>
         <div class="list-block price-result">
           <div class="row no-gutter">
@@ -62,25 +63,27 @@
             <div class="col-44" id="addedTax">增值税
               <i class="iconfont icon-question"></i>
             </div>
-            <div class="col-56" data-id="hd-addedTax"></div>
+            <div class="col-56" data-id="addedTax"></div>
             <!-- <div class="col-40" data-id="hs-addedTax"></div> -->
           </div>
           <div class="row no-gutter">
-            <div class="col-44" id="addedTax" data-tips="包含城市维护建设税、教育费附加、地方教育附加三个税种，总计为增值税的12%<br/>城市维护建设税=增值税×7％<br/>教育费附加=增值税×3％<br/>地方教育附加=增值税×2％">城建及教育附加<i class="iconfont icon-question"></i></div>
-            <div class="col-56" data-id="hd-buildAndEducationTax"></div>
+            <div class="col-44" id="addedTax" data-tips="包含城市维护建设税、教育费附加、地方教育附加三个税种，总计为增值税的12%<br/>城市维护建设税=增值税×7％<br/>教育费附加=增值税×3％<br/>地方教育附加=增值税×2％">城建及教育附加
+              <i class="iconfont icon-question"></i>
+            </div>
+            <div class="col-56" data-id="buildAndEducationTax"></div>
             <!-- <div class="col-40" data-id="hs-addedTax"></div> -->
           </div>
           <div class="row no-gutter">
             <div class="col-44" id="deedTax">契税
-              <i class="iconfont icon-question"></i>
+              <!-- <i class="iconfont icon-question"></i> -->
             </div>
-            <div class="col-56" data-id="hd-deedTax"></div>
+            <div class="col-56" data-id="deedTax"></div>
             <!-- <div class="col-40" data-id="hs-deedTax"></div> -->
           </div>
-          <div class="row no-gutter h46">
+          <div class="row no-gutter">
             <div class="col-44">个税</div>
             <div class="col-56">
-              <div class="item-radio-box" id="certType">
+              <!-- <div class="item-radio-box" id="certType">
                 <input type="radio" name="certType" value="2" id="certType2">
                 <label class="item-radio" for="certType2" id="hs">核实
                   <i class="iconfont icon-question"></i>
@@ -89,27 +92,37 @@
                 <label class="item-radio" for="certType1" id="hd">核定
                   <i class="iconfont icon-question"></i>
                 </label>
-              </div>
+              </div> -->
 
-              <div data-id="hd-personalTax" class="js-hd"></div>
-              <div data-id="hs-personalTax" class="js-hs"></div>
+              <div data-id="personalTax" class="js-hd"></div>
+              <!-- <div data-id="hs-personalTax" class="js-hs"></div> -->
             </div>
+          </div>
+          <div class="row no-gutter js-trade ">
+            <div class="col-44" id="landExtraTax">土地增值税
+            </div>
+            <div class="col-56" data-id="landExtraTax"></div>
+          </div>
+          <div class="row no-gutter js-trade ">
+            <div class="col-44" id="stampTax">印花税
+            </div>
+            <div class="col-56" data-id="stampTax"></div>
           </div>
           <div class="row no-gutter">
             <div class="col-44">登记费</div>
-            <div class="col-56" data-id="hd-registerCost"></div>
+            <div class="col-56" data-id="registerCost"></div>
             <!-- <div class="col-40" data-id="hs-registerCost"></div> -->
           </div>
           <div class="row no-gutter">
             <div class="col-44">贴花</div>
-            <div class="col-56" data-id="hd-stampCost"></div>
+            <div class="col-56" data-id="stampCost"></div>
             <!-- <div class="col-40" data-id="hs-stampCost"></div> -->
           </div>
           <div class="row no-gutter">
             <div class="col-44">总计</div>
             <div class="col-56 summary">
-              <div data-id="hd-count" class="js-hd"></div>
-              <div data-id="hs-count" class="js-hs"></div>
+              <div data-id="count" class="js-hd"></div>
+              <!-- <div data-id="hs-count" class="js-hs"></div> -->
             </div>
           </div>
           <!-- <div class="row no-gutter" id="regest">
@@ -123,7 +136,7 @@
               <div class="item-content">
                 <div class="item-inner">
                   <div class="item-title" data-tips="为国土局对本房产评估单价，与房产实际成交价无关">评估单价
-                    <i class="iconfont icon-question"></i>
+                    <!-- <i class="iconfont icon-question"></i> -->
                   </div>
                   <div class="item-after">
                     <span class="font-bold red" data-id="unitPrice"></span>元/㎡</div>
@@ -143,7 +156,7 @@
               <div class="item-content">
                 <div class="item-inner">
                   <div class="item-title" data-tips="过户价 为评估单价 × 建筑面积的结果，与房产实际成交价无关">国土过户价
-                    <i class="iconfont icon-question"></i>
+                    <!-- <i class="iconfont icon-question"></i> -->
                   </div>
                   <div class="item-after">
                     <span class="font-bold red" data-id="price"></span>元</div>
@@ -154,7 +167,7 @@
               <div class="item-content">
                 <div class="item-inner">
                   <div class="item-title" data-tips="房产登记价是指办理产权证时，国土局评估的价格，在您的产权证里可以看到">房产原登记价
-                    <i class="iconfont icon-question"></i>
+                    <!-- <i class="iconfont icon-question"></i> -->
                   </div>
                   <div class="item-after">
                     <span class="font-bold" data-id="registerPrice"></span>元</div>

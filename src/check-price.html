@@ -28,9 +28,9 @@
     <div class="content">
       <div class="content-block">
         <div class="steps-box">
-          <p class="step active">获取登记价</p>
-          <p class="step">填写房产详情</p>
-          <p class="step">查看计算结果</p>
+          <p class="step active">1.获取登记价</p>
+          <p class="step">2.完善信息</p>
+          <p class="step">3.查看结果</p>
         </div>
         <form action="#" id="transferPriceForm">
           <div class="list-block">
@@ -38,10 +38,12 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label">权利人类型:</label>
-                    <div class="item-radio-box" id="ownerType">
-                      <input type="radio" name="ownerType" value="1" id="ownerType1" checked><label class="item-radio" for="ownerType1">个人</label>
-                      <!-- <input type="radio" name="ownerType" value="2" id="ownerType2"><label class="item-radio" for="ownerType2">单位</label> -->
+                    <label class="item-title short-label label">物业类型:</label>
+                    <div class="item-radio-box" id="propertyType">
+                      <input type="radio" name="propertyType" value="1" id="propertyType1" checked>
+                      <label class="item-radio" for="propertyType1">住宅</label>
+                      <input type="radio" name="propertyType" value="2" id="propertyType2">
+                      <label class="item-radio" for="propertyType2">商业</label>
                     </div>
                   </div>
                 </div>
@@ -49,9 +51,40 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title short-label label">产权证书类型:</label>
-                    <div class="item-radio-box" id="certType">
-                      <input type="radio" name="certType" value="1" id="certType1" checked><label class="item-radio" for="certType1">房地产证</label><input type="radio" name="certType" value="2" id="certType2"><label class="item-radio" for="certType2">不动产证</label>
+                    <label class="item-title short-label label">权利人类型:</label>
+                    <div class="item-radio-box" id="ownerType">
+                      <input type="radio" name="ownerType" value="1" id="ownerType1" checked>
+                      <label class="item-radio" for="ownerType1">个人</label>
+                      <input type="radio" name="ownerType" value="2" id="ownerType2">
+                      <label class="item-radio" for="ownerType2">公司</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-ownerTypeExtra dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label">交易类型:
+                    </label>
+                    <div class="item-radio-box" id="tradeType">
+                      <input type="radio" name="tradeType" value="1" id="tradeType1" checked>
+                      <label class="item-radio" for="tradeType1">购买住宅</label>
+                      <input type="radio" name="tradeType" value="2" id="tradeType2">
+                      <label class="item-radio" for="tradeType2">出售住宅</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="js-ownerTypeExtra js-tradeType dn">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label">买方:
+                    </label>
+                    <div class="item-radio-box" id="buyerType">
+                      <input type="radio" name="buyerType" value="1" id="buyerType1" checked>
+                      <label class="item-radio" for="buyerType1">个人</label>
+                      <input type="radio" name="buyerType" value="2" id="buyerType2">
+                      <label class="item-radio" for="buyerType2">公司</label>
                     </div>
                   </div>
                 </div>
@@ -60,6 +93,19 @@
           </div>
           <div class="list-block">
             <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <label class="item-title short-label label">产权证书类型:</label>
+                    <div class="item-radio-box" id="certType">
+                      <input type="radio" name="certType" value="1" id="certType1" checked>
+                      <label class="item-radio" for="certType1">房地产证</label>
+                      <input type="radio" name="certType" value="2" id="certType2">
+                      <label class="item-radio" for="certType2">不动产证</label>
+                    </div>
+                  </div>
+                </div>
+              </li>
               <li class="js-certType">
                 <div class="item-content">
                   <div class="item-inner">
@@ -77,7 +123,7 @@
                     <div class="item-year-box">
                       <select class="item-year-select required" name="year" id="year" data-label="请选择不动产证年份">
                         <option value="">请选择</option>
-                       </select>
+                      </select>
                       <i class="iconfont icon-sanjiao"></i>
                     </div>
                     <span>不动产权第</span>
@@ -125,11 +171,12 @@
           </div>
         </form>
         <div class="content-block mandatory-btn">
-          <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">下一步，填写房产信息</a>
+          <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">下一步</a>
         </div>
 
         <div class="footer-copy-right">
-          <p>本工具由<a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
+          <p>本工具由
+            <a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
         </div>
       </div>
     </div>
