@@ -61,9 +61,11 @@ $(function () {
     $('.list-block').removeClass('dn')
 
     if (property === '2') {
-      $('.js-privateHouse').remove();
-      $('.js-companyBuysHouse').remove();
-      $('.js-business').remove();
+      // $('.js-privateHouse').remove();
+      // $('.js-companyBuysHouse').remove();
+      // $('.js-business').remove();
+      $('.js-companySellsHouseCompany').remove();
+      $('.js-companySellsHousePrivate').remove();
       var str = ''
       if (owner === '2') {
         str = '公司产权的物业只能按核实方法计征个税'
