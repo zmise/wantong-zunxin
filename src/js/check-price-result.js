@@ -78,8 +78,7 @@ $(function () {
           console.log(items)
 
           // 土地收益金
-          if (item && item.taxDetail && item.taxDetail.landRevenue !== -1) {
-            console.log(232)
+          if (+item.taxDetail.landRevenue !== -1) {
             $('.js-landRevenue').removeClass('dn');
           }
 
