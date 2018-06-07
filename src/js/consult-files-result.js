@@ -6,7 +6,8 @@ $(function () {
   function initData() {
     $.ajax({
       url: '/trade-util/data/houseInfo/loadById.json',
-      data: { id: urlParams.id },
+      // data: { id: urlParams.id },
+      data: { id: 18358 },
       beforeSend: function () {
         $.showPreloader();
       },
@@ -24,6 +25,32 @@ $(function () {
             $('.mandatory-btn').first().siblings('.mandatory-btn').hide();
 
           }
+          var str = '';
+          for (var i = 0; i < item.mortgages.length; i++) {
+            str +=
+              '<li>' +
+              '  <div class="item-content">' +
+              '    <div class="item-inner">' +
+              '      <div class="item-title">抵押权人</div>' +
+              '      <div class="item-after" data-id="mortgagePerson">' + item.mortgages[i].mortgagePerson + '</div>' +
+              '    </div>' +
+              '  </div>' +
+              '</li >' +
+              '<li>' +
+              '  <div class="item-content">' +
+              '    <div class="item-inner">' +
+              '      <div class="item-title">抵押日期</div>' +
+              '      <div class="item-after" data-id="mortgageDate">' + item.mortgages[i].mortgagePerson + '</div>' +
+              '    </div>' +
+              '  </div>' +
+              '</li>';
+
+          }
+          $('.js-closureDate:last').append(str);
+          if (item.closureDate && item.closureDate !== '') {
+            $('.js-closureDate').removeClass('dn');
+          }
+
 
           for (var key in item) {
             var $item = $('.item-content [data-id="' + key + '"]');
