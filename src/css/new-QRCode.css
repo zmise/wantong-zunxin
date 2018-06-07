@@ -28,8 +28,8 @@ header {
   content: '';
   position: absolute;
   top: .4rem;
-  left: -4.35rem;
-  width: 4.9rem;
+  left: -9.25rem;
+  width: 9.8rem;
   height: 1px;
   background-color: #fff;
 }
@@ -88,13 +88,15 @@ header {
   top: 3.8rem;
 }
 
+.h-top p:last-child {
+  left: 4.9rem;
+}
 
 /* 第一步 */
 
 .form-list {
   margin-bottom: .55rem;
 }
-
 
 /* 第二步 */
 
@@ -183,7 +185,7 @@ header {
   color: #f91;
 }
 
-.check-box .check-rad:checked + .check-cover {
+.check-box .check-rad:checked+.check-cover {
   position: absolute;
   top: 0;
   left: 0;
@@ -198,17 +200,17 @@ header {
   vertical-align: middle;
 }
 
-
 /* 第三步 */
 
 .img-box {
   display: none;
 }
+
 .img-box li {
   position: relative;
   height: 22.85rem;
   padding: .6rem 2.8rem;
-  vertical-align: middle!important;
+  vertical-align: middle !important;
   text-align: center;
 }
 
@@ -217,11 +219,13 @@ header {
     height: 14.85rem;
   }
 }
+
 @media only screen and (min-width: 480px) {
   .img-box li {
     height: 20.85rem;
   }
 }
+
 .img-box img {
   position: absolute;
   top: 50%;
@@ -249,7 +253,7 @@ header {
 .hd li {
   width: .55rem;
   height: .55rem;
-  padding:0;
+  padding: 0;
   border-radius: 50%;
   font-size: 0;
   background-color: #efeff4;
@@ -263,7 +267,7 @@ header {
   background-color: #f91;
 }
 
-.my-save{
+.my-save {
   margin-top: -1.75rem;
   font-size: .75rem;
   color: #010101;

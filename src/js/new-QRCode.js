@@ -1,11 +1,33 @@
 var newQRCode = {
-  init: function() {
+  init: function () {
     this.initEvent();
     this.fecthList();
     this.initForm();
+    this.initInformation();
     this.rfInfo = {};
+
   },
-  initForm: function() {
+  initInformation: function () {
+    var _this = this;
+
+    $.ajax({
+      url: '/qfang-credit/userCenter/userInfo.json',
+      type: 'GET',
+      success: function (res) {
+        if (res && res.data && res.data.cellphone !== '') {
+          $('#referrerName').val(res.data.name);
+          $('#referrerCellphone').val(res.data.cellphone);
+          _this.commonEvent($('#next'));
+        } else {
+          location.replace('./personal-cell.html');
+        }
+      },
+      error: function () {
+        alert(error);
+      }
+    });
+  },
+  initForm: function () {
     var userInfo = this.getHistory('new-QrCode-infos');
     if (!userInfo) {
       return;
@@ -13,61 +35,68 @@ var newQRCode = {
     $('#referrerName').val(userInfo.referrerName);
     $('#referrerCellphone').val(userInfo.referrerCellphone);
   },
-  initEvent: function() {
+  initEvent: function () {
     var _this = this;
-    $('#next').on('click.next', function() {
-      var name, phone, ids;
-      if (_this.rfInfo.id) {
-
-
-      } else if (_this.rfInfo.referrerName) {
-        ids = $('input[name=id]:checked').val()
-        if (!ids) {
-          $.alert('请选择模板');
-          return;
-        }
-
-        _this.rfInfo.id = ids;
-        $(this).parent().append('<p class="my-save">保存方法：长按住图片，再选择“保存图片”</p>');
-        $(this).remove();
-        $('.check-boxses').hide();
-        $('.img-box').show();
-        _this.fecthGImage();
-
-      } else {
-        name = $('input[name=referrerName]').val();
-        phone = $('input[name=referrerCellphone]').val();
-        if (!name) {
-          $.alert('请输入您的姓名');
-          return false;
-        }
-        if (!/^1[34578]\d{9}$/.test(phone)) {
-          $.alert('请输入正确的手机号码');
-          return false;
-        }
-
-        _this.rfInfo.referrerName = name;
-        _this.rfInfo.referrerCellphone = phone;
-
-        $('.form-list').hide();
-        $('.check-boxses').show();
-        $(this).wrap('<div class="btn-bottom"></div>');
-        _this.setHistory('new-QrCode-infos', _this.rfInfo);
-      }
-      $('.h-top .wait').eq(0).removeClass('wait');
+    $('#next').on('click.next', function () {
+      _this.commonEvent(this);
     });
   },
-  fecthList: function() {
+  commonEvent: function (dom) {
+    var _this = this;
+    var name, phone, ids;
+    if (_this.rfInfo.id) {
+
+
+    } else if (_this.rfInfo.referrerName) {
+      ids = $('input[name=id]:checked').val()
+      if (!ids) {
+        $.alert('请选择模板');
+        return;
+      }
+
+      _this.rfInfo.id = ids;
+      $(dom).parent().append('<p class="my-save">保存方法：长按住图片，再选择“保存图片”</p>');
+      $(dom).remove();
+      $('.check-boxses').hide();
+      $('.img-box').show();
+      _this.fecthGImage();
+
+    } else {
+
+      name = $('input[name=referrerName]').val();
+      phone = $('input[name=referrerCellphone]').val();
+
+      if (!name) {
+        $.alert('请输入您的姓名');
+        return false;
+      }
+      if (!/^1[34578]\d{9}$/.test(phone)) {
+        $.alert('请输入正确的手机号码');
+        return false;
+      }
+
+      _this.rfInfo.referrerName = name;
+      _this.rfInfo.referrerCellphone = phone;
+
+      $('.form-list').hide();
+      $('.check-boxses').show();
+      $(dom).wrap('<div class="btn-bottom"></div>');
+      _this.setHistory('new-QrCode-infos', _this.rfInfo);
+    }
+    $('.h-top .wait').eq(0).removeClass('wait');
+  },
+  fecthList: function () {
     var _this = this;
     $.ajax({
       url: '/qfang-credit/marketing/template/ct/list.json',
       type: 'GET',
-      success: function(data) {
+      success: function (data) {
         _this.renderList(data.data);
+        console.log(45)
       }
     });
   },
-  renderList: function(list) {
+  renderList: function (list) {
     if (!list || !list.length) {
       return;
     }
@@ -79,19 +108,19 @@ var newQRCode = {
     }
     $listBox.css('display', '').prev().hide();
   },
-  fecthGImage: function() {
+  fecthGImage: function () {
     $.showPreloader('正在生成二维码图片');
     var _this = this;
     $.ajax({
       url: '/qfang-credit/marketing/template/ct/generateImage.json',
       type: 'POST',
       data: this.rfInfo,
-      success: function(data) {
+      success: function (data) {
         _this.renderGImage(data.data);
       }
     });
   },
-  renderGImage: function(list) {
+  renderGImage: function (list) {
     if (!list || !list.length) {
       return;
     }
@@ -114,7 +143,7 @@ var newQRCode = {
 
     $.hidePreloader();
   },
-  setHistory: function(key, item) {
+  setHistory: function (key, item) {
     localStorage.removeItem(key);
     var _time = new Date().getTime(),
       _age = 30 * 24 * 60 * 60 * 1000,// 30day
@@ -123,7 +152,7 @@ var newQRCode = {
     b._endTime = _time + _age; //
     localStorage.setItem(key, JSON.stringify(b));
   },
-  getHistory: function(key) {
+  getHistory: function (key) {
     var isExpire = this.isExpire(key),
       item = null;
     if (!isExpire) {
@@ -135,7 +164,7 @@ var newQRCode = {
     }
     return item;
   },
-  isExpire: function(key) {
+  isExpire: function (key) {
     var isExpire = true,
       value = localStorage.getItem(key),
       now = new Date().getTime();
@@ -146,6 +175,6 @@ var newQRCode = {
     return isExpire;
   }
 };
-$(function() {
+$(function () {
   newQRCode.init();
 });
