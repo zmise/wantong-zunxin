@@ -58,13 +58,11 @@
   background-color: #fff;
 }
 
-
 /* 隐藏 */
 
 .dnone {
   display: none;
 }
-
 
 /* 字体 */
 
@@ -80,10 +78,9 @@
   font-weight: bold;
 }
 
-.red{
+.red {
   color: red;
 }
-
 
 /* 边距 */
 
@@ -107,7 +104,6 @@
   font-weight: bold;
 }
 
-
 /* 列表左边距 */
 
 .item-content .item-inner:nth-child(1) {
@@ -121,7 +117,6 @@
 .bg-fff {
   background-color: #fff;
 }
-
 
 /* 服务协议 */
 
@@ -158,6 +153,11 @@
   font-size: .7rem;
 }
 
+.content-popup .prompt {
+  margin: 1.8rem 0 2rem;
+  color: red;
+}
+
 .btn-bottom {
   position: absolute;
   bottom: .55rem;
@@ -176,7 +176,6 @@
   background-color: #f91;
   color: #fff;
 }
-
 
 /* 翻页 */
 
@@ -231,7 +230,6 @@
   content: initial;
 }
 
-
 /* 引导页 */
 
 .slide-content .slide-item {
@@ -250,7 +248,6 @@
   width: 0;
   height: 0;
 }
-
 
 /* 底部 */
 

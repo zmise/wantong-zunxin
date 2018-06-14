@@ -30,9 +30,23 @@ $(function () {
   // 自动将输入框中的小写变为大写
   // setUPperCase($('#personInfo1'));
 
+  // 查询授权书
+  $(document).on('click', '.open-agreement', function () {
+    $.popup('.popup-agreement');
+
+  }).on('click', '#agreement', function () {
+    $('#inquireBtn').toggleClass('button-disabled', !this.checked);
+
+  })
 
   // 确定 按钮
   $('#inquireBtn').on('click', function () {
+    var $inquireBtn = $('#inquireBtn');
+    if ($inquireBtn.hasClass('button-disabled')) {
+      return false;
+    }
+
+    // $inquireBtn.addClass('button-disabled');
     var self = $(this);
     var result = vTools.formVaild({
       container: '#consultFilesFrom'

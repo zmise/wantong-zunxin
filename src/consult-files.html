@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/detail.css">
   <link rel="stylesheet" href="../css/consult-files.css">
+  <link rel="stylesheet" href="../css/personal.css">
+
 </head>
 
 <body>
@@ -34,7 +36,10 @@
                   <div class="item-inner">
                     <label class="item-title short-label label">查档类型</label>
                     <div class="item-radio-box">
-                      <input type="radio" name="queryType" value="1" id="queryType1" checked><label class="item-radio" for="queryType1">分户</label><input type="radio" name="queryType" value="2" id="queryType2"><label class="item-radio" for="queryType2">分栋</label>
+                      <input type="radio" name="queryType" value="1" id="queryType1" checked>
+                      <label class="item-radio" for="queryType1">分户</label>
+                      <input type="radio" name="queryType" value="2" id="queryType2">
+                      <label class="item-radio" for="queryType2">分栋</label>
                     </div>
                   </div>
                 </div>
@@ -44,7 +49,10 @@
                   <div class="item-inner">
                     <label class="item-title short-label label">权利人类型</label>
                     <div class="item-radio-box" id="ownerType">
-                      <input type="radio" name="ownerType" value="1" id="ownerType1" checked><label class="item-radio" for="ownerType1">个人</label><input type="radio" name="ownerType" value="2" id="ownerType2"><label class="item-radio" for="ownerType2">单位</label>
+                      <input type="radio" name="ownerType" value="1" id="ownerType1" checked>
+                      <label class="item-radio" for="ownerType1">个人</label>
+                      <input type="radio" name="ownerType" value="2" id="ownerType2">
+                      <label class="item-radio" for="ownerType2">单位</label>
                     </div>
                   </div>
                 </div>
@@ -54,7 +62,10 @@
                   <div class="item-inner">
                     <label class="item-title short-label label">产权证书类型</label>
                     <div class="item-radio-box" id="certType">
-                      <input type="radio" name="certType" value="1" id="certType1" checked><label class="item-radio" for="certType1">房地产证</label><input type="radio" name="certType" value="2" id="certType2"><label class="item-radio" for="certType2">不动产证</label>
+                      <input type="radio" name="certType" value="1" id="certType1" checked>
+                      <label class="item-radio" for="certType1">房地产证</label>
+                      <input type="radio" name="certType" value="2" id="certType2">
+                      <label class="item-radio" for="certType2">不动产证</label>
                     </div>
                   </div>
                 </div>
@@ -80,7 +91,7 @@
                     <div class="item-year-box">
                       <select class="item-year-select required" name="year" id="year" data-label="请选择不动产证年份">
                         <option value="">请选择</option>
-                       </select>
+                      </select>
                       <i class="iconfont icon-sanjiao"></i>
                     </div>
                     <span>不动产权第</span>
@@ -115,11 +126,43 @@
           </div>
         </form>
       </div>
+      <p class="lading-desc">
+        <label>
+          <input type="checkbox" checked id="agreement">本人已阅读并同意</label>
+        <a class="open-agreement" href="javascript:;">《查询授权书》</a>
+      </p>
       <div class="content-block mandatory-btn">
         <a href="javascript:;" class="button button-big button-fill button-success" id="inquireBtn">查询</a>
       </div>
       <div class="footer-copy-right">
-        <p>本工具由<a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
+        <p>本工具由
+          <a href="http://mp.weixin.qq.com/s/9h6HvTOXU5dE8CSHKmrmYQ" external>尊信金服</a>提供</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 查询授权书 -->
+  <div class="popup popup-agreement">
+    <div class="content-popup">
+      <h3>房屋产权信息查询授权书</h3>
+      <section>
+        <p class="prompt">为了维护您的合法权益，请在签署本授权书前，仔细阅读本授权书各条款，关注您的权利、义务。</p>
+
+        <p>致：尊信金融服务有限公司（以下简称“贵司”） </p>
+        <p>1. 本人/我司同意并不可撤销地授权：</p>
+        <p>贵司可根据《房屋权属登记信息查询暂行办法》的相关规定，在本人/我司因办理债务置换借款、小微企业经营性抵押借款等业务需要而在贵司公众号查询房屋产权信息时，有权向房屋登记机构查询、打印、保存本人/我司所查询的房屋登记信息中包括但不限于房屋自然状况(坐落、面积、用途等)，房屋权利状况(所有权情况、他项权情况和房屋权利的其他限制等)，以及登记机关记载的其他信息。</p>
+        <p>2. 授权查询的房屋登记信息用于以下用途：</p>
+        <p>1)查询本人/我司审核、查询房产真实性、评估资产总额等;</p>
+        <p>2)查询本人/我司关于诉讼、仲裁等重大债权债务纠纷事项;及房产抵押司法机关冻结、查封、拍卖等可能妨害债权人债权正常实现之信息。</p>
+        <p>3. 本授权书内容与相关业务的合同条款不一致的，均应以本授权书的内容为准，但相关合同条款明确约定是针对本授权书内容所做的修订除外。</p>
+        <p>4. 本授权书有效期自本人/我司电子签署打勾确认起，至本人/我司所办理的业务终止之日止。</p>
+        <p>5. 本人/我司声明:</p>
+        <p>1）本人/我司据以查询信息的房屋产权证书是通过合法途径取得的，本人/我司在查询房屋产权信息前已取得房屋产权人的授权同意，因房屋产权人的授权问题所引发的纠纷及相应的法律后果由本人/我司解决、承担。</p>
+        <p>2）本人/我司已仔细阅读上述所有条款内容。贵司已应本人/我司要求对相关条款予以明确说明。本人/我司对所有条款的含义及相应的法律后果已全部知晓并充分理解，本人/我司自愿作出上述授权、承诺和声明。</p>
+        <p>6. 本授权书自本人/我司通过电子签署打勾确认时生效，电子版与纸质版具有同等之法律效力。</p>
+      </section>
+      <div class="btn-bottom">
+        <a href="javascript:;" class="button button-default close-popup">关闭</a>
       </div>
     </div>
   </div>
