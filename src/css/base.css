@@ -118,8 +118,9 @@
   background-color: #fff;
 }
 
-/* 服务协议 */
+/* 服务协议 使用协议*/
 
+.popup.popup-user-agreement,
 .popup.popup-agreement {
   padding-top: .65rem;
   background-color: #efeff4;

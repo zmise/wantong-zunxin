@@ -87,6 +87,11 @@ $(function () {
   });
 
   $('#inquireBtn').on('click', function () {
+    var $inquireBtn = $('#inquireBtn');
+    if ($inquireBtn.hasClass('button-disabled')) {
+      return false;
+    }
+
     var self = $(this);
     var result = vTools.formVaild({
       container: '#transferPriceForm'
@@ -124,5 +129,17 @@ $(function () {
       el: self
     });
   });
+
+  // 查询授权书
+  $(document).on('click', '.open-agreement', function () {
+    $.popup('.popup-agreement');
+
+  }).on('click', '.open-user-agreement', function () {
+    console.log(111);
+    $.popup('.popup-user-agreement');
+
+  }).on('click', '#agreement', function () {
+    $('#inquireBtn').toggleClass('button-disabled', !this.checked);
+  })
 
 })
