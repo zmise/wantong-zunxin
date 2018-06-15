@@ -6,9 +6,8 @@ $(function () {
   function initData() {
     $.ajax({
       url: '/trade-util/data/houseInfo/loadById.json',
-      // data: { id: urlParams.id },18358
+      data: { id: urlParams.id },
       // data: { id: 18300},
-      data: { id: 18358},
       beforeSend: function () {
         $.showPreloader();
       },
@@ -27,7 +26,7 @@ $(function () {
 
           }
           var str = '';
-          if(item.mortgages){
+          if (item.mortgages) {
             for (var i = 0; i < item.mortgages.length; i++) {
               str +=
                 '<li>' +
