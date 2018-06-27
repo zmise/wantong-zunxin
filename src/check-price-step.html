@@ -20,6 +20,8 @@
     .list-block .item-title.short-label {
       width: auto;
       max-width: 42%;
+      display: flex;
+      justify-content: center;
     }
 
     #term .item-radio {
@@ -54,9 +56,14 @@
               <li class="js-unitPrice">
                 <div class="item-content">
                   <div class="item-inner">
-                    <label class="item-title label short-label" for="price">国土过户价</label>
+                    <label class="item-title label short-label" for="price" data-tips="三价合一是指在交税时您可选择真实成交价、国土评估价、银行评估价这三种价格中的一种做为计税价。
+
+                    本工具默认的计税价为国土评估价，您可以修改为合适您自己的计税价（真实成交价或银行评估价）。">计税价
+                      <i class="iconfont icon-question"></i>
+                      <i style="font-size: .04rem;color: #999;font-style: normal;display: flex;align-items: center">三价合一</i>
+                    </label>
                     <div class="item-input">
-                      <input type="text" id="price" name="price" class="required" maxlength="20" placeholder="请输入正确的过户价" data-label="请输入国土过户价">
+                      <input type="text" id="price" name="price" class="required" maxlength="20" placeholder="请输入正确的计税价" data-label="请输入国土过户价">
                     </div>
                   </div>
                 </div>
@@ -167,8 +174,7 @@
                       <i class="iconfont icon-question"></i>
                     </label>
                     <div class="item-input">
-                      <input type="date" id="registDate" value="2018-01-01" name="registDate" class="required" placeholder="请选择日期(必填)" data-label="请输入原登记日期"
-                        >
+                      <input type="date" id="registDate" value="2018-01-01" name="registDate" class="required" placeholder="请选择日期(必填)" data-label="请输入原登记日期">
                     </div>
                   </div>
                 </div>
