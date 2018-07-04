@@ -80,7 +80,7 @@ $(function () {
     var data = {};
     var flag = true;
 
-    // 绑定手机 
+    // 绑定手机
     $('input:visible').each(function () {
       var $this = $(this);
       var val = $.trim($this.val());
@@ -139,7 +139,7 @@ $(function () {
   });
 
   function vailPhone(phone) {
-    return /^1[3578]\d{9}$/.test(phone);
+    return /^1[3456789]\d{9}$/.test(phone);
   }
 
   function enableDtn() {
