@@ -6,7 +6,7 @@ $(function () {
   console.log(infos);
   if (infos.type === 'Qsd') {
     $('#from').show();
-    $('#remark').val('推荐办理Q税贷');
+    $('#remark').val('推荐办理税费贷');
     $('#productId').val(infos.productId);
   } else {
     $('#from').hide();
@@ -18,10 +18,10 @@ $(function () {
     type: 'GET',
     dataType: 'json'
   }).done(function (res) {
-    var data = res.data;
+    var data = res.data;41
     // console.log(res);
     if (!data.cellphone) {
-      location.replace('./personal-cell.html');
+      location.replace('./personal-cell.html'); 
     }
 
     $('#rname').text(data.name);
