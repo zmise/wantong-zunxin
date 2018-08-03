@@ -818,3 +818,134 @@ input::-moz-placeholder {
   line-height: .9rem;
   background-color: #fff;
 }
+
+/* 单选框样式 */
+
+.hy-check {
+  width: 30px;
+  height: 100%;
+  top: 0;
+  left: 1.5rem;
+  right: 0;
+  position: relative;
+}
+
+.hy-check label {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -10px;
+  margin-left: 5px;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+}
+
+.hy-check label:after {
+  content: '\00a0';
+  /*	display: inline-block;*/
+  border: 4px solid rgba(20, 133, 255, 1);
+  width: 12px;
+  height: 8px;
+  position: absolute;
+  /*	top: 3px;
+	left: 3px*/
+  ;
+  border-top-width: 0;
+  border-right-width: 0;
+  opacity: 0;
+  -webkit-transform: rotate(-50deg);
+  /*	content: '\00a0';
+	display: inline-block;
+	border: 4px solid #fff;
+	border-top-width: 0;
+	border-right-width: 0;
+	width: 18px;
+	height: 10px;
+	-webkit-transform: rotate(-50deg);
+	position: absolute;
+	top:6px;
+	left:4px;*/
+  /*content: '';
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	border-top: none;
+	border-right: none;
+	opacity: 0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5), inset 0 0 1px 1px rgba(255,255,255,.3);
+	background-image: linear-gradient(to top, rgba(20,133,255,1), rgba(139,195,255,1));*/
+}
+
+.hy-check input[type=checkbox]:checked+label:after {
+  opacity: 1;
+}
+
+.hy-check input[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  margin-top: -15px;
+  cursor: pointer;
+}
+
+.hy-check p {
+  padding-left: 1.5rem;
+}
+
+/* 遮罩层 */
+
+.overlay {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.overlay .box {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+}
+
+.overlay .box .items {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-size: .56rem;
+  height: 3rem;
+  color: rgba(42, 43, 45, 1);
+  border-bottom: 0.04rem solid rgba(227, 230, 233, 1);
+}
+
+.overlay .box .items .name {
+  padding-left: 3rem;
+  flex: 1;
+  box-sizing: border-box;
+}

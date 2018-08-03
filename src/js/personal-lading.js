@@ -12,16 +12,19 @@ $(function () {
     $('#from').hide();
   }
 
+
+  var pointId = ''; // 办理点ID
+  var customerManagerId = ''; // 客户经理ID
   // 手机是否已绑定
   $.ajax({
     url: '/qfang-credit/userCenter/userInfo.json',
     type: 'GET',
     dataType: 'json'
   }).done(function (res) {
-    var data = res.data;41
+    var data = res.data; //41
     // console.log(res);
     if (!data.cellphone) {
-      location.replace('./personal-cell.html'); 
+      location.replace('./personal-cell.html');
     }
 
     $('#rname').text(data.name);
@@ -32,6 +35,26 @@ $(function () {
     !isGoogle && data2dataLayer(data);
   });
 
+
+  $.ajax({
+    url: '/qfang-credit/point/ct/listAll.json',
+    type: 'POST',
+    data: '',
+    success: function (res) {
+      console.log(res);
+      var html = '';
+      if (res && res.data && res.data.length) {
+        var list = res.data;
+        for (var i = 0; i < list.length; i++) {
+          html +=
+            '<div class="items">' +
+            '  <span class="name" data-id="' + list[i].id + '" data-adress="' + list[i].name + '">' + list[i].name + '（' + list[i].address + '）</span>' +
+            '</div>';
+        }
+      }
+      $('#boxOne').html(html);
+    }
+  });
 
 
   function vail() {
@@ -74,6 +97,75 @@ $(function () {
     $('#ownModal').hide();
   });
 
+
+  // 切换客户现场办理
+  $(document).on('click', '#isOnSiteHandling', function (e) {
+    e.stopPropagation();
+    // $('#processingPoint').toggleClass('dn');
+    if ($('#isOnSiteHandling').attr("checked")) {
+      $('#processingPoint').removeClass('dn');
+    } else {
+      $('#processingPoint').addClass('dn');
+      $('#handler').addClass('dn');
+      pointId = '';
+      customerManagerId = '';
+      $('#processingPointAdress').text('请选择');
+      $('#handlerName').text('请选择');
+
+    }
+  }).on('click', '#processingPoint', function (e) {
+    e.stopPropagation();
+    $('#overlay').removeClass('dn');
+    $('#boxOne').removeClass('dn');
+  }).on('click', '#boxOne .items', function (e) {
+    event.stopPropagation();
+    $('#overlay').addClass('dn');
+    $('#boxOne').addClass('dn');
+    $('#handler').removeClass('dn');
+    pointId = $(this).find('span').attr('data-id');
+    var adress = $(this).find('span').attr('data-adress');
+    $('#processingPointAdress').text(adress);
+    $.ajax({
+      url: '/qfang-credit/point/ct/managers.json',
+      type: 'POST',
+      data: {
+        pointId: pointId
+      },
+      success: function (res) {
+        console.log(res);
+        var html = '';
+        if (res && res.data && res.data.length) {
+          var list = res.data;
+          for (var i = 0; i < list.length; i++) {
+            html +=
+              '<div class="items">' +
+              '  <span class="name" data-id="' + list[i].personId + '" >' + list[i].personName + '</span>' +
+              '</div>';
+          }
+        }
+        $('#boxTwo').html(html);
+        $('#handlerName').text('请选择');
+      }
+    });
+  }).on('click', '#boxTwo .items', function (e) {
+    event.stopPropagation();
+    $('#overlay').addClass('dn');
+    $('#boxTwo').addClass('dn');
+    customerManagerId = $(this).find('span').attr('data-id');
+    var name = $(this).find('span').text();
+    $('#handlerName').text(name);
+
+  }).on('click', '#overlay', function (e) {
+    event.stopPropagation();
+    $('#overlay').addClass('dn');
+    $('#boxOne').addClass('dn');
+    $('#boxTwo').addClass('dn');
+  }).on('click', '#handler', function (e) {
+    e.stopPropagation();
+    $('#overlay').removeClass('dn');
+    $('#boxTwo').removeClass('dn');
+  });
+
   $(document).on('click', '.open-agreement', function () {
     $.popup('.popup-agreement');
 
@@ -88,6 +180,9 @@ $(function () {
 
   }).on('click', '#save', function () {
     var $save = $(this);
+    console.log(pointId);
+    console.log(customerManagerId);
+
     if ($save.hasClass('button-disabled')) {
       return false;
     }
@@ -98,25 +193,26 @@ $(function () {
 
     $save.addClass('button-disabled');
     $.showPreloader('请稍候...');
-
+    var data = $('#form').serialize() + '&pointId=' + pointId + '&customerManagerId=' + customerManagerId;
+    console.log(data);
+    return;
     $.ajax({
       url: '/qfang-credit/wx/order/apply.json',
       type: 'POST',
       // type: 'GET',
-      data: $('#form').serialize()
+      data: data
     }).done(function (res) {
       console.log(res);
       $.hidePreloader();
       $save.removeClass('button-disabled');
       if (res.code !== 'ok') {
         var str = '网络出错了，请重试！';
-        if(res.msg){
+        if (res.msg) {
           str = msg;
         }
         $.alert(str);
         return false;
       }
-
       $('#ladDtail').attr('href', './personal-lading-detail.html?id=' + res.data).closest('.success-content').show().next().hide();
 
     });
