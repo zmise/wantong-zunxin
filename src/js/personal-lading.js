@@ -193,9 +193,14 @@ $(function () {
 
     $save.addClass('button-disabled');
     $.showPreloader('请稍候...');
-    var data = $('#form').serialize() + '&pointId=' + pointId + '&customerManagerId=' + customerManagerId;
-    console.log(data);
-    return;
+    var data = $('#form').serialize();
+    if (pointId != '') {
+      data += '&pointId=' + pointId;
+      if (customerManagerId != '') {
+        data += '&customerManagerId=' + customerManagerId;
+      }
+    }
+
     $.ajax({
       url: '/qfang-credit/wx/order/apply.json',
       type: 'POST',
