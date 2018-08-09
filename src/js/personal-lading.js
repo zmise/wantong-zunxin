@@ -13,8 +13,11 @@ $(function () {
   }
 
 
-  var pointId = ''; // 办理点ID
-  var customerManagerId = ''; // 客户经理ID
+  var pointId = infos.pointId || ''; // 办理点ID
+  var customerManagerId = infos.customerManagerId || ''; // 客户经理ID
+  console.log(pointId);
+  console.log(customerManagerId);
+
   // 手机是否已绑定
   $.ajax({
     url: '/qfang-credit/userCenter/userInfo.json',
@@ -35,7 +38,7 @@ $(function () {
     !isGoogle && data2dataLayer(data);
   });
 
-
+  // 客户现场办理点
   $.ajax({
     url: '/qfang-credit/point/ct/listAll.json',
     type: 'POST',
@@ -43,6 +46,8 @@ $(function () {
     success: function (res) {
       console.log(res);
       var html = '';
+      var flag = false;
+      var index = 0;
       if (res && res.data && res.data.length) {
         var list = res.data;
         for (var i = 0; i < list.length; i++) {
@@ -50,9 +55,48 @@ $(function () {
             '<div class="items">' +
             '  <span class="name" data-id="' + list[i].id + '" data-adress="' + list[i].name + '">' + list[i].name + '（' + list[i].address + '）</span>' +
             '</div>';
+            if (list[i].id == pointId) {
+              flag = true;
+              index = i;
+            }
+        }
+        $('#boxOne').html(html);
+        console.log(123)
+        $('#isShow').removeClass('dn');
+        $('#isOnSiteHandling').attr('checked','checked')
+        $('#processingPoint').removeClass('dn');
+        $('#processingPointAdress').text(list[index].name);
+        if ((pointId != '') && (customerManagerId != '')) {
+          $.ajax({
+            url: '/qfang-credit/point/ct/managers.json',
+            type: 'POST',
+            data: {
+              pointId: pointId
+            },
+            success: function (res) {
+              var html = '';
+              var flag = false;
+              var index = 0;
+              if (res && res.data && res.data.length) {
+                var list = res.data;
+                for (var i = 0; i < list.length; i++) {
+                  html +=
+                    '<div class="items">' +
+                    '  <span class="name" data-id="' + list[i].personId + '" >' + list[i].personName + '</span>' +
+                    '</div>';
+                  if (list[i].personId == customerManagerId) {
+                    flag = true;
+                    index = i;
+                  }
+                }
+                $('#boxTwo').html(html);
+                $('#handler').removeClass('dn');
+                $('#handlerName').text(list[index].personName);
+              }
+            }
+          });
         }
       }
-      $('#boxOne').html(html);
     }
   });
 
@@ -102,7 +146,7 @@ $(function () {
   $(document).on('click', '#isOnSiteHandling', function (e) {
     e.stopPropagation();
     // $('#processingPoint').toggleClass('dn');
-    if ($('#isOnSiteHandling').attr("checked")) {
+    if ($('#isOnSiteHandling').attr('checked')) {
       $('#processingPoint').removeClass('dn');
     } else {
       $('#processingPoint').addClass('dn');
@@ -132,7 +176,7 @@ $(function () {
         pointId: pointId
       },
       success: function (res) {
-        console.log(res);
+        // console.log(res);
         var html = '';
         if (res && res.data && res.data.length) {
           var list = res.data;
