@@ -949,3 +949,8 @@ input::-moz-placeholder {
   flex: 1;
   box-sizing: border-box;
 }
+
+
+.item-inner .icon-xiangyou{
+  color: #3a3a3a;
+}
