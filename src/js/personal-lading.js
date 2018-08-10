@@ -46,8 +46,7 @@ $(function () {
     success: function (res) {
       console.log(res);
       var html = '';
-      var flag = false;
-      var index = 0;
+      var boxOneIndex = 0;
       if (res && res.data && res.data.length) {
         var list = res.data;
         for (var i = 0; i < list.length; i++) {
@@ -55,17 +54,15 @@ $(function () {
             '<div class="items">' +
             '  <span class="name" data-id="' + list[i].id + '" data-adress="' + list[i].name + '">' + list[i].name + '（' + list[i].address + '）</span>' +
             '</div>';
-            if (list[i].id == pointId) {
-              flag = true;
-              index = i;
-            }
+          if (list[i].id == pointId) {
+            boxOneIndex = i + 1;
+          }
         }
         $('#boxOne').html(html);
-        console.log(123)
         $('#isShow').removeClass('dn');
-        $('#isOnSiteHandling').attr('checked','checked')
-        $('#processingPoint').removeClass('dn');
-        $('#processingPointAdress').text(list[index].name);
+        if (boxOneIndex) {
+          $('#processingPointAdress').text(list[boxOneIndex - 1].name);
+        }
         if ((pointId != '') && (customerManagerId != '')) {
           $.ajax({
             url: '/qfang-credit/point/ct/managers.json',
@@ -75,23 +72,28 @@ $(function () {
             },
             success: function (res) {
               var html = '';
-              var flag = false;
-              var index = 0;
+              var boxTwoIndex = 0;
               if (res && res.data && res.data.length) {
-                var list = res.data;
-                for (var i = 0; i < list.length; i++) {
+                var list1 = res.data;
+                for (var i = 0; i < list1.length; i++) {
                   html +=
                     '<div class="items">' +
-                    '  <span class="name" data-id="' + list[i].personId + '" >' + list[i].personName + '</span>' +
+                    '  <span class="name" data-id="' + list1[i].personId + '" >' + list1[i].personName + '</span>' +
                     '</div>';
-                  if (list[i].personId == customerManagerId) {
-                    flag = true;
-                    index = i;
+                  if (list1[i].personId == customerManagerId) {
+                    boxTwoIndex = i + 1;
                   }
                 }
                 $('#boxTwo').html(html);
-                $('#handler').removeClass('dn');
-                $('#handlerName').text(list[index].personName);
+
+                if (boxTwoIndex) {
+                  $('#isOnSiteHandling').attr('checked', 'checked');
+                  $('#processingPoint').removeClass('dn');
+                  $('#processingPointAdress').html(list[boxOneIndex - 1].name + '<i class="iconfont icon-xiangyou"></i>');
+                  $('#handler').removeClass('dn');
+                  $('#handlerName').html(list1[boxTwoIndex - 1].personName + '<i class="iconfont icon-xiangyou"></i>');
+
+                }
               }
             }
           });
@@ -115,7 +117,7 @@ $(function () {
       console.log(m);
       phone = m;
       $('#cellphone').val(m)
-      return '';
+      return false;
     });
 
 
@@ -131,7 +133,20 @@ $(function () {
       $.toast('期望贷款额只能输入数字');
       return false;
     }
+    if ($('#isOnSiteHandling').prop('checked')) {
+      if (pointId != '') {
+        if (customerManagerId == '') {
+          $.toast('请选择客户经理');
+          return false;
+        }
+      } else {
+        $.toast('请选择现场办理点');
+        return false;
+      }
+    }
     return true;
+
+
   }
 
   $('#ownModal .own-modal').on('click', function (e) {
@@ -146,15 +161,16 @@ $(function () {
   $(document).on('click', '#isOnSiteHandling', function (e) {
     e.stopPropagation();
     // $('#processingPoint').toggleClass('dn');
-    if ($('#isOnSiteHandling').attr('checked')) {
+
+    if ($('#isOnSiteHandling').prop('checked')) {
       $('#processingPoint').removeClass('dn');
     } else {
       $('#processingPoint').addClass('dn');
       $('#handler').addClass('dn');
       pointId = '';
       customerManagerId = '';
-      $('#processingPointAdress').text('请选择');
-      $('#handlerName').text('请选择');
+      $('#processingPointAdress').html('请选择<i class="iconfont icon-xiangyou"></i>');
+      $('#handlerName').html('请选择<i class="iconfont icon-xiangyou"></i>');
 
     }
   }).on('click', '#processingPoint', function (e) {
@@ -168,7 +184,7 @@ $(function () {
     $('#handler').removeClass('dn');
     pointId = $(this).find('span').attr('data-id');
     var adress = $(this).find('span').attr('data-adress');
-    $('#processingPointAdress').text(adress);
+    $('#processingPointAdress').html(adress + '<i class="iconfont icon-xiangyou"></i>');
     $.ajax({
       url: '/qfang-credit/point/ct/managers.json',
       type: 'POST',
@@ -188,7 +204,7 @@ $(function () {
           }
         }
         $('#boxTwo').html(html);
-        $('#handlerName').text('请选择');
+        $('#handlerName').html('请选择<i class="iconfont icon-xiangyou"></i>');
       }
     });
   }).on('click', '#boxTwo .items', function (e) {
@@ -197,7 +213,7 @@ $(function () {
     $('#boxTwo').addClass('dn');
     customerManagerId = $(this).find('span').attr('data-id');
     var name = $(this).find('span').text();
-    $('#handlerName').text(name);
+    $('#handlerName').html(name + '<i class="iconfont icon-xiangyou"></i>');
 
   }).on('click', '#overlay', function (e) {
     event.stopPropagation();
@@ -224,8 +240,8 @@ $(function () {
 
   }).on('click', '#save', function () {
     var $save = $(this);
-    console.log(pointId);
-    console.log(customerManagerId);
+    // console.log(pointId);
+    // console.log(customerManagerId);
 
     if ($save.hasClass('button-disabled')) {
       return false;
@@ -251,13 +267,13 @@ $(function () {
       // type: 'GET',
       data: data
     }).done(function (res) {
-      console.log(res);
+      // console.log(res);
       $.hidePreloader();
       $save.removeClass('button-disabled');
       if (res.code !== 'ok') {
         var str = '网络出错了，请重试！';
         if (res.msg) {
-          str = msg;
+          str = res.msg;
         }
         $.alert(str);
         return false;
