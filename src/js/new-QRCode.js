@@ -70,7 +70,7 @@ var newQRCode = {
         $.alert('请输入您的姓名');
         return false;
       }
-      if (!/^1[345789]\d{9}$/.test(phone)) {
+      if (!/^1[3456789]\d{9}$/.test(phone)) {
         $.alert('请输入正确的手机号码');
         return false;
       }
