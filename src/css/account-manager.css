@@ -14,10 +14,8 @@ p {
 }
 
 .item {
-  border-top: 1px solid rgba(204, 204, 204, 1);
-  border-right: 1px solid rgba(204, 204, 204, 1);
-  border-left: 1px solid rgba(204, 204, 204, 1);
-  height: 1.8rem;
+  height: 2.5rem;
+  border-bottom: 1px solid #e7e8ea;
   width: 100%;
   box-sizing: border-box;
   display: -webkit-flex;
@@ -29,17 +27,15 @@ p {
   padding: 0 .8rem;
 }
 
-.item:last-child {
-  border-bottom: 1px solid rgba(204, 204, 204, 1);
-}
-a{
+a {
   color: #3a3a3a;
 }
-i{
+
+i {
   font-weight: 900;
 }
 
-.txt{
+.txt {
   color: #666;
   text-align: center;
   line-height: 40px;
