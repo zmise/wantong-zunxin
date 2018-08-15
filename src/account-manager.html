@@ -17,72 +17,27 @@
 </head>
 
 <body>
-  <div class="page-group public-min-width">
+  <div class="page-group public-min-width ">
     <div class="page page-current">
-      <div class="content">
-        <div class="list-item">
-          <div class="headshot">
-            <img src="./images/account-manager/xy.jpg" alt="肖岳">
-          </div>
-          <div class="infos">
-            <p><span class="infos-name">肖岳</span>—<span class="infos-position">客户经理</span></p>
-            <p><a class="infos-phone" href="javascript:;">185-6677-0083</a></p>
-            <a class="btn-tel" href="tel:18566770083">拨号</a>
-            <a class="btn-qcode" href="javascript:;">微信二维码</a>
-          </div>
-          <div class="infos-qcode-bg"></div>
-          <div class="infos-qcode">
-            <img src="./images/account-manager/xy-qcode.jpg" alt="肖岳二维码">
-            <p>长按识别二维码</p>
-          </div>
+      <div class="list">
+        <div class="item">
+          <p>南山区、龙华新区</p>
+          <i class="iconfont icon-xiangyou"></i>
         </div>
-        <div class="list-item">
-          <div class="headshot">
-            <img src="./images/account-manager/hzx.jpg" alt="黄志翔">
-          </div>
-          <div class="infos">
-            <p><span class="infos-name">黄志翔</span>—<span class="infos-position">客户经理</span></p>
-            <p><a class="infos-phone" href="javascript:;">150-1371-7357</a></p>
-            <a class="btn-tel" href="tel:15013717357">拨号</a>
-            <a class="btn-qcode" href="javascript:;">微信二维码</a>
-          </div>
-          <div class="infos-qcode-bg"></div>
-          <div class="infos-qcode">
-            <img src="./images/account-manager/hzx-qcode.jpg" alt="黄志翔二维码">
-            <p>长按识别二维码</p>
-          </div>
+        <div class="item">
+          <p> 福田区、罗湖区、盐田区</p>
+          <i class="iconfont icon-xiangyou"></i>
         </div>
-        <div class="list-item">
-          <div class="headshot">
-            <img src="./images/account-manager/ly.jpg" alt="李勇"></div>
-          <div class="infos">
-            <p><span class="infos-name">李勇</span>—<span class="infos-position">客户经理</span></p>
-            <p><a class="infos-phone" href="javascript:;">130-7789-7595</a></p>
-            <a class="btn-tel" href="tel:13077897595">拨号</a>
-            <a class="btn-qcode" href="javascript:;">微信二维码</a>
-          </div>
-          <div class="infos-qcode-bg"></div>
-          <div class="infos-qcode">
-            <img src="./images/account-manager/ly-qcode.jpg" alt="李勇">
-            <p>长按识别二维码</p>
-          </div>
+        <div class="item">
+          <p>布吉区、龙岗区</p>
+          <i class="iconfont icon-xiangyou"></i>
         </div>
-        <div class="list-item">
-          <div class="headshot">
-            <img src="./images/account-manager/tpy.jpg" alt="唐鹏英"></div>
-          <div class="infos">
-            <p><span class="infos-name">唐鹏英</span>—<span class="infos-position">客户经理</span></p>
-            <p><a class="infos-phone" href="javascript:;">137-2426-2692</a></p>
-            <a class="btn-tel" href="tel:13724262692">拨号</a>
-            <a class="btn-qcode" href="javascript:;">微信二维码</a>
-          </div>
-          <div class="infos-qcode-bg"></div>
-          <div class="infos-qcode">
-            <img src="./images/account-manager/tpy-qcode.jpg" alt="唐鹏英">
-            <p>长按识别二维码</p>
-          </div>
+        <div class="item">
+          <p>宝安区</p>
+          <i class="iconfont icon-xiangyou"></i>
         </div>
       </div>
+      <p class="txt">请联系您所在区域的客户经理</p>
     </div>
   </div>
   <!--build:js js/common.min.js -->
@@ -91,18 +46,13 @@
   <script src="js/common.js"></script>
   <!-- endbuild -->
   <script>
-    $(function() {
-      $(document).on('click.qcode', '.btn-qcode', function(e) {
-        var $container = $(this).closest('.list-item');
-        $container.find('.infos-qcode').addClass('animate-in');
-        $container.find('.infos-qcode-bg').show();
-      });
-      $(document).on('click.qcodeHide', '.infos-qcode-bg', function() {
-        var $container = $(this).closest('.list-item');
-        $container.find('.infos-qcode').removeClass('animate-in');
-        $container.find('.infos-qcode-bg').hide();
+    $(function () {
+      $('.item').on('click', function (e) {
+        window.location.href = 'account-manager-details.html?index=' + $(this).index();
+
       });
     });
+
   </script>
 </body>
 

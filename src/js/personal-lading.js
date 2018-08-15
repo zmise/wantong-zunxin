@@ -3,7 +3,6 @@ $(function () {
   var isGoogle = setGoogleItems();
 
   var infos = $.unparam(location.search.substr(1));
-  console.log(infos);
   if (infos.type === 'Qsd') {
     $('#from').show();
     $('#remark').val('推荐办理税费贷');
