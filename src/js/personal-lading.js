@@ -14,8 +14,8 @@ $(function () {
 
   var pointId = infos.pointId || ''; // 办理点ID
   var customerManagerId = infos.customerManagerId || ''; // 客户经理ID
-  console.log(pointId);
-  console.log(customerManagerId);
+  // console.log(pointId);
+  // console.log(customerManagerId);
 
   // 手机是否已绑定
   $.ajax({
@@ -41,7 +41,7 @@ $(function () {
   $.ajax({
     url: '/qfang-credit/point/ct/listAll.json',
     type: 'POST',
-    data: '',
+    data: '', 
     success: function (res) {
       console.log(res);
       var html = '';

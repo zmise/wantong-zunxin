@@ -208,7 +208,7 @@ function setUPperCase(element) {
   });
 }
 
-// 校验手机号码 
+// 校验手机号码
 function vailPhoneCommon(element) {
   var phone;
   var isPhone = typeof element === 'string';
@@ -217,7 +217,7 @@ function vailPhoneCommon(element) {
   } else {
     phone = $(element).val();
   }
-  var regx = /^1[34578]\d{9}$/;
+  var regx =  /^1[3456789]\d{9}$/; // /^1[34578]\d{9}$/
   var result;
 
   // 去掉空格
