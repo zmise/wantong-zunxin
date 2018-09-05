@@ -77,6 +77,9 @@ function sendData(opt) {
     data: opt.data,
     success: function (data) {
       housePrice = true;
+      if (data.id) {
+        searchO.id = data.id;
+      }
       if (data.code === 'ok') {
         data = data.data;
         // console.log('data=', data)
@@ -105,10 +108,6 @@ function sendData(opt) {
 
         if (!searchO.address && data.region) {
           searchO.address = data.region;
-        }
-
-        if (data.id) {
-          searchO.id = data.id;
         }
       } else if (data.msg.indexOf('验证码') > -1) {
         housePrice = false;
@@ -166,7 +165,7 @@ function turnToNext(obj, data) {
   if (data.buyerType) {
     searchStr += '&buyerType=' + data.buyerType
   }
-  console.log(searchStr);
+  // console.log(searchStr);
   location.assign('./check-price-step.html?sessionKey=' + sessionKey + searchStr)
 }
 
