@@ -90,7 +90,8 @@ $(function () {
 
     });
 
-    // console.log(serializeObj);
+    var info = $.unparam(location.search.substring(1));
+    serializeObj.source = info.source || '';
     $.ajax({
       url: '/trade-util/query/houseInfo.json',
       type: 'POST',
@@ -106,7 +107,6 @@ $(function () {
           self.prop('disabled', false);
           return;
         }
-
         // 正常结果
         location.href = './consult-files-result.html?id=' + data.data.id;
       },

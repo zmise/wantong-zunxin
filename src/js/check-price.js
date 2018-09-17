@@ -68,7 +68,7 @@ function sendData(opt) {
       }
     }
   });
-  console.log('zmise+', opt.data);
+  // console.log('zmise+', opt.data);
 
   // 过户价
   $.ajax({
@@ -77,8 +77,8 @@ function sendData(opt) {
     data: opt.data,
     success: function (data) {
       housePrice = true;
-      if (data.id) {
-        searchO.id = data.id;
+      if (data.data.id) {
+        searchO.id = data.data.id;
       }
       if (data.code === 'ok') {
         data = data.data;
@@ -140,7 +140,7 @@ function turnToNext(obj, data) {
   if (sessionStorage) {
     sessionStorage.setItem(sessionKey, JSON.stringify(data));
   }
-  console.log('zmise', obj);
+  // console.log('zmise', obj);
 
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) {
@@ -151,7 +151,7 @@ function turnToNext(obj, data) {
     }
   }
   // console.log(obj);
-  console.log(data);
+  // console.log(data);
 
   if (data.propertyType) {
     searchStr += '&propertyType=' + data.propertyType
@@ -164,6 +164,9 @@ function turnToNext(obj, data) {
   }
   if (data.buyerType) {
     searchStr += '&buyerType=' + data.buyerType
+  }
+  if (data.id) {
+    searchStr += '&id=' + data.id
   }
   // console.log(searchStr);
   location.assign('./check-price-step.html?sessionKey=' + sessionKey + searchStr)
