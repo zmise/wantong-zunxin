@@ -91,7 +91,9 @@ $(function () {
     });
 
     var info = $.unparam(location.search.substring(1));
+    // console.log(info);
     serializeObj.source = info.source || '';
+    serializeObj.sid = info.sid || '';
     $.ajax({
       url: '/trade-util/query/houseInfo.json',
       type: 'POST',
