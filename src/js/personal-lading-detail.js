@@ -133,6 +133,9 @@ $(function () {
         }
         $el.text(item);
       }
+      if (data.productMatcherName === '') {
+        $('#productMatcher').hide();
+      }
     }
   }
   fetchData();
