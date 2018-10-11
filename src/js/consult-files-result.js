@@ -112,6 +112,12 @@ $(function () {
 
   // 再次查询
   $('#research').on('click', function () {
+    if (sessionStorage.getItem('source')) {
+      searchStr += '&source=' + sessionStorage.getItem('source');
+    }
+    if (sessionStorage.getItem('sid')) {
+      searchStr += '&sid=' + sessionStorage.getItem('sid');
+    }
     location.assign('./consult-files.html?' + searchStr);
   });
   // 查过户价

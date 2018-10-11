@@ -190,6 +190,12 @@ $(document).on('ajaxError', function (data, status) {
   if (urlParams.token) {
     sessionStorage.setItem('token', urlParams.token);
   }
+  if (urlParams.source) {
+    sessionStorage.setItem('source', urlParams.source);
+  }
+  if (urlParams.sid) {
+    sessionStorage.setItem('sid', encodeURIComponent(urlParams.sid));
+  }
 })(Zepto);
 
 
