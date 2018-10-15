@@ -188,7 +188,10 @@ $(function () {
     //     $('.success').siblings().hide();
     //   });
     // }
-
+    if (reInfo.openid && reInfo.openid !== '') {
+      postInfo.openid = reInfo.openid;
+    }
+    console.log(postInfo);
     vaildForm() && verifyImg.vaid({
       success: function (data) {
         setTimeout(function () {

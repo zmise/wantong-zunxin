@@ -17,6 +17,10 @@ var newQRCode = {
         if (res && res.data && res.data.cellphone !== '') {
           $('#referrerName').val(res.data.name);
           $('#referrerCellphone').val(res.data.cellphone);
+          $('#openId').val(res.data.openid);
+          if (res.data.openid && res.data.openid !== '') {
+            sessionStorage.setItem('openid', res.data.openid);
+          }
           _this.commonEvent($('#next'));
         } else {
           location.replace('./personal-cell.html');
@@ -111,6 +115,7 @@ var newQRCode = {
   fecthGImage: function () {
     $.showPreloader('正在生成二维码图片');
     var _this = this;
+    this.rfInfo.openid = $('#openId').val() || '';
     $.ajax({
       url: '/qfang-credit/marketing/template/ct/generateImage.json',
       type: 'POST',
