@@ -71,8 +71,7 @@ $(function() {
     }
     switch(dataJson.loanType) {
       case '1': //商业贷款
-      case '2': //公积金贷款
-        switch(dataJson.repayment) {
+        switch (dataJson.repayment) {
           case '1': //等额本息
             pv = dataJson.loanTotal * 10000;
             rate = dataJson.loanRate / 100;
@@ -90,6 +89,46 @@ $(function() {
           case '2': //等额本金
             pv = dataJson.loanTotal * 10000;
             rate = dataJson.loanRate / 100;
+            nper = parseFloat(dataJson.loanYear) * 12;
+            var firstMonthly = firstRepayment(rate, nper, pv);
+            var decline = monthlyDecline(rate, nper, pv);
+            var interest = declineInterest(rate, nper, pv);
+            var total = declineRepayment(interest, pv);
+            $('#interest').hide();
+            $('#principal').show();
+            $('#periods').text(nper);
+            $('#firstMonthlyMoney').text(toCurrency(firstMonthly));
+            $('#declineMoney').text(toCurrency(decline));
+            $('#totalMoney').text(toCurrency(total / 10000));
+            $('#interestMoney').text(toCurrency(interest / 10000));
+            break;
+          default:
+            infoPrompt('参数有误！');
+            setTimeout(function () {
+              window.location.href = 'calc-form-page.html';
+            }, 2000);
+            break;
+        }
+        break;
+      case '2': //公积金贷款
+        switch(dataJson.repayment) {
+          case '1': //等额本息
+            pv = dataJson.loanTotal * 10000;
+            rate = dataJson.fundRate / 100;
+            nper = parseFloat(dataJson.loanYear) * 12;
+            var monthly = monthlyRepayment(rate, nper, pv);
+            var total = totalRepayment(monthly, nper);
+            var interest = totalInterest(total, pv);
+            $('#interest').show();
+            $('#principal').hide();
+            $('#periods').text(nper);
+            $('#monthlyMoney').text(toCurrency(monthly));
+            $('#totalMoney').text(toCurrency(total / 10000));
+            $('#interestMoney').text(toCurrency(interest / 10000));
+            break;
+          case '2': //等额本金
+            pv = dataJson.loanTotal * 10000;
+            rate = dataJson.fundRate / 100;
             nper = parseFloat(dataJson.loanYear) * 12;
             var firstMonthly = firstRepayment(rate, nper, pv);
             var decline = monthlyDecline(rate, nper, pv);
